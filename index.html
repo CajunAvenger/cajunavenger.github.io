@@ -1,5 +1,6 @@
 <html>
 <head>
+<title>Ultimate Favorite Pokemon Picker</title>
 <style>
 table td { 
 	display: table-cell;
@@ -43,13 +44,18 @@ canvas {
   left: 180px;
   position: absolute;
 }
+#btnMobile {
+  top: 1572px;
+  left: 290px;
+  position: absolute;
+}
 #import {
   top: 1592px;
   position: absolute;
 }
 #credits {
 	top: 1572px;
-	left: 720px;
+	left: 650px;
 	position: absolute;
 }
 .bubble {
@@ -4908,18 +4914,44 @@ canvas {
 			}
 		}
 		canvas.style.zIndex = 7;
+		return canvas.toDataURL();
 	}
-	function drawTest() {
-		const target = document.getElementById('target');
+	function mobileFinal() {
+		console.log("running")
+		var canvas = document.getElementById("final");
+		var ctx = canvas.getContext("2d");
+		var img = new Image();
+		img.onload = function() {
+			console.log("load")
+			ctx.drawImage(this, 0, 0);
+			//mobileDrawMons(0, 1);
+		};
+		img.crossOrigin = "Anonymous";
+		img.src = document.getElementById('back').value;
+		mobileDrawMons(0, 1);
+		console.log("done?")
+	}
+	function mobileDrawMons (g, t) {
+		console.log(g, t)
+		if(t >= 23) {
+			t = 1;
+			g++;
+		}
+		if(g >= 11) {
+			canvas.style.zIndex = 7;
+			return canvas.toDataURL("image/png");
+		}
 		
-		html2canvas(target).then((canvas) => {
-			const base64image = canvas.toDataURL("image/png");
-			var anchor = document.createElement('a');
-			anchor.setAttribute("href", base64image);
-			anchor.setAttribute("download", "favorites.png");
-			anchor.click();
-			anchor.remove();
-		});
+		let ele = document.getElementById('box'+g+'_'+t);
+		if(!ele || ele.src == "./blank.png")
+			mobileDrawMons(g, t+1);
+		img = new Image();
+		img.crossOrigin = "Anonymous";
+		img.src = ele.value;
+		img.onload = function() {
+			ctx.drawImage(this, ele.offsetLeft, ele.offsetTop);
+			mobileDrawMons(g, t+1);
+		}
 	}
 </script>
 </head>
@@ -5237,10 +5269,17 @@ canvas {
 <input type="button" id="btnWrite" value="Write Code" onclick="printTextbox()"/>
 <input type="button" id="btnLoad" value="Import Code" onclick="loadTextbox()"/>
 <input type="button" id="btnPrint" value="Render Image" onclick="drawFinal()"/>
+<!--<input type="button" id="btnMobile" value="Render for Mobile" onclick="mobileFinal()"/>-->
 <textarea id="import" rows="13" cols="82">Write Code: Writes code below which can be used to reload a specific grid.
 Import Code: Paste a saved code export to reload the grid.
 Render Image: Condenses the grid to one image, then you can right-click to save it. Click Render again to resume editing.
 </textarea>
-<div id="credits">Sprites from the <a href="https://reliccastle.com/resources/1101/">Gen 8<a> and <a href="https://reliccastle.com/resources/952/">Gen 9</a> Resource Packs.<br /><a href="https://github.com/CajunAvenger/cajunavenger.github.io">Source Code</a> - <a href="https://github.com/CajunAvenger/cajunavenger.github.io/issues">Issues or Feature Requests?</a><br />If you want to support more code silliness, you can donate to my caffeine addiction, er, <a href="https://ko-fi.com/cajun42">my Ko-Fi</a>.</div>
+<div id="credits">
+	Sprites from the <a href="https://reliccastle.com/resources/1101/">Gen 8<a> and <a href="https://reliccastle.com/resources/952/">Gen 9</a> Resource Packs.<br />
+	<a href="https://github.com/CajunAvenger/cajunavenger.github.io">Source Code</a> - <a href="https://github.com/CajunAvenger/cajunavenger.github.io/issues">Issues or Feature Requests?</a><br />
+	If you want to support more code silliness, you can donate to my caffeine addiction, er, <a href="https://ko-fi.com/cajun42">my Ko-Fi</a>.<br />
+	<a onclick="drawFinal();" download="download">Attempting to get mobile rendering to work properly!</a><br />
+	For now, you can use the Write/Import options to transfer your choices to a PC where it can be downloaded.
+</div>
 </body>
 </html>
