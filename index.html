@@ -49,7 +49,7 @@ canvas {
 }
 #credits {
 	top: 1572px;
-	left: 280px;
+	left: 720px;
 	position: absolute;
 }
 .bubble {
@@ -4714,6 +4714,7 @@ canvas {
 			// pick a team slot
 			teamSelect = true;
 			currently_selecting = [gen, type];
+			document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = "./picking.png";
 			return;
 		}
 		if(currently_selecting != null) {
@@ -4796,6 +4797,9 @@ canvas {
 			top_corner -= (99*(maxRows+1))
 		for(let i=0; i<currently_previewing.length; i++) {
 			let mon_key = currently_previewing[i];
+			// if this mon is already in the box, put the remove option instead
+			if(choices[currently_selecting[0]][currently_selecting[1]] == mon_key)
+				mon_key = "BLANK";
 			let mon_img = "./" + spriteFile + "/" + mon_key + ".png"
 			let ele = document.getElementById('preview'+i)
 			ele.src = mon_img;
@@ -4822,9 +4826,12 @@ canvas {
 			ele.style.zIndex = 0;
 		}
 		document.getElementById('bubble').style.zIndex = 0;
+		if(teamSelect) {
+			document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = "./blank.png";
+			teamSelect = false;
+		}
 		currently_previewing = [];
 		currently_selecting = null;
-		teamSelect = false;
 	}
 	
 	function pickMon(num) {
@@ -4832,8 +4839,13 @@ canvas {
 			return;
 		if(currently_previewing.length < num)
 			return;
-		choices[currently_selecting[0]][currently_selecting[1]] = currently_previewing[num];
-		document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = "./" + spriteFile + "/" + currently_previewing[num] + ".png"
+		if(choices[currently_selecting[0]][currently_selecting[1]] == currently_previewing[num]) {
+			choices[currently_selecting[0]][currently_selecting[1]] = "";
+			document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = "./blank.png";
+		}else{
+			choices[currently_selecting[0]][currently_selecting[1]] = currently_previewing[num];
+			document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = "./" + spriteFile + "/" + currently_previewing[num] + ".png"
+		}
 		closeBox();
 	}
 	
@@ -5229,6 +5241,6 @@ canvas {
 Import Code: Paste a saved code export to reload the grid.
 Render Image: Condenses the grid to one image, then you can right-click to save it. Click Render again to resume editing.
 </textarea>
-<div id="credits">Sprites from the <a href="https://reliccastle.com/resources/1101/">Gen 8<a> and <a href="https://reliccastle.com/resources/952/">Gen 9</a> Resource Packs. If you want to support more code silliness, you can donate to my caffeine addiction, er, <a href="https://ko-fi.com/cajun42">my Ko-Fi</a>.</div>
+<div id="credits">Sprites from the <a href="https://reliccastle.com/resources/1101/">Gen 8<a> and <a href="https://reliccastle.com/resources/952/">Gen 9</a> Resource Packs.<br /><a href="https://github.com/CajunAvenger/cajunavenger.github.io">Source Code</a> - <a href="https://github.com/CajunAvenger/cajunavenger.github.io/issues">Issues or Feature Requests?</a><br />If you want to support more code silliness, you can donate to my caffeine addiction, er, <a href="https://ko-fi.com/cajun42">my Ko-Fi</a>.</div>
 </body>
 </html>
