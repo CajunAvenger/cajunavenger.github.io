@@ -50,10 +50,10 @@ canvas {
   left: 180px;
   position: absolute;
 }
-#btnMobile {
-  top: 1572px;
-  left: 290px;
-  position: absolute;
+#downloader {
+	left: 295px;
+	top: 1572px;
+	position: absolute;
 }
 #import {
   top: 1592px;
@@ -1664,7 +1664,7 @@ canvas {
 <script language="JavaScript">
 	var type_order = ["", "Normal", "Fire", "Water", "Grass", "Electric", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy", "Starter", "Gimmick", "Legendary", "Favorite"]
 	var other_order = ["", "team1", "team2", "team3", "team4", "team5", "team6", "Bird", "Critter", "RegionalBug", "Pseudo", "Pikaclone", "Eevee", "Fossil", "Regional", "GMax", "Box", "Mythical", "Ultra", "Paradox", "Types", "PokeBall", "Spinda", "Vivillon", "Alcremie", "alc0", "alc7", "alc14", "alc21", "alc28", "alc35", "alc42", "alc49", "alc56"];
-	let zerogen_coords = [[], [94, 1264], [199, 1264], [298, 1264], [94, 1363], [199, 1363], [298, 1363], [530, 1210], [722, 1210], [914, 1210], [1104, 1210], [1297, 1210], [1489, 1210], [1681, 1210], [1873, 1210], [2064, 1210], [530, 1409], [722, 1409], [914, 1409], [1104, 1409], [1297, 1409], [1489, 1409], [1681, 1409], [1873, 1409], [2065, 1409]]
+	var zerogen_coords = [[], [94, 1264], [199, 1264], [298, 1264], [94, 1363], [199, 1363], [298, 1363], [530, 1210], [722, 1210], [914, 1210], [1104, 1210], [1297, 1210], [1489, 1210], [1681, 1210], [1873, 1210], [2064, 1210], [530, 1409], [722, 1409], [914, 1409], [1104, 1409], [1297, 1409], [1489, 1409], [1681, 1409], [1873, 1409], [2065, 1409]]
 
 	var arrays = {
 	 "Spinda": ["SPINDA"],
@@ -4944,9 +4944,9 @@ canvas {
 	}
 
 	var choices = [[[]]];
-	for(let i=1; i<=10; i++) {
+	for(var i=1; i<=10; i++) {
 		choices.push([]);
-		for(let t in type_order) {
+		for(var t in type_order) {
 			choices[i].push("")
 		}
 	}
@@ -4979,9 +4979,9 @@ canvas {
 		}
 	}
 	function fullShiny() {
-		let swap = {"Front": "Shiny", "Shiny": "Front"};
-		for(let g=0; g<11; g++) {
-			for(let t=0; t<23; t++) {
+		var swap = {"Front": "Shiny", "Shiny": "Front"};
+		for(var g=0; g<11; g++) {
+			for(var t=0; t<23; t++) {
 				ele = document.getElementById('box'+g+"_"+t);
 				if(ele == null)
 					continue
@@ -5002,13 +5002,13 @@ canvas {
 	function shinySpinda() {
 		if(shinyCharm) {
 			toggleShiny(0, 22);
-			let ele = document.getElementById('spinda2');
+			var ele = document.getElementById('spinda2');
 			if(ele.src.match(/Front/)) {
 				ele.src = ele.src.replace(/Front/, "Shiny");
 			}else{
 				ele.src = ele.src.replace(/Shiny/, "Front");
 			}
-			for(let i=1; i<5; i++) {
+			for(var i=1; i<5; i++) {
 				ele = document.getElementById('spot'+i);
 				if(ele.src.match(/Front/)) {
 					ele.src = ele.src.replace(/Front/, "Shiny");
@@ -5026,8 +5026,8 @@ canvas {
 		}else if(teamSelect) {
 			// copy to team
 			choices[currently_selecting[0]][currently_selecting[1]] = choices[gen][type]
-			let ele = document.getElementById('box'+gen+"_"+type);
-			let ele2 = document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]);
+			var ele = document.getElementById('box'+gen+"_"+type);
+			var ele2 = document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]);
 			ele2.src = ele.src;
 			currently_selecting = null;
 			teamSelect = false;
@@ -5049,18 +5049,18 @@ canvas {
 		currently_selecting = [gen, type];
 		if(gen == 0) {
 			// bottom stuff
-			let box = other_order[type];
+			var box = other_order[type];
 			if(arrays[box]) {
 				currently_previewing = arrays[box];
 			}
 		}else if(gen == 10 && type == 22) {
 			// super favorite
 			currently_previewing = [];
-			for(let c=1; c<choices.length; c++) {
+			for(var c=1; c<choices.length; c++) {
 				start = 22;
 				if(c == 10)
 					start = 1;
-				for(let i=start; i<23; i++) {
+				for(var i=start; i<23; i++) {
 					if(choices[c][i] == "" || choices[c][i] == undefined)
 						continue;
 					if(currently_previewing.includes(choices[c][i]))
@@ -5071,7 +5071,7 @@ canvas {
 		}else if(gen == 10) {
 			// favorite for a type
 			currently_previewing = [];
-			for(let g in choices) {
+			for(var g in choices) {
 				if(g == gen || g == 0)
 					continue;
 				if(choices[g][type] == "" || choices[g][type] == undefined)
@@ -5081,7 +5081,7 @@ canvas {
 		}else if(type == 22) {
 			// favorite for a gen
 			currently_previewing = [];
-			for(let m in choices[gen]) {
+			for(var m in choices[gen]) {
 				if(m == type)
 					continue;
 				if(choices[gen][m] == "" || choices[gen][m] == undefined)
@@ -5093,57 +5093,57 @@ canvas {
 		}else{
 			currently_previewing = arrays[type_order[type]][gen];
 		}
-		let left_corner = (type*99)+100
-		let top_corner = (gen*99)+101
+		var left_corner = (type*99)+100
+		var top_corner = (gen*99)+101
 
 		if(gen == 0) {
 			left_corner = zerogen_coords[Math.min(24, type)][0] + 100
 			top_corner = zerogen_coords[Math.min(24, type)][1] + 100
 		}
-		let maxCols = Math.max(Math.ceil(currently_previewing.length/5), 5)
-		let maxRows = 5
+		var maxCols = Math.max(Math.ceil(currently_previewing.length/5), 5)
+		var maxRows = 5
 		if(currently_previewing.length <= 20)
 			maxRows = Math.ceil(currently_previewing.length/5)
-		let underflow = maxCols-(currently_previewing.length%maxCols)
+		var underflow = maxCols-(currently_previewing.length%maxCols)
 		if(underflow == maxCols)
 			underflow = 0
-		let bubble_img = "./bubble/"+maxRows+"r.png";
+		var bubble_img = "./bubble/"+maxRows+"r.png";
 		if(maxCols > 5) {
 			bubble_img = "./bubble/"+maxCols+"c.png";
 		}
-		let rightp = left_corner + (99*maxCols)
-		let botp = top_corner + (99*maxRows)
+		var rightp = left_corner + (99*maxCols)
+		var botp = top_corner + (99*maxRows)
 		if(rightp > 2276)
 			left_corner -= (rightp-2276)
 		if(botp > 1571)
 			top_corner -= (99*(maxRows+1))
-		for(let i=0; i<currently_previewing.length; i++) {
-			let mon_key = currently_previewing[i];
+		for(var i=0; i<currently_previewing.length; i++) {
+			var mon_key = currently_previewing[i];
 			// if this mon is already in the box, put the remove option instead
 			if(choices[currently_selecting[0]][currently_selecting[1]] == mon_key)
 				mon_key = "BLANK";
-			let mon_img = domlink + spriteFile + "/" + mon_key + ".png"
-			let ele = document.getElementById('preview'+i)
+			var mon_img = domlink + spriteFile + "/" + mon_key + ".png"
+			var ele = document.getElementById('preview'+i)
 			ele.src = mon_img;
 			ele.style.zIndex = 9;
 			//change the position
-			let row = Math.floor(i/maxCols);
-			let col = i%maxCols;
-			let offset = 0;
+			var row = Math.floor(i/maxCols);
+			var col = i%maxCols;
+			var offset = 0;
 			if(row+1 == maxRows)
 				offset = underflow*99/2;
 			ele.style.top = top_corner + (row*99);
 			ele.style.left = left_corner + (col*99) + offset;
 		}
-		let bubble = document.getElementById('bubble')
+		var bubble = document.getElementById('bubble')
 		bubble.src = bubble_img;
 		bubble.style.left = left_corner;
 		bubble.style.top = top_corner;
 		bubble.style.zIndex = 9;
 	}
 	function closeBox() {
-		for(let i=0; i<currently_previewing.length; i++) {
-			let ele = document.getElementById('preview'+i);
+		for(var i=0; i<currently_previewing.length; i++) {
+			var ele = document.getElementById('preview'+i);
 			ele.src = "./blank.png";
 			ele.style.zIndex = 0;
 		}
@@ -5162,12 +5162,12 @@ canvas {
 			return;
 		if(currently_previewing.length < num)
 			return;
-		let alchold = 0;
+		var alchold = 0;
 		if(currently_selecting[1] > 24) {
 			alchold = currently_selecting[1];
 			currently_selecting[1] = 24;
 		}
-		let targetBox = document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]);
+		var targetBox = document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]);
 		if(choices[currently_selecting[0]][currently_selecting[1]] == currently_previewing[num]) {
 			choices[currently_selecting[0]][currently_selecting[1]] = "";
 			targetBox.src = "./blank.png";
@@ -5179,7 +5179,7 @@ canvas {
 			// alcremie
 			if(!toppings && currently_previewing[num] != "ALCREMIE_70") {
 				//open toppings
-				let gen = currently_selecting[0]
+				var gen = currently_selecting[0]
 				closeBox();
 				toppings = true;
 				openBox(gen, 25+num);
@@ -5193,10 +5193,10 @@ canvas {
 	}
 	
 	function printTextbox() {
-		let output = "# Save this text somewhere. You can restore your settings by repasting it here and clicking Import Code.\n";
-		for(let g=0; g<choices.length; g++) {
-			for(let t=0; t<choices[g].length; t++) {
-				let ele = document.getElementById('box'+g+"_"+t);
+		var output = "# Save this text somewhere. You can restore your settings by repasting it here and clicking Import Code.\n";
+		for(var g=0; g<choices.length; g++) {
+			for(var t=0; t<choices[g].length; t++) {
+				var ele = document.getElementById('box'+g+"_"+t);
 				if(ele == null) {
 					output += ",";
 					continue;
@@ -5210,32 +5210,32 @@ canvas {
 			output += "\n";
 		}
 		output += "spindaspots,";
-		for(let s in spot_map) {
-			let ax_ele = document.getElementById(s);
+		for(var s in spot_map) {
+			var ax_ele = document.getElementById(s);
 			output += ax_ele.value + ",";
 		}
 		document.getElementById('import').value = output;
 	}
 	function loadTextbox() {
-		let importbox = document.getElementById('import').value;
-		let lines = importbox.replace(/#[^\n]+\n/g, "").split("\n");
-		let gen = -1;
-		for(let l in lines) {
+		var importbox = document.getElementById('import').value;
+		var lines = importbox.replace(/#[^\n]+\n/g, "").split("\n");
+		var gen = -1;
+		for(var l in lines) {
 			if(lines[l] == "" || !lines[l].match(/,/))
 				continue;
 			gen++;
-			let ents = lines[l].split(",");
-			let spinda_spots = false;
+			var ents = lines[l].split(",");
+			var spinda_spots = false;
 			if(ents[0] && ents[0] == "spindaspots") {
 				randomSpinda(ents);
 				continue;
 			}
-			for(let e in ents) {
-				let name = ents[e].replace("&", "");
+			for(var e in ents) {
+				var name = ents[e].replace("&", "");
 				if(!choices[l] || name == "")
 					continue;
 				choices[l][e] = name
-				let sf = "Front";
+				var sf = "Front";
 				if(ents[e].match("&"))
 					sf = "Shiny";
 				ele = document.getElementById('box'+gen+'_'+e);
@@ -5250,16 +5250,16 @@ canvas {
 		var canvas = document.getElementById("final");
 		var ctx = canvas.getContext("2d");
 		ctx.drawImage(document.getElementById('back'), 0, 0);
-		for(let g=0; g<11; g++) {
-			for(let t=1; t<25; t++) {
-				let ele = document.getElementById('box'+g+'_'+t);
+		for(var g=0; g<11; g++) {
+			for(var t=1; t<25; t++) {
+				var ele = document.getElementById('box'+g+'_'+t);
 				if(!ele || ele.src == "./blank.png")
 					continue;
 					ctx.drawImage(ele, ele.offsetLeft, ele.offsetTop);
 				if(g == 0 && t == 22) {
 					// render spinda
-					let spots = ["spot1", "spot2", "spot3", "spot4", "spinda2", "spinda-cover"];
-					for(let s in spots) {
+					var spots = ["spot1", "spot2", "spot3", "spot4", "spinda2", "spinda-cover"];
+					for(var s in spots) {
 						ele = document.getElementById(spots[s]);
 						ctx.drawImage(ele, ele.offsetLeft, ele.offsetTop);
 					}
@@ -5271,12 +5271,13 @@ canvas {
 		}else{
 			canvas.style.zIndex = -1;
 		}
-		let dbutton = document.getElementById("downloader")
+		var dbutton = document.getElementById("downloader")
 		dbutton.href = canvas.toDataURL("image/png");
-		dbutton.click();
+		dbutton.innerHTML = "Alternate download link";
+		dbutton.click()
 	}
 	function spindaSpot(ele, axis) {
-		let spot_ele = document.getElementById(spot_map[ele.id])
+		var spot_ele = document.getElementById(spot_map[ele.id])
 		if(axis == "x") {
 			var base_left = 1673;
 			spot_ele.style.left = base_left + parseInt(ele.value);
@@ -5289,21 +5290,21 @@ canvas {
 		return Math.floor(Math.random()*scale)
 	}
 	function randomSpinda(ar) {
-		let spots = ["spot1", "spot2", "spot3", "spot4"];
+		var spots = ["spot1", "spot2", "spot3", "spot4"];
 		if(!ar) {
 			ar = ["spindaspots"];
-			for(let s in spots) {
+			for(var s in spots) {
 				ar.push(rand(17));
 				ar.push(rand(17));
 			}
 		}
 		var base_left = 1673;
 		var base_top = 1417;
-		for(let i=0; i<spots.length; i++) {
-			let sname = spots[i];
-			let spot_ele = document.getElementById(sname);
-			let new_x = ar[2*i+1];
-			let new_y = ar[2*i+2];
+		for(var i=0; i<spots.length; i++) {
+			var sname = spots[i];
+			var spot_ele = document.getElementById(sname);
+			var new_x = ar[2*i+1];
+			var new_y = ar[2*i+2];
 			spot_ele.style.left = base_left + parseInt(new_x);
 			spot_ele.style.top = base_top - parseInt(new_y);
 			document.getElementById(sname + "x").value = new_x;
@@ -5645,7 +5646,7 @@ canvas {
 <input type="button" id="btnRandom" value="Randomize!" onclick="randomSpinda()"/>
 <input type="button" id="btnWrite" value="Write Code" onclick="printTextbox()"/>
 <input type="button" id="btnLoad" value="Import Code" onclick="loadTextbox()"/>
-<input type="button" id="btnPrint" value="Download Image" onclick="drawFinal()"/>
+<input type="button" id="btnPrint" value="Download Image" onclick="drawFinal()" target="_blank"/>
 <a id="downloader" download="download"></a>
 <textarea id="import" rows="13" cols="82">Write Code: Writes code below which can be used to reload a specific grid.
 Import Code: Paste a saved code export to reload the grid.
