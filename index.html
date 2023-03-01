@@ -4954,7 +4954,7 @@ canvas {
 	var currently_selecting = null;
 	var shinyCharm = false;
 	var spriteFile = "Front";
-	var domlink = "./";//"https://cajunavenger.github.io/";
+	var domlink = "https://cajunavenger.github.io/";
 	var teamSelect = false;
 	var toppings = false;
 	var spot_map = {
@@ -5266,8 +5266,11 @@ canvas {
 				}
 			}
 		}
-		if(domlink == "./")
+		if(domlink == "./") {
 			canvas.style.zIndex = 10;
+		}else{
+			canvas.style.zIndex = -1;
+		}
 		let dbutton = document.getElementById("downloader")
 		dbutton.href = canvas.toDataURL("image/png");
 		dbutton.click();
