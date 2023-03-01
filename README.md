@@ -30,7 +30,7 @@ At the very bottom of the page there are three buttons and a textbox.
 **Import Code** then takes that code written in the textbox and puts it back into the grid.
 
 #### Overwriting
-If you want to do something like put Galarian Meowth as your favorite Gen 1 gimmick or Heracross as your favorite regional bug, put a filler Pokemon in that position, then click Write Code, replace that Pokemon's name with the one you want, then click Import Code. Most Pokemon will just be their names capitalized (HERACROSS), but alternate forms will have a tag (MEOWTH_2). You can verify a name by putting it in the grid by itself and writing the code.
+If you want to do something like put Galarian Meowth as your favorite Gen 1 gimmick or Swellow as your favorite regional bird, put a filler Pokemon in that position, then click Write Code, replace that Pokemon's name with the one you want, then click Import Code. Most Pokemon will just be their names capitalized (SWELLOW), but alternate forms will have a tag (MEOWTH_2). You can verify a name by putting it in the grid by itself and writing the code.
 
 ## Additional Sprites
 Later generation sprites from the [Gen 8 Project](https://reliccastle.com/resources/1101/) and [Gen 9 Project](https://reliccastle.com/resources/952/).
