@@ -30,6 +30,12 @@ canvas {
   top: 0px;
   left: 0px;
 }
+#final {
+  z-index: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
 #btnWrite {
   top: 1572px;
   position: absolute;
@@ -4742,6 +4748,7 @@ canvas {
 	var currently_selecting = null;
 	var shinyCharm = false;
 	var spriteFile = "Front";
+	var domlink = "https://cajunavenger.github.io/";
 	var teamSelect = false;
 	
 	function activateShiny() {
@@ -4879,7 +4886,7 @@ canvas {
 			// if this mon is already in the box, put the remove option instead
 			if(choices[currently_selecting[0]][currently_selecting[1]] == mon_key)
 				mon_key = "BLANK";
-			let mon_img = "./" + spriteFile + "/" + mon_key + ".png"
+			let mon_img = domlink + spriteFile + "/" + mon_key + ".png"
 			let ele = document.getElementById('preview'+i)
 			ele.src = mon_img;
 			ele.style.zIndex = 5;
@@ -4923,7 +4930,7 @@ canvas {
 			document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = "./blank.png";
 		}else{
 			choices[currently_selecting[0]][currently_selecting[1]] = currently_previewing[num];
-			document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = "./" + spriteFile + "/" + currently_previewing[num] + ".png"
+			document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = domlink + spriteFile + "/" + currently_previewing[num] + ".png"
 		}
 		closeBox();
 	}
@@ -4987,14 +4994,14 @@ canvas {
 			}
 		}
 		canvas.style.zIndex = 7;
-		return canvas.toDataURL();
+		let dbutton = document.getElementById("downloader")
+		dbutton.href = canvas.toDataURL("image/png");
+		dbutton.click();
 	}
 	function drawMobile() {
 		var canvas = document.getElementById("final");
 		var ctx = canvas.getContext("2d");
-		ctx.drawImage(document.getElementById('back2'), 0, 0);
-		document.getElementById("downloader").href = canvas.toDataURL("image/png");
-		document.getElementById("downloader").innerHTML = "testing"
+		drawFinal(true);
 	/*
 		var canvas = document.getElementById("final");
 		var ctx = canvas.getContext("2d");
@@ -5047,8 +5054,7 @@ canvas {
 </head>
 <body>
 <canvas id="final" height="1571" width="2276"></canvas>
-<img class="back" id="back" src="./background.png" alt="" height="1571" width="2276" onclick="closeBox();"/>
-<img class="back" id="back2" src="https://cajunavenger.github.io/background.png" alt="" height="1571" width="2276" onclick="closeBox();"/>
+<img class="back" id="back" src="https://cajunavenger.github.io/background.png" alt="" height="1571" width="2276" onclick="closeBox();"/>
 <img class="selectionBox" id="box0_1" onclick="openBox(0, 1);" src="./blank.png" height="96" width="96">
 <img class="selectionBox" id="box0_2" onclick="openBox(0, 2);" src="./blank.png" height="96" width="96">
 <img class="selectionBox" id="box0_3" onclick="openBox(0, 3);" src="./blank.png" height="96" width="96">
@@ -5367,6 +5373,7 @@ canvas {
 <input type="button" id="btnWrite" value="Write Code" onclick="printTextbox()"/>
 <input type="button" id="btnLoad" value="Import Code" onclick="loadTextbox()"/>
 <input type="button" id="btnPrint" value="Render Image" onclick="drawFinal()"/>
+<a id="downloader" download="download"></a>
 <!--<input type="button" id="btnMobile" value="Render for Mobile" onclick="mobileFinal()"/>-->
 <textarea id="import" rows="13" cols="82">Write Code: Writes code below which can be used to reload a specific grid.
 Import Code: Paste a saved code export to reload the grid.
@@ -5376,7 +5383,7 @@ Render Image: Condenses the grid to one image, then you can right-click to save 
 	Sprites from the <a href="https://reliccastle.com/resources/1101/">Gen 8<a> and <a href="https://reliccastle.com/resources/952/">Gen 9</a> Resource Packs.<br />
 	<a href="https://github.com/CajunAvenger/cajunavenger.github.io">Source Code</a> - <a href="https://github.com/CajunAvenger/cajunavenger.github.io/issues">Issues or Feature Requests?</a><br />
 	If you want to support more code silliness, you can donate to my caffeine addiction, er, <a href="https://ko-fi.com/cajun42">my Ko-Fi</a>.<br />
-	Attempting to get mobile rendering to work properly<a onclick="javascript:drawMobile();">!</a><a id="downloader" download="download"></a><br />
+	Attempting to get mobile rendering to work properly!<br />
 	For now, you can use the Write/Import options to transfer your choices to a PC where it can be downloaded.
 </div>
 </body>
