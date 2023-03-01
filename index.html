@@ -65,7 +65,7 @@ canvas {
 	position: absolute;
 }
 .bubble {
-  z-index: 0;
+  z-index: 9;
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -1646,7 +1646,7 @@ canvas {
   width: 48px;
 }
 #btnRandom {
-  z-index: 8;
+  z-index: 3;
   position: absolute;
   top: 1505px;
   left: 1691px;
@@ -5125,7 +5125,7 @@ canvas {
 			let mon_img = domlink + spriteFile + "/" + mon_key + ".png"
 			let ele = document.getElementById('preview'+i)
 			ele.src = mon_img;
-			ele.style.zIndex = 5;
+			ele.style.zIndex = 9;
 			//change the position
 			let row = Math.floor(i/maxCols);
 			let col = i%maxCols;
@@ -5139,7 +5139,7 @@ canvas {
 		bubble.src = bubble_img;
 		bubble.style.left = left_corner;
 		bubble.style.top = top_corner;
-		bubble.style.zIndex = 2;
+		bubble.style.zIndex = 9;
 	}
 	function closeBox() {
 		for(let i=0; i<currently_previewing.length; i++) {
@@ -5248,10 +5248,6 @@ canvas {
 	}
 	function drawFinal() {
 		var canvas = document.getElementById("final");
-		if(canvas.style.zIndex == 7) {
-			canvas.style.zIndex = 0;
-			return;
-		}
 		var ctx = canvas.getContext("2d");
 		ctx.drawImage(document.getElementById('back'), 0, 0);
 		for(let g=0; g<11; g++) {
@@ -5271,7 +5267,7 @@ canvas {
 			}
 		}
 		if(domlink == "./")
-			canvas.style.zIndex = 9;
+			canvas.style.zIndex = 10;
 		let dbutton = document.getElementById("downloader")
 		dbutton.href = canvas.toDataURL("image/png");
 		dbutton.click();
