@@ -4916,6 +4916,12 @@ canvas {
 		canvas.style.zIndex = 7;
 		return canvas.toDataURL();
 	}
+	function drawMobile() {
+		var canvas = document.getElementById("final");
+		var ctx = canvas.getContext("2d");
+		ctx.drawImage(document.getElementById('back2'), 0, 0);
+		console.log(canvas.toDataURL());
+	}
 	function mobileFinal() {
 		console.log("running")
 		var canvas = document.getElementById("final");
@@ -4958,6 +4964,7 @@ canvas {
 <body>
 <canvas id="final" height="1571" width="2276"></canvas>
 <img class="back" id="back" src="./background.png" alt="" height="1571" width="2276" onclick="closeBox();"/>
+<img class="back" id="back2" src="https://cajunavenger.github.io/background.png" alt="" height="1571" width="2276" onclick="closeBox();"/>
 <img class="selectionBox" id="box0_1" onclick="openBox(0, 1);" src="./blank.png" height="96" width="96">
 <img class="selectionBox" id="box0_2" onclick="openBox(0, 2);" src="./blank.png" height="96" width="96">
 <img class="selectionBox" id="box0_3" onclick="openBox(0, 3);" src="./blank.png" height="96" width="96">
@@ -5278,7 +5285,7 @@ Render Image: Condenses the grid to one image, then you can right-click to save 
 	Sprites from the <a href="https://reliccastle.com/resources/1101/">Gen 8<a> and <a href="https://reliccastle.com/resources/952/">Gen 9</a> Resource Packs.<br />
 	<a href="https://github.com/CajunAvenger/cajunavenger.github.io">Source Code</a> - <a href="https://github.com/CajunAvenger/cajunavenger.github.io/issues">Issues or Feature Requests?</a><br />
 	If you want to support more code silliness, you can donate to my caffeine addiction, er, <a href="https://ko-fi.com/cajun42">my Ko-Fi</a>.<br />
-	<a onclick="drawFinal();" download="download">Attempting to get mobile rendering to work properly!</a><br />
+	<a onclick="drawMobile();" download="download">Attempting to get mobile rendering to work properly!</a><br />
 	For now, you can use the Write/Import options to transfer your choices to a PC where it can be downloaded.
 </div>
 </body>
