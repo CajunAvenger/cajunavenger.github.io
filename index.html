@@ -227,6 +227,24 @@ canvas {
   top: 1409px;
   left: 1489px;
 }
+#box0_22 {
+  z-index: 2;
+  position: absolute;
+  top: 1409px;
+  left: 1681px;
+}
+#box0_23 {
+  z-index: 2;
+  position: absolute;
+  top: 1409px;
+  left: 1873px;
+}
+#box0_24 {
+  z-index: 2;
+  position: absolute;
+  top: 1409px;
+  left: 2065px;
+}
 #box1_1 {
   z-index: 2;
   position: absolute;
@@ -1571,6 +1589,68 @@ canvas {
   top: 1409px;
   left: 1681px;
 }
+#spot1x {
+  z-index: 2;
+  position: absolute;
+  top: 1409px;
+  left: 1631px;
+  width: 48px;
+}
+#spot1y {
+  z-index: 2;
+  position: absolute;
+  top: 1431px;
+  left: 1631px;
+  width: 48px;
+}
+#spot2x {
+  z-index: 2;
+  position: absolute;
+  top: 1409px;
+  left: 1777px;
+  width: 48px;
+}
+#spot2y {
+  z-index: 2;
+  position: absolute;
+  top: 1431px;
+  left: 1777px;
+  width: 48px;
+}
+#spot3x {
+  z-index: 2;
+  position: absolute;
+  top: 1461px;
+  left: 1631px;
+  width: 48px;
+}
+#spot3y {
+  z-index: 2;
+  position: absolute;
+  top: 1483px;
+  left: 1631px;
+  width: 48px;
+}
+#spot4x {
+  z-index: 2;
+  position: absolute;
+  top: 1461px;
+  left: 1777px;
+  width: 48px;
+}
+#spot4y {
+  z-index: 2;
+  position: absolute;
+  top: 1483px;
+  left: 1777px;
+  width: 48px;
+}
+#btnRandom {
+  z-index: 8;
+  position: absolute;
+  top: 1505px;
+  left: 1691px;
+}
 .preview {
   z-index: 0;
   position: absolute;
@@ -1583,10 +1663,126 @@ canvas {
 
 <script language="JavaScript">
 	var type_order = ["", "Normal", "Fire", "Water", "Grass", "Electric", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy", "Starter", "Gimmick", "Legendary", "Favorite"]
-	var other_order = ["", "team1", "team2", "team3", "team4", "team5", "team6", "Bird", "Critter", "RegionalBug", "Pseudo", "Pikaclone", "Eevee", "Fossil", "Regional", "GMax", "Box", "Mythical", "Ultra", "Paradox", "Types", "PokeBall"];
-	let zerogen_coords = [[], [94, 1264], [199, 1264], [298, 1264], [94, 1363], [199, 1363], [298, 1363], [530, 1210], [722, 1210], [914, 1210], [1104, 1210], [1297, 1210], [1489, 1210], [1681, 1210], [1873, 1210], [2064, 1210], [530, 1409], [722, 1409], [914, 1409], [1104, 1409], [1297, 1409], [1489, 1409]]
+	var other_order = ["", "team1", "team2", "team3", "team4", "team5", "team6", "Bird", "Critter", "RegionalBug", "Pseudo", "Pikaclone", "Eevee", "Fossil", "Regional", "GMax", "Box", "Mythical", "Ultra", "Paradox", "Types", "PokeBall", "Spinda", "Vivillon", "Alcremie", "alc0", "alc7", "alc14", "alc21", "alc28", "alc35", "alc42", "alc49", "alc56"];
+	let zerogen_coords = [[], [94, 1264], [199, 1264], [298, 1264], [94, 1363], [199, 1363], [298, 1363], [530, 1210], [722, 1210], [914, 1210], [1104, 1210], [1297, 1210], [1489, 1210], [1681, 1210], [1873, 1210], [2064, 1210], [530, 1409], [722, 1409], [914, 1409], [1104, 1409], [1297, 1409], [1489, 1409], [1681, 1409], [1873, 1409], [2065, 1409]]
 
 	var arrays = {
+	 "Spinda": ["SPINDA"],
+	 "Vivillon": [
+	   "VIVILLON",
+	   "VIVILLON_1",
+	   "VIVILLON_2",
+	   "VIVILLON_3",
+	   "VIVILLON_4",
+	   "VIVILLON_5",
+	   "VIVILLON_6",
+	   "VIVILLON_7",
+	   "VIVILLON_8",
+	   "VIVILLON_9",
+	   "VIVILLON_10",
+	   "VIVILLON_11",
+	   "VIVILLON_12",
+	   "VIVILLON_13",
+	   "VIVILLON_14",
+	   "VIVILLON_15",
+	   "VIVILLON_16",
+	   "VIVILLON_17",
+	   "VIVILLON_18",
+	   "VIVILLON_19"
+	 ],
+	 "Alcremie": [
+		"ALCREMIE",
+		"ALCREMIE_7",
+		"ALCREMIE_14",
+		"ALCREMIE_21",
+		"ALCREMIE_28",
+		"ALCREMIE_35",
+		"ALCREMIE_42",
+		"ALCREMIE_49",
+		"ALCREMIE_56",
+		"ALCREMIE_70"
+	],
+	"alc0": [
+		"ALCREMIE_0",
+		"ALCREMIE_1",
+		"ALCREMIE_2",
+		"ALCREMIE_3",
+		"ALCREMIE_4",
+		"ALCREMIE_5",
+		"ALCREMIE_6"
+	],
+	"alc7": [
+		"ALCREMIE_7",
+		"ALCREMIE_8",
+		"ALCREMIE_9",
+		"ALCREMIE_10",
+		"ALCREMIE_11",
+		"ALCREMIE_12",
+		"ALCREMIE_13"
+	],
+	"alc14": [
+		"ALCREMIE_14",
+		"ALCREMIE_15",
+		"ALCREMIE_16",
+		"ALCREMIE_17",
+		"ALCREMIE_18",
+		"ALCREMIE_19",
+		"ALCREMIE_20"
+	],
+	"alc21": [
+		"ALCREMIE_21",
+		"ALCREMIE_22",
+		"ALCREMIE_23",
+		"ALCREMIE_24",
+		"ALCREMIE_25",
+		"ALCREMIE_26",
+		"ALCREMIE_27"
+	],
+	"alc28": [
+		"ALCREMIE_28",
+		"ALCREMIE_29",
+		"ALCREMIE_30",
+		"ALCREMIE_31",
+		"ALCREMIE_32",
+		"ALCREMIE_33",
+		"ALCREMIE_34"
+	],
+	"alc35": [
+		"ALCREMIE_35",
+		"ALCREMIE_36",
+		"ALCREMIE_37",
+		"ALCREMIE_38",
+		"ALCREMIE_39",
+		"ALCREMIE_40",
+		"ALCREMIE_41"
+	],
+	"alc42": [
+		"ALCREMIE_42",
+		"ALCREMIE_43",
+		"ALCREMIE_44",
+		"ALCREMIE_45",
+		"ALCREMIE_46",
+		"ALCREMIE_47",
+		"ALCREMIE_48"
+	],
+	"alc49": [
+		"ALCREMIE_49",
+		"ALCREMIE_50",
+		"ALCREMIE_51",
+		"ALCREMIE_52",
+		"ALCREMIE_53",
+		"ALCREMIE_54",
+		"ALCREMIE_55"
+	],
+	"alc56": [
+		"ALCREMIE_56",
+		"ALCREMIE_57",
+		"ALCREMIE_58",
+		"ALCREMIE_59",
+		"ALCREMIE_60",
+		"ALCREMIE_61",
+		"ALCREMIE_62"
+	],
 	 "Types": [
 		"Normal", "Fire", "Water", "Grass", "Electric", "Ice", "Fighting", "Poison",
 		"Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy"
@@ -4737,7 +4933,7 @@ canvas {
 	 ]
 	}
 
-	var choices = [[]];
+	var choices = [[[]]];
 	for(let i=1; i<=10; i++) {
 		choices.push([]);
 		for(let t in type_order) {
@@ -4750,7 +4946,18 @@ canvas {
 	var spriteFile = "Front";
 	var domlink = "https://cajunavenger.github.io/";
 	var teamSelect = false;
-	
+	var toppings = false;
+	var spot_map = {
+		"spot1x": "spot1",
+		"spot1y": "spot1",
+		"spot2x": "spot2",
+		"spot2y": "spot2",
+		"spot3x": "spot3",
+		"spot3y": "spot3",
+		"spot4x": "spot4",
+		"spot4y": "spot4"
+	}
+
 	function activateShiny() {
 		shinyCharm = !shinyCharm;
 		//show tooltip
@@ -4780,6 +4987,25 @@ canvas {
 			ele.src = ele.src.replace(/Front/, "Shiny");
 		}else{
 			ele.src = ele.src.replace(/Shiny/, "Front");
+		}
+	}
+	function shinySpinda() {
+		if(shinyCharm) {
+			toggleShiny(0, 22);
+			let ele = document.getElementById('spinda2');
+			if(ele.src.match(/Front/)) {
+				ele.src = ele.src.replace(/Front/, "Shiny");
+			}else{
+				ele.src = ele.src.replace(/Shiny/, "Front");
+			}
+			for(let i=1; i<5; i++) {
+				ele = document.getElementById('spot'+i);
+				if(ele.src.match(/Front/)) {
+					ele.src = ele.src.replace(/Front/, "Shiny");
+				}else{
+					ele.src = ele.src.replace(/Shiny/, "Front");
+				}
+			}
 		}
 	}
 	
@@ -4861,8 +5087,8 @@ canvas {
 		let top_corner = (gen*99)+101
 
 		if(gen == 0) {
-			left_corner = zerogen_coords[type][0] + 100
-			top_corner = zerogen_coords[type][1] + 100
+			left_corner = zerogen_coords[Math.min(24, type)][0] + 100
+			top_corner = zerogen_coords[Math.min(24, type)][1] + 100
 		}
 		let maxCols = Math.max(Math.ceil(currently_previewing.length/5), 5)
 		let maxRows = 5
@@ -4918,6 +5144,7 @@ canvas {
 		}
 		currently_previewing = [];
 		currently_selecting = null;
+		toppings = false;
 	}
 	
 	function pickMon(num) {
@@ -4925,14 +5152,34 @@ canvas {
 			return;
 		if(currently_previewing.length < num)
 			return;
+		let alchold = 0;
+		if(currently_selecting[1] > 24) {
+			alchold = currently_selecting[1];
+			currently_selecting[1] = 24;
+		}
+		let targetBox = document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]);
 		if(choices[currently_selecting[0]][currently_selecting[1]] == currently_previewing[num]) {
 			choices[currently_selecting[0]][currently_selecting[1]] = "";
-			document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = "./blank.png";
+			targetBox.src = "./blank.png";
 		}else{
 			choices[currently_selecting[0]][currently_selecting[1]] = currently_previewing[num];
-			document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = domlink + spriteFile + "/" + currently_previewing[num] + ".png"
+			targetBox.src = domlink + spriteFile + "/" + currently_previewing[num] + ".png"
 		}
-		closeBox();
+		if(currently_selecting[0] == 0 &&  currently_selecting[1] == 24) {
+			// alcremie
+			if(!toppings && currently_previewing[num] != "ALCREMIE_70") {
+				//open toppings
+				let gen = currently_selecting[0]
+				closeBox();
+				toppings = true;
+				openBox(gen, 25+num);
+			}else{
+				//apply toppings
+				closeBox();
+			}
+		}else{
+			closeBox();
+		}
 	}
 	
 	function printTextbox() {
@@ -4952,13 +5199,27 @@ canvas {
 			}
 			output += "\n";
 		}
+		output += "spindaspots,";
+		for(let s in spot_map) {
+			let ax_ele = document.getElementById(s);
+			output += ax_ele.value + ",";
+		}
 		document.getElementById('import').value = output;
 	}
 	function loadTextbox() {
 		let importbox = document.getElementById('import').value;
 		let lines = importbox.replace(/#[^\n]+\n/g, "").split("\n");
+		let gen = -1;
 		for(let l in lines) {
+			if(lines[l] == "" || !lines[l].match(/,/))
+				continue;
+			gen++;
 			let ents = lines[l].split(",");
+			let spinda_spots = false;
+			if(ents[0] && ents[0] == "spindaspots") {
+				randomSpinda(ents);
+				continue;
+			}
 			for(let e in ents) {
 				let name = ents[e].replace("&", "");
 				if(!choices[l] || name == "")
@@ -4967,7 +5228,7 @@ canvas {
 				let sf = "Front";
 				if(ents[e].match("&"))
 					sf = "Shiny";
-				ele = document.getElementById('box'+l+'_'+e);
+				ele = document.getElementById('box'+gen+'_'+e);
 				if(!ele)
 					continue;
 				ele.src = "./" + sf + "/" + name + ".png";
@@ -4984,77 +5245,68 @@ canvas {
 		var ctx = canvas.getContext("2d");
 		ctx.drawImage(document.getElementById('back'), 0, 0);
 		for(let g=0; g<11; g++) {
-			for(let t=1; t<23; t++) {
+			for(let t=1; t<25; t++) {
 				let ele = document.getElementById('box'+g+'_'+t);
-				if(!ele)
+				if(!ele || ele.src == "./blank.png")
 					continue;
-				if(ele.src == "./blank.png")
-					continue;
-				ctx.drawImage(ele, ele.offsetLeft, ele.offsetTop);
+					ctx.drawImage(ele, ele.offsetLeft, ele.offsetTop);
+				if(g == 0 && t == 22) {
+					// render spinda
+					let spots = ["spot1", "spot2", "spot3", "spot4", "spinda2", "spinda-cover"];
+					for(let s in spots) {
+						ele = document.getElementById(spots[s]);
+						ctx.drawImage(ele, ele.offsetLeft, ele.offsetTop);
+					}
+				}
 			}
 		}
-		canvas.style.zIndex = 7;
+		if(domlink == "./")
+			canvas.style.zIndex = 9;
 		let dbutton = document.getElementById("downloader")
 		dbutton.href = canvas.toDataURL("image/png");
 		dbutton.click();
 	}
-	function drawMobile() {
-		var canvas = document.getElementById("final");
-		var ctx = canvas.getContext("2d");
-		drawFinal(true);
-	/*
-		var canvas = document.getElementById("final");
-		var ctx = canvas.getContext("2d");
-		ctx.drawImage(document.getElementById('back2'), 0, 0);
-		console.log(canvas.toDataURL());
-		*/
-	}
-	function mobileFinal() {
-		console.log("running")
-		var canvas = document.getElementById("final");
-		var ctx = canvas.getContext("2d");
-		var img = new Image();
-		img.onload = function() {
-			console.log("load")
-			ctx.drawImage(this, 0, 0);
-			//mobileDrawMons(0, 1);
-		};
-		img.crossOrigin = "Anonymous";
-		img.src = document.getElementById('back').value;
-		mobileDrawMons(0, 1);
-		console.log("done?")
-	}
-	function mobileDrawMons (g, t) {
-		console.log(g, t)
-		if(t >= 23) {
-			t = 1;
-			g++;
+	function spindaSpot(ele, axis) {
+		let spot_ele = document.getElementById(spot_map[ele.id])
+		if(axis == "x") {
+			var base_left = 1673;
+			spot_ele.style.left = base_left + parseInt(ele.value);
+		}else{
+			var base_top = 1417;
+			spot_ele.style.top = base_top - parseInt(ele.value);
 		}
-		if(g >= 11) {
-			canvas.style.zIndex = 7;
-			return canvas.toDataURL("image/png");
+	}
+	function rand(scale) {
+		return Math.floor(Math.random()*scale)
+	}
+	function randomSpinda(ar) {
+		let spots = ["spot1", "spot2", "spot3", "spot4"];
+		if(!ar) {
+			ar = ["spindaspots"];
+			for(let s in spots) {
+				ar.push(rand(17));
+				ar.push(rand(17));
+			}
+		}
+		var base_left = 1673;
+		var base_top = 1417;
+		for(let i=0; i<spots.length; i++) {
+			let sname = spots[i];
+			let spot_ele = document.getElementById(sname);
+			let new_x = ar[2*i+1];
+			let new_y = ar[2*i+2];
+			spot_ele.style.left = base_left + parseInt(new_x);
+			spot_ele.style.top = base_top - parseInt(new_y);
+			document.getElementById(sname + "x").value = new_x;
+			document.getElementById(sname + "y").value = new_y;
 		}
 		
-		let ele = document.getElementById('box'+g+'_'+t);
-		if(!ele || ele.src == "./blank.png")
-			mobileDrawMons(g, t+1);
-		img = new Image();
-		img.crossOrigin = "Anonymous";
-		img.src = ele.value;
-		img.onload = function() {
-			ctx.drawImage(this, ele.offsetLeft, ele.offsetTop);
-			mobileDrawMons(g, t+1);
-		}
-	}
-	function mouseCoords() {
-		let e = window.event;
-		console.log(e.clientX, e.clientY);
 	}
 </script>
 </head>
 <body>
 <canvas id="final" height="1571" width="2276"></canvas>
-<img class="back" id="back" src="https://cajunavenger.github.io/background.png" alt="" height="1571" width="2276" onclick="closeBox();"/>
+<img class="back" id="back" src="https:cajunavenger.github.io/background.png" alt="" height="1571" width="2276" onclick="closeBox();"/>
 <img class="selectionBox" id="box0_1" onclick="openBox(0, 1);" src="./blank.png" height="96" width="96">
 <img class="selectionBox" id="box0_2" onclick="openBox(0, 2);" src="./blank.png" height="96" width="96">
 <img class="selectionBox" id="box0_3" onclick="openBox(0, 3);" src="./blank.png" height="96" width="96">
@@ -5076,6 +5328,9 @@ canvas {
 <img class="selectionBox" id="box0_19" onclick="openBox(0, 19);" src="./blank.png" height="96" width="96">
 <img class="selectionBox" id="box0_20" onclick="openBox(0, 20);" src="./blank.png" height="96" width="96">
 <img class="selectionBox" id="box0_21" onclick="openBox(0, 21);" src="./blank.png" height="96" width="96">
+<img class="selectionBox" id="box0_22" onclick="" src="https://cajunavenger.github.io/Front/SPINDA.png" height="96" width="96">
+<img class="selectionBox" id="box0_23" onclick="openBox(0, 23);" src="./blank.png" height="96" width="96">
+<img class="selectionBox" id="box0_24" onclick="openBox(0, 24);" src="./blank.png" height="96" width="96">
 <img class="selectionBox" id="box1_1" onclick="openBox(1, 1);" src="./blank.png" height="96" width="96">
 <img class="selectionBox" id="box1_2" onclick="openBox(1, 2);" src="./blank.png" height="96" width="96">
 <img class="selectionBox" id="box1_3" onclick="openBox(1, 3);" src="./blank.png" height="96" width="96">
@@ -5363,16 +5618,25 @@ canvas {
 <img class="preview" id="preview57" src="./blank.png" height="96" width="96" onclick="pickMon(57);">
 <img class="preview" id="preview58" src="./blank.png" height="96" width="96" onclick="pickMon(58);">
 <img class="preview" id="preview59" src="./blank.png" height="96" width="96" onclick="pickMon(59);">
-<!--<img id="spinda" src="./Front/SPINDA.png">
-<img id="spinda2" src="./spinda/Front.png">
-<img id="spinda-cover" src="./spinda/cover.png" onclick="mouseCoords();">
-<img class="spinda-spot" src="./spinda/spot1.png">
-<img class="spinda-spot" src="./spinda/spot2.png">
-<img class="spinda-spot" src="./spinda/spot3.png">
-<img class="spinda-spot" src="./spinda/spot4.png">-->
+<img id="spinda" src="https:cajunavenger.github.io/Front/SPINDA.png">
+<img id="spinda2" src="https:cajunavenger.github.io/spinda/Front/SPINDA.png">
+<img id="spinda-cover" src="https:cajunavenger.github.io/spinda/cover.png" onclick="shinySpinda();">
+<img id="spot1" class="spinda-spot" src="https:cajunavenger.github.io/spinda/Front/spot1.png">
+<img id="spot2" class="spinda-spot" src="https:cajunavenger.github.io/spinda/Front/spot2.png">
+<img id="spot3" class="spinda-spot" src="https:cajunavenger.github.io/spinda/Front/spot3.png">
+<img id="spot4" class="spinda-spot" src="https:cajunavenger.github.io/spinda/Front/spot4.png">
+<input type="number" id="spot1x" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'x')">
+<input type="number" id="spot1y" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'y')">
+<input type="number" id="spot3x" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'x')">
+<input type="number" id="spot3y" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'y')">
+<input type="number" id="spot2x" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'x')">
+<input type="number" id="spot2y" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'y')">
+<input type="number" id="spot4x" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'x')">
+<input type="number" id="spot4y" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'y')">
+<input type="button" id="btnRandom" value="Randomize!" onclick="randomSpinda()"/>
 <input type="button" id="btnWrite" value="Write Code" onclick="printTextbox()"/>
 <input type="button" id="btnLoad" value="Import Code" onclick="loadTextbox()"/>
-<input type="button" id="btnPrint" value="Render Image" onclick="drawFinal()"/>
+<input type="button" id="btnPrint" value="Download Image" onclick="drawFinal()"/>
 <a id="downloader" download="download"></a>
 <!--<input type="button" id="btnMobile" value="Render for Mobile" onclick="mobileFinal()"/>-->
 <textarea id="import" rows="13" cols="82">Write Code: Writes code below which can be used to reload a specific grid.
@@ -5383,8 +5647,8 @@ Render Image: Condenses the grid to one image, then you can right-click to save 
 	Sprites from the <a href="https://reliccastle.com/resources/1101/">Gen 8<a> and <a href="https://reliccastle.com/resources/952/">Gen 9</a> Resource Packs.<br />
 	<a href="https://github.com/CajunAvenger/cajunavenger.github.io">Source Code</a> - <a href="https://github.com/CajunAvenger/cajunavenger.github.io/issues">Issues or Feature Requests?</a><br />
 	If you want to support more code silliness, you can donate to my caffeine addiction, er, <a href="https://ko-fi.com/cajun42">my Ko-Fi</a>.<br />
-	Attempting to get mobile rendering to work properly!<br />
-	For now, you can use the Write/Import options to transfer your choices to a PC where it can be downloaded.
+	Download button should now auto-download for mobile and PC!<br />
+	All the Megas have been added to Gen 6 Gimmick, and we've filled out the bottom with some more fun bits.
 </div>
 </body>
 </html>
