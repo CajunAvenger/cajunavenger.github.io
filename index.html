@@ -5237,16 +5237,18 @@ canvas {
 			}
 			for(var e in ents) {
 				var name = ents[e].replace("&", "");
-				if(!choices[l] || name == "")
+				ele = document.getElementById('box'+gen+'_'+e);
+				if(!ele)
 					continue;
+				if(!choices[l] || name == "") {
+					ele.src = "./blank.png";
+					continue;
+				}
 				choices[l][e] = name
 				var sf = "Front";
 				if(ents[e].match("&"))
 					sf = "Shiny";
-				ele = document.getElementById('box'+gen+'_'+e);
-				if(!ele)
-					continue;
-				ele.src = "./" + sf + "/" + name + ".png";
+				ele.src = domlink + sf + "/" + name + ".png";
 			}
 		}
 		
