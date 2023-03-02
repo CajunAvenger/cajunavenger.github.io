@@ -1703,7 +1703,7 @@ canvas {
 		"ALCREMIE_70"
 	],
 	"alc0": [
-		"ALCREMIE_0",
+		"ALCREMIE",
 		"ALCREMIE_1",
 		"ALCREMIE_2",
 		"ALCREMIE_3",
@@ -5168,14 +5168,14 @@ canvas {
 			currently_selecting[1] = 24;
 		}
 		var targetBox = document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]);
-		if(choices[currently_selecting[0]][currently_selecting[1]] == currently_previewing[num]) {
+		if(!toppings && choices[currently_selecting[0]][currently_selecting[1]] == currently_previewing[num]) {
 			choices[currently_selecting[0]][currently_selecting[1]] = "";
 			targetBox.src = "./blank.png";
 		}else{
 			choices[currently_selecting[0]][currently_selecting[1]] = currently_previewing[num];
 			targetBox.src = domlink + spriteFile + "/" + currently_previewing[num] + ".png"
 		}
-		if(currently_selecting[0] == 0 &&  currently_selecting[1] == 24) {
+		if(currently_selecting[0] == 0 && currently_selecting[1] == 24) {
 			// alcremie
 			if(!toppings && currently_previewing[num] != "ALCREMIE_70") {
 				//open toppings
