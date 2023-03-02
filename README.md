@@ -8,7 +8,7 @@ Click the boxes in the grid to be given a selection of everything that meets the
 The last square in each row and column will give you all the Pokemon you picked before it, for the ultimate showdown of who your favorite child is.
 
 ### The Shiny Charm
-Clicking on the Shiny Charm will put you in Shiny Mode until you click it again. Clicking on a Pokemon box in Shiny Mode will turn that Pokemon shiny rather than repicking it.
+Clicking on the Shiny Charm will put you in Shiny Mode until you click it again. Clicking on a Pokemon box in Shiny Mode will turn that Pokemon shiny rather than repicking it. While in Shiny Mode you can also clickk on a new line of text by the Shin Charm to instead convert *all* the sprites to their shiny form, even the new ones that you pick.
 ### The Team Grid
 In the bottom left there's a section for selecting your team of six. To do this, click one of the boxes, which will then display "Picking...", then click any of the Pokemon in the grid boxes* and it will be copied over to that box. If you change the copied box, the team box won't change with it, which you can use to put unranked Pokemon in the team.
 
@@ -33,4 +33,5 @@ At the very bottom of the page there are three buttons and a textbox.
 If you want to do something like put Galarian Meowth as your favorite Gen 1 gimmick or Swellow as your favorite regional bird, put a filler Pokemon in that position, then click Write Code, replace that Pokemon's name with the one you want, then click Import Code. Most Pokemon will just be their names capitalized (SWELLOW), but alternate forms will have a tag (MEOWTH_2). You can verify a name by putting it in the grid by itself and writing the code.
 
 ## Additional Sprites
+Walking Wake and Iron Leaves sprites from [JordanosArt](https://twitter.com/JordanosArt).
 Later generation sprites from the [Gen 8 Project](https://reliccastle.com/resources/1101/) and [Gen 9 Project](https://reliccastle.com/resources/952/).
