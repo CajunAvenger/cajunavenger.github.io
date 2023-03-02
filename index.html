@@ -1565,6 +1565,15 @@ canvas {
   top: 992px;
   left: 2179px;
 }
+#spinda-help {
+  color: #000000;
+  position: absolute;
+  top: 1577px;
+  left: 1580px;
+  display: block;
+  width: 400px;
+  z-index: 2;
+}
 #spinda {
   z-index: 2;
   position: absolute;
@@ -5652,6 +5661,12 @@ canvas {
 <input type="number" id="spot2y" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'y')">
 <input type="number" id="spot4x" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'x')">
 <input type="number" id="spot4y" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'y')">
+<span id="spinda-help">
+	Spinda's spots can be randomized or manually placed.<br>
+	Each box pair in the corners moves its nearest spot.<br>
+	Up/Down on the first box moves it Right/Left.<br>
+	Up/Down on the second box moves it Up/Down.
+</span>
 <input type="button" id="btnRandom" value="Randomize!" onclick="randomSpinda()"/>
 <input type="button" id="btnWrite" value="Write Code" onclick="printTextbox()"/>
 <input type="button" id="btnLoad" value="Import Code" onclick="loadTextbox()"/>
