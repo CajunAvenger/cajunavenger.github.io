@@ -1,6 +1,9 @@
 <html>
 <head>
 <title>Ultimate Favorite Pokemon Picker</title>
+<meta name="description" content="Find your favorite Pokemon of each generation, each type, and of all time.">
+<meta name="keywords" content="Ultimate, Favorite, Pokemon, Pokémon, Picker">
+<meta name="author" content="Cajun">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -40,18 +43,28 @@ canvas {
   top: 0px;
   left: 0px;
 }
+#btnPrint {
+  top: 1572px;
+  left: 0px;
+  height: 50px;
+  position: absolute;
+}
 #btnWrite {
   top: 1572px;
+  left: 125px;
+  height: 50px;
   position: absolute;
 }
 #btnLoad {
   top: 1572px;
-  left: 90px;
+  left: 215px;
+  height: 50px;
   position: absolute;
 }
-#btnPrint {
+#btnReset {
   top: 1572px;
-  left: 180px;
+  left: 490px;
+  height: 50px;
   position: absolute;
 }
 #downloader {
@@ -60,8 +73,9 @@ canvas {
 	position: absolute;
 }
 #import {
-  top: 1592px;
+  top: 1625px;
   position: absolute;
+  z-index: 4;
 }
 #credits {
 	top: 1572px;
@@ -4744,7 +4758,9 @@ canvas {
 	   "TINGLU",
 	   "CHIYU",
 	   "KORAIDON",
-	   "MIRAIDON"
+	   "MIRAIDON",
+	   "WALKINGWAKE",
+	   "IRONLEAVES"
 	  ]
 	 ],
 	 "Gimmick": [
@@ -4966,13 +4982,7 @@ canvas {
 	 ]
 	}
 
-	var choices = [[[]]];
-	for(var i=1; i<=10; i++) {
-		choices.push([]);
-		for(var t in type_order) {
-			choices[i].push("")
-		}
-	}
+	var choices = [];
 	var currently_previewing = [];
 	var currently_selecting = null;
 	var shinyCharm = false;
@@ -4980,6 +4990,7 @@ canvas {
 	var domlink = "https://cajunavenger.github.io/";
 	var teamSelect = false;
 	var toppings = false;
+
 	var spot_map = {
 		"spot1x": "spot1",
 		"spot1y": "spot1",
@@ -4990,7 +5001,24 @@ canvas {
 		"spot4x": "spot4",
 		"spot4y": "spot4"
 	}
+	var cookie_names = [
+		"gen0", "gen1", "gen2", "gen3", "gen4",
+		"gen5", "gen6", "gen7", "gen8", "gen9",
+		"favs", "spinda"
+	]
 
+	function resetChoices() {
+		choices = [[]];
+		for(var c in other_order)
+			choices[0].push("")
+		for(var i=1; i<=10; i++) {
+			choices.push([]);
+			for(var t in type_order) {
+				choices[i].push("")
+			}
+		}
+	}
+	resetChoices();
 	function activateShiny() {
 		shinyCharm = !shinyCharm;
 		//show tooltip
@@ -5012,6 +5040,11 @@ canvas {
 			}
 		}
 		spriteFile = swap[spriteFile];
+		if(spriteFile == "Shiny") {
+			setCookie("shiny", "true");
+		}else{
+			deleteCookie("shiny");
+		}
 		activateShiny();
 	}
 	function toggleShiny(gen, type) {
@@ -5211,12 +5244,13 @@ canvas {
 				closeBox();
 			}
 		}else{
+			writeCookie(currently_selecting[0]);
 			closeBox();
 		}
 	}
 	
 	function printTextbox() {
-		var output = "# Save this text somewhere. You can restore your settings by repasting it here and clicking Import Code.\n";
+		var output = "# Don't like my choices? You can overrule them here!\n# Write Code will put a text version of the grid here,\n# Then you can edit the names and Import Code to replace the images.\n# Most Pokemon are just their named capitalized, like SWELLOW.\n# Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.\n# You can also use this to keep backups\n";
 		for(var g=0; g<choices.length; g++) {
 			for(var t=0; t<choices[g].length; t++) {
 				var ele = document.getElementById('box'+g+"_"+t);
@@ -5239,14 +5273,21 @@ canvas {
 		}
 		document.getElementById('import').value = output;
 	}
-	function loadTextbox() {
-		var importbox = document.getElementById('import').value;
-		var lines = importbox.replace(/#[^\n]+\n/g, "").split("\n");
+	function loadTextbox(importbox) {
+		var save_cookie = false;
+		if(!importbox) {
+			importbox = document.getElementById('import').value;
+			save_cookie = true;
+		}
+		var lines = importbox.replace(/# ?[^\n]+\n/g, "").split("\n");
 		var gen = -1;
 		for(var l in lines) {
 			if(lines[l] == "" || !lines[l].match(/,/))
 				continue;
 			gen++;
+			if(save_cookie) {
+				setCookie(getCookieName(gen), lines[l]);
+			}
 			var ents = lines[l].split(",");
 			var spinda_spots = false;
 			if(ents[0] && ents[0] == "spindaspots") {
@@ -5271,6 +5312,16 @@ canvas {
 		}
 		
 	}
+	function resetGrid() {
+		if(confirm("Are you sure you want to reset the grid?")) {
+			for(var c in cookie_names) {
+				deleteCookie(cookie_names[c]);
+			}
+			loadCookies();
+		}
+		resetChoices();
+	}
+
 	function drawFinal() {
 		var canvas = document.getElementById("final");
 		var ctx = canvas.getContext("2d");
@@ -5310,6 +5361,7 @@ canvas {
 			var base_top = 1417;
 			spot_ele.style.top = base_top - parseInt(ele.value);
 		}
+		writeSpindaCookie();
 	}
 	function rand(scale) {
 		return Math.floor(Math.random()*scale)
@@ -5335,11 +5387,111 @@ canvas {
 			document.getElementById(sname + "x").value = new_x;
 			document.getElementById(sname + "y").value = new_y;
 		}
-		
+		writeSpindaCookie()
+	}
+
+	// returns the cookie with the given name,
+	// or undefined if not found
+	function getCookie(name) {
+	  var matches = document.cookie.match(new RegExp(
+		"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+	  ));
+	  return matches ? decodeURIComponent(matches[1]) : undefined;
+	}
+	function setCookie(name, value) {
+
+	  options = {
+		path: '/',
+	    samesite: 'strict'
+	  };
+	  options.expires = new Date().getTime() + 365*24*60*60*1000;
+
+	  if (options.expires instanceof Date) {
+		options.expires = options.expires.toUTCString();
+	  }
+
+	  var updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+	  for (var optionKey in options) {
+		updatedCookie += "; " + optionKey;
+		var optionValue = options[optionKey];
+		if (optionValue !== true) {
+		  updatedCookie += "=" + optionValue;
+		}
+	  }
+
+	  document.cookie = updatedCookie;
+	}
+	
+	function deleteCookie(name) {
+	  setCookie(name, "", {
+		'max-age': -1
+	  })
+	}
+	
+	// cookie-fy a gen and save it
+	function writeCookie(g) {
+		var cookie_text = "";
+		for(var t=0; t<choices[g].length; t++) {
+			var ele = document.getElementById('box'+g+"_"+t);
+			if(ele == null) {
+				cookie_text += ",";
+				continue;
+			}
+			if(ele.src.match(/Shiny/))
+				cookie_text += "&"
+			if(choices[g][t])
+				cookie_text += choices[g][t]
+			cookie_text += ",";
+		}
+		setCookie(getCookieName(g), cookie_text);
+	}
+	function writeSpindaCookie() {
+		var spots = ["spot1", "spot2", "spot3", "spot4"];
+		var cookie_text = "spindaspots,";
+		for(var i=0; i<spots.length; i++) {
+			var sname = spots[i];
+			var spot_ele = document.getElementById(sname);
+			cookie_text += document.getElementById(sname + "x").value;
+			cookie_text += ",";
+			cookie_text += document.getElementById(sname + "y").value;
+			cookie_text += ",";
+		}
+		setCookie("spinda", cookie_text);
+	}
+	function loadCookies() {
+		var cookie_vals = [];
+		for(var c in cookie_names)
+			cookie_vals.push(",,,,,,,,,,,,,,,,,,,,,,,,,,,,");
+		var cookies = document.cookie.split(/; ?/);
+		for(var c in cookies) {
+			var pair = cookies[c].match(/([^=]+) ?= ?([^=;]+)/);
+			if(!pair)
+				continue;
+			var cname = decodeURIComponent(pair[1]);
+			var cval = decodeURIComponent(pair[2]);
+			var g = cookie_names.indexOf(cname);
+			if(g == -1) {
+				//special cookies
+				if(cname == "shiny")
+					spriteFile = swap[spriteFile];
+			}else{
+				cookie_vals[g] = cval;
+			}
+		}
+		console.log(cookie_vals);
+		loadTextbox(cookie_vals.join("\n"));
+	}
+	function getCookieName(g) {
+		if(parseInt(g) < 10)
+			return "gen"+g;
+		if(g == 10)
+			return "favs";
+		return "spinda";
 	}
 </script>
 </head>
-<body>
+<body onLoad="loadCookies();">
 <canvas id="final" height="1571" width="2276"></canvas>
 <img class="back" id="back" src="https://cajunavenger.github.io/background.png" alt="" height="1571" width="2276" onclick="closeBox();"/>
 <img class="selectionBox" id="box0_1" onclick="openBox(0, 1);" src="./blank.png" height="96" width="96">
@@ -5675,18 +5827,24 @@ canvas {
 	Up/Down on the second box moves it Up/Down.
 </span>
 <input type="button" id="btnRandom" value="Randomize!" onclick="randomSpinda()"/>
+<input type="button" id="btnPrint" value="Download Image" onclick="drawFinal()" target="_blank"/>
 <input type="button" id="btnWrite" value="Write Code" onclick="printTextbox()"/>
 <input type="button" id="btnLoad" value="Import Code" onclick="loadTextbox()"/>
-<input type="button" id="btnPrint" value="Download Image" onclick="drawFinal()" target="_blank"/>
+<input type="button" id="btnReset" value="Reset The Grid!" onclick="resetGrid()"/>
 <a id="downloader" download="download"></a>
-<textarea id="import" rows="13" cols="82">Write Code: Writes code below which can be used to reload a specific grid.
-Import Code: Paste a saved code export to reload the grid.
-Download Image: Download the entire grid as a single PNG.
+<textarea id="import" rows="13" cols="72" spellcheck="false">
+# Don't like my choices? You can overrule them here!
+# Write Code will put a text version of the grid here
+# Then you can edit the names and Import Code to replace the images.
+# Most Pokemon are just their named capitalized, like SWELLOW.
+# Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.
+# You can also use this to keep backups
 </textarea>
 <div id="credits">
 	<b>Updates</b><br>
 	• <a href="https://twitter.com/JordanosArt">Jordanos's</a> Walking Wake and Iron Leaves have been added!<br>
 	• Other Gen 9 DLC mons will be added once we have types and sprites.<br>
+	• The website will now remember your choices on refresh 🍪<br>
 	• Gen 6 Gimmick now lets you choose your favorite Mega.<br>
 	• Download button + backup link works for even more mobie devices!<br>
 	• If it's still not working for you, yell at me in a link below.<br><br>
