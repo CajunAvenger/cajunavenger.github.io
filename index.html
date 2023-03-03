@@ -5006,6 +5006,7 @@ canvas {
 		"gen5", "gen6", "gen7", "gen8", "gen9",
 		"favs", "spinda"
 	]
+	var swap = {"Front": "Shiny", "Shiny": "Front"};
 
 	function resetChoices() {
 		choices = [[]];
@@ -5030,7 +5031,11 @@ canvas {
 		}
 	}
 	function fullShiny() {
-		var swap = {"Front": "Shiny", "Shiny": "Front"};
+		if(spriteFile == "Shiny") {
+			setCookie("shiny", "shsiny");
+		}else{
+			deleteCookie("shiny");
+		}
 		for(var g=0; g<11; g++) {
 			for(var t=0; t<23; t++) {
 				ele = document.getElementById('box'+g+"_"+t);
@@ -5040,11 +5045,6 @@ canvas {
 			}
 		}
 		spriteFile = swap[spriteFile];
-		if(spriteFile == "Shiny") {
-			setCookie("shiny", "true");
-		}else{
-			deleteCookie("shiny");
-		}
 		activateShiny();
 	}
 	function toggleShiny(gen, type) {
@@ -5054,6 +5054,7 @@ canvas {
 		}else{
 			ele.src = ele.src.replace(/Shiny/, "Front");
 		}
+		writeCookie(gen);
 	}
 	function shinySpinda() {
 		if(shinyCharm) {
@@ -5304,7 +5305,7 @@ canvas {
 					continue;
 				}
 				choices[l][e] = name
-				var sf = "Front";
+				var sf = spriteFile;
 				if(ents[e].match("&"))
 					sf = "Shiny";
 				ele.src = domlink + sf + "/" + name + ".png";
