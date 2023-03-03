@@ -34,4 +34,5 @@ If you want to do something like put Galarian Meowth as your favorite Gen 1 gimm
 
 ## Additional Sprites
 Walking Wake and Iron Leaves sprites from [JordanosArt](https://twitter.com/JordanosArt).
+
 Later generation sprites from the [Gen 8 Project](https://reliccastle.com/resources/1101/) and [Gen 9 Project](https://reliccastle.com/resources/952/).
