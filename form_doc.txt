@@ -1,0 +1,156 @@
+Some Pokemon forms are not normally accessible in the grid, but can be loaded with the Write/Import box.
+The key names for those forms are listed below:
+
+Standard forms:
+Shock Drive Genesect: GENESECT_1
+Burn Drive Genesect: GENESECT_2
+Chill Drive Genesect: GENESECT_3
+Douse Drive Genesect: GENESECT_4
+Full Moon Lunala: LUNALA_1
+Radiant Sun Solgaleo: SOLGALEO_1
+Zenith Marshadow: MARSHADOW_1
+Busted Mimikyu: MIMIKYU_1
+Behemoth Blade Zacian: ZACIAN_2
+Behemoth Bash Zamazenta: ZAMAZENTA_2
+Dada Zarude: ZARUDE_1
+Cosplay Pikachu: PIKACHU_1
+Belle Pikachu: PIKACHU_2
+Ph.D. Pikachu: PIKACHU_3
+Pop Star Pikachu: PIKACHU_4
+Libre Pikachu: PIKACHU_5
+Ash Cap Pikachu: PIKACHU_6
+Hoenn Cap Pikachu: PIKACHU_7
+Sinnoh Cap Pikachu: PIKACHU_8
+Unova Cap Pikachu: PIKACHU_9
+Kalos Cap Pikachu: PIKACHU_10
+Alola Cap Pikachu: PIKACHU_11
+Partner Cap Pikachu: PIKACHU_12
+World Cap Pikachu: PIKACHU_13
+
+
+
+Female forms:
+Abomasnow: ABOMASNOW_female
+Alakazam: ALAKAZAM_female
+Aipom: AIPOM_female
+Ambipom: AMBIPOM_female
+Beautifly: BEAUTIFLY_female
+Bibarel: BIBAREL_female
+Bidoof: BIDOOF_female
+Blaziken: BLAZIKEN_female
+Butterfree: BUTTERFREE_female
+Cacturne: CACTURNE_female
+Camerupt: CAMERUPT_female
+Combee: COMBEE_female
+Combusken: COMBUSKEN_female
+Croagunk: CROAGUNK_female
+Dodrio: DODRIO_female
+Doduo: DODUO_female
+Donphan: DONPHAN_female
+Dustox: DUSTOX_female
+Finneon: FINNEON_female
+Garchomp: GARCHOMP_female
+Gible: GIBLE_female
+Girafarig: GIRAFARIG_female
+Gligar: GLIGAR_female
+Gloom: GLOOM_female
+Golbat: GOLBAT_female
+Goldeen: GOLDEEN_female
+Gulpin: GULPIN_female
+Gyarados: GYARADOS_female
+Heracross: HERACROSS_female
+Houndoom: HOUNDOOM_female
+Hypno: HYPNO_female
+Kadabra: KADABRA_female
+Kricketot: KRICKETOT_female
+Kricketune: KRICKETUNE_female
+Ledian: LEDIAN_female
+Ledyba: LEDYBA_female
+Ludicolo: LUDICOLO_female
+Lumineon: LUMINEON_female
+Luxio: LUXIO_female
+Luxray: LUXRAY_female
+Magikarp: MAGIKARP_female
+Mamoswine: MAMOSWINE_female
+Medicham: MEDICHAM_female
+Meditite: MEDITITE_female
+Meganium: MEGANIUM_female
+Milotic: MILOTIC_female
+Numel: NUMEL_female
+Nuzleaf: NUZLEAF_female
+Octillery: OCTILLERY_female
+Pikachu: PIKACHU_female
+Piloswine: PILOSWINE_female
+Politoed: POLITOED_female
+Quagsire: QUAGSIRE_female
+Raichu: RAICHU_female
+Raticate: RATICATE_female
+Rattata: RATTATA_female
+Relicanth: RELICANTH_female
+Rhydon: RHYDON_female
+Rhyhorn: RHYHORN_female
+Rhyperior: RHYPERIOR_female
+Roselia: ROSELIA_female
+Roserade: ROSERADE_female
+Scizor: SCIZOR_female
+Scyther: SCYTHER_female
+Seaking: SEAKING_female
+Shiftry: SHIFTRY_female
+Shinx: SHINX_female
+Sneasel: SNEASEL_female
+Sneasel (Hisuian): SNEASEL_1_female
+Snover: SNOVER_female
+Staraptor: STARAPTOR_female
+Staravia: STARAVIA_female
+Starly: STARLY_female
+Steelix: STEELIX_female
+Sudowoodo: SUDOWOODO_female
+Swalot: SWALOT_female
+Tangrowth: TANGROWTH_female
+Toxicroak: TOXICROAK_female
+Ursaring: URSARING_female
+Venusaur: VENUSAUR_female
+Vileplume: VILEPLUME_female
+Weavile: WEAVILE_female
+Wobbuffet: WOBBUFFET_female
+Wooper: WOOPER_female
+
+
+
+Additional forms:
+Antique Polteageist: POLTEAGEIST_1
+Antique Sinistea: SINISTEA_1
+Fire Arceus: ARCEUS_1
+Water Arceus: ARCEUS_2
+Grass Arceus: ARCEUS_3
+Electric Arceus: ARCEUS_4
+Ice Arceus: ARCEUS_5
+Fighting Arceus: ARCEUS_6
+Poison Arceus: ARCEUS_7
+Ground Arceus: ARCEUS_8
+Flying Arceus: ARCEUS_9
+Psychic Arceus: ARCEUS_10
+Bug Arceus: ARCEUS_11
+Rock Arceus: ARCEUS_12
+Ghost Arceus: ARCEUS_13
+Dragon Arceus: ARCEUS_14
+Dark Arceus: ARCEUS_15
+Steel Arceus: ARCEUS_16
+Fairy Arceus: ARCEUS_17
+Fire Silvally: SILVALLY_1
+Water Silvally: SILVALLY_2
+Grass Silvally: SILVALLY_3
+Electric Silvally: SILVALLY_4
+Ice Silvally: SILVALLY_5
+Fighting Silvally: SILVALLY_6
+Poison Silvally: SILVALLY_7
+Ground Silvally: SILVALLY_8
+Flying Silvally: SILVALLY_9
+Psychic Silvally: SILVALLY_10
+Bug Silvally: SILVALLY_11
+Rock Silvally: SILVALLY_12
+Ghost Silvally: SILVALLY_13
+Dragon Silvally: SILVALLY_14
+Dark Silvally: SILVALLY_15
+Steel Silvally: SILVALLY_16
+Fairy Silvally: SILVALLY_17

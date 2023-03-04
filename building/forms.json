@@ -1,0 +1,46 @@
+{
+	"female": [
+		"ABOMASNOW", "ALAKAZAM", "AIPOM", "AMBIPOM", "BEAUTIFLY",
+		"BIBAREL", "BIDOOF", "BLAZIKEN", "BUTTERFREE", "CACTURNE",
+		"CAMERUPT", "COMBEE", "COMBUSKEN", "CROAGUNK", "DODRIO",
+		"DODUO", "DONPHAN", "DUSTOX", "FINNEON",
+		"GARCHOMP", "GIBLE", "GIRAFARIG", "GLIGAR",
+		"GLOOM", "GOLBAT", "GOLDEEN", "GULPIN",
+		"GYARADOS", "HERACROSS", "HOUNDOOM", "HYPNO",
+		"KADABRA", "KRICKETOT", "KRICKETUNE", "LEDIAN",
+		"LEDYBA", "LUDICOLO", "LUMINEON", "LUXIO",
+		"LUXRAY", "MAGIKARP", "MAMOSWINE", "MEDICHAM",
+		"MEDITITE", "MEGANIUM", "MILOTIC", "NUMEL",
+		"NUZLEAF", "OCTILLERY", "PIKACHU", "PILOSWINE",
+		"POLITOED", "QUAGSIRE", "RAICHU", "RATICATE", 
+		"RATTATA", "RELICANTH", "RHYDON",
+		"RHYHORN", "RHYPERIOR", "ROSELIA", "ROSERADE",
+		"SCIZOR", "SCYTHER", "SEAKING", "SHIFTRY", "SHINX", 
+		"SNEASEL", "SNEASEL_1", "SNOVER", "STARAPTOR", "STARAVIA",
+		"STARLY", "STEELIX", "SUDOWOODO", "SWALOT",
+		"TANGROWTH", "TOXICROAK", "URSARING", "VENUSAUR",
+		"VILEPLUME", "WEAVILE", "WOBBUFFET", "WOOPER"
+	],
+	"forms": {
+		"GENESECT": ["", "Shock Drive", "Burn Drive", "Chill Drive", "Douse Drive"],
+		"LUNALA": ["", "Full Moon"],
+		"SOLGALEO": ["", "Radiant Sun"],
+		"MARSHADOW": ["", "Zenith"],
+		"MIMIKYU": ["", "Busted"],
+		"ZACIAN": ["", "", "Behemoth Blade"],
+		"ZAMAZENTA": ["", "", "Behemoth Bash"],
+		"ZARUDE": ["", "Dada"],
+		"PIKACHU": ["", "", "Cosplay", "Belle", "Libre", "Ph.D.", "Pop Star", "Rock Star", "Ash Cap", "Hoenn Cap", "Sinnoh Cap", "Unova Cap", "Kalos Cap", "Alola Cap", "Partner Cap", "World Cap"]
+	},
+	"secret": {
+		"POLTEAGEIST": ["", "Antique"],
+		"SINISTEA": ["", "Antique"],
+		"ARCEUS": ["",
+			"Fire", "Water", "Grass", "Electric", "Ice",
+			"Fighting", "Poison", "Ground", "Flying",
+			"Psychic", "Bug", "Rock", "Ghost", "Dragon",
+			"Dark", "Steel", "Fairy"
+		],
+		"SILVALLY": ["", "Fire", "Water", "Grass", "Electric", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy"]
+	}
+}
