@@ -13,19 +13,20 @@ Busted Mimikyu: MIMIKYU_1
 Behemoth Blade Zacian: ZACIAN_2
 Behemoth Bash Zamazenta: ZAMAZENTA_2
 Dada Zarude: ZARUDE_1
-Cosplay Pikachu: PIKACHU_1
-Belle Pikachu: PIKACHU_2
-Ph.D. Pikachu: PIKACHU_3
-Pop Star Pikachu: PIKACHU_4
-Libre Pikachu: PIKACHU_5
-Ash Cap Pikachu: PIKACHU_6
-Hoenn Cap Pikachu: PIKACHU_7
-Sinnoh Cap Pikachu: PIKACHU_8
-Unova Cap Pikachu: PIKACHU_9
-Kalos Cap Pikachu: PIKACHU_10
-Alola Cap Pikachu: PIKACHU_11
-Partner Cap Pikachu: PIKACHU_12
-World Cap Pikachu: PIKACHU_13
+Cosplay Pikachu: PIKACHU_2
+Belle Pikachu: PIKACHU_3
+Libre Pikachu: PIKACHU_4
+Ph.D. Pikachu: PIKACHU_5
+Pop Star Pikachu: PIKACHU_6
+Rock Star Pikachu: PIKACHU_7
+Ash Cap Pikachu: PIKACHU_8
+Hoenn Cap Pikachu: PIKACHU_9
+Sinnoh Cap Pikachu: PIKACHU_10
+Unova Cap Pikachu: PIKACHU_11
+Kalos Cap Pikachu: PIKACHU_12
+Alola Cap Pikachu: PIKACHU_13
+Partner Cap Pikachu: PIKACHU_14
+World Cap Pikachu: PIKACHU_15
 
 
 
