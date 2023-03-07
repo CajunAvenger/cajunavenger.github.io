@@ -13,6 +13,215 @@ var "languages": [
 var regional_suffix = ["Español", "Português", "Français", "Italiano"];
 var no_spaces = ["日本", "简中", "繁中"];
 var translatable = {
+	// Strings missing translations
+	"Gimmick Form": {
+		"English": "",
+		"Español": "",
+		"Português": "",
+		"Deutsch": "",
+		"日本": "",
+		"简中": "",
+		"繁中": "",
+		"Français": "",
+		"Italiano": "",
+		"한국어": ""
+	},
+	"PseudoLegend": {
+		"English": "Pseudo Legend",
+		"Español": "",
+		"Português": "",
+		"Deutsch": "",
+		"日本": "600族",
+		"简中": "",
+		"繁中": "",
+		"Français": "",
+		"Italiano": "",
+		"한국어": ""
+	},
+	"Eeveelution": {
+		"English": "",
+		"Español": "",
+		"Português": "",
+		"Deutsch": "",
+		"日本": "",
+		"简中": "",
+		"繁中": "",
+		"Français": "",
+		"Italiano": "",
+		"한국어": ""
+	},
+	"Box Legendary": {
+		"English": "",
+		"Español": "",
+		"Português": "",
+		"Deutsch": "",
+		"日本": "",
+		"简中": "",
+		"繁中": "",
+		"Français": "",
+		"Italiano": "",
+		"한국어": ""
+	},
+	"Download": {
+		"English": "Download Image",
+		"Español": "",
+		"Português": "",
+		"Deutsch": "",
+		"日本": "",
+		"简中": "",
+		"繁中": "",
+		"Français": "",
+		"Italiano": "",
+		"한국어": ""
+	},
+	"altLink": {
+		"English": "Alternate download link",
+		"Español": "",
+		"Português": "",
+		"Deutsch": "",
+		"日本": "",
+		"简中": "",
+		"繁中": "",
+		"Français": "",
+		"Italiano": "",
+		"한국어": ""
+	},
+	"Export": {
+		"English": "Export Choices",
+		"Español": "",
+		"Português": "",
+		"Deutsch": "",
+		"日本": "",
+		"简中": "",
+		"繁中": "",
+		"Français": "",
+		"Italiano": "",
+		"한국어": ""
+	},
+	"Import": {
+		"English": "Import Choices",
+		"Español": "",
+		"Português": "",
+		"Deutsch": "",
+		"日本": "",
+		"简中": "",
+		"繁中": "",
+		"Français": "",
+		"Italiano": "",
+		"한국어": ""
+	},
+	"gridReset": {
+		"English": "Reset the grid!",
+		"Español": "",
+		"Português": "",
+		"Deutsch": "",
+		"日本": "",
+		"简中": "",
+		"繁中": "",
+		"Français": "",
+		"Italiano": "",
+		"한국어": ""
+	},
+	"gridConfirm": {
+		"English": "Are you sure you want to reset the grid?",
+		"Español": "",
+		"Português": "",
+		"Deutsch": "",
+		"日本": "",
+		"简中": "",
+		"繁中": "",
+		"Français": "",
+		"Italiano": "",
+		"한국어": ""
+	},
+	"importExportInstructions": {
+		"English": "# Don't like my choices? You can overrule them here!\n# Write Code will put a text version of the grid here\n# Then you can edit the names and Import Code to replace the images.\n# Most Pokemon are just their named capitalized, like SWELLOW.\n# Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.\n# You can also use this to keep backups",
+		"Español": "",
+		"Português": "",
+		"Deutsch": "",
+		"日本": "",
+		"简中": "",
+		"繁中": "",
+		"Français": "",
+		"Italiano": "",
+		"한국어": ""
+	},
+	"spindaInstructions": {
+		"English": "Spinda's spots can be randomized or manually placed.\nEach box pair in the corners moves its nearest spot.\nUp/Down on the first box moves it Right/Left.\nUp/Down on the second box moves it Up/Down.",
+		"Español": "",
+		"Português": "",
+		"Deutsch": "",
+		"日本": "",
+		"简中": "",
+		"繁中": "",
+		"Français": "",
+		"Italiano": "",
+		"한국어": ""
+	},
+	"teamInstructions": {
+		"English": "Click a team box, then a Pokemon from the grid to copy it to the box.",
+		"Español": "",
+		"Português": "",
+		"Deutsch": "",
+		"日本": "",
+		"简中": "",
+		"繁中": "",
+		"Français": "",
+		"Italiano": "",
+		"한국어": ""
+	},
+	"Picking": {
+		"English": "Picking...",
+		"Español": "",
+		"Português": "",
+		"Deutsch": "",
+		"日本": "",
+		"简中": "",
+		"繁中": "",
+		"Français": "",
+		"Italiano": "",
+		"한국어": ""
+	},
+	"Credits": { // idk if this one's getting it
+		"English": "",
+		"Español": "",
+		"Português": "",
+		"Deutsch": "",
+		"日本": "",
+		"简中": "",
+		"繁中": "",
+		"Français": "",
+		"Italiano": "",
+		"한국어": ""		
+	},
+
+	// Less simple strings translated w/ Google Translate
+	// may very well be issues in here
+	// especially in Japanese/Chinese/Korean where I am completely lost
+	"ShinyCharm1": {
+		"English": "Click the Shiny Charm, then click Pokemon to make them shiny.",
+		"Español": "Haz clic en Amuleto Iris, luego haz clic en Pokémon para hacerlos variocolor.",
+		"Português": "Clique no Amuleto Iris e, em seguida, clique em Pokemon para torná-los brilhantes.",
+		"Deutsch": "Klicken Sie auf den Schillerpin und dann auf Pokemon, um sie glänzend zu Schillerndes.",
+		"日本": "ひかるおまもりをクリックしてから、ポケモンをクリックして光るます。",
+		"简中": "点击闪耀护符然后点击宝可梦让它们发光。",
+		"繁中": "單擊闪耀护符然後單擊宝可梦使它們發光。",
+		"Français": "Cliquez sur le Charme Chroma, puis cliquez sur Pokemon pour les rendre chromatique.",
+		"Italiano": "Fai clic sul Cromamuleto , quindi fai clic su Pokemon per renderli cromatico.",
+		"한국어": "빛나는부적 을 클릭한 다음 포켓몬 을 클릭하여 반짝이게 만들 빛나는"
+	},
+	"ShinyCharm2": {
+		"English": "Or click here to make everything shiny.",
+		"Español": "",
+		"Português": "",
+		"Deutsch": "",
+		"日本": "",
+		"简中": "",
+		"繁中": "",
+		"Français": "",
+		"Italiano": "",
+		"한국어": ""
+	},
 	"Randomize!": {
 		"English": ["Randomize!"],
 		"Español": ["Aleatorizar!"],
@@ -25,30 +234,57 @@ var translatable = {
 		"Italiano": ["Casuale!"],
 		"한국어": ["무작위의!"]
 	},
-	"Shiny Charm1": {
-		"English": "Click the Shiny Charm, then click Pokemon to make them shiny.",
-		"Español": "Haz clic en Amuleto Iris, luego haz clic en Pokémon para hacerlos variocolor.",
-		"Português": "Clique no Amuleto Iris e, em seguida, clique em Pokemon para torná-los brilhantes.",
-		"Deutsch": "Klicken Sie auf den Schillerpin und dann auf Pokemon, um sie glänzend zu Schillerndes.",
-		"日本": "ひかるおまもりをクリックしてから、ポケモンをクリックして光るます。",
-		"简中": "点击闪耀护符然后点击宝可梦让它们发光。",
-		"繁中": "單擊闪耀护符然後單擊宝可梦使它們發光。",
-		"Français": "Cliquez sur le Charme Chroma, puis cliquez sur Pokemon pour les rendre chromatique.",
-		"Italiano": "Fai clic sul Cromamuleto , quindi fai clic su Pokemon per renderli cromatico.",
-		"한국어": "빛나는부적 을 클릭한 다음 포켓몬 을 클릭하여 반짝이게 만들 빛나는"
+	"Cookie1": {	// disable cookies
+		"English": "This site uses cookies to save your choices. You can disable them here.",
+		"Español": "Este sitio utiliza cookies para guardar sus elecciones. Puede desactivarlos aquí.",
+		"Português": "Este site usa cookies para salvar suas escolhas. Você pode desativá-los aqui.",
+		"Deutsch": "Diese Seite verwendet Cookies, um Ihre Auswahl zu speichern. Sie können sie hier deaktivieren.",
+		"日本": "このサイトでは、選択内容を保存するためにクッキーを使用しています。 ここでそれらを無効にすることができます。",
+		"简中": "本网站使用曲奇饼来保存您的选择。 您可以在此处禁用它们。",
+		"繁中": "本網站使用曲奇餅來保存您的選擇。 您可以在此處禁用它們。",
+		"Français": "Ce site utilise des cookies pour enregistrer vos choix. Vous pouvez les désactiver ici.",
+		"Italiano": "Questo sito utilizza i cookie per salvare le tue scelte. Puoi disabilitarli qui.",
+		"한국어": "이 사이트는 쿠키를 사용하여 선택 사항을 저장합니다. 여기에서 비활성화할 수 있습니다."
 	},
-	// unfinished
-	"Shiny Charm2": {
-		"English": "Or click here to make everything shiny.",
-		"Español": "",
-		"Português": "",
-		"Deutsch": "",
-		"日本": "",
-		"简中": "",
-		"繁中": "",
-		"Français": "",
+	"Cookie2": {	// re-enable cookies
+		"English": "This site uses cookies to save your choices. You can enable them here.",
+		"Español": "Este sitio utiliza cookies para guardar sus elecciones. Puede habilitarlos aquí.",
+		"Português": "Este site usa cookies para salvar suas escolhas. Você pode ativá-los aqui.",
+		"Deutsch": "Diese Seite verwendet Cookies, um Ihre Auswahl zu speichern. Sie können sie hier aktivieren.",
+		"日本": "このサイトでは、選択内容を保存するためにクッキーを使用しています。 ここで有効にできます。",
+		"简中": "本网站使用曲奇饼来保存您的选择。 您可以在此处启用它们。",
+		"繁中": "本網站使用曲奇餅來保存您的選擇。 您可以在此處啟用它們。",
+		"Français": "Ce site utilise des cookies pour enregistrer vos choix. Vous pouvez les activer ici.",
+		"Italiano": "Questo sito utilizza i cookie per salvare le tue scelte. Puoi abilitarli qui.",
+		"한국어": "이 사이트는 쿠키를 사용하여 선택 사항을 저장합니다. 여기에서 활성화할 수 있습니다."
+	},
+	"PikachuClone": {
+		"English": "Pikachu Clone",
+		"Español": "Pikachu Clon",
+		"Português": "Pikachu Clone",
+		"Deutsch": "Pikachuklon",
+		"日本": "ピカチュウのクローン",
+		"简中": "皮卡丘克隆",
+		"繁中": "皮卡丘克隆",
+		"Français": "Pikachu Cloner",
 		"Italiano": "",
-		"한국어": ""
+		"한국어": "피카츄 클론"
+	},
+
+	// Strings with either official or simple translations
+	// reasonably sure these are fine
+	"Favorite": {
+		// masc / femme
+		"English": ["Favorite", "Favorite"],
+		"Español": ["Favorito", "Favorita"],
+		"Português": ["Favorito", "Favorita"],
+		"Deutsch": ["Favorit", "Favoritin"],
+		"日本": ["お気に入り", "お気に入り"],
+		"简中": ["最喜欢的","最喜欢的"],
+		"繁中": ["最喜歡的", "最喜歡的"],
+		"Français": ["Préféré", "Préférée"],
+		"Italiano": ["Preferito", "Preferita"],
+		"한국어": ["가장 좋아하는", "가장 좋아하는"]
 	},
 	"Team": {
 		"English": "Team",
@@ -61,19 +297,6 @@ var translatable = {
 		"Français": "Équipe",
 		"Italiano": "Squadra",
 		"한국어": "지닌 포켓몬"
-	},
-	// masc / femme
-	"Favorite": {
-		"English": ["Favorite", "Favorite"],
-		"Español": ["Favorito", "Favorita"],
-		"Português": ["Favorito", "Favorita"],
-		"Deutsch": ["Favorit", "Favoritin"],
-		"日本": ["お気に入り", "お気に入り"],
-		"简中": ["最喜欢的","最喜欢的"],
-		"繁中": ["最喜歡的", "最喜歡的"],
-		"Français": ["Préféré", "Préférée"],
-		"Italiano": ["Preferito", "Preferita"],
-		"한국어": ["가장 좋아하는", "가장 좋아하는"]
 	},
 	"Regional": {
 		"English": "Regional",
@@ -99,18 +322,6 @@ var translatable = {
 		"Italiano": "Uccello",
 		"한국어": "새"
 	},
-	"Bug": {
-		"English": "Bug",
-		"Español": "Bicho",
-		"Português": "Erro",
-		"Deutsch": "Insekt",
-		"日本": "バグ",
-		"简中": "漏洞",
-		"繁中": "漏洞",
-		"Français": "Bogue",
-		"Italiano": "Insetto",
-		"한국어": "벌레"
-	},
 	"Mammal": {
 		"English": "Mammal",
 		"Español": "Mamífero",
@@ -122,45 +333,6 @@ var translatable = {
 		"Français": "Mammifère",
 		"Italiano": "Mammifero",
 		"한국어": "포유류"
-	},
-	// unfinished
-	"Pseudo Legend": {
-		"English": "",
-		"Español": "",
-		"Português": "",
-		"Deutsch": "",
-		"日本": "600族",
-		"简中": "",
-		"繁中": "",
-		"Français": "",
-		"Italiano": "",
-		"한국어": ""
-	},
-	// guesstimated
-	"Pikachu Clone": {
-		"English": "Pikachu Clone",
-		"Español": "Pikachu Clon",
-		"Português": "Pikachu Clone",
-		"Deutsch": "Pikachuklon",
-		"日本": "ピカチュウのクローン",
-		"简中": "皮卡丘克隆",
-		"繁中": "皮卡丘克隆",
-		"Français": "Pikachu Cloner",
-		"Italiano": "",
-		"한국어": "피카츄 클론"
-	},
-	// unfinished
-	"Eeveelution": {
-		"English": "",
-		"Español": "",
-		"Português": "",
-		"Deutsch": "",
-		"日本": "",
-		"简中": "",
-		"繁中": "",
-		"Français": "",
-		"Italiano": "",
-		"한국어": ""
 	},
 	"Fossil": {
 		"English": "Fossil",
@@ -174,7 +346,7 @@ var translatable = {
 		"Italiano": "Fossile",
 		"한국어": "화석"
 	},
-	"Regional Form": {
+	"RegionalForm": {
 		"English": "Regional Form",
 		"Español": "Forma regional",
 		"Português": "Forma regional",
@@ -198,19 +370,6 @@ var translatable = {
 		"Italiano": "Gigamax",
 		"한국어": "거다이맥스"
 	},
-	// unfinished
-	"Box Legendary": {
-		"English": "",
-		"Español": "",
-		"Português": "",
-		"Deutsch": "",
-		"日本": "",
-		"简中": "",
-		"繁中": "",
-		"Français": "",
-		"Italiano": "",
-		"한국어": ""
-	},
 	"Mythical": {
 		"English": "Mythical",
 		"Español": "Pokémon mítico",
@@ -223,7 +382,7 @@ var translatable = {
 		"Italiano": "Pokémon misterioso",
 		"한국어": "환상의 포켓몬"
 	},
-	"Ultra Beast": {
+	"UltraBeast": {
 		"English": "Ultra Beast",
 		"Español": "Ultraente",
 		"Português": "Ultrafera",
@@ -306,5 +465,246 @@ var translatable = {
 		"Français": "Charmilly",
 		"Italiano": "Alcremie",
 		"한국어": "마휘핑"
+	},
+	
+	"Normal": {
+		"English": "Normal",
+		"Español": "Normal",
+		"Português": "Normal",
+		"Deutsch": "Normal",
+		"日本": "ノーマル",
+		"简中": "一般",
+		"繁中": "一般",
+		"Français": "Normal",
+		"Italiano": "Normale",
+		"한국어": "노말"
+	},
+	"Fire": {
+		"English": "Fire",
+		"Español": "Fuego",
+		"Português": "Fogo",
+		"Deutsch": "Feuer ",
+		"日本": "ほのお ",
+		"简中": "炎",
+		"繁中": "炎",
+		"Français": "Feu",
+		"Italiano": " 	Fuoco",
+		"한국어": "불꽃"
+	},
+	"Water": {
+		"English": "Water",
+		"Español": "Agua",
+		"Português": "Água",
+		"Deutsch": "Wasser",
+		"日本": "みず",
+		"简中": "水",
+		"繁中": "水",
+		"Français": "Eau",
+		"Italiano": "Acqua",
+		"한국어": "물"
+	},
+	"Grass": {
+		"English": "Grass",
+		"Español": "Planta",
+		"Português": "Erva",
+		"Deutsch": "Pflanze",
+		"日本": "くさ",
+		"简中": "草",
+		"繁中": "草",
+		"Français": "Plante",
+		"Italiano": "Erba",
+		"한국어": "풀"
+	},
+	"Electric": {
+		"English": "Electric",
+		"Español": "Eléctrico",
+		"Português": "Elétrico",
+		"Deutsch": "Elektro",
+		"日本": "でんき",
+		"简中": "电",
+		"繁中": "電",
+		"Français": "Électrik",
+		"Italiano": "Elettro",
+		"한국어": " 	전기"
+	},
+	"Ice": {
+		"English": "Ice",
+		"Español": "Hielo",
+		"Português": "Gelo",
+		"Deutsch": "Eis",
+		"日本": "こおり",
+		"简中": "冰",
+		"繁中": "冰",
+		"Français": "Glace",
+		"Italiano": "Ghiaccio",
+		"한국어": " 	얼음"
+	},
+	"Fighting": {
+		"English": "Fighting",
+		"Español": "Lucha",
+		"Português": "Luta",
+		"Deutsch": "Kampf",
+		"日本": "かくとう",
+		"简中": "格斗",
+		"繁中": "格鬥",
+		"Français": "Combat",
+		"Italiano": "Lotta",
+		"한국어": "격투"
+	},
+	"Poison": {
+		"English": "Poison",
+		"Español": "Veneno",
+		"Português": "Veneno",
+		"Deutsch": "Gift",
+		"日本": "どく",
+		"简中": "毒",
+		"繁中": "毒",
+		"Français": "Poison",
+		"Italiano": "Veleno",
+		"한국어": "독"
+	},
+	"Ground": {
+		"English": "Ground",
+		"Español": "Tierra",
+		"Português": "Terra",
+		"Deutsch": "Boden",
+		"日本": "じめん",
+		"简中": "地面 ",
+		"繁中": "地面 ",
+		"Français": "Sol",
+		"Italiano": "Terra",
+		"한국어": "땅"
+	},
+	"Flying": {
+		"English": "Flying",
+		"Español": "Volador",
+		"Português": "Voador",
+		"Deutsch": "Flug",
+		"日本": "ひこう",
+		"简中": "飞行",
+		"繁中": "飛行",
+		"Français": "Vol",
+		"Italiano": "Volante",
+		"한국어": "비행"
+	},
+	"Psychic": {
+		"English": "Psychic",
+		"Español": "Psíquico",
+		"Português": "Psíquico",
+		"Deutsch": "Psycho",
+		"日本": "エスパー",
+		"简中": "超能力",
+		"繁中": "超能力",
+		"Français": "Psy",
+		"Italiano": "Psico",
+		"한국어": "에스퍼"
+	},
+	"Bug": {
+		"English": "Bug",
+		"Español": "Bicho",
+		"Português": "Insecto",
+		"Deutsch": "Käfer",
+		"日本": "むし",
+		"简中": "虫",
+		"繁中": "蟲",
+		"Français": "Insecte",
+		"Italiano": "Coleottero",
+		"한국어": "벌레"
+	},
+	"Rock": {
+		"English": "Rock",
+		"Español": "Roca",
+		"Português": "Pedra",
+		"Deutsch": "Gestein",
+		"日本": "いわ",
+		"简中": "岩石",
+		"繁中": "岩石",
+		"Français": "Roche",
+		"Italiano": "Roccia",
+		"한국어": "바위"
+	},
+	"Ghost": {
+		"English": "Ghost",
+		"Español": "Fantasma",
+		"Português": "Fantasma",
+		"Deutsch": "Geist",
+		"日本": "ゴースト",
+		"简中": "幽灵",
+		"繁中": "幽靈",
+		"Français": "Spectre",
+		"Italiano": "Spettro",
+		"한국어": "고스트"
+	},
+	"Dragon": {
+		"English": "Dragon",
+		"Español": "Dragón",
+		"Português": "Dragão",
+		"Deutsch": "Drache",
+		"日本": "ドラゴン",
+		"简中": "龙",
+		"繁中": "龍",
+		"Français": "Dragon",
+		"Italiano": "Drago",
+		"한국어": " 	드래곤"
+	},
+	"Dark": {
+		"English": "Dark",
+		"Español": "Siniestro",
+		"Português": "Sinistro",
+		"Deutsch": "Unlicht",
+		"日本": "あく",
+		"简中": "恶",
+		"繁中": "惡",
+		"Français": "Ténèbres",
+		"Italiano": "Buio",
+		"한국어": "악"
+	},
+	"Steel": {
+		"English": "Steel",
+		"Español": "Acero",
+		"Português": "Aço",
+		"Deutsch": "Stahl",
+		"日本": "はがね",
+		"简中": "钢",
+		"繁中": "鋼",
+		"Français": "Acier",
+		"Italiano": "Acciaio",
+		"한국어": "강철"
+	},
+	"Fairy": {
+		"English": "Fairy",
+		"Español": "Hada",
+		"Português": "Fada",
+		"Deutsch": "Fee",
+		"日本": "フェアリー",
+		"简中": "妖精",
+		"繁中": "妖精",
+		"Français": "Fée",
+		"Italiano": "Folletto",
+		"한국어": "페어리"
+	},
+	"Starter": {
+		"English": "Starter",
+		"Español": "Inicial",
+		"Português": "Inicial",
+		"Deutsch": "Starter",
+		"日本": "はじめて",
+		"简中": "起动机",
+		"繁中": "起動機",
+		"Français": "de départ",
+		"Italiano": "Iniziale",
+		"한국어": "파트너"
+	},
+	"Legend": {
+		"English": "Legend",
+		"Español": "Legend", //legendario
+		"Português": "Lendário", //Legendäre 
+		"Deutsch": "Legend",
+		"日本": "伝説",
+		"简中": "传说的",
+		"繁中": "傳說的",
+		"Français": "Legend", //légendaire
+		"Italiano": "Legend", //leggendari
+		"한국어": " 전설의"
 	}
 }

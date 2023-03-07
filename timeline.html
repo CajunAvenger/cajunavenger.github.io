@@ -1,0 +1,460 @@
+<html>
+<head>
+<!-- Global settings CSS -->
+<style id="global-css">
+.tab {
+	display: inline-block;
+	position: relative;
+	z-index: 3;
+	cursor: pointer;
+}
+#tab1 {
+	left: 12px;
+}
+#tab2 {
+	left: 30px;
+}
+#tab3 {
+	left: 55px;
+}
+#tab4 {
+	left: 85px;
+}
+#styling-options input {
+	position: absolute;
+	left: 135px;
+}
+#styling-options .reset-button {
+	position: absolute;
+	left: 220px;
+}
+#thread-styling input {
+	position: absolute;
+	left: 150px;
+}
+.thread-input {
+	position: absolute;
+	left: 56px;
+}
+#axis-settings .axis-inputs {
+	position: absolute;
+	left: 90px;
+	display: inline-block;
+}
+#axis-unit {
+	width: 80px;
+}
+#boundary-settings .date-input {
+	position: absolute;
+	left: 70px;
+}
+#axis-style {
+	width: 133px;
+}
+#settings {
+	position: absolute;
+	width: 300px;
+	padding-top: 5px;
+	padding-left: 5px;
+	line-height: 140%
+}
+#start-end {
+	position: relative;
+	top: 3px;
+}
+#axis-input {
+	position: relative;
+	top: 6px;
+}
+#label-define {
+	position: relative;
+	top: 9px;
+}
+#height-define {
+	position: relative;
+	top: 15px;
+}
+#thread-settings, #edit-settings, #event-settings, #export-settings {
+	position: relative;
+	display: none;
+	top: 18px;
+}
+.backdrop {
+	background-color: #cacaca;
+	width: 310px;
+	height: 580px;
+	position: absolute;
+	top: 2px;
+	left: 0px;
+	z-index: -1;
+	border-style: solid;
+	border-width: 1px;
+}
+#live-tab {
+	background-color: #cacaca;
+	width: 80px;
+	height: 22px;
+	position: absolute;
+	top: 6px;
+	left: 8px;
+	border-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+}
+#font-style {
+	left: 135px;
+	position: absolute;
+	width: 129px;
+}
+</style>
+<!--  Automated timeline elements
+	these may be changed by the user
+	but will almost always be handled automatically
+	timeline border, axis styling & labels
+-->
+<style id="auto-css">
+.timeline {
+	left: 330px;
+	width: 730px;
+    height: 600px;
+	position: absolute;
+	border-style: solid;
+	border-width: 1px;
+}
+.timeline .timeline-element {
+	position: absolute;
+}
+.timeline .axis {
+	left: 70px;
+	top: 25px;
+	width: 3px;
+	height: 550px;
+	background-color: #000000;
+}
+.timeline .year-marker {
+	left: 50px;
+	top: 25px;
+	width: 20px;
+	height: 3px;
+	background-color: #000000;
+	z-index: 3;
+}
+.timeline .year-label {
+	left: 15px;
+	position: absolute;
+	text-align: right;
+	z-index: 5;
+}
+</style>
+<!-- General styling: Event bar, label styling -->
+<style id="base-css">
+.timeline .timeline-bar {
+	top: 20px;
+	width: 40px;
+	height: 3px;
+	cursor: pointer;
+}
+.timeline .timeline-label {
+	position: absolute;
+	width: 150px;
+	z-index: 5;
+	transform: translateY(50%);
+	-webkit-transform: translateY(50%);
+    -moz-transform: translateY(50%);
+	pointer-events: none;
+}
+.timeline .timeline-milestone {
+	top: 20px;
+	width: 60px;
+	height: 3px;
+	cursor: pointer;
+}
+</style>
+<!-- Event objects, definitions for the event bar and label for each thread -->
+<style id="events-css">
+.timeline .bar-0 {
+	left: 75px;
+}
+.timeline .bar-0-label {
+	left: 140px;
+	display: block;
+}
+</style>
+<!-- Fonts -->
+<style id="font-css">
+.arial-font {
+	font-family: Arial, sans-serif;
+}
+.verdana-font {
+	font-family: Verdana, sans-serif;
+}
+.tahoma-font {
+	font-family: Tahoma, sans-serif;
+}
+.trebuchet-font {
+	font-family: Trebuchet MS, sans-serif;
+}
+.times-new-roman-font {
+	font-family: Times New Roman, serif;
+}
+.georgia-font {
+	font-family: Georgia, serif;
+}
+.garamond-font {
+	font-family: Garamond, serif;
+}
+.courier-new-font {
+	font-family: Courier New, monospace;
+}
+.brush-script-font {
+	font-family: Brush Script MT, cursive;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="timeline.js"></script>
+</head>
+<body onload="documentLoaded();">
+<div class="timeline" id="timeline">
+	<div id="axis" class="timeline-element axis"></div>
+	<div class="timeline-element year-marker" id="year-start"></div>
+	<div class="timeline-element year-marker" id="year-end" style="top:572px;"></div>
+</div>
+<div id="tab-nav">
+	<span class="tab" id="tab1" onclick="switchTab(this);">Timeline</span> 
+	<span class="tab" id="tab2" onclick="switchTab(this);">Threads</span> 
+	<span class="tab" id="tab3" onclick="switchTab(this);">Events</span>
+	<span class="tab" id="tab4" onclick="switchTab(this);">Export</span>
+</div>
+<div id="live-tab"></div>
+<div id="settings">
+	<div class="backdrop"></div>
+	<div id="global-settings">
+		<span id="boundary-settings">
+			<center><b>Boundary Dates</b></center>
+			<label for="startYear">Start:</label>
+			<span class="date-input"><input type="number" id="startYear" placeholder="Year" size="8"></input><input type="number" id="startMonth" placeholder="Month" size="7"></input><input type="number" id="startDay" placeholder="Day" size="7"></input></span>
+			<br>
+			<label for="endYear">End:</label>&nbsp;
+			<span class="date-input"><input type="number" id="endYear" placeholder="Year" size="8"></input><input type="number" id="endMonth" placeholder="Month" size="7"></input><input type="number" id="endDay" placeholder="Day" size="7"></input></span>
+			<br>
+			<center><input type="button" id="btnApplyBoundary" value="Apply Dates" onclick="updateGlobals(this);"> <input type="button" id="btnResetBoundary" value="Reset" onclick="updateGlobals(this);"></center>
+			Decimal years are accepted, given month/day values will overide the converted ones.
+		</span>
+		<hr>
+		<span id="axis-settings">
+			<center><b>Axis Options</b></center>
+			<abbr title="A labeled line will be placed on the timeline at this interval.&#13;&#10;Intervals have a minimum height of 20px,&#13;&#10;so a small major axis may force your timeline to be larger.">
+				<label for="axis-value">Major axis:</label>
+				<span class="axis-inputs"><input type="number" id="axis-value" size="4">
+					<select id="axis-unit">
+						<option value="0">years</option>
+						<option value="1">months</option>
+						<option value="2">days</option>
+					</select>
+					<input type="button" id="axis-button" value="Apply axis" onclick="updateGlobals(this);">
+				</span>
+			</abbr>
+			<br>
+			<abbr title="Default styles for axis labels:&#13;&#10;Outer: Small marks outside the thread area.&#13;&#10;Inner: Small marks that may cover the first thread.&#13;&#10;Under Grid: Thin lines go under the entire timeline.&#13;&#10;Over Grid: Above, but lines layer over event bars.&#13;&#10;Break events: Above, but with a white line to 'break' bars.">
+				<label for="axis-style">Axis style:</label>
+				<span class="axis-inputs">
+					<select id="axis-style" onchange="updateGlobals(this);">
+						<option value="outer">Outer</option>
+						<option value="inner">Inner</option>
+						<option value="grid1">Under Grid</option>
+						<option value="grid2">Over Grid</option>
+						<option value="grid3">Break events</option>
+					</select>
+				</span>
+			</abbr>
+			<br>
+			<label for="label-definer">Date labels:</label><span class="axis-inputs"><input type="text" id="label-definer" placeholder='eg, "{M}, {D} {Y}"' size="18" onchange="updateGlobals(this);"></input></span>
+			<br>
+			The label to use, {Y}, {M}, and {D} will be replaced with the relevant year/month/date.
+		</span>
+		<hr>
+		<span id="styling-options">
+			<center><b>Styling Options</b></center>
+			<abbr title="Controls the height of the timeline.&#13;&#10;A minimum height will be enforced based on your major axis.">
+				Timeline height: <input  type="number" size="6" id="height-definer" value="550" onchange="updateGlobals(this);">
+			</abbr>
+			<input class="reset-button" type="button" value="Reset" onclick="resetDefault('height-definer');">
+			<br>
+			<abbr title="Controls the width of the event bars.">
+				Bar width: <input type="number" size="6" id="bar-width" value="40" onchange="updateGlobals(this);">
+			</abbr>
+			<input class="reset-button" type="button" value="Reset" onclick="resetDefault('bar-width');">
+			<br>
+			<abbr title="The bar size for special events with the same start and end date.">
+				Milestone width: <input type="number" size="6" id="mile-width" value="60" onchange="updateGlobals(this);">
+			</abbr>
+			<input class="reset-button" type="button" value="Reset" onclick="resetDefault('mile-width');">
+			<br>
+			<abbr title="Controls the max width of labels.">
+				Label width: <input type="number" size="6" id="label-width" value="150" onchange="updateGlobals(this);">
+			</abbr>
+			<input class="reset-button" type="button" value="Reset" onclick="resetDefault('label-width');">
+			<br>
+			<abbr title="Controls the spacing between the event bars and the labels.">
+				Label offset: <input type="number" size="6" id="label-offset" value="25" onchange="updateGlobals(this);">
+			</abbr>
+			<input class="reset-button" type="button" value="Reset" onclick="resetDefault('label-offset');">
+			<br>
+			<abbr title="Controls the spacing between different threads">
+				Thread offset: <input type="number" size="6" id="thread-offset" value="10" onchange="updateGlobals(this);">
+			</abbr>
+			<input class="reset-button" type="button" value="Reset" onclick="resetDefault('thread-offset');">
+			<br>
+			<abbr title="Controls the placement of the vertical axis.">
+				Axis offset: <input type="number" size="6" id="axis-offset" value="70" onchange="updateGlobals(this);">
+			</abbr>
+			<input class="reset-button" type="button" value="Reset" onclick="resetDefault('axis-offset');">
+			<br>
+			<abbr title="Controls vertical offset of the axis date labels.">
+				Axis label offset: <input type="number" size="6" id="axis-label-offset" value="-6" onchange="updateGlobals(this);">
+			</abbr>
+			<input class="reset-button" type="button" value="Reset" onclick="resetDefault('axis-label-offset');">
+			<br>
+			<abbr title="Controls spacing between axis and first bar.">
+				Bar offset: <input type="number" size="6" id="bar-offset" value="5" onchange="updateGlobals(this);">
+			</abbr>
+			<input class="reset-button" type="button" value="Reset" onclick="resetDefault('bar-offset');">
+			<br>
+			<abbr title="Controls the font size">
+				Font scaling %: <input type="number" size="6" id="font-scaler" step="10" value="100" onchange="updateGlobals(this);"></input>
+			</abbr>
+			<input class="reset-button" type="button" value="Reset" onclick="resetDefault('font-scaler');">
+			<br>
+			Label font: 
+			<select id="font-style" class="times-new-roman-font" onchange="updateGlobals(this);">
+				<option value="arial-font" class="arial-font">Arial</option>
+				<option value="verdana-font" class="verdana-font">Verdana</option>
+				<option value="tahoma-font" class="tahoma-font">Tahoma</option>
+				<option value="trebuchet-font" class="trebuchet-font">Trebuchet MS</option>
+				<option value="times-new-roman-font" class="times-new-roman-font" selected>Times New Roman</option>
+				<option value="georgia-font" class="georgia-font">Georgia</option>
+				<option value="garamond-font" class="garamond-font">Garamond</option>
+				<option value="courier-new-font" class="courier-new-font">Courier New</option>
+				<option value="brush-script-font" class="brush-script-font">Brush Script MT</option>
+			</select>
+		</span>
+	</div>
+	<div id="thread-settings">
+		Threads: 
+		<select style="width:150px;" id="thread-selector" class="thread-selector" onchange="focusThread(this);">
+			<!--<option id="pick-thread-0" value="0" selected>Thread 1</option>-->
+		</select>
+		<input type="button" id="btnCreateThread" value="New thread" onclick="createThread();">
+		<hr>
+		<center><b>Current Thread</b></center>
+		Name:&nbsp;&nbsp;&nbsp; <input class="thread-input" type="text" size="21" id="thread-name" onchange="updateThread(this);">
+		<br>
+		<abbr title="This determines the order multiple threads are displayed in the timeline,&#13;&#10;starting at index 0 and going up.">
+			Index: <input class="thread-input" type="text" id="thread-index" onchange="updateThread(this);" size="1">
+		</abbr>
+		<br>
+		Color:&nbsp;&nbsp;&nbsp; <input class="thread-input" type="color" id="thread-color" onchange="updateThread(this);">
+		<br>
+		<br>
+		<input class="thread-input" type="button" value="Create new event in this thread" onclick="switchTab({id:'tab3'});">
+		<br>
+		<hr>
+		<span id="thread-styling">
+			<center><b>Thread Styling</b></center>
+			<abbr title="Increase the size of the event bars on this thread.">
+				Bar width offset: <input type="number" id="thread-bar-width" size="6" onchange="updateThread(this);">
+			</abbr>
+			<br>
+			<abbr title="Increase the width of the event labels on this thread.">
+				Label width offset: <input type="number" id="thread-label-width" size="6" onchange="updateThread(this);">
+			</abbr>
+			<br>
+			<abbr title="Increase the spacing between the event bars and labels.">
+				Label offset: <input type="number" id="thread-label-offset" size="6" onchange="updateThread(this);">
+			</abbr>
+			<br>
+			<abbr title="Increase the spacing between this thread and the next one.">
+				Thread offset: <input type="number" id="thread-thread-offset" size="6" onchange="updateThread(this);">
+			</abbr>
+		</span>
+		<hr>
+		<center><b>Danger Zone</b></center>
+		<center><b>Migrate to another thread</b></center>
+		Choose a thread: <select style="width:150px;" id="merge-selector" class="thread-selector" onchange="migrateMetas(this);">
+			<!--<option id="pick-thread-0" value="0" selected>Thread 1</option>-->
+		</select>
+		<br>
+		Inherit new thread's color? <input type="checkbox" value="inherit" id="merge-color" checked>
+		<br>
+		<center><span id="merge-error" style="color: red;visibility: hidden;">A thread can't be merged into itself.</span></center>
+		<center><input type="button" id="btnMerge" value="Merge Thread" onclick="mergeForm();"></center>
+		<hr>
+		<center><b>Delete thread and events</b></center>
+		<br>
+		<center><input type="button" value="Delete thread" onclick="deleteThread();"></center>
+	</div>
+	<div id="event-settings">
+		<div id="event-header"><b>Creating an event on thread <a id="creating-thread-name"></a></b></div>
+		Event label: <input type="text" size="19" id="event-name"> <input type="color" id="event-color">
+		<br>
+		<label for="eventStartYear">Event start date:</label>
+		<br>
+		<input type="number" id="eventStartYear" placeholder="Year" size="8"></input><input type="number" id="eventStartMonth" placeholder="Month" size="8"></input><input type="number" id="eventStartDay" placeholder="Day" size="8"></input>
+		<br>
+		<label for="eventEndYear">Event end date:</label>
+		<br>
+		<input type="number" id="eventEndYear" placeholder="Year" size="8"></input><input type="number" id="eventEndMonth" placeholder="Month" size="8"></input><input type="number" id="eventEndDay" placeholder="Day" size="8"></input>
+		<br>
+		<input type="button" value="Add event" onclick="createTimelineEvent();">
+	</div>
+	<div id="edit-settings">
+		<div id="edit-header"><b>Editing an event on thread <a id="editing-thread-name"></a></b></div>
+		Editing Event: <input type="button" id="btnResume" value="Stop editing" onclick="cancelEditing();">
+		<br>
+		Event label: <input type="text" id="edit-label" onchange="displayEdit(this)"> <input type="color" id="edit-color" onchange="displayEdit(this)">
+		<br>
+		Label offset Y: <input type="number" id="edit-y" size="3" onchange="displayEdit(this)"> X: <input type="number" size="3" id="edit-x" onchange="displayEdit(this)">
+		<br>
+		<label for="year-input">Event start date:</label>
+		<br>
+		<input type="number" id="edit-start-year" placeholder="Year" size="8"></input><input type="number" id="edit-start-month" placeholder="Month" size="8"></input><input type="number" id="edit-start-day" placeholder="Day" size="8"></input>
+		<br>
+		<label for="year-input">Event end date:</label>
+		<br>
+		<input type="number" id="edit-end-year" placeholder="Year" size="8"></input><input type="number" id="edit-end-month" placeholder="Month" size="8"></input><input type="number" id="edit-end-day" placeholder="Day" size="8"></input>
+		<br>
+		<input type="button" id="btnPreview" value="Preview New Date" onclick="displayEdit(this);">
+		<input type="button" id="btnSubmitEdit" value="Save Changes" onclick="saveEventEdit();">
+		<input type="button" id="btnResetEdit" value="Reset" onclick="resetEventEdit(true);">
+		<hr>
+		<center><b>Migrate to another thread</b></center>
+		Choose a thread: <select style="width:150px;" id="migrate-selector" class="thread-selector" onchange="migrateMetas(this);">
+			<!--<option id="pick-thread-0" value="0" selected>Thread 1</option>-->
+		</select>
+		<br>
+		Inherit new thread's color? <input type="checkbox" value="inherit" id="migrate-color" checked>
+		<center><span id="migrate-error" style="color: red;visibility: hidden;">The event is already on this thread.</span></center>
+		<center><input type="button" id="btnMigrate" value="Migrate Event" onclick="migrateEvent();"></center>
+		<hr>
+		<center><b>Danger Zone</b></center>
+		<center><input type="button" id="btnDelete" value="Delete event" onclick="deleteEventEdit();"></center>
+	</div>
+	<div id="export-settings">
+		<center><b>Timeline Import/Export</b></center>
+		<a id="download-link" download="timeline.txt">Click here</a> to download your Timeline Text File. It can be uploaded below to load the current state, or add it to another timeline. Note that this website will not save your timelines if you leave it outside of this download!
+		<input type="file" accept=".txt" id="importer" onchange="document.getElementById('btnImport').style.visibility=''">
+		<input style="visibility:hidden;" type="button" onclick="submitImport();" id="btnImport" value="Load file">
+		<br>
+		<span id="import-error" style="color:red;"></span>
+		<hr>
+		<center><b>CSS/HTML Export</b></center>
+		<center><i>(Coming soon)</i></center>
+	</div>
+</div>
+<script>
+/*just here to prevent Firefox FOUC*/
+let FF_FOUC_FIX;
+</script>
+</body>
+</html>
