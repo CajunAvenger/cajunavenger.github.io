@@ -2907,6 +2907,8 @@ var arrays = {
 	   "RAYQUAZA_1"
 	  ],
 	  [
+	   "ZYGARDE_1",
+	   "ZYGARDE_2",
 	   "TYPENULL",
 	   "SILVALLY",
 	   "TAPUKOKO",
