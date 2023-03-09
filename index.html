@@ -1774,7 +1774,7 @@ canvas {
 	}
 	function fullShiny() {
 		if(spriteFile == "Shiny") {
-			setCookie("shiny", "shsiny");
+			setCookie("shiny", "shiny");
 		}else{
 			deleteCookie("shiny");
 		}
@@ -1839,10 +1839,12 @@ canvas {
 			return;
 		}
 		if(currently_selecting != null) {
+			// if we've clicked the same box, close it and exit
 			if(currently_selecting[0] == gen && currently_selecting[1] == type) {
 				closeBox();
 				return;
 			}
+			// otherwise close any open boxes and keep going
 			closeBox();
 		}
 		currently_selecting = [gen, type];
@@ -2074,7 +2076,7 @@ canvas {
 				var ele = document.getElementById('box'+g+'_'+t);
 				if(!ele || ele.src == "./blank.png")
 					continue;
-					ctx.drawImage(ele, ele.offsetLeft, ele.offsetTop);
+				ctx.drawImage(ele, ele.offsetLeft, ele.offsetTop);
 				if(g == 0 && t == 22) {
 					// render spinda
 					var spots = ["spot1", "spot2", "spot3", "spot4", "spinda2", "spinda-cover"];
