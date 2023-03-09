@@ -1760,6 +1760,7 @@ canvas {
 				choices[i].push("")
 			}
 		}
+		choices[0][22] = "SPINDA"
 	}
 	resetChoices();
 	function activateShiny() {
@@ -2131,6 +2132,10 @@ canvas {
 			spot_ele.style.top = base_top - parseInt(new_y);
 			document.getElementById(sname + "x").value = new_x;
 			document.getElementById(sname + "y").value = new_y;
+		}
+		if(!choices[0][22] == "SPINDA") {
+			choices[0][22] = "SPINDA";
+			writeCookie(0)
 		}
 		writeSpindaCookie()
 	}
