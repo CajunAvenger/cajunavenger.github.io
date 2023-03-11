@@ -1,0 +1,996 @@
+#workskin .cara {
+  color: #157124;
+}
+
+#workskin .leira-hoserai {
+  color: #191919;
+}
+
+#workskin .kadri {
+  color: #264186;
+}
+
+#workskin .jhanu {
+  color: #299999;
+}
+
+#workskin .neso-aris {
+  color: #400080;
+}
+
+#workskin .kirino-sadness {
+  color: #430343;
+}
+
+#workskin .wind-raz {
+  color: #443388;
+}
+
+#workskin .black-to-kirino5 {
+  color: #490202;
+}
+
+#workskin .zweil {
+  color: #505545;
+}
+
+#workskin .bell {
+  color: #550000;
+}
+
+#workskin .black-to-kirino6 {
+  color: #570202;
+}
+
+#workskin .lhin {
+  color: #590590;
+}
+
+#workskin .black-to-kirino7 {
+  color: #660202;
+}
+
+#workskin .karinas-mom {
+  color: #710660;
+}
+
+#workskin .karinas-dad {
+  color: #716006;
+}
+
+#workskin .black-to-kirino8 {
+  color: #740303;
+}
+
+#workskin .nightmare-karina {
+  color: #742424;
+}
+
+#workskin .reyhsia {
+  color: #750000;
+}
+
+#workskin .lettie-wormwood {
+  color: #770000;
+}
+
+#workskin .melancholic {
+  color: #777777;
+}
+
+#workskin .kirino {
+  color: #830303;
+}
+
+#workskin .karina-transceiver {
+  color: #862929;
+}
+
+#workskin .reyhsia {
+  color: #750000;
+}
+
+#workskin .old-karina-to-kirino7 {
+  color: #911111;
+}
+
+#workskin .kirino-to-karina2 {
+  color: #911135;
+}
+
+#workskin .karina-narration {
+  color: #944444;
+}
+
+#workskin .karina-narration {
+  color: #944444;
+}
+
+#workskin .arandu {
+  color: #988013;
+}
+
+#workskin .old-karina-to-kirino6 {
+  color: #991919;
+}
+
+#workskin .rel-irkin {
+  color: #996633;
+}
+
+#workskin .courier-new {
+  font-family:"Courier New", monospace;
+}
+
+#workskin .comic-sans {
+	font-family: "Comic Sans", cursive;
+}
+#workskin .trebuchet-ms {
+	font-family: "Trebuchet MS", cursive;
+}
+#workskin .impact {
+	font-family: "Impact", serif;
+}
+#workskin .times-new-roman {
+	font-family: "Times New Roman", serif;
+}
+#workskin .verdana {
+	font-family: "Verdana", sans-serif;
+}
+#workskin .georgia {
+	font-family: "Georgia", serif;
+}
+
+
+#workskin .karina-transceiver {
+  color: #862929;
+  font-family:"Courier New", monospace;
+}
+
+#workskin .invisible {
+  color: #eeeeee;
+}
+
+#workskin .karina {
+  color: #c444e6;
+}
+
+#workskin .mabil {
+  color: #44a4e4;
+}
+
+#workskin .hannah {
+  color: #1919e6;
+}
+
+#workskin .black-to-kirino0 {
+  color: #000000;
+}
+
+#workskin .black-to-kirino1 {
+  color: #0f0000;
+}
+
+#workskin .black-to-kirino2 {
+  color: #1d0101;
+}
+
+#workskin .black-to-kirino3 {
+  color: #2c0101;
+}
+
+#workskin .black-to-kirino4 {
+  color: #3a0101;
+}
+
+#workskin .kirino-to-karina1 {
+  color: #8a0a1c;
+}
+
+#workskin .kirino-to-karina3 {
+  color: #99194f;
+}
+
+#workskin .kirino-to-karina4 {
+  color: #a02068;
+}
+
+#workskin .kirino-to-karina5 {
+  color: #a72781;
+}
+
+#workskin .kirino-to-karina6 {
+  color: #ae2e9a;
+}
+
+#workskin .kirino-to-karina7 {
+  color: #b636b4;
+}
+
+#workskin .kirino-to-karina8 {
+  color: #bd3dcd;
+}
+
+#workskin .experiment-zero {
+  color: #5e547c;
+}
+
+#workskin .lettie {
+  color: #007700;
+}
+
+#workskin .reza {
+  color: #9ba9ba;
+}
+
+#workskin .xan {
+  color: #0083ff;
+}
+
+#workskin .nami {
+  color: #cf0000;
+}
+
+#workskin .experiment-debug {
+  color: #0022e2;
+}
+
+#workskin .experiment-hope {
+  color: #e20200;
+}
+
+#workskin .karina-faded {
+  color: #daa4f3;
+}
+
+#workskin .maevah {
+  color: #1d3163;
+}
+
+#workskin .anne {
+  color: #a03807;
+}
+
+#workskin .atlani {
+  color: #e78a34;
+}
+
+#workskin .karina-okused {
+  color: #e26666;
+}
+
+#workskin .mr-bently {
+  color: #006660;
+}
+
+#workskin .karina-kirinod {
+  color: #c44444;
+}
+
+#workskin .karina-kirinod {
+  color: #c44444;
+}
+
+#workskin .hannah-to-old-karina1 {
+  color: #2c1ed4;
+}
+
+#workskin .hannah-to-old-karina2 {
+  color: #3f23c2;
+}
+
+#workskin .hannah-to-old-karina3 {
+  color: #5227b0;
+}
+
+#workskin .hannah-to-old-karina4 {
+  color: #652c9e;
+}
+
+#workskin .hannah-to-old-karina5 {
+  color: #78318c;
+}
+
+#workskin .hannah-to-old-karina6 {
+  color: #8b367a;
+}
+
+#workskin .hannah-to-old-karina7 {
+  color: #9e3a68;
+}
+
+#workskin .hannah-to-old-karina8 {
+  color: #b13f56;
+}
+
+#workskin .old-karina-to-kirino1 {
+  color: #bd3d3d;
+}
+
+#workskin .old-karina-to-kirino2 {
+  color: #b63636;
+}
+
+#workskin .old-karina-to-kirino3 {
+  color: #ae2e2e;
+}
+
+#workskin .old-karina-to-kirino4 {
+  color: #a72727;
+}
+
+#workskin .old-karina-to-kirino5 {
+  color: #a02020;
+}
+
+#workskin .old-karina-to-kirino8 {
+  color: #8a0a0a;
+}
+
+#workskin .seiva {
+  color: #e5c300;
+}
+
+#workskin .master-sara {
+  color: #ea7325;
+}
+
+#workskin .rixos {
+  color: #0a2442;
+}
+
+#workskin .skylar-rolt {
+  color: #00adff;
+}
+
+#workskin .khon-vasq {
+  color: #72767a;
+}
+
+#workskin .hannah-narration {
+  color: #1919a6;
+}
+
+#workskin .invisible {
+  color: #ffffff;
+}
+
+#workskin .invisible {
+  color: #ffffff;
+}
+
+#workskin .silver-border {
+  color: #cacaca;
+}
+
+#workskin .anne-white {
+  color: #ebe200;
+}
+
+#workskin .anne-blue {
+  color: #008ceb;
+}
+
+#workskin .anne-black {
+  color: #7b00eb;
+}
+
+#workskin .anne-red {
+  color: #eb3000;
+}
+
+#workskin .anne-green {
+  color: #0900eb;
+}
+
+#workskin .selem {
+  color: #473cc4;
+}
+
+#workskin .yenna {
+  color: #b79b44;
+}
+
+#workskin .xaja {
+  color: #8a87aa;
+}
+
+#workskin .doer {
+  color: #b60000;
+}
+
+#workskin .michi {
+  color: #00bb55;
+}
+
+#workskin .arina {
+  color: #1979e6;
+}
+
+#workskin .arina-narration {
+  color: #1979a6;
+}
+
+#workskin .fulmen {
+  color: #e61919;
+}
+
+#workskin .kirino-memory {
+  color: #030383;
+}
+
+#workskin .skylar-rolt-detective {
+  color: #007bce;
+}
+
+#workskin .skylar-rolt-monsters {
+  color: #c26d00;
+}
+
+#workskin .skylar-rolt-her {
+  color: #8c19e6;
+}
+
+#workskin .skylar-rolt-riddle {
+  color: #9c0000;
+}
+
+#workskin .henry-brayden {
+  color: #0077ff;
+}
+
+#workskin .flynn {
+  color: #be9001;
+}
+
+#workskin .sevid {
+  color: #4a9a4a;
+}
+
+#workskin .xirix {
+  color: #404d4d;
+}
+
+#workskin .saia {
+  color: #60a5a5;
+}
+
+#workskin .mei-liva {
+  color: #5030a0;
+}
+
+#workskin .undue {
+  color: #779a3a;
+}
+
+#workskin .pidge {
+  color: #be8c8c;
+}
+
+#workskin .experiment-three {
+  color: #6e2111;
+}
+
+#workskin .briar {
+  color: #da9a00;
+}
+
+#workskin .briar-vikrei {
+  color: #e33030;
+}
+
+#workskin .briar-milli {
+  color: #da9a00;
+}
+
+#workskin .cygari {
+  color: #700c70;
+}
+
+#workskin .haide {
+  color: #ad5d5d;
+}
+
+#workskin .neeyo {
+  color: #a5ceff;
+}
+
+#workskin .dawn-monster {
+  color: #ffb700;
+}
+
+#workskin .argel {
+  color: #ffbd00;
+}
+
+#workskin .argel-mentor {
+  color: #ff4200;
+}
+
+#workskin .allatu {
+  color: #cae34f;
+}
+
+#workskin .soumaw {
+  color: #6e0dc7;
+}
+
+#workskin .twyla {
+  color: #6cb267;
+}
+
+#workskin .parsul {
+  color: #a49341;
+}
+
+#workskin .parsul-cajun {
+  color: #2ecc71;
+}
+
+#workskin .world-book-1 {
+  color: #c8bf36;
+}
+
+#workskin .world-book-2 {
+  color: #95703c;
+}
+
+#workskin .world-book-3 {
+  color: #8f953c;
+}
+
+#workskin .world-book-4 {
+  color: #3c957b;
+}
+
+#workskin .world-book-5 {
+  color: #953c7a;
+}
+
+#workskin .world-book-6 {
+  color: #893c95;
+}
+
+#workskin .world-book-7 {
+  color: #abae20;
+}
+
+#workskin .world-book-8 {
+  color: #ff0000;
+}
+
+#workskin .world-book-9 {
+  color: #644a76;
+}
+
+#workskin .world-book-10 {
+  color: #c1c431;
+}
+
+#workskin .world-book-11 {
+  color: #c231c4;
+}
+
+#workskin .world-book-12 {
+  color: #acacac;
+}
+
+#workskin .world-book-13 {
+  color: #2e89cc;
+}
+
+#workskin .world-book-14 {
+  color: #dedede;
+}
+
+#workskin .parsuls-princess {
+  color: #e619b8;
+}
+
+#workskin .callie {
+  color: #00bb69;
+}
+
+#workskin .lei-koen {
+  color: #73c0ca;
+}
+
+#workskin .januti {
+  color: #ff8700;
+}
+
+#workskin .iritola {
+  color: #a10000;
+}
+
+#workskin .mattol {
+  color: #cc0066;
+}
+
+#workskin .dieule {
+  color: #b7d9df;
+}
+
+#workskin .dieule-rude {
+  color: #c97979;
+}
+
+#workskin .rudara {
+  color: #8533dd;
+}
+
+#workskin .seska {
+  color: #38ac8b;
+}
+
+#workskin .seska-older {
+  color: #2e866d;
+}
+
+#workskin .estova-rei {
+  color: #db969b;
+}
+
+#workskin .haia-kenei {
+  color: #698c8c;
+}
+
+#workskin .varei-maristo {
+  color: #85b2b2;
+}
+
+#workskin .ani-soei {
+  color: #77ccdd;
+}
+
+#workskin .kirilo-rekasai {
+  color: #4caa00;
+}
+
+#workskin .kei-aliri {
+  color: #3e2a75;
+}
+
+#workskin .aeryl-kestei {
+  color: #007f0f;
+}
+
+#workskin .kaira-veis {
+  color: #4545aa;
+}
+
+#workskin .kauriga {
+  color: #c519e6;
+}
+
+#workskin .aiden-sunspear {
+  color: #b98500;
+}
+
+#workskin .nadejda {
+  color: #ad1999;
+}
+
+#workskin .hana-cheyn {
+  color: #31174d;
+}
+
+#workskin .severin {
+  color: #0aa2af;
+}
+
+#workskin .chief-aimi {
+  color: #3ac291;
+}
+
+#workskin .aiea-7ci {
+  color: #947f14;
+}
+
+#workskin .book-of-stabbing {
+  color: #c533a8;
+}
+
+#workskin .dr-arueth {
+  color: #3b4d17;
+}
+
+#workskin .orik-thornspike {
+  color: #9ad641;
+}
+
+#workskin .lace-ryba {
+  color: #0b325e;
+}
+
+#workskin .ylansa {
+  color: #2a574a;
+}
+
+#workskin .safir-nejem {
+  color: #475b70;
+}
+
+#workskin .valech-belmonte {
+  color: #067e6f;
+}
+
+#workskin .janika-linna {
+  color: #d6c92e;
+}
+
+#workskin .britt-bergfalk {
+  color: #cc73c5;
+}
+
+#workskin .resplendent {
+  color: #ca7186;
+}
+
+#workskin .kathryn-wrona {
+  color: #241e70;
+}
+
+#workskin .yamamoto-mio {
+  color: #51476b;
+}
+
+#workskin .lochana {
+  color: #6c8a37;
+}
+
+#workskin .tam-of-house-lyr {
+  color: #cf3a00;
+}
+
+#workskin .kunal {
+  color: #187e65;
+}
+
+#workskin .teagan-markey {
+  color: #71599c;
+}
+
+#workskin .yakana {
+  color: #ff00de;
+}
+
+#workskin .vidus {
+  color: #5f7504;
+}
+
+#workskin .aelewin {
+  color: #5b7654;
+}
+
+#workskin .simul {
+  color: #1ec86f;
+}
+
+#workskin .liactru {
+  color: #8c579c;
+}
+
+#workskin .thistle {
+  color: #d10000;
+}
+
+#workskin .lothaire {
+  color: #bb7700;
+}
+
+#workskin .cyria-agraud {
+  color: #8f2c53;
+}
+
+#workskin .aeterna {
+  color: #d8a800;
+}
+
+#workskin .marlowar {
+  color: #df0101;
+}
+
+#workskin .meadowlark {
+  color: #ad20e6;
+}
+
+#workskin .firefly {
+  color: #c7c700;
+}
+
+#workskin .tano-resaino {
+  color: #00cc77;
+}
+
+#workskin .kesai-turo {
+  color: #7700cc;
+}
+
+#workskin .vivian {
+  color: #8500ff;
+}
+
+#workskin .tokata {
+  color: #66cc8a;
+}
+
+#workskin .hilda {
+  color: #ce5f2a;
+}
+
+#workskin .novek-shen {
+  color: #4c1ee3;
+}
+
+#workskin .as-han {
+  color: #f22222;
+}
+
+#workskin .hanska {
+  color: #a7a284;
+}
+
+#workskin .yliki {
+  color: #19e673;
+}
+
+#workskin .mishka {
+  color: #7b19e6;
+}
+
+#workskin .alsy {
+  color: #64407e;
+}
+
+#workskin .obris-rook {
+  color: #505d15;
+}
+
+#workskin .zetla {
+  color: #a83737;
+}
+
+#workskin .lysenda {
+  color: #a700eb;
+}
+
+#workskin .lysenda-cat {
+  color: #5c4e3a;
+}
+
+#workskin .nicholai {
+  color: #ca00aa;
+}
+
+#workskin .cayli {
+  color: #e6199c;
+}
+
+#workskin .roy-nessy {
+  color: #7a7a7a;
+}
+
+#workskin .aki-nessy {
+  color: #00d480;
+}
+
+#workskin body {
+  font-size: 100%;
+}
+
+#workskin .half-point {
+  font-size: 0.5em;
+}
+
+#workskin .one-point {
+  font-size: 0.75em;
+}
+
+#workskin .three-point {
+  font-size: 1.25em;
+}
+
+#workskin .four-point {
+  font-size: 1.5em;
+}
+
+#workskin .hoverwrapper2 {
+  z-index: 2;
+  position: relative;
+  display: block;
+  height: 0%;
+}
+
+#workskin .hoverwrapper3 {
+  z-index: 3;
+  position: relative;
+  display: inline-block;
+  height: 0%;
+}
+
+#workskin .revealed,
+#workskin .revealed2,
+#workskin .revealed3 {
+  font-size: 0.0em;
+  display: block;
+  height: 0%;
+}
+
+#workskin .revealed2:hover {
+  font-size: 1.0em;
+  height: auto;
+}
+
+#workskin .hoverwrapper:hover .revealed {
+  font-size: 1.0em;
+  height: auto;
+}
+
+#workskin .hoverwrapper:hover .hoverwrapper2 {
+  height: auto;
+}
+
+#workskin .hoverwrapper2:hover .hoverwrapper3 {
+  height: auto;
+}
+
+#workskin .hoverwrapper:hover .fake_back {
+  width: 100%;
+  height: 100%;
+}
+
+#workskin .hoverwrapper2:hover .revealed2 {
+  font-size: 1.0em;
+  height: auto;
+}
+
+#workskin .hoverwrapper2:hover .fake_back2 {
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+#workskin .hoverwrapper3:hover .revealed3 {
+  font-size: 1.0em;
+  height: auto;
+}
+
+#workskin .hoverwrapper3:hover .fake_back3 {
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+}
+
+#workskin .fake_back,
+#workskin .fake_back2,
+#workskin .fake_back3 {
+  height: 0%;
+  width: 0%;
+  background-color: transparent;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#workskin .center-span {
+  display: block;
+  text-align: center;
+}
+
+#workskin .one-more-second {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  opacity: 0%;
+  width: 0%;
+  height: 0%;
+}
+
+#workskin .hoverwrapper3:hover .one-more-second {
+  position: relative;
+  opacity: 100%;
+  width: auto;
+  height: auto;
+}

@@ -1,0 +1,72 @@
+<html>
+<head>
+<link rel="stylesheet" href="./standard-workskin.css">
+<style>
+#workskin {
+	border-style: solid;
+	border-width: 1px;
+	padding: 10px;
+}
+#claim-slugs {
+	position: fixed;
+	width: 500px;
+	left: 200px;
+	top: 100px;
+	border-style: solid;
+	border-width: 1px;
+	padding: 10px;
+	background-color: #f5d3d3
+}
+.slug-sub-container {
+	background-color: #ffffff;
+	padding: 2px;
+	margin: 2px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="./processor.js"></script>
+</head>
+<body>
+<h2>Battle Boards AO3 Converter</h2>
+<b>Step 1</b>
+<br>
+Go to the thread where the interaction occured and use the arrow by the gear symbol to Select each of the posts in the interaction. You can do this across pages. Once all of them have been selected, click Reply at the bottom of the thread.
+<br><br>
+<b>Step 2</b>
+<br>
+Leave all the posts in their quotes, but edit the posts as they should appear on AO3, removing nested quotes, card ratings, etc. You should have the flavor and card from each post contained in a quotebox apiece at the end.
+<br><br>
+<b>Step 3</b>
+<br>
+Copy the BBCode version of that and paste it into the textbox below, then click Convert:
+<br>
+<textarea id="import" rows="10" cols="100"></textarea>
+<br>
+<input type="button" value="Convert" onclick="beginConversion();">
+<br><br>
+<b>Step 4</b>
+<br>
+Check the preview:
+<br>
+<br>
+<div id="workskin">preview will go here</div>
+<br>
+<b>Step 5</b>
+<br>
+<span id="workskin-cond">If you haven't set up your Workskin yet, go to My Dashboard -> Skins -> My Work Skins and create a new Skin.</span> Select all the text in the first textbox below and paste it as your workskin code.
+<br>
+<textarea id="workskin-css" rows="4" cols="30"></textarea> <textarea id="workskin-new" rows="4" cols="30" style="visibility:hidden;"></textarea>
+<br><br>
+<b>Step 6</b>
+<br>
+Then once that's saved, your converted HTML for the interaction is below:
+<br>
+<textarea id="final-output" rows="10" cols="50"></textarea>
+<div id="claim-slugs" style="visibility:hidden;">
+	Some of your hexcodes are unregistered.<br>Below you may change them to existing codes, or temporarily register them.<br>For the latter, remember to send Cajun the extra code you get.<br>
+	<div id="slug-container">
+	</div>
+	<input type="button" value="Apply Changes" onclick="testSlugs();"></input>
+</div>
+</body>
+</html>
