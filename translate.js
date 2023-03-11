@@ -1,4 +1,4 @@
-var "languages": [
+var languages = [
 	"English",
 	"Español",
 	"Português",
@@ -50,7 +50,7 @@ var translatable = {
 		"Italiano": "",
 		"한국어": ""
 	},
-	"Box Legendary": {
+	"BoxLegendary": {
 		"English": "",
 		"Español": "",
 		"Português": "",
@@ -708,3 +708,34 @@ var translatable = {
 		"한국어": " 전설의"
 	}
 }
+
+function writeEmpties() {
+	var fs = require('fs');
+	var holder = {}
+	for(var l in languages) {
+		holder[languages[l]] = {};
+	}
+	for(var t in translatable) {
+		for(var l in languages) {
+			var eng = translatable[t].English;
+			var tra = translatable[t][languages[l]];
+			if(eng != "") {
+				if(typeof eng == "string" && eng.match(/\n/)) {
+					var engs = eng.split("\n");
+					var tras = tra.split("\n");
+					for(var e in engs) {
+						holder[languages[l]][engs[e].replace(/# /, "")] = (tras[e] || "")
+					}
+				}else{
+					holder[languages[l]][eng] = tra;
+				}
+			}
+		}
+	}
+	for(var l in holder) {
+		if(Object.keys(holder[l]).length == 0)
+			continue;
+		fs.writeFile('./translating_strings/'+l+'.txt', JSON.stringify(holder[l], null, 1), function(){})
+	}
+}
+writeEmpties();
