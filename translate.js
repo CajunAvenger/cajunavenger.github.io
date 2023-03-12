@@ -15,7 +15,7 @@ var no_spaces = ["日本", "简中", "繁中"];
 var translatable = {
 	// Strings missing translations
 	"Gimmick Form": {
-		"English": "",
+		"English": "Gimmick Form",
 		"Español": "",
 		"Português": "",
 		"Deutsch": "",
@@ -29,7 +29,7 @@ var translatable = {
 	"PseudoLegend": {
 		"English": "Pseudo Legend",
 		"Español": "",
-		"Português": "",
+		"Português": "Pseudo Lendário",
 		"Deutsch": "",
 		"日本": "600族",
 		"简中": "",
@@ -39,7 +39,7 @@ var translatable = {
 		"한국어": ""
 	},
 	"Eeveelution": {
-		"English": "",
+		"English": "Eeveelution",
 		"Español": "",
 		"Português": "",
 		"Deutsch": "",
@@ -51,7 +51,7 @@ var translatable = {
 		"한국어": ""
 	},
 	"BoxLegendary": {
-		"English": "",
+		"English": "Box Legendary",
 		"Español": "",
 		"Português": "",
 		"Deutsch": "",
@@ -65,7 +65,7 @@ var translatable = {
 	"Download": {
 		"English": "Download Image",
 		"Español": "",
-		"Português": "",
+		"Português": "Baixe a imagem",
 		"Deutsch": "",
 		"日本": "",
 		"简中": "",
@@ -77,7 +77,7 @@ var translatable = {
 	"altLink": {
 		"English": "Alternate download link",
 		"Español": "",
-		"Português": "",
+		"Português": "Link alternativo para download",
 		"Deutsch": "",
 		"日本": "",
 		"简中": "",
@@ -89,7 +89,7 @@ var translatable = {
 	"Export": {
 		"English": "Export Choices",
 		"Español": "",
-		"Português": "",
+		"Português": "Exportar Escolhas",
 		"Deutsch": "",
 		"日本": "",
 		"简中": "",
@@ -101,7 +101,7 @@ var translatable = {
 	"Import": {
 		"English": "Import Choices",
 		"Español": "",
-		"Português": "",
+		"Português": "Importar Escolhas",
 		"Deutsch": "",
 		"日本": "",
 		"简中": "",
@@ -113,7 +113,7 @@ var translatable = {
 	"gridReset": {
 		"English": "Reset the grid!",
 		"Español": "",
-		"Português": "",
+		"Português": "Reset o quadro",
 		"Deutsch": "",
 		"日本": "",
 		"简中": "",
@@ -125,7 +125,7 @@ var translatable = {
 	"gridConfirm": {
 		"English": "Are you sure you want to reset the grid?",
 		"Español": "",
-		"Português": "",
+		"Português": "Tem certeza que deseja resetar o quadro?",
 		"Deutsch": "",
 		"日本": "",
 		"简中": "",
@@ -137,7 +137,7 @@ var translatable = {
 	"importExportInstructions": {
 		"English": "# Don't like my choices? You can overrule them here!\n# Write Code will put a text version of the grid here\n# Then you can edit the names and Import Code to replace the images.\n# Most Pokemon are just their named capitalized, like SWELLOW.\n# Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.\n# You can also use this to keep backups",
 		"Español": "",
-		"Português": "",
+		"Português": "# Não gosta das minhas escolhas? Você pode anulá-las!\n# Exportar Escolhas irá colocar uma versão em texto do quadro aqui\n# Então você poderá editar os nomes e Importar Escolhas para substituir as imagens.\n# A maioria dos Pokémon são apenas seus nomes em letra maiúscula, como SWELLOW.\n# Formas Alternativas possuem tags específicas, como MEOWTH_2 para Meowth de Galar.\n# Você também pode usar isso para guardar cópias de segurança.",
 		"Deutsch": "",
 		"日本": "",
 		"简中": "",
@@ -149,7 +149,7 @@ var translatable = {
 	"spindaInstructions": {
 		"English": "Spinda's spots can be randomized or manually placed.\nEach box pair in the corners moves its nearest spot.\nUp/Down on the first box moves it Right/Left.\nUp/Down on the second box moves it Up/Down.",
 		"Español": "",
-		"Português": "",
+		"Português": "As manchas do Spinda podem ser aleatórias ou colocadas manualmente.\nCada par de caixas nos cantos da imagem movem as manchas próximas a eles.\nPara cima/Para baixo na primeira caixa move as manchas para a Direita/Esquerda.\nPara cima/Para baixo na segunda caixa move as manchas para Cima/Baixo.",
 		"Deutsch": "",
 		"日本": "",
 		"简中": "",
@@ -161,7 +161,7 @@ var translatable = {
 	"teamInstructions": {
 		"English": "Click a team box, then a Pokemon from the grid to copy it to the box.",
 		"Español": "",
-		"Português": "",
+		"Português": "Clique em um dos espaços em branco e depois em um Pokémon do quadro para colocá-lo no time",
 		"Deutsch": "",
 		"日本": "",
 		"简中": "",
@@ -173,7 +173,7 @@ var translatable = {
 	"Picking": {
 		"English": "Picking...",
 		"Español": "",
-		"Português": "",
+		"Português": "Escolhendo...",
 		"Deutsch": "",
 		"日本": "",
 		"简中": "",
@@ -201,7 +201,7 @@ var translatable = {
 	"ShinyCharm1": {
 		"English": "Click the Shiny Charm, then click Pokemon to make them shiny.",
 		"Español": "Haz clic en Amuleto Iris, luego haz clic en Pokémon para hacerlos variocolor.",
-		"Português": "Clique no Amuleto Iris e, em seguida, clique em Pokemon para torná-los brilhantes.",
+		"Português": "Clique no Shiny Charm e, em seguida, clique nos Pokémon para torná-los brilhantes.",
 		"Deutsch": "Klicken Sie auf den Schillerpin und dann auf Pokemon, um sie glänzend zu Schillerndes.",
 		"日本": "ひかるおまもりをクリックしてから、ポケモンをクリックして光るます。",
 		"简中": "点击闪耀护符然后点击宝可梦让它们发光。",
@@ -213,7 +213,7 @@ var translatable = {
 	"ShinyCharm2": {
 		"English": "Or click here to make everything shiny.",
 		"Español": "",
-		"Português": "",
+		"Português": "Ou clique aqui para fazer que todos sejam brilhantes.",
 		"Deutsch": "",
 		"日本": "",
 		"简中": "",
@@ -223,16 +223,16 @@ var translatable = {
 		"한국어": ""
 	},
 	"Randomize!": {
-		"English": ["Randomize!"],
-		"Español": ["Aleatorizar!"],
-		"Português": ["Aleatória!"],
-		"Deutsch": ["Randomisieren!"],
-		"日本": ["ランダマイズ！"],
-		"简中": ["随机化！"],
-		"繁中": ["隨機化！"],
-		"Français": ["Aléatoire!"],
-		"Italiano": ["Casuale!"],
-		"한국어": ["무작위의!"]
+		"English": "Randomize!",
+		"Español": "Aleatorizar!",
+		"Português": "Aleatório!",
+		"Deutsch": "Randomisieren!",
+		"日本": "ランダマイズ！",
+		"简中": "随机化！",
+		"繁中": "隨機化！",
+		"Français": "Aléatoire!",
+		"Italiano": "Casuale!",
+		"한국어": "무작위의!"
 	},
 	"Cookie1": {	// disable cookies
 		"English": "This site uses cookies to save your choices. You can disable them here.",
@@ -260,14 +260,14 @@ var translatable = {
 	},
 	"PikachuClone": {
 		"English": "Pikachu Clone",
-		"Español": "Pikachu Clon",
-		"Português": "Pikachu Clone",
+		"Español": "Clone de Pikachu",
+		"Português": "Clone do Pikachu",
 		"Deutsch": "Pikachuklon",
 		"日本": "ピカチュウのクローン",
 		"简中": "皮卡丘克隆",
 		"繁中": "皮卡丘克隆",
 		"Français": "Pikachu Cloner",
-		"Italiano": "",
+		"Italiano": "Clone di Pikachu",
 		"한국어": "피카츄 클론"
 	},
 
@@ -289,7 +289,7 @@ var translatable = {
 	"Team": {
 		"English": "Team",
 		"Español": "Equipo",
-		"Português": "Equipa",
+		"Português": "Equipe",
 		"Deutsch": "Team",
 		"日本": "手持ちポケモン",
 		"简中": "同行",
@@ -300,8 +300,8 @@ var translatable = {
 	},
 	"Regional": {
 		"English": "Regional",
-		"Español": "regional",
-		"Português": "regional",
+		"Español": "Regional",
+		"Português": "Regional",
 		"Deutsch": "Regional",
 		"日本": "地域",
 		"简中": "地区",
@@ -349,7 +349,7 @@ var translatable = {
 	"RegionalForm": {
 		"English": "Regional Form",
 		"Español": "Forma regional",
-		"Português": "Forma regional",
+		"Português": "Forma Regional",
 		"Deutsch": "Regionalform",
 		"日本": "リージョンフォーム",
 		"简中": "地區型態",
@@ -373,7 +373,7 @@ var translatable = {
 	"Mythical": {
 		"English": "Mythical",
 		"Español": "Pokémon mítico",
-		"Português": "Pokémon mítico",
+		"Português": "Mítico",
 		"Deutsch": "Mysteriöse Pokémon",
 		"日本": "幻のポケモン",
 		"简中": "幻之宝可梦",
@@ -385,7 +385,7 @@ var translatable = {
 	"UltraBeast": {
 		"English": "Ultra Beast",
 		"Español": "Ultraente",
-		"Português": "Ultrafera",
+		"Português": "Ultracriatura",
 		"Deutsch": "Ultrabestie",
 		"日本": "ウルトラビースト",
 		"简中": "究极异兽",
@@ -421,7 +421,7 @@ var translatable = {
 	"Pokeball": {
 		"English": "Poké Ball",
 		"Español": "Poké Ball",
-		"Português": "Pokébola",
+		"Português": "Poké Bola",
 		"Deutsch": "Pokéball",
 		"日本": "モンスターボール",
 		"简中": "精灵球",
@@ -506,7 +506,7 @@ var translatable = {
 	"Grass": {
 		"English": "Grass",
 		"Español": "Planta",
-		"Português": "Erva",
+		"Português": "Planta",
 		"Deutsch": "Pflanze",
 		"日本": "くさ",
 		"简中": "草",
@@ -554,7 +554,7 @@ var translatable = {
 	"Poison": {
 		"English": "Poison",
 		"Español": "Veneno",
-		"Português": "Veneno",
+		"Português": "Venenoso",
 		"Deutsch": "Gift",
 		"日本": "どく",
 		"简中": "毒",
@@ -566,7 +566,7 @@ var translatable = {
 	"Ground": {
 		"English": "Ground",
 		"Español": "Tierra",
-		"Português": "Terra",
+		"Português": "Terrestre",
 		"Deutsch": "Boden",
 		"日本": "じめん",
 		"简中": "地面 ",
@@ -602,7 +602,7 @@ var translatable = {
 	"Bug": {
 		"English": "Bug",
 		"Español": "Bicho",
-		"Português": "Insecto",
+		"Português": "Inseto",
 		"Deutsch": "Käfer",
 		"日本": "むし",
 		"简中": "虫",
@@ -650,7 +650,7 @@ var translatable = {
 	"Dark": {
 		"English": "Dark",
 		"Español": "Siniestro",
-		"Português": "Sinistro",
+		"Português": "Sombrio",
 		"Deutsch": "Unlicht",
 		"日本": "あく",
 		"简中": "恶",

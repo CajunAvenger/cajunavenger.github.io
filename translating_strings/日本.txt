@@ -1,4 +1,7 @@
 {
+ "Gimmick Form": "",
+ "Eeveelution": "ブイズ",
+ "Box Legendary": "パケ伝",
  "Pseudo Legend": "600族",
  "Download Image": "",
  "Alternate download link": "",

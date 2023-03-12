@@ -310,6 +310,10 @@ var cssData = {
    "hex": "a03807",
    "class_name": "anne"
   },
+  "d4b570": {
+   "hex": "d4b570",
+   "class_name": "bea-the-ant"
+  },
   "e78a34": {
    "hex": "e78a34",
    "class_name": "atlani"
@@ -1125,6 +1129,10 @@ function convertText(data) {
 	data = data.replace(/\[div\]([^\n]+?)\n?\[\/div\]/g, "$1\n")
 	//split i styles
 	data = data.replace(/\[i ([^\]]+\][\s\S]*?)\[\/i\]/g, "[i][span $1[/span][/i]")
+	// format lists
+	data = data.replace(/\[ul[^\]]*\](\r?\n)*\[li\]/g, "• ");
+	data = data.replace(/\[li\]/g, "• ");
+	data = data.replace(/\[\/(li|ul)\](\r?\n)*/g, "");
 	//purge empty tags
 	data = data.replace(/\[u\](\r?\n?)\[\/u\]/g, "$1");
 	data = data.replace(/\[b\](\r?\n?)\[\/b\]/g, "$1");

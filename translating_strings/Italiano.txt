@@ -1,4 +1,7 @@
 {
+ "Gimmick Form": "",
+ "Eeveelution": "",
+ "Box Legendary": "",
  "Pseudo Legend": "",
  "Download Image": "",
  "Alternate download link": "",
