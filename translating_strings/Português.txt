@@ -1,7 +1,7 @@
 {
-"Gimmick Form": "",
-"Eeveelution": "",
-"Box Legendary": "",
+"Gimmick Form": "Forma com Mecânica",
+"Eeveelution": "Evolução de Eevee",
+"Box Legendary": "Lendário de Capa",
 "Pseudo Legend": "Pseudo Lendário",
 "Download Image": "Baixe a imagem",
 "Alternate download link": "Link alternativo para download",

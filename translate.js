@@ -17,7 +17,7 @@ var translatable = {
 	"Gimmick Form": {
 		"English": "Gimmick Form",
 		"Español": "",
-		"Português": "",
+		"Português": "Forma com Mecânica",
 		"Deutsch": "",
 		"日本": "",
 		"简中": "",
@@ -41,7 +41,7 @@ var translatable = {
 	"Eeveelution": {
 		"English": "Eeveelution",
 		"Español": "",
-		"Português": "",
+		"Português": "Evolução de Eevee",
 		"Deutsch": "",
 		"日本": "ブイズ",
 		"简中": "",
@@ -53,7 +53,7 @@ var translatable = {
 	"BoxLegendary": {
 		"English": "Box Legendary",
 		"Español": "",
-		"Português": "",
+		"Português": "Lendário de Capa",
 		"Deutsch": "",
 		"日本": "パケ伝",
 		"简中": "",
