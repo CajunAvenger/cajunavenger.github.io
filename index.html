@@ -1878,6 +1878,8 @@ canvas {
 					continue;
 				if(choices[g][type] == "" || choices[g][type] == undefined)
 					continue;
+				if(currently_previewing.includes(choices[g][type]))
+					continue;
 				currently_previewing.push(choices[g][type]);
 			}
 		}else if(type == 22) {
