@@ -1383,6 +1383,7 @@ var arrays = {
 	  ],
 	  [
 	   "PICHU_1",
+	   "PICHU_2",
 	   "SHINX",
 	   "LUXIO",
 	   "LUXRAY",
@@ -2464,6 +2465,8 @@ var arrays = {
 	 ],
 	 "Pikaclone": [
 	  "PICHU",
+	  "PICHU_1",
+	  "PICHU_2",
 	  "PIKACHU",
 	  "RAICHU",
 	  "RAICHU_1",
@@ -2479,7 +2482,21 @@ var arrays = {
 	  "MORPEKO_1",
 	  "PAWMI",
 	  "PAWMO",
-	  "PAWMOT"
+	  "PAWMOT",
+	  "PIKACHU_2",
+	  "PIKACHU_3",
+	  "PIKACHU_4",
+	  "PIKACHU_5",
+	  "PIKACHU_6",
+	  "PIKACHU_7",
+	  "PIKACHU_8",
+	  "PIKACHU_9",
+	  "PIKACHU_10",
+	  "PIKACHU_11",
+	  "PIKACHU_12",
+	  "PIKACHU_13",
+	  "PIKACHU_14",
+	  "PIKACHU_15"
 	 ],
 	 "Eevee": [
 	  "EEVEE",
