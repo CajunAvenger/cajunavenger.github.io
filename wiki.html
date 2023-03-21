@@ -14,7 +14,7 @@
 }
 </style>
 <script language="JavaScript">
-	function processUniverse() {
+	function processUniverse(tag) {
 		var data = document.getElementById("import").value;
 		if(!data)
 			return;
@@ -32,17 +32,17 @@
 		for(var i=0; i<pairs.length; i++) {
 			output += `#<section `
 			if(i < pairs.length-1) {
-				output += `begin="${pairs[i+1][0]}pr"`
+				output += `begin="${pairs[i+1][0]}p${tag}"`
 			}
 			if(i > 0) { 
-				output += `begin="${pairs[i-1][0]}nr"`
+				output += `begin="${pairs[i-1][0]}n${tag}"`
 			}
 			output += `/>[[${pairs[i][1]}]]<section `
 			if(i < pairs.length-1) {
-				output += `end="${pairs[i+1][0]}pr"`
+				output += `end="${pairs[i+1][0]}p${tag}"`
 			}
 			if(i > 0) { 
-				output += `end="${pairs[i-1][0]}nr"`
+				output += `end="${pairs[i-1][0]}n${tag}"`
 			}
 			output += `/>\n`;
 			if(pairs[i][2]) {
@@ -83,7 +83,8 @@
 <div id="input-wrapper">
 Post your list to section tag below, then click Convert to Universe or Convert to StoryLink<br>
 <textarea id="import" rows="13" cols="80" spellcheck="false"></textarea>
-<input type="button" value="Convert to Universe" onclick="processUniverse();"></input> 
+<input type="button" value="Convert to Universe Release Order" onclick="processUniverse('r');"></input> 
+<input type="button" value="Convert to Universe Chronological Order" onclick="processUniverse('c');"></input> 
 <input type="button" value="Convert to StoryLink" onclick="processStory();"></input><br>
 <b>Output:</b><br>
 <textarea id="output" rows="13" cols="200" spellcheck="false"></textarea>
