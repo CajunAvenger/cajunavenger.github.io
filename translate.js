@@ -224,7 +224,7 @@ var translatable = {
 	},
 	"Cookie1": {	// disable cookies
 		"English": "This site uses cookies to save your choices. You can disable them here.",
-		"Español": "Este sitio usa cookies para guardar tus elecciones. Puedes desactivarlas aquí.",
+		"Español": "Este sitio usa cookies para guardar tus selecciones. Puedes desactivarlas aquí.",
 		"Português": "Este site usa cookies para salvar suas escolhas. Você pode desativá-los aqui.",
 		"Deutsch": "Diese Seite verwendet Cookies, um Ihre Auswahl zu speichern. Sie können sie hier deaktivieren.",
 		"日本": "このサイトでは、選択内容を保存するためにクッキーを使用しています。 ここでそれらを無効にすることができます。",
@@ -236,7 +236,7 @@ var translatable = {
 	},
 	"Cookie2": {	// re-enable cookies
 		"English": "This site uses cookies to save your choices. You can enable them here.",
-		"Español": "Este sitio usa cookies para guardar tus elecciones. Puedes habilitarlos aquí.",
+		"Español": "Este sitio usa cookies para guardar tus selecciones. Puedes habilitarlos aquí.",
 		"Português": "Este site usa cookies para salvar suas escolhas. Você pode ativá-los aqui.",
 		"Deutsch": "Diese Seite verwendet Cookies, um Ihre Auswahl zu speichern. Sie können sie hier aktivieren.",
 		"日本": "このサイトでは、選択内容を保存するためにクッキーを使用しています。 ここで有効にできます。",
@@ -373,7 +373,7 @@ var translatable = {
 	"Mythical": {
 		"English": "Mythical",
 		"Español": "Pokémon Singular",
-		"Español": "Pokémon mítico",
+		"Español_LA": "Mítico",
 		"Português": "Mítico",
 		"Deutsch": "Mysteriöse Pokémon",
 		"日本": "幻のポケモン",

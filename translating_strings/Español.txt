@@ -26,7 +26,7 @@
  "Randomize!": [
   "Aleatorio!"
  ],
- "This site uses cookies to save your choices. You can disable them here.": "Este sitio usa cookies para guardar tus elecciones. Puedes desactivarlas aquí.",
+ "This site uses cookies to save your choices. You can disable them here.": "Este sitio usa cookies para guardar tus selecciones. Puedes desactivarlas aquí.",
  "Pikachu Clone": "Clon de Pikachu",
  "Favorite,Favorite": [
   "Favorito",
