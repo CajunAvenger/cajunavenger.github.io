@@ -45,6 +45,7 @@
  "Paradox": "Paradox",
  "Type": "Typ",
  "Poké Ball": "Pokéball",
+ "Baby": "Baby",
  "Spinda": "Pandir",
  "Vivillon": "Vivillon",
  "Alcremie": "Pokusan",

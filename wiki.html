@@ -1,0 +1,106 @@
+<html>
+<head>
+<style>
+#input-wrapper {
+	position: absolute;
+	display: block;
+	width: 50%;
+}
+#side-wrapper {
+	position: absolute;
+	display: block;
+	left: 52%;
+	top: 30px;
+}
+</style>
+<script language="JavaScript">
+	function processUniverse() {
+		var data = document.getElementById("import").value;
+		if(!data)
+			return;
+		data = data.split(/\r?\n/);
+		var pairs = [];
+		for(var d in data) {
+			var pair = data[d].match(/([^:]+): ?(.*)/);
+			if(pair) {
+				pairs.push([pair[1], pair[2]])
+			}else if(pairs.length){
+				pairs[pairs.length-1].push(data[d])
+			}
+		}
+		var output = "";
+		for(var i=0; i<pairs.length; i++) {
+			output += `#<section `
+			if(i < pairs.length-1) {
+				output += `begin="${pairs[i+1][0]}pr"`
+			}
+			if(i > 0) { 
+				output += `begin="${pairs[i-1][0]}nr"`
+			}
+			output += `/>[[${pairs[i][1]}]]<section `
+			if(i < pairs.length-1) {
+				output += `end="${pairs[i+1][0]}pr"`
+			}
+			if(i > 0) { 
+				output += `end="${pairs[i-1][0]}nr"`
+			}
+			output += `/>\n`;
+			if(pairs[i][2]) {
+				output += `#[[${pairs[i][1]}|${pairs[i][2]}]]\n`
+			}
+		}
+		document.getElementById("output").value = output;
+	}
+	function processStory() {
+		var output = "";
+		var d = document.getElementById("import").value;
+		if(!d)
+			return;
+		d = d.replace(/[ ][ ]+/g, "");
+		var ar = d.split(/\r?\n/);
+		for(var i = 0; i < ar.length; i++) {
+			output += `#<section `
+			if(i < ar.length-1) {
+				output += `begin="${ar[i+1]}_PS" `
+			}
+			if(i > 0) { 
+				output += `begin="${ar[i-1]}_NS" `
+			}
+			output += `/>${ar[i]}<section `
+			if(i < ar.length-1) {
+				output += `end="${ar[i+1]}_PS" `
+			}
+			if(i > 0) { 
+				output += `end="${ar[i-1]}_NS" `
+			}
+			output += `/>\n`;
+		}
+		document.getElementById("output").value = output;
+	}
+</script>
+</head>
+<body>
+<div id="input-wrapper">
+Post your list to section tag below, then click Convert to Universe or Convert to StoryLink<br>
+<textarea id="import" rows="13" cols="80" spellcheck="false"></textarea>
+<input type="button" value="Convert to Universe" onclick="processUniverse();"></input> 
+<input type="button" value="Convert to StoryLink" onclick="processStory();"></input><br>
+<b>Output:</b><br>
+<textarea id="output" rows="13" cols="200" spellcheck="false"></textarea>
+</div>
+<div id="side-wrapper">
+<b>For Universes</b><br>
+Give a list of CODE: Wiki Page Name, for example<br>
+AFM: Aftermath<br>
+VTM: Villain: The Musical<br>
+ALR: Alara (set)<br>
+<br>
+<b>For StoryLink</b><br>
+Give a list of Wiki Page Names, for example<br>
+Meanwhile in Entela<br>
+Deus ex Machina (Windyverse)<br>
+Sanctuary
+</div>
+
+</body>
+</html>

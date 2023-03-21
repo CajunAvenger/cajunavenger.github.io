@@ -43,6 +43,7 @@
 "Paradox": "Paradoxo",
 "Type": "Tipo",
 "Poké Ball": "Poké Bola",
+"Baby": "Bebê",
 "Spinda": "Spinda",
 "Vivillon": "Vivillon",
 "Alcremie": "Alcremie",

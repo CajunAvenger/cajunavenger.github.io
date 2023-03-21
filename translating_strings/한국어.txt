@@ -45,6 +45,7 @@
  "Paradox": "패러독스",
  "Type": "타입",
  "Poké Ball": "몬스터볼",
+ "Baby": "베이비",
  "Spinda": " \t얼루기",
  "Vivillon": "비비용",
  "Alcremie": "마휘핑",

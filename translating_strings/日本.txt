@@ -45,6 +45,7 @@
  "Paradox": "パラドックス",
  "Type": "タイプ",
  "Poké Ball": "モンスターボール",
+ "Baby": "얼루기",
  "Spinda": "パッチール",
  "Vivillon": "ビビヨン",
  "Alcremie": "マホイップ",

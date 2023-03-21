@@ -22,7 +22,7 @@ var translatable = {
 		"日本": "",
 		"简中": "",
 		"繁中": "",
-		"Français": "",
+		"Français": "Forme Gadget",
 		"Italiano": "",
 		"한국어": ""
 	},
@@ -34,19 +34,7 @@ var translatable = {
 		"日本": "600族",
 		"简中": "",
 		"繁中": "",
-		"Français": "",
-		"Italiano": "",
-		"한국어": ""
-	},
-	"Eeveelution": {
-		"English": "Eeveelution",
-		"Español": "",
-		"Português": "Evolução de Eevee",
-		"Deutsch": "",
-		"日本": "ブイズ",
-		"简中": "",
-		"繁中": "",
-		"Français": "",
+		"Français": "Pseudo-Légendaire",
 		"Italiano": "",
 		"한국어": ""
 	},
@@ -58,7 +46,7 @@ var translatable = {
 		"日本": "パケ伝",
 		"简中": "",
 		"繁中": "",
-		"Français": "",
+		"Français": "Légendaire de Boîte",
 		"Italiano": "",
 		"한국어": ""
 	},
@@ -70,7 +58,7 @@ var translatable = {
 		"日本": "",
 		"简中": "",
 		"繁中": "",
-		"Français": "",
+		"Français": "Télécharger l'image",
 		"Italiano": "",
 		"한국어": ""
 	},
@@ -82,7 +70,7 @@ var translatable = {
 		"日本": "",
 		"简中": "",
 		"繁中": "",
-		"Français": "",
+		"Français": "Lien alternatif de téléchargement",
 		"Italiano": "",
 		"한국어": ""
 	},
@@ -94,7 +82,7 @@ var translatable = {
 		"日本": "",
 		"简中": "",
 		"繁中": "",
-		"Français": "",
+		"Français": "Exporter les choix",
 		"Italiano": "",
 		"한국어": ""
 	},
@@ -106,7 +94,7 @@ var translatable = {
 		"日本": "",
 		"简中": "",
 		"繁中": "",
-		"Français": "",
+		"Français": "Importer les choix",
 		"Italiano": "",
 		"한국어": ""
 	},
@@ -118,7 +106,7 @@ var translatable = {
 		"日本": "",
 		"简中": "",
 		"繁中": "",
-		"Français": "",
+		"Français": "Réinitialiser la grille",
 		"Italiano": "",
 		"한국어": ""
 	},
@@ -130,7 +118,7 @@ var translatable = {
 		"日本": "",
 		"简中": "",
 		"繁中": "",
-		"Français": "",
+		"Français": "Étes-vous sûrs que vous voulez réinitialiser la grille ?",
 		"Italiano": "",
 		"한국어": ""
 	},
@@ -142,7 +130,7 @@ var translatable = {
 		"日本": "",
 		"简中": "",
 		"繁中": "",
-		"Français": "",
+		"Français": "# Vous n'aimez pas mes choix ? Vous pouvez les écraser ici !\n# Exporter les choix va mettre une version textuelle de la grille ici\n# Vous pouvez alors éditer les noms et Importer les choix pour remplacer les images.\n# La plupart des noms de Pokémon sont en majuscules, comme SWELLOW\n# Les formes alternatives ont des indices spéciaux, comme MEOWTH_2 pour Miaouss de Galar\n# Vous pouvez aussi l'utiliser pour sauvegarder vos choix",
 		"Italiano": "",
 		"한국어": ""
 	},
@@ -154,7 +142,7 @@ var translatable = {
 		"日本": "",
 		"简中": "",
 		"繁中": "",
-		"Français": "",
+		"Français": "Les tâches de Spinda peuvent être placées aléatoirement ou à la main\nChaque paire de chiffre dans les coins déplace la tâche la plus proche\nHaut/Bas dans la première la déplace vers la Gauche/Droite\nHaut/Bas dans la seconde la déplace vers le Haut/Bas",
 		"Italiano": "",
 		"한국어": ""
 	},
@@ -166,7 +154,7 @@ var translatable = {
 		"日本": "",
 		"简中": "",
 		"繁中": "",
-		"Français": "",
+		"Français": "Cliquez sur une place dans votre équipe, puis un Pokémon de la grille pour l'y copier",
 		"Italiano": "",
 		"한국어": ""
 	},
@@ -178,7 +166,7 @@ var translatable = {
 		"日本": "",
 		"简中": "",
 		"繁中": "",
-		"Français": "",
+		"Français": "Choix en cours...",
 		"Italiano": "",
 		"한국어": ""
 	},
@@ -206,7 +194,7 @@ var translatable = {
 		"日本": "ひかるおまもりをクリックしてから、ポケモンをクリックして光るます。",
 		"简中": "点击闪耀护符然后点击宝可梦让它们发光。",
 		"繁中": "單擊闪耀护符然後單擊宝可梦使它們發光。",
-		"Français": "Cliquez sur le Charme Chroma, puis cliquez sur Pokemon pour les rendre chromatique.",
+		"Français": "Cliquez sur le Charme Chroma, puis cliquez sur un Pokemon pour le rendre shiny.",
 		"Italiano": "Fai clic sul Cromamuleto , quindi fai clic su Pokemon per renderli cromatico.",
 		"한국어": "빛나는부적 을 클릭한 다음 포켓몬 을 클릭하여 반짝이게 만들 빛나는"
 	},
@@ -218,7 +206,7 @@ var translatable = {
 		"日本": "",
 		"简中": "",
 		"繁中": "",
-		"Français": "",
+		"Français": "Ou cliquez ici pour les rendres tous shiny",
 		"Italiano": "",
 		"한국어": ""
 	},
@@ -266,9 +254,21 @@ var translatable = {
 		"日本": "ピカチュウのクローン",
 		"简中": "皮卡丘克隆",
 		"繁中": "皮卡丘克隆",
-		"Français": "Pikachu Cloner",
+		"Français": "Clone de Pikachu",
 		"Italiano": "Clone di Pikachu",
 		"한국어": "피카츄 클론"
+	},
+	"Eeveelution": {
+		"English": "Eeveelution",
+		"Español": "Eeveelución",
+		"Português": "Eevolução",
+		"Deutsch": "Evolilution",
+		"日本": "イーブイズ",
+		"简中": "伊布家族",
+		"繁中": "伊布家族",
+		"Français": "Évolition",
+		"Italiano": "Eeveeluzione",
+		"한국어": "이브이즈"
 	},
 
 	// Strings with either official or simple translations
@@ -306,7 +306,7 @@ var translatable = {
 		"日本": "地域",
 		"简中": "地区",
 		"繁中": "地區",
-		"Français": "régionale",
+		"Français": "régional",
 		"Italiano": "regionale",
 		"한국어": "지역"
 	},
@@ -402,7 +402,7 @@ var translatable = {
 		"日本": "パラドックス",
 		"简中": "悖謬",
 		"繁中": "悖謬",
-		"Français": "Paradoxe",
+		"Français": "Pokémon Paradoxe",
 		"Italiano": "Paradosso",
 		"한국어": "패러독스"
 	},
@@ -430,6 +430,30 @@ var translatable = {
 		"Italiano": "Poké Ball",
 		"한국어": "몬스터볼"
 	},
+	"Baby": {
+		"English": "Baby",
+		"Español": "Bebé",
+		"Português": "Bebê",
+		"Deutsch": "Baby",
+		"日本": "얼루기",
+		"简中": "婴儿",
+		"繁中": "嬰兒",
+		"Français": "Bébé ",
+		"Italiano": "Baby",
+		"한국어": " 베이비 "
+	},
+	"NewEvolution": {
+		"English": "New Evolution",
+		"Español": "Nueva Evolución",
+		"Português": "Nova Evolução",
+		"Deutsch": "Neue Entwicklung",
+		"日本": "新しい進化",
+		"简中": "新进化",
+		"繁中": "新進化",
+		"Français": "Nouvelle évolution",
+		"Italiano": "Nuova Evoluzione",
+		"한국어": "새로운 진화"
+	},
 	"Spinda": {
 		"English": "Spinda",
 		"Español": "Spinda",
@@ -440,7 +464,7 @@ var translatable = {
 		"繁中": "晃晃斑",
 		"Français": "Spinda",
 		"Italiano": "Spinda",
-		"한국어": " 	얼루기"
+		"한국어": "얼루기"
 	},
 	"Vivillon": {
 		"English": "Vivillon",
@@ -691,19 +715,19 @@ var translatable = {
 		"日本": "はじめて",
 		"简中": "起动机",
 		"繁中": "起動機",
-		"Français": "de départ",
+		"Français": "Starter",
 		"Italiano": "Iniziale",
 		"한국어": "파트너"
 	},
 	"Legend": {
 		"English": "Legend",
 		"Español": "Legend", //legendario
-		"Português": "Lendário", //Legendäre 
+		"Português": "Lendário",
 		"Deutsch": "Legend",
 		"日本": "伝説",
 		"简中": "传说的",
 		"繁中": "傳說的",
-		"Français": "Legend", //légendaire
+		"Français": "Légendaire",
 		"Italiano": "Legend", //leggendari
 		"한국어": " 전설의"
 	}

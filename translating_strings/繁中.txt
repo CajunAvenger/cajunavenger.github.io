@@ -45,6 +45,7 @@
  "Paradox": "悖謬",
  "Type": "屬性",
  "Poké Ball": "精靈球",
+ "Baby": "嬰兒",
  "Spinda": "晃晃斑",
  "Vivillon": "彩粉蝶",
  "Alcremie": "霜奶仙",
