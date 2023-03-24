@@ -1,0 +1,502 @@
+<html>
+<head>
+<style>
+#chara-error {
+	color: #770000;
+}
+.circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: relative;
+  left: -10px;
+  top: 8px;
+  pointer-events: none;
+}
+.emblem-wrapper {
+  border-radius: 10%;
+  background: #cacaca;
+  width: fit-content;
+  padding: 0px 20px;
+  display: inline-block;
+  margin: 2px 2px;
+}
+.emblem-name {
+	position: relative;
+	left: 10px;
+	top: -9px;
+	pointer-events: none;
+}
+#intro-wrapper,
+#characters-wrapper {
+	width: 38%;
+}
+#right-half {
+	position: absolute;
+	left: 40%;
+	top: 10px;
+	width: 55%;
+	height: fit-content;
+}
+#left-side {
+	position: fixed;
+	top: 5px;
+	left: 5px;
+	width: fit-content;
+	height: fit-content;
+}
+#painting-wrapper {
+	border-style: solid;
+	border-width: 1px;
+	height: inherit;
+	margin: 2px 0px;
+}
+#paint-wrapper {
+	padding: 15px;
+}
+.preview-para {
+	cursor: pointer;
+}
+#export-area {
+	width: 100%;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script language="JavaScript">
+	var characters = {};
+	var paragraphs = {};
+	var paras = [];
+	var paint_line = [];
+	var painted = 0;
+	var doc = "";
+	var ready = false;
+	var active_character = null;
+	var manual_painting = false;
+	var hold_emblem = null;
+	var keep_checking = {checked:true};
+	var paint_para_ele
+	var paint_quote_ele
+	var paint_italic_ele
+
+	var preview_area
+	function addCSSRule(cssCode, styleid) {	// add a new CSS rule
+		if(!ready)
+			return;
+		$('<style id="' + styleid + '">' + cssCode +'</style>').appendTo("body");
+	}
+	function cleanClassName(tag) {
+		return tag.replace(/[.#\[\]:;*>+~=()\n\r ?]/g, "")
+	}
+	function getSelectionText() {
+		var text = "";
+		if (window.getSelection) {
+			text = window.getSelection().toString();
+		} else if (document.selection && document.selection.type != "Control") {
+			text = document.selection.createRange().text;
+		}
+		return text;
+	}
+	function removeCharacter() {
+		var chara_source = document.getElementById("chara-name");
+		var chara_name = cleanClassName(chara_source.value);
+		if(!chara_name) {
+			document.getElementById("chara-error").innerHTML = "Type a character's name in the box to delete their info."
+		}else if(!characters[chara_name]) {
+			document.getElementById("chara-error").innerHTML = "No character " + chara_name + " found.";
+		}else{
+			document.getElementById("chara-error").innerHTML = "";
+		}
+		document.getElementById(chara_name+"-emblem").remove();
+		delete characters[chara_name];
+		if(active_character == chara_name)
+			active_character = null;
+	}
+	function addCharacter(chara_name, chara_color) {
+		var chara_source = document.getElementById("chara-name");
+		var color_source = document.getElementById("chara-color");
+		if(!chara_name)
+			chara_name = cleanClassName(chara_source.value);
+		if(!chara_color)
+			chara_color = color_source.value;
+		chara_color = chara_color.replace("#", "");
+		if(characters[chara_name]) {
+			document.getElementById("chara-error").innerHTML = "A character with that name already exists.";
+			return;
+		}else if(!chara_name && !chara_color) {
+			document.getElementById("chara-error").innerHTML = "Add a character name and their text color.";
+			return;
+		}else if(!chara_name) {
+			document.getElementById("chara-error").innerHTML = "Add a character name.";
+			return;
+		}else if(!chara_color) {
+			document.getElementById("chara-error").innerHTML = "Add a text color.";
+			return;
+		}else{
+			document.getElementById("chara-error").innerHTML = "";
+		}
+
+		characters[chara_name] = {
+			color: chara_color,
+			quote_match: new RegExp('[^ ][”"] *' + chara_name),
+			said_match: new RegExp(chara_name + ' (say|said|ask|yell|whisper|groan|scream|answer|propose|question)')
+		}
+		addEmblem(chara_name);
+		chara_source.value = "";
+		color_source.value = "";
+	}
+	function setEmblem(emb) {
+		if(hold_emblem != null)
+			hold_emblem.style.background = "#cacaca";
+		hold_emblem = emb;
+		if(hold_emblem)
+			hold_emblem.style.background = "#f0d020";
+	}
+	function addEmblem(chara) {
+		var chara_name = chara;
+		var chara_color = characters[chara].color;
+		if(!chara_name || !chara_color)
+			return;
+		// add its wrapper to characters-wrapper
+		var wr = document.createElement("div");
+		wr.className = "wrapper emblem-wrapper";
+		wr.id = chara_name + "-emblem";
+		wr.onclick = function() {
+			if(active_character == chara_name) {
+				active_character = null;
+				setEmblem(null);
+			}else{
+				active_character = chara_name;
+				setEmblem(this);
+			}
+		}
+		document.getElementById("characters-wrapper").appendChild(wr);
+		var pal = document.createElement("div");
+		pal.className = "circle " + chara_name
+		pal.id = chara_name + "-color-preview";
+		// todo on hover X, onclick delete
+		wr.appendChild(pal);
+		var name = document.createElement("div");
+		name.className = "emblem-name"
+		name.id = chara_name + "-emblem-name"
+		name.innerHTML = chara_name
+		wr.appendChild(name);
+		var css = "." + chara_name + " {\n"
+		css += "\tcolor: #" + chara_color + ";\n";
+		css += "}\n.circle." + chara_name + " {\n";
+		css += "\tbackground: #" +chara_color + ";\n";
+		css += "}";
+		addCSSRule(css, chara_name);
+	}
+	function startPainting() {
+		// make character regex
+		var chars = Object.keys(characters).join("|");
+		var char_match = new RegExp(chars, 'g');
+		var paint_para = paint_para_ele.checked;
+		var paint_quote = paint_quote_ele.checked;
+		var paint_italic = paint_italic_ele.checked;
+		var paintable = /["“][^\n]+?["”]|<i>[^\n]+?<\/i>|\[i\][^\n]+?\[\/i\]|\*[^\n]+?\*/g
+		if(!paint_quote && !paint_italic) {
+			paintable = null;
+		}else if(!paint_quote) {
+			paintable = /<i>[^\n]+?<\/i>|\[i\][^\n]+?\[\/i\]|\*[^\n]+?\*/g
+		}else if(!paint_italic) {
+			paintable = /["“][^\n]+?["”]/g;
+		}
+		prev_colors = []; // blank if we've done this multiple times
+		doc = document.getElementById("import-area").value;
+		preview_area.innerHTML = "";
+		paras = doc.split(/\n/);
+		paint_line = [];
+		painted = 0;
+		// loop through once
+		// cache everything, lock in our definite ones
+		for(var p=0; p<paras.length; p++) {
+			var text = paras[p];
+			var pstring = String(p);
+			paragraphs[pstring] = {
+				text: text,
+				character: null,
+				paintable: false,
+				matches: [],
+				p_count: {},
+				num: pstring
+			}
+			if(text != "")
+				paint_line.push(pstring);
+			if(paintable && text.match(paintable)) {
+				// this paragraph has something to color
+				var matches = text.match(paintable);
+				// array of all character name hits
+				var p_chsd = text.match(char_match);
+				var p_count = {};
+				// get counts
+				for(let mat in p_chsd) {
+					if(!p_count[p_chsd[mat]])
+						p_count[p_chsd[mat]] = 0;
+					p_count[p_chsd[mat]]++;
+				}
+				// array of each character name
+				var p_chs = Object.keys(p_count);
+				// cache this
+				paragraphs[pstring].paintable = true;
+				paragraphs[pstring].matches = matches;
+				paragraphs[pstring].p_count = p_count;
+				var purged = text;
+				for(var m in matches)
+					purged = purged.replace(matches[m], "");
+				paragraphs[pstring].purged = purged;
+				// check for speaking
+				var hold = []
+				for(var ch_ind in p_chs) {
+					var ch_name = p_chs[ch_ind];
+					hold[ch_name] = 0;
+					if(purged.match(characters[ch_name].said_match)) {
+						hold.push(ch_name);
+						continue;
+					}
+					if(text.match(characters[ch_name].quote_match))
+						hold.push(ch_name);
+				}
+				if(hold.length == 1) {
+					// we can be pretty certain this one is right
+					paragraphs[pstring].character = hold[0];
+					paragraphs[pstring].color = characters[hold[0]].color;
+					painted++;
+				}
+			}
+		}
+		// info has been cached
+		// the obvious ones have been assigned
+		
+		for(var p in paragraphs) {
+			addPara(p);
+		}
+		runBackToBack();
+		
+		manual_painting = true;
+	}
+	function runBackToBack(manual) {
+		// run down the paint line and look for likely back and forths
+		/*for(var i=1; i<plist.length-3; i++) {
+		
+			var p0 = paragraphs[plist[i-1]];
+			var p1 = paragraphs[plist[i]];
+			var p2 = paragraphs[plist[i+1]];
+			var p3 = paragraphs[plist[i+2]];
+			var p4 = paragraphs[plist[i+3]];*/
+		for(var i=1; i<paint_line.length-3; i++) {
+			var p0 = paragraphs[paint_line[i-1]];
+			var p1 = paragraphs[paint_line[i]];
+			var p2 = paragraphs[paint_line[i+1]];
+			var p3 = paragraphs[paint_line[i+2]];
+			var p4 = paragraphs[paint_line[i+3]];
+	
+			var bf02 = (p0.character && p2.character && p0.character == p2.character);
+			var bf13 = (p1.character && p3.character && p1.character == p3.character);
+			var bf24 = (p2.character && p4.character && p2.character == p4.character);
+			//var bf35 = (p3.character && p3.character && p3.character == p5.character);
+			
+			if(!p0.character && ((manual&&p0.paintable)||p0.p_count[p2.character]||p0.purged == "") && bf13) {
+				// ? A B A
+				// ? might be B
+				// seems a decent bet
+				p0.character = p2.character;
+				p0.color = p2.color;
+				painted++;
+				applyPaint(p0);
+				console.log(p0.text);
+				console.log("colored based on ");
+				console.log(p2.text);
+				console.log("and b13");
+				bf02 = (p0.character && p2.character && p0.character == p2.character);
+			}
+			if(!p1.character && ((manual&&p1.paintable)||p1.p_count[p3.character]||p1.purged == "") && (bf02 || bf24)) {
+				// A ? A B 	or ? A B A
+				// ? might be B
+				// seems a decent bet
+				p1.character = p3.character;
+				p1.color = p3.color;
+				painted++;
+				applyPaint(p1);
+				console.log(p1.text);
+				console.log("colored based on ");
+				console.log(p3.text);
+				console.log("and " + (bf02 ? "bf02" : "bf24"))
+				bf13 = (p1.character && p3.character && p1.character == p3.character);
+			}
+			if(!p2.character && ((manual&&p2.paintable)||p2.p_count[p0.character]||p2.purged == "") && bf13) {
+				// B A ? A
+				// ? might be B
+				// seems a decent bet
+				p2.character = p0.character;
+				p2.color = p0.color;
+				painted++;
+				applyPaint(p2);
+				console.log(p2.text);
+				console.log("colored based on ");
+				console.log(p0.text);
+				console.log("and b13");
+				bf02 = (p0.character && p2.character && p0.character == p2.character);
+				bf24 = (p2.character && p4.character && p2.character == p4.character);
+			}
+			if(!p3.character && ((manual&&p3.paintable)||p3.p_count[p1.character]||p3.purged == "") && (bf02 || bf24)) {
+				// A B A ? 	or B A ? A
+				// ? might be B
+				// seems a decent bet
+				p3.character = p1.character;
+				p3.color = p1.color;
+				painted++;
+				applyPaint(p3);
+				console.log(p3.text);
+				console.log("colored based on ");
+				console.log(p1.text);
+				console.log("and " + (bf02 ? "bf02" : "bf24"))
+			}
+		}
+	}
+
+	function manualPaint(ele, sel) {
+		var num = ele.id.replace(/paragraph-/, "");
+		var para = paragraphs[num];
+		para.character = active_character;
+		para.color = (characters[active_character] || {color:null}).color;
+		applyPaint(para, sel);
+		if(keep_checking.checked)
+		runBackToBack(true);
+	}
+	function applyPaint(para, sel) {
+		var text = para.text;
+		if(para.character) {
+			if(sel) {
+				if(para.sel)
+					text = para.sel;
+				text = text.replace(sel, '<span class="'+para.character+'">'+sel+'</span>');
+				para.sel = text;
+			}
+			else if(para.matches.length && !paint_para_ele.checked) {
+				for(let ms in para.matches) {
+					var m = para.matches[ms];
+					text = text.replace(m, '<span class="'+para.character+'">'+m+'</span>');
+				}
+				delete para.sel;
+			}
+			else{
+				text = '<span class="' + para.character + '">' + text + '</span>';
+				delete para.sel;
+			}
+		}
+		var pa = document.getElementById("paragraph-"+para.num)
+		if(pa) {
+			pa.innerHTML = text;
+			if(para.paintable && !para.character) {
+				pa.style.background = "#d0d0d0";
+			}else{
+				pa.style.background = "";
+			}
+		}
+	}
+
+	function addPara(num) {
+		var pa = document.createElement("p");
+		var para = paragraphs[num];
+		var text = para.text;
+		var matches = para.matches;
+		var chara = para.character;
+		pa.id = "paragraph-" + num;
+		pa.className = "preview-para";
+		pa.onclick = function() {
+			manualPaint(this)//, getSelectionText())
+		}
+		if(para.paintable && !para.character)
+			pa.style.background = "#d0d0d0";
+		preview_area.appendChild(pa);
+		applyPaint(para);
+		/*
+		if(chara) {
+			for(let ms in matches)
+				text = text.replace(matches[ms], '<span class="'+chara+'">'+matches[ms]+'</span>');
+		}
+		pa.innerHTML = text;*/
+	}
+	function exportHTML() {
+		var ta = document.getElementById("export-area");
+		var out = "";
+		var printlist = Object.keys(paragraphs)
+		for(var i=0; i<printlist.length; i++) {
+			var pa = paragraphs[String(i)];
+			if(pa.sel) {
+				out += pa.sel + "\n";
+			}else{
+				var text = pa.text;
+				if(pa.character) {
+					for(let ms in pa.matches)
+						text = text.replace(pa.matches[ms], '<span style="color:#'+pa.color+';">'+pa.matches[ms]+'</span>');
+				}
+				if(text != "\n")
+					text += "\n";
+				out += text;
+			}
+		}
+		ta.value = out;
+	}
+	$( document ).ready(function() {
+		ready = true;
+		preview_area = document.getElementById("paint-wrapper");
+		paint_para_ele = document.getElementById("paint-para");
+		paint_quote_ele = document.getElementById("paint-quotes");
+		paint_italic_ele = document.getElementById("paint-ital");
+		keep_checking = document.getElementById("keep-checking");
+		addCharacter("Hannah", "1919e6");
+		addCharacter("Karina", "c444e6");
+		addCharacter("Seiva", "e5b300");
+		addCharacter("Mikara", "7979e6");
+		addCharacter("Solari", "00cc44");
+	});
+	
+</script>
+</head>
+<body>
+<div id="left-side">
+	<div class="wrapper" id="intro-wrapper">
+		TextPainter will analyze a document and apply colors to text in "quotes" or <i>italics</i>, then open a UI to allow for larger scale corrections. For character name below, use the most common occurences of the name for best results.<br>
+		<br>
+	</div>
+	<div class="wrapper" id="add-character-wrapper">
+		<b>Step 1: Add Characters</b><br>
+		<input id="chara-name" type="text" placeholder="Name"></input> <input id="chara-color" type="text" size="5" placeholder="Hexcode"></input> <input type="button" value="Add Character" onclick="addCharacter();"></input> <input type="button" value="Delete Name" onclick="removeCharacter();"></input><br>
+		<div id="chara-error"></div>
+		<div class="wrapper" id="characters-wrapper">
+			<!-- Character emblems will be added here -->
+		</div>
+	</div>
+	<div class="wrapper" id="settings-wrapper">
+		<br><b>Step 2: Settings</b><br>
+		<input id="paint-quotes" type="checkbox" checked></input> Paint text inside "quotes"<br>
+		<input id="paint-ital" type="checkbox" checked></input> Paint text inside &lt;i&gt;these&lt;/i&gt; [i]kinds[/i] of *italics*<br>
+		<input id="paint-para" type="checkbox"></input> Paint entire paragraphs<br>
+		<input id="keep-checking" type="checkbox" checked></input> Continue autopainting after manual changes.
+	</div>
+	<div class="wrapper" id="input-wrapper">
+		<br><b>Step 3: Input text</b><br>
+		<textarea id="import-area" cols="40" rows="10"></textarea><br>
+		<input type="button" value="Ready to paint" onclick="startPainting();"></input>
+	</div>
+</div>
+<div id="right-half">
+	<b>Step 4: Paint</b><br>
+	Click the character emblems to the left, then paragraphs below to repaint them that color.<br>
+	Unpainted but paintable sections will have a backshadow.<br>
+	Unpainted text will try to autopaint after you make changes. You can disable that in Settings.<br>
+	<div class="wrapper" id="painting-wrapper">
+		<div class="wrapper" id="paint-wrapper">
+			<!-- The currently painted text goes here -->
+		</div>
+	</div>
+	<input type="button" value="Export HTML" onclick="exportHTML();"></input><br>
+	<textarea id="export-area" cols="40" rows="10">Final data will be exported here.</textarea>
+</div>
+<div class="wrapper" id="palette-wrapper">
+	<!-- The palettes for the colors go here -->
+</div>
+</body>
+</html>

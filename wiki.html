@@ -61,21 +61,27 @@
 		for(var i = 0; i < ar.length; i++) {
 			output += `#<section `
 			if(i < ar.length-1) {
-				output += `begin="${ar[i+1]}_PS" `
+				output += `begin="${cleanTag(ar[i+1])}_PS" `
 			}
 			if(i > 0) { 
-				output += `begin="${ar[i-1]}_NS" `
+				output += `begin="${cleanTag(ar[i-1])}_NS" `
 			}
 			output += `/>${ar[i]}<section `
 			if(i < ar.length-1) {
-				output += `end="${ar[i+1]}_PS" `
+				output += `end="${cleanTag(ar[i+1])}_PS" `
 			}
 			if(i > 0) { 
-				output += `end="${ar[i-1]}_NS" `
+				output += `end="${cleanTag(ar[i-1])}_NS" `
 			}
 			output += `/>\n`;
 		}
 		document.getElementById("output").value = output;
+	}
+	function cleanTag(tag) {
+		tag = tag.replace(/"/g, "&#34;")
+		tag = tag.replace(/&/g, "&#38;")
+		tag = tag.replace(/'/g, "&#39;")
+		return tag;
 	}
 </script>
 </head>
