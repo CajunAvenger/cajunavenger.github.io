@@ -12,9 +12,52 @@ var languages = [
 ];
 var regional_suffix = ["Español", "Português", "Français", "Italiano"];
 var no_spaces = ["日本", "简中", "繁中"];
+var fallbacks = {
+	"Español_Latin": "Español"
+}
+var currentLang = "English";
+var fav_cats = 	[
+	"Bird", "Mammal", "RegionBug", "PseudoLegend", "PikachuClone",
+	"Eeveelution", "Fossil", "RegionalForm", "Gigantamax",
+	"BoxLegendary", "Mythical", "UltraBeast", "Paradox",
+	"Type", "Pokeball", "SpindaTitle", "Vivillon", "Alcremie",
+	"Baby", "NewEvolution"
+]
+var femme = {
+	"Português": ["-a", "Forma Regional"],
+	"Español": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional"],
+	"Español_Latin": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional"]
+}
+var font_sizes = {
+	"ShinyCharm1": {
+		"English": 24,
+		"Português": 20,
+		"Français": 22
+	},
+	"ShinyCharm2": {
+		"English": 24,
+		"Português": 20,
+		"Français": 22
+	},
+	"Favorite": {
+		"English": 27,
+		"Français": 23
+	}
+}
+function getTranslString (check) {
+	if(!translatable[check])
+		return "";
+	var tr = translatable[check][currentLang];
+	if(tr)
+		return tr;
+	tr = translatable[check][fallbacks[currentLang]];
+	if(tr)
+		return tr;
+	return translatable[check]["English"];
+}
 var translatable = {
 	// Strings missing translations
-	"Gimmick Form": {
+	"GimmickForm": {
 		"English": "Gimmick Form",
 		"Español": "Forma Especial",
 		"Português": "Forma com Mecânica",
@@ -50,7 +93,7 @@ var translatable = {
 		"Italiano": "",
 		"한국어": ""
 	},
-	"Download": {
+	"btnPrint": {
 		"English": "Download Image",
 		"Español": "Descargar imagen",
 		"Português": "Baixe a imagem",
@@ -74,7 +117,7 @@ var translatable = {
 		"Italiano": "",
 		"한국어": ""
 	},
-	"Export": {
+	"btnExport": {
 		"English": "Export Choices",
 		"Español": "Exportar selecciones",
 		"Português": "Exportar Escolhas",
@@ -86,7 +129,7 @@ var translatable = {
 		"Italiano": "",
 		"한국어": ""
 	},
-	"Import": {
+	"btnLoad": {
 		"English": "Import Choices",
 		"Español": "Importar selecciones",
 		"Português": "Importar Escolhas",
@@ -98,7 +141,7 @@ var translatable = {
 		"Italiano": "",
 		"한국어": ""
 	},
-	"gridReset": {
+	"btnReset": {
 		"English": "Reset the grid!",
 		"Español": "Reestablecer la cuadrícula",
 		"Português": "Reset o quadro",
@@ -122,7 +165,7 @@ var translatable = {
 		"Italiano": "",
 		"한국어": ""
 	},
-	"importExportInstructions": {
+	"import": {
 		"English": "# Don't like my choices? You can overrule them here!\n# Write Code will put a text version of the grid here\n# Then you can edit the names and Import Code to replace the images.\n# Most Pokemon are just their named capitalized, like SWELLOW.\n# Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.\n# You can also use this to keep backups",
 		"Español": "# ¿No te gustan mis selecciones? ¡Puedes cambiarlas aquí!\n# Exportar selecciones generará una versión de texto de la cuadrícula\n# Después podrás editar los nombres y darle click a Importar selecciones para reemplazar las imágenes.\n# La mayoría de Pokémon simplemente son su nombre en mayúsculas, como SWELLOW\n# Las formas alternativas tienen etiquetas específicas, como MEOWTH_2 para Meowth de Galar.\n# También puedes usar esto para realizar respaldos",
 		"Português": "# Não gosta das minhas escolhas? Você pode anulá-las!\n# Exportar Escolhas irá colocar uma versão em texto do quadro aqui\n# Então você poderá editar os nomes e Importar Escolhas para substituir as imagens.\n# A maioria dos Pokémon são apenas seus nomes em letra maiúscula, como SWELLOW.\n# Formas Alternativas possuem tags específicas, como MEOWTH_2 para Meowth de Galar.\n# Você também pode usar isso para guardar cópias de segurança.",
@@ -134,20 +177,20 @@ var translatable = {
 		"Italiano": "",
 		"한국어": ""
 	},
-	"spindaInstructions": {
-		"English": "Spinda's spots can be randomized or manually placed.\nEach box pair in the corners moves its nearest spot.\nUp/Down on the first box moves it Right/Left.\nUp/Down on the second box moves it Up/Down.",
-		"Español": "Las manchas de Spinda pueden ser aleatorias o cambiadas manualmente.\nCada par de cajas en las esquinas cambian la mancha más cercana a ellas\nArriba/Abajo en la primera caja la mueve hacía la Derecha/Izquierda\nArriba/Abajo en la segunda caja la mueve hacía la Derecha/Izquierda",
-		"Português": "As manchas do Spinda podem ser aleatórias ou colocadas manualmente.\nCada par de caixas nos cantos da imagem movem as manchas próximas a eles.\nPara cima/Para baixo na primeira caixa move as manchas para a Direita/Esquerda.\nPara cima/Para baixo na segunda caixa move as manchas para Cima/Baixo.",
+	"spinda-help": {
+		"English": "Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.",
+		"Español": "Las manchas de Spinda pueden ser aleatorias o cambiadas manualmente.<br/>Cada par de cajas en las esquinas cambian la mancha más cercana a ellas<br/>Arriba/Abajo en la primera caja la mueve hacía la Derecha/Izquierda<br/>Arriba/Abajo en la segunda caja la mueve hacía la Derecha/Izquierda",
+		"Português": "As manchas do Spinda podem ser aleatórias ou colocadas manualmente.<br/>Cada par de caixas nos cantos da imagem movem as manchas próximas a eles.<br/>Para cima/Para baixo na primeira caixa move as manchas para a Direita/Esquerda.<br/>Para cima/Para baixo na segunda caixa move as manchas para Cima/Baixo.",
 		"Deutsch": "",
 		"日本": "",
 		"简中": "",
 		"繁中": "",
-		"Français": "Les tâches de Spinda peuvent être placées aléatoirement ou à la main\nChaque paire de chiffre dans les coins déplace la tâche la plus proche\nHaut/Bas dans la première la déplace vers la Gauche/Droite\nHaut/Bas dans la seconde la déplace vers le Haut/Bas",
+		"Français": "Les tâches de Spinda peuvent être placées aléatoirement ou à la main<br/>Chaque paire de chiffre dans les coins déplace la tâche la plus proche<br/>Haut/Bas dans la première la déplace vers la Gauche/Droite<br/>Haut/Bas dans la seconde la déplace vers le Haut/Bas",
 		"Italiano": "",
 		"한국어": ""
 	},
 	"teamInstructions": {
-		"English": "Click a team box, then a Pokemon from the grid to copy it to the box.",
+		"English": "Click a team box, then a Pokémon from the grid to copy it to the box.",
 		"Español": "Haz click en la caja de equipo y después en un Pokémon de la cuadrícula para copiarlo a la caja de equipo",
 		"Português": "Clique em um dos espaços em branco e depois em um Pokémon do quadro para colocá-lo no time",
 		"Deutsch": "",
@@ -210,7 +253,7 @@ var translatable = {
 		"Italiano": "",
 		"한국어": ""
 	},
-	"Randomize!": {
+	"btnRandom": {
 		"English": "Randomize!",
 		"Español": "Aleatorizar!",
 		"Português": "Aleatório!",
@@ -299,40 +342,52 @@ var translatable = {
 		"한국어": "지닌 포켓몬"
 	},
 	"Regional": {
-		"English": "Regional",
-		"Español": "Regional",
-		"Português": "Regional",
-		"Deutsch": "Regional",
+		"English": "Regional ",
+		"Español": " Regional",
+		"Português": " Regional",
+		"Deutsch": "Regional ",
 		"日本": "地域",
 		"简中": "地区",
 		"繁中": "地區",
-		"Français": "régional",
-		"Italiano": "regionale",
-		"한국어": "지역"
+		"Français": " Régional",
+		"Italiano": " Regionale",
+		"한국어": "지역 "
 	},
 	"Bird": {
-		"English": "Bird",
-		"Español": "Ave",
-		"Português": "Pássaro",
-		"Deutsch": "Vogel",
-		"日本": "鳥",
-		"简中": "鸟",
-		"繁中": "鳥",
-		"Français": "Oiseau",
-		"Italiano": "Uccello",
-		"한국어": "새"
+		"English": "Regional Bird",
+		"Español": "Ave Regional",
+		"Português": "Pássaro Regional",
+		"Deutsch": "Regional Vogel",
+		"日本": "地域鳥",
+		"简中": "地区鸟",
+		"繁中": "地區鳥",
+		"Français": "Oiseau Régional",
+		"Italiano": "Uccello Regionale",
+		"한국어": "지역 새"
 	},
 	"Mammal": {
-		"English": "Mammal",
-		"Español": "Mamífero",
-		"Português": "Mamífero",
-		"Deutsch": "Säugetier",
-		"日本": "哺乳類",
-		"简中": "哺乳动物",
-		"繁中": "哺乳動物",
-		"Français": "Mammifère",
-		"Italiano": "Mammifero",
-		"한국어": "포유류"
+		"English": "Regional Mammal",
+		"Español": "Mamífero Regional",
+		"Português": "Mamífero Regional",
+		"Deutsch": "Regional Säugetier",
+		"日本": "地域哺乳類",
+		"简中": "地区哺乳动物",
+		"繁中": "地區哺乳動物",
+		"Français": "Mammifère Régional",
+		"Italiano": "Mammifero Regionale",
+		"한국어": "지역 포유류"
+	},
+	"RegionBug": {
+		"English": "Regional Bug",
+		"Español": "Bicho Regional",
+		"Português": "Inseto Regional",
+		"Deutsch": "Regional Käfer",
+		"日本": "地域むし",
+		"简中": "地区虫",
+		"繁中": "地區蟲",
+		"Français": "Insecte Régional",
+		"Italiano": "Coleottero Regionale",
+		"한국어": "지역 벌레"
 	},
 	"Fossil": {
 		"English": "Fossil",
@@ -373,7 +428,7 @@ var translatable = {
 	"Mythical": {
 		"English": "Mythical",
 		"Español": "Pokémon Singular",
-		"Español_LA": "Mítico",
+		"Español_Latin": "Mítico",
 		"Português": "Mítico",
 		"Deutsch": "Mysteriöse Pokémon",
 		"日本": "幻のポケモン",
@@ -455,7 +510,7 @@ var translatable = {
 		"Italiano": "Nuova Evoluzione",
 		"한국어": "새로운 진화"
 	},
-	"Spinda": {
+	"SpindaTitle": {
 		"English": "Spinda",
 		"Español": "Spinda",
 		"Português": "Spinda",
@@ -491,7 +546,6 @@ var translatable = {
 		"Italiano": "Alcremie",
 		"한국어": "마휘핑"
 	},
-	
 	"Normal": {
 		"English": "Normal",
 		"Español": "Normal",
@@ -763,4 +817,59 @@ function writeEmpties() {
 		fs.writeFile('./translating_strings/'+l+'.txt', JSON.stringify(holder[l], null, 1), function(){})
 	}
 }
-writeEmpties();
+function resolveFem(string, lang, arr) {
+	if(femme[lang].includes(string))
+		return arr[1];
+	if(femme[lang].includes("-a") && string.match(/a$/))
+		return arr[1];
+	return arr[0];
+}
+function changeLang(lang) {
+	if(lang == currentLang)
+		return;
+	currentLang = lang;
+	var fallback = (fallbacks[lang] || "English");
+	var favs = translatable["Favorite"][lang];
+	if(!favs)
+		favs = translatable["Favorite"][fallback];
+	var use_femme = femme.hasOwnProperty(lang);
+	for(let tr_id in translatable) {
+		var tr_info = translatable[tr_id];
+		var tr_ele = document.getElementById(tr_id);
+		if(!tr_ele)
+			continue;
+		var tr_st = tr_info[lang];
+		if(!tr_st)
+			tr_st = tr_info[fallback];
+		if(fav_cats.includes(tr_id)) {
+			// Favorite Thing
+			var fn = favs[0];
+			if(use_femme)
+				fn = resolveFem(tr_st, lang, favs)
+			if(no_spaces.includes(lang)) {
+				tr_st = fn + tr_st;
+			}else{
+				tr_st = fn + "<br/>" + tr_st;
+			}
+			// deal with font size
+			if(font_sizes["Favorite"][lang]) {
+				tr_ele.style.fontSize = font_sizes["Favorite"][lang];
+			}else{
+				tr_ele.style.fontSize = font_sizes["Favorite"]["English"]
+			}
+		}
+		if(tr_ele.type == "button") {
+			tr_ele.value = tr_st;
+		}else{
+			tr_ele.innerHTML = tr_st;
+		}
+		// deal with font size
+		if(font_sizes[tr_id]) {
+			if(font_sizes[tr_id][lang]) {
+				tr_ele.style.fontSize = font_sizes[tr_id][lang];
+			}else{
+				tr_ele.style.fontSize = font_sizes[tr_id]["English"]
+			}
+		}
+	}
+}
