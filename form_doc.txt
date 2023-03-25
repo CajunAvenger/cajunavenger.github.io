@@ -1,35 +1,6 @@
 Some Pokemon forms are not normally accessible in the grid, but can be loaded with the Write/Import box.
 The key names for those forms are listed below:
 
-Standard forms:
-Shock Drive Genesect: GENESECT_1
-Burn Drive Genesect: GENESECT_2
-Chill Drive Genesect: GENESECT_3
-Douse Drive Genesect: GENESECT_4
-Full Moon Lunala: LUNALA_1
-Radiant Sun Solgaleo: SOLGALEO_1
-Zenith Marshadow: MARSHADOW_1
-Busted Mimikyu: MIMIKYU_1
-Behemoth Blade Zacian: ZACIAN_2
-Behemoth Bash Zamazenta: ZAMAZENTA_2
-Dada Zarude: ZARUDE_1
-Cosplay Pikachu: PIKACHU_2
-Belle Pikachu: PIKACHU_3
-Libre Pikachu: PIKACHU_4
-Ph.D. Pikachu: PIKACHU_5
-Pop Star Pikachu: PIKACHU_6
-Rock Star Pikachu: PIKACHU_7
-Ash Cap Pikachu: PIKACHU_8
-Hoenn Cap Pikachu: PIKACHU_9
-Sinnoh Cap Pikachu: PIKACHU_10
-Unova Cap Pikachu: PIKACHU_11
-Kalos Cap Pikachu: PIKACHU_12
-Alola Cap Pikachu: PIKACHU_13
-Partner Cap Pikachu: PIKACHU_14
-World Cap Pikachu: PIKACHU_15
-
-
-
 Female forms:
 Abomasnow: ABOMASNOW_female
 Alakazam: ALAKAZAM_female
@@ -116,11 +87,7 @@ Weavile: WEAVILE_female
 Wobbuffet: WOBBUFFET_female
 Wooper: WOOPER_female
 
-
-
-Additional forms:
-Antique Polteageist: POLTEAGEIST_1
-Antique Sinistea: SINISTEA_1
+Arceus forms:
 Fire Arceus: ARCEUS_1
 Water Arceus: ARCEUS_2
 Grass Arceus: ARCEUS_3
@@ -138,6 +105,8 @@ Dragon Arceus: ARCEUS_14
 Dark Arceus: ARCEUS_15
 Steel Arceus: ARCEUS_16
 Fairy Arceus: ARCEUS_17
+
+Silvally forms:
 Fire Silvally: SILVALLY_1
 Water Silvally: SILVALLY_2
 Grass Silvally: SILVALLY_3
@@ -155,3 +124,40 @@ Dragon Silvally: SILVALLY_14
 Dark Silvally: SILVALLY_15
 Steel Silvally: SILVALLY_16
 Fairy Silvally: SILVALLY_17
+
+Genesect forms:
+Shock Drive Genesect: GENESECT_1
+Burn Drive Genesect: GENESECT_2
+Chill Drive Genesect: GENESECT_3
+Douse Drive Genesect: GENESECT_4
+
+Other forms included in the grid
+Full Moon Lunala: LUNALA_1
+Radiant Sun Solgaleo: SOLGALEO_1
+Zenith Marshadow: MARSHADOW_1
+Busted Mimikyu: MIMIKYU_1
+Behemoth Blade Zacian: ZACIAN_2
+Behemoth Bash Zamazenta: ZAMAZENTA_2
+Dada Zarude: ZARUDE_1
+Cosplay Pikachu: PIKACHU_2
+Belle Pikachu: PIKACHU_3
+Libre Pikachu: PIKACHU_4
+Ph.D. Pikachu: PIKACHU_5
+Pop Star Pikachu: PIKACHU_6
+Rock Star Pikachu: PIKACHU_7
+Ash Cap Pikachu: PIKACHU_8
+Hoenn Cap Pikachu: PIKACHU_9
+Sinnoh Cap Pikachu: PIKACHU_10
+Unova Cap Pikachu: PIKACHU_11
+Kalos Cap Pikachu: PIKACHU_12
+Alola Cap Pikachu: PIKACHU_13
+Partner Cap Pikachu: PIKACHU_14
+World Cap Pikachu: PIKACHU_15
+Purple Kecleon: KECLEON_1
+Shadow Lugia: LUGIA_1
+Primal Dialga: DIALGA_2
+
+Super secret forms:
+Antique Polteageist: POLTEAGEIST_1
+Antique Sinistea: SINISTEA_1
+

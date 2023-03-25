@@ -1,6 +1,7 @@
 var languages = [
 	"English",
 	"Español",
+	"Español_Latino",
 	"Português",
 	"Deutsch",
 	"日本",
@@ -13,7 +14,7 @@ var languages = [
 var regional_suffix = ["Español", "Português", "Français", "Italiano"];
 var no_spaces = ["日本", "简中", "繁中"];
 var fallbacks = {
-	"Español_Latin": "Español"
+	"Español_Latino": "Español"
 }
 var currentLang = "English";
 var fav_cats = 	[
@@ -26,7 +27,7 @@ var fav_cats = 	[
 var femme = {
 	"Português": ["-a", "Forma Regional"],
 	"Español": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional"],
-	"Español_Latin": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional"]
+	"Español_Latino": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional"]
 }
 var font_sizes = {
 	"ShinyCharm1": {
@@ -428,7 +429,7 @@ var translatable = {
 	"Mythical": {
 		"English": "Mythical",
 		"Español": "Pokémon Singular",
-		"Español_Latin": "Mítico",
+		"Español_Latino": "Mítico",
 		"Português": "Mítico",
 		"Deutsch": "Mysteriöse Pokémon",
 		"日本": "幻のポケモン",
