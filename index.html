@@ -95,10 +95,14 @@ canvas {
 	position: absolute;
 }
 .bubble {
-  z-index: 9;
+  z-index: 0;
   position: absolute;
   top: 0px;
   bottom: 0px;
+  border-radius: 25px;
+  background: #b4b4b4;
+	border-style: solid;
+	border-width: 2px;
 }
 #actual-btn {
   z-index: 6;
@@ -1819,6 +1823,108 @@ canvas {
 		}
 	}
 	
+	function bubbleRows(count) {
+		if(count == 6) {
+			return [3, 3];
+		}else if(count == 12) {
+			return [4, 4, 4];
+		}
+		var column_soft_cap = 5;
+		var row_soft_cap = 5;
+		var column_hard_cap = 12;
+		var row_hard_cap = 5;
+		
+		var soft_size = column_soft_cap * row_soft_cap;
+		var hard_size = column_hard_cap * row_hard_cap;
+		
+		var row_sizes = [];
+		
+		if(count > hard_size) {
+			var excess = count - hard_size;
+			var nec_rows = Math.ceil(excess / column_hard_cap);
+			var row_break_cap = row_hard_cap + nec_rows
+			var holes = (column_hard_cap * nec_rows) - excess;
+			var extra_cols = Math.ceil(holes/row_break_cap);
+			var over = (extra_cols*row_break_cap) - holes
+			/*
+				so if given 61
+				excess = 1, nec_rows = ceil(1/12) = 1
+				and there are 11 new empty spots
+				partial/empty columns = ceil(holes/rows) = 2
+				we can remove 2 columns, leaving -1 empty slot
+				then readd those in a partial 11th column
+				11 - 10 - 10 - 10 - 10 - 10
+				
+				if given 70
+				excess = 10, nec_rows = ceil(10/12) = 1
+				holes = 2, extra_cols = 1, over = 3
+				12 - 12 - 12 - 11 - 11 - 11
+				
+				if given 73
+				excess = 13, nec_rows = ceil(13/12) = 2
+				holes = 11, extra_cols = 2, over = 3
+				11 - 11 - 11 - 10 - 10 - 10 - 10
+				
+			*/
+			for(var i=0; i<row_break_cap; i++) {
+				var cols = column_hard_cap - extra_cols;
+				if(over > 0) {
+					cols++;
+					over--;
+				}
+				row_sizes.push(cols);
+			}
+			return row_sizes;
+		}
+		else if(count <= soft_size) {
+			// this fits in the 5x5
+			var over = count % column_soft_cap;
+			var full_rows = Math.floor(count / column_soft_cap);
+			if(full_rows < 1) {
+				// short row
+				return [count];
+			}
+			else if(over > 0 && over < full_rows) {
+				// prefer adding 1 to some complete rows
+				// than adding a new very short row
+				for(var i=1; i<full_rows+1; i++) {
+					var cols = column_soft_cap;
+					if(i != full_rows) {
+						cols++;
+						over--;
+					}else{
+						cols += over;
+					}
+					row_sizes.push(cols);
+				}
+				return row_sizes;
+			}
+			else{
+				for(var i=0; i<full_rows; i++)
+					row_sizes.push(column_soft_cap);
+				if(over > 0)
+					row_sizes.push(over);
+				return row_sizes;
+			}
+		}else{
+			var has_over = (over != 0);
+			var full_columns = Math.floor(count / row_hard_cap);
+			var over = count % row_hard_cap;
+			for(var i=1; i<=row_hard_cap; i++) {
+				var cols = full_columns;
+				if(has_over) {
+					if(i != row_hard_cap) {
+						cols++;
+						over--;
+					}else{
+						cols += over;
+					}
+				}
+				row_sizes.push(cols);
+			}
+			return row_sizes;
+		}
+	}
 	function openBox(gen, type) {
 		if(shinyCharm) {
 			toggleShiny(gen, type);
@@ -1897,13 +2003,7 @@ canvas {
 		}else{
 			currently_previewing = arrays[type_order[type]][gen];
 		}
-		var left_corner = (type*99)+100
-		var top_corner = (gen*99)+101
-
-		if(gen == 0) {
-			left_corner = zerogen_coords[Math.min(24, type)][0] + 100
-			top_corner = zerogen_coords[Math.min(24, type)][1] + 100
-		}
+		/*
 		var maxCols = Math.max(Math.ceil(currently_previewing.length/5), 5)
 		var maxRows = 5
 		if(currently_previewing.length <= 20)
@@ -1915,12 +2015,45 @@ canvas {
 		if(maxCols > 5) {
 			bubble_img = "./bubble/"+maxCols+"c.png";
 		}
-		var rightp = left_corner + (99*maxCols)
-		var botp = top_corner + (99*maxRows)
+		*/
+		// get upgraded bubble row numbers
+		var row_numbers = bubbleRows(currently_previewing.length);
+		// save to figure out offset rows
+		var max_cols = row_numbers[0];
+		// position the bubble
+		var left_corner = (type*99)+96
+		var top_corner = (gen*99)+99
+		if(gen == 0) {
+			left_corner = zerogen_coords[Math.min(24, type)][0] + 100
+			top_corner = zerogen_coords[Math.min(24, type)][1] + 100
+		}
+		var rightp = left_corner + Math.max(99, 99*max_cols);
+		var botp = top_corner + Math.max(99, 99*row_numbers.length);
 		if(rightp > 2276)
 			left_corner -= (rightp-2276)
 		if(botp > 1571)
-			top_corner -= (99*(maxRows+1))
+			top_corner -= (99*(row_numbers.length+1))
+		// current index of currently_previewing
+		var pr_ind = 0;
+		for(var r=0; r<row_numbers.length; r++) {
+			var pokemon_in_row = row_numbers[r];
+			var hole_offset = (max_cols - pokemon_in_row)*49.5;
+			for(var c=0; c<pokemon_in_row; c++) {
+				var mon_key = currently_previewing[pr_ind];
+				// if this mon is already in the box, put the remove option instead
+				if(choices[currently_selecting[0]][currently_selecting[1]] == mon_key)
+					mon_key = "BLANK";
+				var mon_img = domlink + spriteFile + "/" + mon_key + ".png"
+				var ele = document.getElementById('preview'+pr_ind)
+				ele.src = mon_img;
+				ele.style.zIndex = 9;
+				//change the position
+				ele.style.top = top_corner + 99*r;
+				ele.style.left = left_corner + 99*c + hole_offset;
+				pr_ind++;
+			}
+		}
+		/*
 		for(var i=0; i<currently_previewing.length; i++) {
 			var mon_key = currently_previewing[i];
 			// if this mon is already in the box, put the remove option instead
@@ -1938,12 +2071,14 @@ canvas {
 				offset = underflow*99/2;
 			ele.style.top = top_corner + (row*99);
 			ele.style.left = left_corner + (col*99) + offset;
-		}
+		}*/
 		var bubble = document.getElementById('bubble')
-		bubble.src = bubble_img;
+		//bubble.src = bubble_img;
 		bubble.style.left = left_corner;
 		bubble.style.top = top_corner;
-		bubble.style.zIndex = 9;
+		bubble.style.zIndex = 8;
+		bubble.style.width = Math.max(99, max_cols * 99) + 1;
+		bubble.style.height = Math.max(99, row_numbers.length * 99) + 1;
 	}
 	function closeBox() {
 		for(var i=0; i<currently_previewing.length; i++) {
@@ -2495,7 +2630,6 @@ canvas {
 <img class="charmbox" id="charmbox2" src="./charmbox2.png" alt="" height="28" width="400" onclick="fullShiny();" />
 <img class="charmbox" id="teambox" src="./teambox.png" alt="" height="65" width="470" />
 
-<img class="bubble" id="bubble" src="./blank.png" >
 <img class="preview" id="preview0" src="./blank.png" height="96" width="96" onclick="pickMon(0);">
 <img class="preview" id="preview1" src="./blank.png" height="96" width="96" onclick="pickMon(1);">
 <img class="preview" id="preview2" src="./blank.png" height="96" width="96" onclick="pickMon(2);">
@@ -2605,5 +2739,6 @@ canvas {
 	• Other later generation sprites from the <a href="https://reliccastle.com/resources/1101/">Gen 8<a> and <a href="https://reliccastle.com/resources/952/">Gen 9</a> Resource Packs.<br />
 	• If you want to support more code silliness, you can donate to my <s>caffeine addiction</s> <a href="https://ko-fi.com/cajun42">Ko-Fi</a>.<br />
 </div>
+<div class="bubble" id="bubble"><div>
 </body>
 </html>
