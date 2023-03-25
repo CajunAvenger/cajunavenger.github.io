@@ -11,7 +11,24 @@ var languages = [
 	"Italiano",
 	"한국어"
 ];
+var lang_code = {
+	"English": "en",
+	"Español": "es",
+	"Español_Latino": "el",
+	"Português": "pt",
+	"Deutsch": "de",
+	"日本": "ja",
+	"简中": "zhs",
+	"繁中": "zht",
+	"Français": "fr",
+	"Italiano": "it",
+	"한국어": "ko"
+}
+var code_lang = {}
+for(var n in lang_code)
+	code_lang[lang_code[n]] = n;
 var regional_suffix = ["Español", "Português", "Français", "Italiano"];
+var trailing_fav = ["Français"]
 var no_spaces = ["日本", "简中", "繁中"];
 var fallbacks = {
 	"Español_Latino": "Español"
@@ -27,7 +44,8 @@ var fav_cats = 	[
 var femme = {
 	"Português": ["-a", "Forma Regional"],
 	"Español": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional"],
-	"Español_Latino": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional"]
+	"Español_Latino": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional"],
+	"Français": ["Ultra-Chimère", "Poké Ball", "Forme Régionale"]
 }
 var font_sizes = {
 	"ShinyCharm1": {
@@ -410,8 +428,8 @@ var translatable = {
 		"日本": "リージョンフォーム",
 		"简中": "地區型態",
 		"繁中": "地區型態",
-		"Français": "Forme régionale",
-		"Italiano": "Forma regionale",
+		"Français": "Forme Régionale",
+		"Italiano": "Forma Regionale",
 		"한국어": "리전폼"
 	},
 	"Gigantamax": {
@@ -435,8 +453,8 @@ var translatable = {
 		"日本": "幻のポケモン",
 		"简中": "幻之宝可梦",
 		"繁中": "幻之寶可夢",
-		"Français": "Pokémon fabuleux",
-		"Italiano": "Pokémon misterioso",
+		"Français": "Pokémon Fabuleux",
+		"Italiano": "Pokémon Misterioso",
 		"한국어": "환상의 포켓몬"
 	},
 	"UltraBeast": {
@@ -826,7 +844,9 @@ function resolveFem(string, lang, arr) {
 	return arr[0];
 }
 function changeLang(lang) {
-	if(lang == currentLang)
+	if(code_lang[lang])
+		lang = code_lang[lang];
+	if(!languages.includes(lang) || lang == currentLang)
 		return;
 	currentLang = lang;
 	var fallback = (fallbacks[lang] || "English");
@@ -849,6 +869,8 @@ function changeLang(lang) {
 				fn = resolveFem(tr_st, lang, favs)
 			if(no_spaces.includes(lang)) {
 				tr_st = fn + tr_st;
+			}else if(trailing_fav.includes(lang)) {
+				tr_st = tr_st + "<br/>" + fn;
 			}else{
 				tr_st = fn + "<br/>" + tr_st;
 			}
@@ -873,4 +895,11 @@ function changeLang(lang) {
 			}
 		}
 	}
+	var nextURL = "http://localhost:8080/"
+	if(lang != "English")
+		nextURL += "?lang=" + lang_code[lang];
+	var nextTitle = "Ultimate Favorite Pokemon Picker";
+	var nextState = { additionalInformation: 'Updated the language parameter' };
+	window.history.replaceState(nextState, nextTitle, nextURL);
 }
+

@@ -1646,8 +1646,8 @@ var arrays = {
 	   "RAPIDASH_1",
 	   "SLOWPOKE_1",
 	   "SLOWBRO_1",
-	   "ARTICUNO_1",
 	   "SLOWKING_1",
+	   "ARTICUNO_1",
 	   "BRAVIARY_1"
 	  ],
 	  [
@@ -2406,8 +2406,8 @@ var arrays = {
 	   "BASCULEGION_1",
 	   "TYPHLOSION_1",
 	   "ZORUA_1",
-	   "GENGAR_2",
-	   "ZOROARK_1"
+	   "ZOROARK_1",
+	   "GENGAR_2"
 	  ],
 	  [
 	   "SKELEDIRGE",
@@ -2944,8 +2944,6 @@ var arrays = {
 	   "RAYQUAZA_1"
 	  ],
 	  [
-	   "ZYGARDE_1",
-	   "ZYGARDE_2",
 	   "TYPENULL",
 	   "SILVALLY",
 	   "TAPUKOKO",
@@ -2966,7 +2964,9 @@ var arrays = {
 	   "MARSHADOW_1",
 	   "ZERAORA",
 	   "MELTAN",
-	   "MELMETAL"
+	   "MELMETAL",
+	   "ZYGARDE_1",
+	   "ZYGARDE_2"
 	  ],
 	  [
 	   "ZACIAN",
