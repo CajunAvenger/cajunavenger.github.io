@@ -77,112 +77,112 @@ function getTranslString (check) {
 var translatable = {
 	// Strings missing translations
 	"GimmickForm": {
-		"English": "Gimmick Form",
-		"Español": "Forma Especial",
-		"Português": "Forma com Mecânica",
-		"Deutsch": "",
-		"日本": "",
+		"English": "Gimmick<br/>Form",
+		"Español": "Forma<br/>Especial",
+		"Português": "Forma com<br/>Mecânica",
+		"Deutsch": "Gimmick-<br/>Formular",
+		"日本": "ギミック・<br/>フォム",
 		"简中": "",
 		"繁中": "",
-		"Français": "Forme Gadget",
-		"Italiano": "",
-		"한국어": ""
+		"Français": "Forme<br/>Gadget",
+		"Italiano": "Modulo<br/>espediente",
+		"한국어": "기믹 형태"
 	},
 	"PseudoLegend": {
 		"English": "Pseudo Legend",
 		"Español": "Pseudo-Legendario",
 		"Português": "Pseudo Lendário",
-		"Deutsch": "",
+		"Deutsch": "Pseudolegendär",
 		"日本": "600族",
 		"简中": "",
 		"繁中": "",
 		"Français": "Pseudo-Légendaire",
-		"Italiano": "",
-		"한국어": ""
+		"Italiano": "Pseudo Leggendario",
+		"한국어": "의사 전설"
 	},
 	"BoxLegendary": {
 		"English": "Box Legendary",
 		"Español": "Legendario de Portada",
 		"Português": "Lendário de Capa",
-		"Deutsch": "",
+		"Deutsch": "Kiste Legendär",
 		"日本": "パケ伝",
 		"简中": "",
 		"繁中": "",
 		"Français": "Légendaire de Boîte",
-		"Italiano": "",
-		"한국어": ""
+		"Italiano": "Scatola leggendaria",
+		"한국어": "상자 전설"
 	},
 	"btnPrint": {
 		"English": "Download Image",
 		"Español": "Descargar imagen",
 		"Português": "Baixe a imagem",
-		"Deutsch": "",
-		"日本": "",
+		"Deutsch": "Bild herunterladen",
+		"日本": "画像をダウンロード",
 		"简中": "",
 		"繁中": "",
 		"Français": "Télécharger l'image",
-		"Italiano": "",
-		"한국어": ""
+		"Italiano": "Scarica Immagine",
+		"한국어": "이미지 다운로드"
 	},
 	"altLink": {
 		"English": "Alternate download link",
 		"Español": "Link alternativo de descarga",
 		"Português": "Link alternativo para download",
-		"Deutsch": "",
-		"日本": "",
+		"Deutsch": "Alternativer Download-Link",
+		"日本": "別のダウンロード リンク",
 		"简中": "",
 		"繁中": "",
 		"Français": "Lien alternatif de téléchargement",
-		"Italiano": "",
-		"한국어": ""
+		"Italiano": "Link di download alternativo",
+		"한국어": "대체 다운로드 링크"
 	},
 	"btnExport": {
 		"English": "Export Choices",
 		"Español": "Exportar selecciones",
 		"Português": "Exportar Escolhas",
-		"Deutsch": "",
-		"日本": "",
+		"Deutsch": "Exportieren",
+		"日本": "エクスポートの選択肢",
 		"简中": "",
 		"繁中": "",
 		"Français": "Exporter les choix",
-		"Italiano": "",
-		"한국어": ""
+		"Italiano": "Scelte di esportazione",
+		"한국어": "내보내기 선택"
 	},
 	"btnLoad": {
 		"English": "Import Choices",
 		"Español": "Importar selecciones",
 		"Português": "Importar Escolhas",
-		"Deutsch": "",
-		"日本": "",
+		"Deutsch": "Importieren",
+		"日本": "インポートの選択肢",
 		"简中": "",
 		"繁中": "",
 		"Français": "Importer les choix",
-		"Italiano": "",
-		"한국어": ""
+		"Italiano": "Scelte di importazione",
+		"한국어": "가져오기 선택"
 	},
 	"btnReset": {
 		"English": "Reset the grid!",
 		"Español": "Reestablecer la cuadrícula",
 		"Português": "Reset o quadro",
-		"Deutsch": "",
-		"日本": "",
+		"Deutsch": "Gitter zurücksetzen",
+		"日本": "グリッドをリセットする",
 		"简中": "",
 		"繁中": "",
 		"Français": "Réinitialiser la grille",
-		"Italiano": "",
-		"한국어": ""
+		"Italiano": "Ripristina la griglia",
+		"한국어": "그리드 재설정"
 	},
 	"gridConfirm": {
 		"English": "Are you sure you want to reset the grid?",
 		"Español": "¿Estás seguro de querer reestablecer la cuadricula?",
 		"Português": "Tem certeza que deseja resetar o quadro?",
-		"Deutsch": "",
-		"日本": "",
+		"Deutsch": "Möchten Sie das Raster wirklich zurücksetzen?",
+		"日本": "グリッドをリセットしますか?",
 		"简中": "",
 		"繁中": "",
 		"Français": "Étes-vous sûrs que vous voulez réinitialiser la grille ?",
-		"Italiano": "",
-		"한국어": ""
+		"Italiano": "Sei sicuro di voler reimpostare la griglia?",
+		"한국어": "그리드를 재설정하시겠습니까?"
 	},
 	"import": {
 		"English": "# Don't like my choices? You can overrule them here!\n# Write Code will put a text version of the grid here\n# Then you can edit the names and Import Code to replace the images.\n# Most Pokemon are just their named capitalized, like SWELLOW.\n# Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.\n# You can also use this to keep backups",
@@ -200,38 +200,39 @@ var translatable = {
 		"English": "Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.",
 		"Español": "Las manchas de Spinda pueden ser aleatorias o cambiadas manualmente.<br/>Cada par de cajas en las esquinas cambian la mancha más cercana a ellas<br/>Arriba/Abajo en la primera caja la mueve hacía la Derecha/Izquierda<br/>Arriba/Abajo en la segunda caja la mueve hacía la Derecha/Izquierda",
 		"Português": "As manchas do Spinda podem ser aleatórias ou colocadas manualmente.<br/>Cada par de caixas nos cantos da imagem movem as manchas próximas a eles.<br/>Para cima/Para baixo na primeira caixa move as manchas para a Direita/Esquerda.<br/>Para cima/Para baixo na segunda caixa move as manchas para Cima/Baixo.",
-		"Deutsch": "",
-		"日本": "",
+		"Deutsch": "Die Punkte von Pandir können zufällig oder manuell platziert werden.<br/>Jedes Kästchenpaar in den Ecken bewegt sich zu seinem nächstgelegenen Punkt.<br/>Nach oben/unten auf dem ersten Kästchen bewegt es sich nach rechts/links.<br/>Nach oben/unten auf dem Das zweite Kästchen bewegt es nach oben/unten.",
+		"日本": "パッチールのスポットは、ランダムまたは手動で配置できます。<br/>隅にある各ボックス ペアは、最も近いスポットに移動します。<br/>最初のボックスを上/下にすると、右/左に移動します。<br/>2 番目のボックスを上/下にすると、上/下に移動します。",
 		"简中": "",
 		"繁中": "",
 		"Français": "Les tâches de Spinda peuvent être placées aléatoirement ou à la main<br/>Chaque paire de chiffre dans les coins déplace la tâche la plus proche<br/>Haut/Bas dans la première la déplace vers la Gauche/Droite<br/>Haut/Bas dans la seconde la déplace vers le Haut/Bas",
-		"Italiano": "",
-		"한국어": ""
+		"Italiano": "Gli spot di Spinda possono essere randomizzati o posizionati manualmente.<br/>Ogni coppia di riquadri negli angoli sposta il punto più vicino.<br/>Su/Giù sulla prima casella la sposta a destra/sinistra.<br/>Su/Giù sulla seconda casella lo sposta Su/Giù.",
+		"한국어": "올루기의 스팟은 무작위로 지정하거나 수동으로 배치할 수 있습니다.<br/>모퉁이에 있는 각 상자 쌍은 가장 가까운 지점을 이동합니다.<br/>첫 번째 상자에서 위/아래로 오른쪽/왼쪽으로 이동합니다.<br/>위/아래로 두 번째 상자는 위/아래로 이동합니다."
 	},
 	"teamInstructions": {
 		"English": "Click a team box, then a Pokémon from the grid to copy it to the box.",
 		"Español": "Haz click en la caja de equipo y después en un Pokémon de la cuadrícula para copiarlo a la caja de equipo",
 		"Português": "Clique em um dos espaços em branco e depois em um Pokémon do quadro para colocá-lo no time",
-		"Deutsch": "",
-		"日本": "",
+		"Deutsch": "Klicken Sie auf eine Teambox und dann auf ein Pokémon aus dem Raster, um es in die Box zu kopieren.",
+		"日本": "チーム・ボクスをクリックしてグリッドでポケモンをクリックしてからボクスにそれをコッピします",
 		"简中": "",
 		"繁中": "",
 		"Français": "Cliquez sur une place dans votre équipe, puis un Pokémon de la grille pour l'y copier",
-		"Italiano": "",
-		"한국어": ""
+		"Italiano": "Fai clic su una casella della squadra, quindi su un Pokémon dalla griglia per copiarlo nella casella.",
+		"한국어": "팀 상자를 클릭한 다음 그리드에서 포켓몬을 클릭하여 상자에 복사합니다."
 	},
 	"Picking": {
 		"English": "Picking...",
 		"Español": "Escogiendo...",
 		"Português": "Escolhendo...",
-		"Deutsch": "",
-		"日本": "",
+		"Deutsch": "Pflücken...",
+		"日本": "えらんでいます・・・",
 		"简中": "",
 		"繁中": "",
 		"Français": "Choix en cours...",
-		"Italiano": "",
-		"한국어": ""
+		"Italiano": "Aggiunta...",
+		"한국어": "선발..."
 	},
+	/*
 	"Credits": { // idk if this one's getting it
 		"English": "",
 		"Español": "",
@@ -244,7 +245,7 @@ var translatable = {
 		"Italiano": "",
 		"한국어": ""		
 	},
-
+	*/
 	// Less simple strings translated w/ Google Translate
 	// may very well be issues in here
 	// especially in Japanese/Chinese/Korean where I am completely lost
@@ -252,25 +253,26 @@ var translatable = {
 		"English": "Click the Shiny Charm, then click Pokemon to make them shiny.",
 		"Español": "Haz click en el Amuleto Iris, después haz click en un Pokémon para hacerlo shiny.",
 		"Português": "Clique no Shiny Charm e, em seguida, clique nos Pokémon para torná-los brilhantes.",
-		"Deutsch": "Klicken Sie auf den Schillerpin und dann auf Pokemon, um sie glänzend zu Schillerndes.",
+		"Deutsch": "Klicken Sie auf den Schillerpin und dann auf Pokemon, um sie shiny zu Schillerndes.",
 		"日本": "ひかるおまもりをクリックしてから、ポケモンをクリックして光るます。",
 		"简中": "点击闪耀护符然后点击宝可梦让它们发光。",
 		"繁中": "單擊闪耀护符然後單擊宝可梦使它們發光。",
 		"Français": "Cliquez sur le Charme Chroma, puis cliquez sur un Pokemon pour le rendre shiny.",
-		"Italiano": "Fai clic sul Cromamuleto , quindi fai clic su Pokemon per renderli cromatico.",
+		"Italiano": "Fai clic sul Cromamuleto , quindi fai clic su Pokemon per renderli shiny.",
 		"한국어": "빛나는부적 을 클릭한 다음 포켓몬 을 클릭하여 반짝이게 만들 빛나는"
 	},
 	"ShinyCharm2": {
 		"English": "Or click here to make everything shiny.",
 		"Español": "O haz click aquí para hacer a todos shiny.",
 		"Português": "Ou clique aqui para fazer que todos sejam brilhantes.",
-		"Deutsch": "",
-		"日本": "",
+		"Deutsch": "Oder klicken Sie hier, um alles shiny zu machen.",
+		//"日本": "または、ここをクリックしてすべてを光るにします。",
+		"日本": "がここにクリックしてから、みんなのポケモンが光るになります",
 		"简中": "",
 		"繁中": "",
 		"Français": "Ou cliquez ici pour les rendres tous shiny",
-		"Italiano": "",
-		"한국어": ""
+		"Italiano": "Oppure clicca qui per rendere tutto shiny.",
+		"한국어": "또는 여기를 클릭하여 모든 것을 빛나는"
 	},
 	"btnRandom": {
 		"English": "Randomize!",
