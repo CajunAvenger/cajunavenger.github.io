@@ -1446,7 +1446,8 @@ var arrays = {
 	   "PIKACHU_10",
 	   "PIKACHU_11",
 	   "PIKACHU_12",
-	   "PIKACHU_13"
+	   "PIKACHU_13",
+	   "PIKACHU_14"
 	  ],
 	  [
 	   "YAMPER",
@@ -1463,6 +1464,7 @@ var arrays = {
 	   "REGIELEKI",
 	   "VOLTORB_1",
 	   "ELECTRODE_1",
+	   "PIKACHU_15",
 	   "PIKACHU_70"
 	  ],
 	  [
@@ -2664,7 +2666,7 @@ var arrays = {
 	  "ZEKROM",
 	  "KYUREM_1",
 	  "KYUREM_2",
-	  "XERNEAS",
+	  "XERNEAS_1",
 	  "YVELTAL",
 	  "GROUDON_1",
 	  "KYOGRE_1",
@@ -2710,6 +2712,7 @@ var arrays = {
 	  "ZERAORA",
 	  "MELTAN",
 	  "MELMETAL",
+	  "MELMETAL_1",
 	  "ZARUDE",
 	  "ZARUDE_1"
 	 ],
@@ -2932,8 +2935,6 @@ var arrays = {
 	   "XERNEAS_1",
 	   "YVELTAL",
 	   "ZYGARDE",
-	   "ZYGARDE_1",
-	   "ZYGARDE_2",
 	   "DIANCIE",
 	   "DIANCIE_1",
 	   "HOOPA",
