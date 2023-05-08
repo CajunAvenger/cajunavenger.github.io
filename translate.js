@@ -980,6 +980,10 @@ function changeLang(lang) {
 	var nextState = { additionalInformation: 'Updated the language parameter' };
 	document.getElementById("new_url").innerHTML = nextURL;
 	document.getElementById("new_url").href = nextURL;
-	window.history.replaceState(nextState, nextTitle, nextURL);
+	try{
+		window.history.replaceState(nextState, nextTitle, nextURL);
+	}catch(e){
+		// unclear when this does and doesn't work
+	}
 }
 
