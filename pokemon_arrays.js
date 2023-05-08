@@ -1446,7 +1446,8 @@ var arrays = {
 	   "PIKACHU_10",
 	   "PIKACHU_11",
 	   "PIKACHU_12",
-	   "PIKACHU_13"
+	   "PIKACHU_13",
+	   "PIKACHU_14",
 	  ],
 	  [
 	   "YAMPER",
@@ -1463,7 +1464,8 @@ var arrays = {
 	   "REGIELEKI",
 	   "VOLTORB_1",
 	   "ELECTRODE_1",
-	   "PIKACHU_70"
+	   "PIKACHU_70",
+	   "PIKACHU_15"
 	  ],
 	  [
 	   "PAWMI",
@@ -2710,6 +2712,7 @@ var arrays = {
 	  "ZERAORA",
 	  "MELTAN",
 	  "MELMETAL",
+	  "MELMETAL_1",
 	  "ZARUDE",
 	  "ZARUDE_1"
 	 ],
@@ -3249,7 +3252,7 @@ var arrays = {
 		"MANTYKE",
 		"TOXEL"
 	 ],
-	 "NewEvo": [
+	 "NewEvolution": [
 		"CROBAT",
 		"BELLOSSOM",
 		"ANNIHILAPE",

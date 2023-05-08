@@ -29,7 +29,7 @@ for(var n in lang_code)
 	code_lang[lang_code[n]] = n;
 var regional_suffix = ["Español", "Português", "Français", "Italiano"];
 var trailing_fav = ["Français"]
-var no_spaces = ["日本", "简中", "繁中"];
+var no_spaces = []//"日本", "简中", "繁中"];
 var fallbacks = {
 	"Español_Latino": "Español"
 }
@@ -50,17 +50,78 @@ var femme = {
 var font_sizes = {
 	"ShinyCharm1": {
 		"English": 24,
-		"Português": 20,
-		"Français": 22
+		"Português": 22,
+		"Français": 22,
+		"Deutsch": 22,
+		"日本": 20
 	},
 	"ShinyCharm2": {
 		"English": 24,
-		"Português": 20,
-		"Français": 22
+		"Português": 22,
+		"Français": 22,
+		"Deutsch": 22,
+		"Italiano": 22,
+		"한국어": 22,
+		"日本": 20
 	},
 	"Favorite": {
 		"English": 27,
-		"Français": 23
+		"Français": 23,
+		"日本": 25,
+	},
+	"FavAlone": {
+		"English": 25,
+		"한국어": 22,
+		"日本": 18
+	},
+	"Bug": {
+		"English": 25,
+		"Italiano": 20
+	},
+	"Ghost": {
+		"English": 25,
+		"Português": 23,
+		"日本": 22,
+		"Español": 23,
+		"Español_Latino": 23
+	},
+	"Poison": {
+		"English": 25,
+		"Português": 23
+	},
+	"GimmickForm": {
+		"English": 23,
+		"Português": 20,
+		"Français": 25,
+		"Español": 25,
+		"Español_Latino": 25,
+		"Deutsch": 22,
+		"Italiano": 20,
+		"日本": 18		
+	},
+	"Fairy": {
+		"English": 25,
+		"日本": 18
+	},
+	"Psychic": {
+		"English": 25,
+		"日本": 20
+	},
+	"Dragon": {
+		"English": 25,
+		"日本": 22
+	},
+	"Fighting": {
+		"English": 25,
+		"日本": 22
+	},
+	"Normal": {
+		"English": 25,
+		"日本": 22
+	},
+	"Starter": {
+		"English": 25,
+		"日本": 22
 	}
 }
 function getTranslString (check) {
@@ -91,7 +152,7 @@ var translatable = {
 	"PseudoLegend": {
 		"English": "Pseudo Legend",
 		"Español": "Pseudo-Legendario",
-		"Português": "Pseudo Lendário",
+		"Português": "Pseudo<br/>Lendário",
 		"Deutsch": "Pseudolegendär",
 		"日本": "600族",
 		"简中": "",
@@ -349,6 +410,19 @@ var translatable = {
 		"Français": ["Préféré", "Préférée"],
 		"Italiano": ["Preferito", "Preferita"],
 		"한국어": ["가장 좋아하는", "가장 좋아하는"]
+	},
+	"FavAlone": {
+		// masc / femme
+		"English": "Favorite",
+		"Español": "Favorito",
+		"Português": "Favorito",
+		"Deutsch": "Favorit",
+		"日本": "お気に入り",
+		"简中": "最喜欢的",
+		"繁中": "最喜歡的",
+		"Français": "Préféré",
+		"Italiano": "Preferito",
+		"한국어": "가장<br/>좋아하는"
 	},
 	"Team": {
 		"English": "Team",
@@ -797,14 +871,14 @@ var translatable = {
 	},
 	"Legend": {
 		"English": "Legend",
-		"Español": "Legendario",
+		"Español": "Legend",
 		"Português": "Lendário",
 		"Deutsch": "Legend",
 		"日本": "伝説",
 		"简中": "传说的",
 		"繁中": "傳說的",
-		"Français": "Légendaire",
-		"Italiano": "Leggendari",
+		"Français": "Légend",
+		"Italiano": "Leggend",
 		"한국어": " 전설의"
 	}
 }

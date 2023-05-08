@@ -1,0 +1,62 @@
+<html>
+<head>
+<style>
+</style>
+<script language="JavaScript">
+	function inverter() {
+		let ta = document.getElementById("import");
+		ta.value = reverse_words(ta.value);
+	}
+	function reverse_words(txt) {
+		let str = "";
+		let lines = txt.split("\n\n");
+		console.log(lines);
+		for(let l in lines) {
+			let words = lines[l].replace("\n", " ").split(" ");
+			let temp = ""
+			for(let w in words) {
+				temp = shift_punc(words[w]) + " " + temp;
+			}
+			str += temp + "\n";
+		}
+		return str;
+	}
+	function shift_punc(w) {
+		let pmatch = w.match(/([()“”"..,,:;]+)/);
+		console.log(pmatch);
+		if(pmatch) {
+			w = w.replace(pmatch[1], "");
+			if(pmatch[1].match(/[(“]/)) {
+				w = w + pswap(pmatch[1]);
+			}else{
+				w = pswap(pmatch[1]) + w;
+			}
+		}
+		return w;
+	}
+	function pswap (p) {
+		if(p.match("“")) {
+			p = p.replace("“", "”");
+		}else{
+			p = p.replace("”", "“");
+		}
+		
+		if(p.match(/[(]/)) {
+			p = p.replace("(", ")");
+		}else{
+			p = p.replace(")", "(");
+		}
+		
+		if(p.length > 1) {
+			p = p.split("").reverse().join("");
+		}
+		return p;
+	}
+</script>
+</head>
+<body>
+<textarea id="import" rows="10" cols="100"></textarea>
+<br>
+<input type="button" value="Invert" onclick="inverter();">
+</body>
+</html>

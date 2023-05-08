@@ -32,17 +32,17 @@
 		for(var i=0; i<pairs.length; i++) {
 			output += `#<section `
 			if(i < pairs.length-1) {
-				output += `begin="${pairs[i+1][0]}p${tag}"`
+				output += `begin="${pairs[i+1][0]}p${tag}" `
 			}
 			if(i > 0) { 
-				output += `begin="${pairs[i-1][0]}n${tag}"`
+				output += `begin="${pairs[i-1][0]}n${tag}" `
 			}
 			output += `/>[[${pairs[i][1]}]]<section `
 			if(i < pairs.length-1) {
-				output += `end="${pairs[i+1][0]}p${tag}"`
+				output += `end="${pairs[i+1][0]}p${tag}" `
 			}
 			if(i > 0) { 
-				output += `end="${pairs[i-1][0]}n${tag}"`
+				output += `end="${pairs[i-1][0]}n${tag}" `
 			}
 			output += `/>\n`;
 			if(pairs[i][2]) {
