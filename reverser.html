@@ -12,12 +12,17 @@
 		let lines = txt.split("\n\n");
 		console.log(lines);
 		for(let l in lines) {
-			let words = lines[l].replace("\n", " ").split(" ");
-			let temp = ""
-			for(let w in words) {
-				temp = shift_punc(words[w]) + " " + temp;
+			let sublines = lines[l].split("\n");
+			let temp1 = ""
+			for(let s in sublines) {
+				let temp = ""
+				let words = sublines[s].split(" ");
+				for(let w in words) {
+					temp = shift_punc(words[w]) + " " + temp;
+				}
+				temp1 += temp;
 			}
-			str += temp + "\n";
+			str += temp1 + "\n";
 		}
 		return str;
 	}
