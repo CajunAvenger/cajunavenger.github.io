@@ -68,6 +68,8 @@ var font_sizes = {
 		"English": 27,
 		"Français": 23,
 		"日本": 25,
+		"한국어": 22,
+		"Deutsch": 25,
 	},
 	"FavAlone": {
 		"English": 25,
@@ -594,15 +596,15 @@ var translatable = {
 		"한국어": " 베이비 "
 	},
 	"NewEvolution": {
-		"English": "New Evolution",
-		"Español": "Nueva Evolución",
-		"Português": "Nova Evolução",
-		"Deutsch": "Neue Entwicklung",
+		"English": "New Evo",
+		"Español": "Nueva<br/>Evolución",
+		"Português": "Nova<br/>Evolução",
+		"Deutsch": "Neue<br/>Entwicklung",
 		"日本": "新しい進化",
 		"简中": "新进化",
 		"繁中": "新進化",
-		"Français": "Nouvelle évolution",
-		"Italiano": "Nuova Evoluzione",
+		"Français": "Nouvelle<br/>évolution",
+		"Italiano": "Nuova<br/>Evoluzione",
 		"한국어": "새로운 진화"
 	},
 	"SpindaTitle": {
