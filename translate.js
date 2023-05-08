@@ -973,11 +973,13 @@ function changeLang(lang) {
 			}
 		}
 	}
-	var nextURL = "http://localhost:8080/"
+	var nextURL = "https://cajunavenger.github.io/"
 	if(lang != "English")
 		nextURL += "?lang=" + lang_code[lang];
 	var nextTitle = "Ultimate Favorite Pokemon Picker";
 	var nextState = { additionalInformation: 'Updated the language parameter' };
+	document.getElementById("new_url").innerHTML = nextURL;
+	document.getElementById("new_url").href = nextURL;
 	window.history.replaceState(nextState, nextTitle, nextURL);
 }
 
