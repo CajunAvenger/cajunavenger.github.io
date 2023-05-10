@@ -67,6 +67,8 @@ var font_sizes = {
 	"Favorite": {
 		"English": 27,
 		"Français": 23,
+		"Español": 25,
+		"Español_Latino": 25,
 		"日本": 25,
 		"한국어": 22,
 		"Deutsch": 25,
