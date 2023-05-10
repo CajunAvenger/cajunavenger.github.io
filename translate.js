@@ -155,7 +155,7 @@ var translatable = {
 	},
 	"PseudoLegend": {
 		"English": "Pseudo Legend",
-		"Español": "Pseudo-Legendario",
+		"Español": "Pseudo-<br/>Legendario",
 		"Português": "Pseudo<br/>Lendário",
 		"Deutsch": "Pseudolegendär",
 		"日本": "600族",
