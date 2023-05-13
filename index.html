@@ -495,7 +495,7 @@ canvas {
 	var currently_selecting = null;
 	var shinyCharm = false;
 	var spriteFile = "Front";
-	var domlink = "https://cajunavenger.github.io/";
+	var domlink = "https://" + window.location.host;
 	var teamSelect = false;
 	var toppings = false;
 
@@ -941,6 +941,8 @@ canvas {
 			}
 			for(var e in ents) {
 				var name = ents[e].replace("&", "");
+				if(gen == 0 && e == 22)
+					name = "SPINDA";
 				ele = document.getElementById('box'+gen+'_'+e);
 				if(!ele)
 					continue;

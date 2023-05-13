@@ -28,7 +28,7 @@ var code_lang = {}
 for(var n in lang_code)
 	code_lang[lang_code[n]] = n;
 var regional_suffix = ["Español", "Português", "Français", "Italiano"];
-var trailing_fav = ["Français"]
+var trailing_fav = ["Español", "Português", "Français", "Italiano"];
 var no_spaces = []//"日本", "简中", "繁中"];
 var fallbacks = {
 	"Español_Latino": "Español"
@@ -96,7 +96,6 @@ var font_sizes = {
 	"GimmickForm": {
 		"English": 23,
 		"Português": 20,
-		"Français": 25,
 		"Español": 25,
 		"Español_Latino": 25,
 		"Deutsch": 22,
@@ -126,6 +125,10 @@ var font_sizes = {
 	"Starter": {
 		"English": 25,
 		"日本": 22
+	},
+	"Legend": {
+		"English": 25,
+		"Français": 23
 	}
 }
 function getTranslString (check) {
@@ -149,7 +152,7 @@ var translatable = {
 		"日本": "ギミック・<br/>フォム",
 		"简中": "",
 		"繁中": "",
-		"Français": "Forme<br/>Gadget",
+		"Français": "Forme à<br/>Gimmick",
 		"Italiano": "Modulo<br/>espediente",
 		"한국어": "기믹 형태"
 	},
@@ -881,7 +884,7 @@ var translatable = {
 		"日本": "伝説",
 		"简中": "传说的",
 		"繁中": "傳說的",
-		"Français": "Légend",
+		"Français": "Légendes",
 		"Italiano": "Leggend",
 		"한국어": " 전설의"
 	}
