@@ -1102,7 +1102,7 @@ canvas {
 	function spindaSpot(ele, axis) {
 		var spot_ele = document.getElementById(spot_map[ele.id])
 		if(axis == "x") {
-			var base_left = 1673;
+			var base_left = 1604;
 			spot_ele.style.left = base_left + parseInt(ele.value);
 		}else{
 			var base_top = 1417;
@@ -1110,6 +1110,7 @@ canvas {
 		}
 		writeSpindaCookie();
 	}
+
 	function rand(scale) {
 		return Math.floor(Math.random()*scale)
 	}
