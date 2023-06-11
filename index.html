@@ -495,7 +495,6 @@ canvas {
 	var currently_selecting = null;
 	var shinyCharm = false;
 	var spriteFile = "Front";
-	var domlink = "https://" + window.location.host + "/";
 	var teamSelect = false;
 	var toppings = false;
 
@@ -805,7 +804,7 @@ canvas {
 				// if this mon is already in the box, put the remove option instead
 				if(choices[currently_selecting[0]][currently_selecting[1]] == mon_key)
 					mon_key = "BLANK";
-				var mon_img = domlink + spriteFile + "/" + mon_key + ".png"
+				var mon_img = window.location + spriteFile + "/" + mon_key + ".png"
 				var ele = document.getElementById('preview'+pr_ind)
 				ele.src = mon_img;
 				ele.style.zIndex = 9;
@@ -821,7 +820,7 @@ canvas {
 			// if this mon is already in the box, put the remove option instead
 			if(choices[currently_selecting[0]][currently_selecting[1]] == mon_key)
 				mon_key = "BLANK";
-			var mon_img = domlink + spriteFile + "/" + mon_key + ".png"
+			var mon_img = window.location + spriteFile + "/" + mon_key + ".png"
 			var ele = document.getElementById('preview'+i)
 			ele.src = mon_img;
 			ele.style.zIndex = 9;
@@ -864,7 +863,8 @@ canvas {
 		if(currently_previewing.length < num)
 			return;
 		var alchold = 0;
-		if(currently_selecting[1] > 24 && currently_selecting[1] < 33) {
+		console.log(currently_selecting);
+		if(currently_selecting[1] > 24 && currently_selecting[1] < 34) {
 			alchold = currently_selecting[1];
 			currently_selecting[1] = 24;
 		}
@@ -874,7 +874,7 @@ canvas {
 			targetBox.src = "./blank.png";
 		}else{
 			choices[currently_selecting[0]][currently_selecting[1]] = currently_previewing[num];
-			targetBox.src = domlink + spriteFile + "/" + currently_previewing[num] + ".png"
+			targetBox.src = window.location + spriteFile + "/" + currently_previewing[num] + ".png"
 		}
 		if(currently_selecting[0] == 0 && currently_selecting[1] == 24) {
 			// alcremie
@@ -954,7 +954,7 @@ canvas {
 				var sf = spriteFile;
 				if(ents[e].match("&"))
 					sf = "Shiny";
-				ele.src = domlink + sf + "/" + name + ".png";
+				ele.src = window.location + sf + "/" + name + ".png";
 			}
 		}
 		
@@ -1089,11 +1089,7 @@ canvas {
 			te = "Team";
 		}
 		ctx.fillText(te, 240, 1245)
-		if(domlink == "./") {
-			canvas.style.zIndex = 10;
-		}else{
-			canvas.style.zIndex = -1;
-		}
+		canvas.style.zIndex = -1;
 		var dbutton = document.getElementById("downloader")
 		dbutton.href = canvas.toDataURL("image/png");
 		dbutton.innerHTML = getTranslString("downloader");

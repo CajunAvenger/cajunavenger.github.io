@@ -2447,9 +2447,10 @@ var arrays = {
 	  "BIDOOF",
 	  "PATRAT",
 	  "BUNNELBY",
-	  "RATTATA_1",
 	  "YUNGOOS",
+	  "RATTATA_1",
 	  "SKWOVET",
+	  "ZIGZAGOON_1",
 	  "LECHONK"
 	 ],
 	 "RegionalBug": [
@@ -2659,6 +2660,7 @@ var arrays = {
 	  "GROUDON",
 	  "KYOGRE",
 	  "RAYQUAZA",
+	  "LUGIA_1",
 	  "DIALGA",
 	  "PALKIA",
 	  "GIRATINA_1",
