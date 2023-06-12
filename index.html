@@ -477,6 +477,7 @@ canvas {
 <script src="pokemon_arrays.js"></script>
 <script src="translate.js"></script>
 <script language="JavaScript">
+	var domlink = window.location.protocol + "//" + window.location.host + "/";
 	var type_order = ["", "Normal", "Fire", "Water", "Grass", "Electric", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy", "Starter", "Gimmick", "Legendary", "Favorite"];
 	var type_eles = ["Normal", "Fire", "Water", "Grass", "Electric", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy", "Starter", "GimmickForm", "Legend", "FavAlone"];
 	var other_order = ["", "team1", "team2", "team3", "team4", "team5", "team6", "Bird", "Critter", "RegionalBug", "Pseudo", "Pikaclone", "Eevee", "Fossil", "Regional", "GMax", "Box", "Mythical", "Ultra", "Paradox", "Types", "PokeBall", "Spinda", "Vivillon", "Alcremie", "alc0", "alc7", "alc14", "alc21", "alc28", "alc35", "alc42", "alc49", "alc56", "Baby", "NewEvolution"];
@@ -804,7 +805,7 @@ canvas {
 				// if this mon is already in the box, put the remove option instead
 				if(choices[currently_selecting[0]][currently_selecting[1]] == mon_key)
 					mon_key = "BLANK";
-				var mon_img = window.location + spriteFile + "/" + mon_key + ".png"
+				var mon_img = domlink + spriteFile + "/" + mon_key + ".png"
 				var ele = document.getElementById('preview'+pr_ind)
 				ele.src = mon_img;
 				ele.style.zIndex = 9;
@@ -820,7 +821,7 @@ canvas {
 			// if this mon is already in the box, put the remove option instead
 			if(choices[currently_selecting[0]][currently_selecting[1]] == mon_key)
 				mon_key = "BLANK";
-			var mon_img = window.location + spriteFile + "/" + mon_key + ".png"
+			var mon_img = domlink + spriteFile + "/" + mon_key + ".png"
 			var ele = document.getElementById('preview'+i)
 			ele.src = mon_img;
 			ele.style.zIndex = 9;
@@ -874,7 +875,7 @@ canvas {
 			targetBox.src = "./blank.png";
 		}else{
 			choices[currently_selecting[0]][currently_selecting[1]] = currently_previewing[num];
-			targetBox.src = window.location + spriteFile + "/" + currently_previewing[num] + ".png"
+			targetBox.src = domlink + spriteFile + "/" + currently_previewing[num] + ".png"
 		}
 		if(currently_selecting[0] == 0 && currently_selecting[1] == 24) {
 			// alcremie
@@ -954,7 +955,7 @@ canvas {
 				var sf = spriteFile;
 				if(ents[e].match("&"))
 					sf = "Shiny";
-				ele.src = window.location + sf + "/" + name + ".png";
+				ele.src = domlink + sf + "/" + name + ".png";
 			}
 		}
 		
