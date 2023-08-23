@@ -160,6 +160,8 @@ var arrays = {
 	   "SCOVILLAIN",
 	   "BRUTEBONNET",
 	   "WOCHIEN",
+	   "DIPPLIN",
+	   "POLTCHAGEIST",
 	   "IRONLEAVES"
 	  ]
 	 ],
@@ -695,7 +697,10 @@ var arrays = {
 	   "ROARINGMOON",
 	   "KORAIDON",
 	   "MIRAIDON",
-	   "WALKINGWAKE"
+	   "RAGINGBOLT",
+	   "WALKINGWAKE",
+	   "ARCHALUDON",
+	   "DIPPLIN"
 	  ]
 	 ],
 	 "Water": [
@@ -1478,7 +1483,8 @@ var arrays = {
 	   "SANDYSHOCKS",
 	   "IRONHANDS",
 	   "IRONTHORNS",
-	   "MIRAIDON"
+	   "MIRAIDON",
+	   "RAGINGBOLT"
 	  ]
 	 ],
 	 "Psychic": [
@@ -1660,6 +1666,7 @@ var arrays = {
 	   "VELUZA",
 	   "FARIGIRAF",
 	   "SCREAMTAIL",
+	   "IRONCROWN",
 	   "IRONLEAVES"
 	  ]
 	 ],
@@ -1973,7 +1980,9 @@ var arrays = {
 	   "ORTHWORM",
 	   "KINGAMBIT",
 	   "IRONTREADS",
-	   "GHOLDENGO"
+	   "GHOLDENGO",
+	   "ARCHALUDON",
+	   "IRONCROWN"
 	  ]
 	 ],
 	 "Fairy": [
@@ -2422,7 +2431,8 @@ var arrays = {
 	   "FLUTTERMANE",
 	   "GIMMIGHOUL",
 	   "GIMMIGHOUL_1",
-	   "GHOLDENGO"
+	   "GHOLDENGO",
+	   "POLTCHAGEIST"
 	  ]
 	 ],
 
@@ -2748,8 +2758,10 @@ var arrays = {
 	  "IRONTHORNS",
 	  "IRONVALIANT",
 	  "MIRAIDON",
+	  "RAGINGBOLT",
 	  "WALKINGWAKE",
-	  "IRONLEAVES"
+	  "IRONLEAVES",
+	  "IRONCROWN"
 	 ],
 	 "Starter": [
 	  [],
@@ -3011,7 +3023,14 @@ var arrays = {
 	   "KORAIDON",
 	   "MIRAIDON",
 	   "WALKINGWAKE",
-	   "IRONLEAVES"
+	   "IRONLEAVES",
+	   "RAGINGBOLT",
+	   "IRONCROWN",
+	   "OKIDOGI",
+	   "MONKIDORI",
+	   "FEZANDIPITI",
+	   "OGERPON",
+	   "TERAPAGOS"
 	  ]
 	 ],
 	 "Gimmick": [
@@ -3221,14 +3240,15 @@ var arrays = {
 		"AVALUGG_1"
 	  ],
 	  [
-	  "WOOPER_1",
+		"WOOPER_1",
 		"TAUROS_1",
 		"TAUROS_2",
 		"TAUROS_3",
 		"WIGLETT",
 		"WUGTRIO",
 		"TOEDSCOOL",
-		"TOEDSCRUEL"
+		"TOEDSCRUEL",
+		"POLTCHAGEIST"
 	  ]
 	 ],
 	 "Baby": [
@@ -3306,7 +3326,9 @@ var arrays = {
 		"CURSOLA",
 		"OBSTAGOON",
 		"BASCULEGION",
-		"RUNERIGUS"
+		"RUNERIGUS",
+		"DIPPLIN",
+		"ARCHALUDON"
 	 ],
 	"Spinda": ["SPINDA"],
 	"Vivillon": [
