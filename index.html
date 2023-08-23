@@ -864,7 +864,6 @@ canvas {
 		if(currently_previewing.length < num)
 			return;
 		var alchold = 0;
-		console.log(currently_selecting);
 		if(currently_selecting[1] > 24 && currently_selecting[1] < 34) {
 			alchold = currently_selecting[1];
 			currently_selecting[1] = 24;
@@ -1215,7 +1214,7 @@ canvas {
 		}
 		var cookie_vals = [];
 		for(var c in cookie_names)
-			cookie_vals.push(",,,,,,,,,,,,,,,,,,,,,,,,,,,,");
+			cookie_vals.push(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,");
 		var cookies = document.cookie.split(/; ?/);
 		for(var c in cookies) {
 			var pair = cookies[c].match(/([^=]+) ?= ?([^=;]+)/);
