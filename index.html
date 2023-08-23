@@ -91,6 +91,12 @@ canvas {
 	border-style: solid;
 	border-width: 2px;
 }
+.aura {
+  z-index: 0;
+  position: absolute;
+  height: 96px;
+  width: 96px;
+}
 #actual-btn {
   z-index: 6;
   position: absolute;
@@ -688,6 +694,7 @@ canvas {
 		}
 	}
 	function openBox(gen, type) {
+		var type_arr = null;
 		if(shinyCharm) {
 			toggleShiny(gen, type);
 			return;
@@ -722,6 +729,8 @@ canvas {
 			var box = other_order[type];
 			if(arrays[box]) {
 				currently_previewing = arrays[box];
+				if(box == "Types")
+					type_arr = calcTypes();
 			}
 		}else if(gen == 10 && type == 22) {
 			// super favorite
@@ -812,6 +821,19 @@ canvas {
 				//change the position
 				ele.style.top = top_corner + 99*r;
 				ele.style.left = left_corner + 99*c + hole_offset;
+				if(type_arr) {
+					// manipulate the 1st/2nd/3rd auras
+					var tind = type_arr.indexOf(currently_previewing[pr_ind]);
+					if(tind >= 0) {
+						var aura = document.getElementById("aura"+tind);
+						aura.src = domlink + "aura/" + tind + ".png";
+						console.log(domlink + "aura/" + tind + ".png");
+						console.log(aura.src);
+						aura.style.top = top_corner + 99*r;
+						aura.style.left = left_corner + 99*c + hole_offset;
+						aura.style.zIndex = 8;
+					}
+				}
 				pr_ind++;
 			}
 		}
@@ -849,6 +871,9 @@ canvas {
 			ele.style.zIndex = 0;
 		}
 		document.getElementById('bubble').style.zIndex = 0;
+		document.getElementById('aura0').style.zIndex = 0;
+		document.getElementById('aura1').style.zIndex = 0;
+		document.getElementById('aura2').style.zIndex = 0;
 		if(teamSelect) {
 			document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = "./blank.png";
 			teamSelect = false;
@@ -1136,6 +1161,35 @@ canvas {
 			writeCookie(0)
 		}
 		writeSpindaCookie()
+	}
+
+	function calcTypes() {
+		var scores = {};
+		for(var t in type_count_array)
+			scores[type_count_array[t]] = 0;
+		for(var g in choices) {
+			for(var m in choices[g]) {
+				var mon_name = choices[g][m];
+				if(!mon_name || mon_name == "")
+					continue;
+				var mon_types = rev_map[mon_name];
+				if(!mon_types)
+					continue;
+				for(let ty in mon_types)
+					scores[mon_types[ty]]++;
+			}
+		}
+		// don't count spinda
+		scores["Normal"]--;
+		type_count_array.sort(function(a, b) {
+			return scores[b] - scores[a];
+		})
+		var fin = [];
+		for(var i=0; i<3; i++) {
+			if(scores[type_count_array[i]] > 0)
+				fin.push(type_count_array[i])
+		}
+		return fin;
 	}
 
 	// returns the cookie with the given name,
@@ -1608,6 +1662,9 @@ canvas {
 # You can also use this to keep backups
 </textarea>
 <div class="bubble" id="bubble"></div>
+<img class="aura" id="aura0"></img>
+<img class="aura" id="aura1"></img>
+<img class="aura" id="aura2"></img>
 <div class="translate-wrapper bottom-row1-label bottom-box-1-label"><div class="grid-text" id="Bird">Favorite<br>Regional Bird</div></div>
 <div class="translate-wrapper bottom-row1-label bottom-box-2-label"><div class="grid-text" id="Mammal">Favorite<br>Regional Mammal</div></div>
 <div class="translate-wrapper bottom-row1-label bottom-box-3-label"><div class="grid-text" id="RegionBug">Favorite<br>Regional Bug</div></div>
