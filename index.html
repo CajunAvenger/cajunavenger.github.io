@@ -540,7 +540,7 @@ canvas {
 		}
 	}
 	function fullShiny() {
-		if(spriteFile == "Shiny") {
+		if(spriteFile != "Shiny") {
 			setCookie("shiny", "shiny");
 		}else{
 			deleteCookie("shiny");
