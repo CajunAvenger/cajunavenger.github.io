@@ -1,72 +1,192 @@
-{
- "Gimmick Form": "",
- "Eeveelution": "",
- "Box Legendary": "",
- "Pseudo Legend": "",
- "Download Image": "",
- "Alternate download link": "",
- "Export Choices": "",
- "Import Choices": "",
- "Reset the grid!": "",
- "Are you sure you want to reset the grid?": "",
- "Don't like my choices? You can overrule them here!": "",
- "Write Code will put a text version of the grid here": "",
- "Then you can edit the names and Import Code to replace the images.": "",
- "Most Pokemon are just their named capitalized, like SWELLOW.": "",
- "Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.": "",
- "You can also use this to keep backups": "",
- "Spinda's spots can be randomized or manually placed.": "",
- "Each box pair in the corners moves its nearest spot.": "",
- "Up/Down on the first box moves it Right/Left.": "",
- "Up/Down on the second box moves it Up/Down.": "",
- "Click a team box, then a Pokemon from the grid to copy it to the box.": "",
- "Picking...": "",
- "Click the Shiny Charm, then click Pokemon to make them shiny.": "單擊闪耀护符然後單擊宝可梦使它們發光。",
- "Or click here to make everything shiny.": "",
- "Randomize!": [
-  "隨機化！"
- ],
- "This site uses cookies to save your choices. You can disable them here.": "本網站使用曲奇餅來保存您的選擇。 您可以在此處禁用它們。",
- "This site uses cookies to save your choices. You can enable them here.": "本網站使用曲奇餅來保存您的選擇。 您可以在此處啟用它們。",
- "Pikachu Clone": "皮卡丘克隆",
- "Favorite,Favorite": [
-  "最喜歡的",
-  "最喜歡的"
- ],
- "Team": "同行",
- "Regional": "地區",
- "Bird": "鳥",
- "Mammal": "哺乳動物",
- "Fossil": "化石",
- "Regional Form": "地區型態",
- "Gigantamax": "超極巨化",
- "Mythical": "幻之寶可夢",
- "Ultra Beast": "究極異獸",
- "Paradox": "悖謬",
- "Type": "屬性",
- "Poké Ball": "精靈球",
- "Baby": "嬰兒",
- "Spinda": "晃晃斑",
- "Vivillon": "彩粉蝶",
- "Alcremie": "霜奶仙",
- "Normal": "一般",
- "Fire": "炎",
- "Water": "水",
- "Grass": "草",
- "Electric": "電",
- "Ice": "冰",
- "Fighting": "格鬥",
- "Poison": "毒",
- "Ground": "地面 ",
- "Flying": "飛行",
- "Psychic": "超能力",
- "Bug": "蟲",
- "Rock": "岩石",
- "Ghost": "幽靈",
- "Dragon": "龍",
- "Dark": "惡",
- "Steel": "鋼",
- "Fairy": "妖精",
- "Starter": "起動機",
- "Legend": "傳說的"
-}
+English: Gimmick<br/>Form
+Translation: 
+
+English: Pseudo Legend
+Translation: 
+
+English: Box Legendary
+Translation: 
+
+English: Download Image
+Translation: 
+
+English: Alternate download link
+Translation: 
+
+English: Export Choices
+Translation: 
+
+English: Import Choices
+Translation: 
+
+English: Reset the grid!
+Translation: 
+
+English: Are you sure you want to reset the grid?
+Translation: 
+
+English: Don't like my choices? You can overrule them here!
+Translation: 
+
+English: Write Code will put a text version of the grid here
+Translation: 
+
+English: Then you can edit the names and Import Code to replace the images.
+Translation: 
+
+English: Most Pokemon are just their named capitalized, like SWELLOW.
+Translation: 
+
+English: Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.
+Translation: 
+
+English: You can also use this to keep backups
+Translation: 
+
+English: Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.
+Translation: 
+
+English: Click a team box, then a Pokémon from the grid to copy it to the box.
+Translation: 
+
+English: Picking...
+Translation: 
+
+English: Click the Shiny Charm, then click Pokemon to make them shiny.
+Translation: 單擊闪耀护符然後單擊宝可梦使它們發光。
+
+English: Or click here to make everything shiny.
+Translation: 
+
+English: Randomize!
+Translation: 隨機化！
+
+English: This site uses cookies to save your choices. You can disable them here.
+Translation: 本網站使用曲奇餅來保存您的選擇。 您可以在此處禁用它們。
+
+English: This site uses cookies to save your choices. You can enable them here.
+Translation: 本網站使用曲奇餅來保存您的選擇。 您可以在此處啟用它們。
+
+English: Pikachu Clone
+Translation: 皮卡丘克隆
+
+English: Eeveelution
+Translation: 伊布家族
+
+English: Favorite
+Translation: 最喜歡的
+
+English: Team
+Translation: 同行
+
+English: Regional 
+Translation: 地區
+
+English: Regional Bird
+Translation: 地區鳥
+
+English: Regional Mammal
+Translation: 地區哺乳動物
+
+English: Regional Bug
+Translation: 地區蟲
+
+English: Fossil
+Translation: 化石
+
+English: Regional Form
+Translation: 地區型態
+
+English: Gigantamax
+Translation: 超極巨化
+
+English: Mythical
+Translation: 幻之寶可夢
+
+English: Ultra Beast
+Translation: 究極異獸
+
+English: Paradox
+Translation: 悖謬
+
+English: Type
+Translation: 屬性
+
+English: Poké Ball
+Translation: 精靈球
+
+English: Baby
+Translation: 嬰兒
+
+English: New Evo
+Translation: 新進化
+
+English: Spinda
+Translation: 晃晃斑
+
+English: Vivillon
+Translation: 彩粉蝶
+
+English: Alcremie
+Translation: 霜奶仙
+
+English: Normal
+Translation: 一般
+
+English: Fire
+Translation: 炎
+
+English: Water
+Translation: 水
+
+English: Grass
+Translation: 草
+
+English: Electric
+Translation: 電
+
+English: Ice
+Translation: 冰
+
+English: Fighting
+Translation: 格鬥
+
+English: Poison
+Translation: 毒
+
+English: Ground
+Translation: 地面 
+
+English: Flying
+Translation: 飛行
+
+English: Psychic
+Translation: 超能力
+
+English: Bug
+Translation: 蟲
+
+English: Rock
+Translation: 岩石
+
+English: Ghost
+Translation: 幽靈
+
+English: Dragon
+Translation: 龍
+
+English: Dark
+Translation: 惡
+
+English: Steel
+Translation: 鋼
+
+English: Fairy
+Translation: 妖精
+
+English: Starter
+Translation: 起動機
+
+English: Legend
+Translation: 傳說的
+

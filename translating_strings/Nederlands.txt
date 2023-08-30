@@ -1,29 +1,29 @@
 English: Gimmick<br/>Form
-Translation: Modulo<br/>espediente
+Translation: 
 
 English: Pseudo Legend
-Translation: Pseudo Leggendario
+Translation: 
 
 English: Box Legendary
-Translation: Scatola leggendaria
+Translation: 
 
 English: Download Image
-Translation: Scarica Immagine
+Translation: 
 
 English: Alternate download link
-Translation: Link di download alternativo
+Translation: 
 
 English: Export Choices
-Translation: Scelte di esportazione
+Translation: 
 
 English: Import Choices
-Translation: Scelte di importazione
+Translation: 
 
 English: Reset the grid!
-Translation: Ripristina la griglia
+Translation: 
 
 English: Are you sure you want to reset the grid?
-Translation: Sei sicuro di voler reimpostare la griglia?
+Translation: 
 
 English: Don't like my choices? You can overrule them here!
 Translation: 
@@ -44,149 +44,149 @@ English: You can also use this to keep backups
 Translation: 
 
 English: Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.
-Translation: Gli spot di Spinda possono essere randomizzati o posizionati manualmente.<br/>Ogni coppia di riquadri negli angoli sposta il punto più vicino.<br/>Su/Giù sulla prima casella la sposta a destra/sinistra.<br/>Su/Giù sulla seconda casella lo sposta Su/Giù.
+Translation: 
 
 English: Click a team box, then a Pokémon from the grid to copy it to the box.
-Translation: Fai clic su una casella della squadra, quindi su un Pokémon dalla griglia per copiarlo nella casella.
+Translation: 
 
 English: Picking...
-Translation: Aggiunta...
+Translation: 
 
 English: Click the Shiny Charm, then click Pokemon to make them shiny.
-Translation: Fai clic sul Cromamuleto , quindi fai clic su Pokemon per renderli shiny.
+Translation: 
 
 English: Or click here to make everything shiny.
-Translation: Oppure clicca qui per rendere tutto shiny.
+Translation: 
 
 English: Randomize!
-Translation: Casuale!
+Translation: 
 
 English: This site uses cookies to save your choices. You can disable them here.
-Translation: Questo sito utilizza i cookie per salvare le tue scelte. Puoi disabilitarli qui.
+Translation: 
 
 English: This site uses cookies to save your choices. You can enable them here.
-Translation: Questo sito utilizza i cookie per salvare le tue scelte. Puoi abilitarli qui.
+Translation: 
 
 English: Pikachu Clone
-Translation: Clone di Pikachu
+Translation: 
 
 English: Eeveelution
-Translation: Eeveeluzione
+Translation: 
 
 English: Favorite
-Translation: Preferito
+Translation: 
 
 English: Team
-Translation: Squadra
+Translation: 
 
 English: Regional 
-Translation:  Regionale
+Translation: 
 
 English: Regional Bird
-Translation: Uccello Regionale
+Translation: 
 
 English: Regional Mammal
-Translation: Mammifero Regionale
+Translation: 
 
 English: Regional Bug
-Translation: Coleottero Regionale
+Translation: 
 
 English: Fossil
-Translation: Fossile
+Translation: 
 
 English: Regional Form
-Translation: Forma Regionale
+Translation: 
 
 English: Gigantamax
-Translation: Gigamax
+Translation: 
 
 English: Mythical
-Translation: Pokémon Misterioso
+Translation: 
 
 English: Ultra Beast
-Translation: Ultracreatura
+Translation: 
 
 English: Paradox
-Translation: Paradosso
+Translation: 
 
 English: Type
-Translation: Tipo
+Translation: 
 
 English: Poké Ball
-Translation: Poké Ball
+Translation: 
 
 English: Baby
-Translation: Baby
+Translation: 
 
 English: New Evo
-Translation: Nuova<br/>Evoluzione
+Translation: 
 
 English: Spinda
-Translation: Spinda
+Translation: 
 
 English: Vivillon
-Translation: Vivillon
+Translation: 
 
 English: Alcremie
-Translation: Alcremie
+Translation: 
 
 English: Normal
-Translation: Normale
+Translation: 
 
 English: Fire
-Translation:  	Fuoco
+Translation: 
 
 English: Water
-Translation: Acqua
+Translation: 
 
 English: Grass
-Translation: Erba
+Translation: 
 
 English: Electric
-Translation: Elettro
+Translation: 
 
 English: Ice
-Translation: Ghiaccio
+Translation: 
 
 English: Fighting
-Translation: Lotta
+Translation: 
 
 English: Poison
-Translation: Veleno
+Translation: 
 
 English: Ground
-Translation: Terra
+Translation: 
 
 English: Flying
-Translation: Volante
+Translation: 
 
 English: Psychic
-Translation: Psico
+Translation: 
 
 English: Bug
-Translation: Coleottero
+Translation: 
 
 English: Rock
-Translation: Roccia
+Translation: 
 
 English: Ghost
-Translation: Spettro
+Translation: 
 
 English: Dragon
-Translation: Drago
+Translation: 
 
 English: Dark
-Translation: Buio
+Translation: 
 
 English: Steel
-Translation: Acciaio
+Translation: 
 
 English: Fairy
-Translation: Folletto
+Translation: 
 
 English: Starter
-Translation: Iniziale
+Translation: 
 
 English: Legend
-Translation: Leggend
+Translation: 
 

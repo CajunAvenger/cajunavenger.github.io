@@ -1,72 +1,192 @@
-{
- "Gimmick Form": "",
- "Eeveelution": "",
- "Box Legendary": "",
- "Pseudo Legend": "",
- "Download Image": "",
- "Alternate download link": "",
- "Export Choices": "",
- "Import Choices": "",
- "Reset the grid!": "",
- "Are you sure you want to reset the grid?": "",
- "Don't like my choices? You can overrule them here!": "",
- "Write Code will put a text version of the grid here": "",
- "Then you can edit the names and Import Code to replace the images.": "",
- "Most Pokemon are just their named capitalized, like SWELLOW.": "",
- "Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.": "",
- "You can also use this to keep backups": "",
- "Spinda's spots can be randomized or manually placed.": "",
- "Each box pair in the corners moves its nearest spot.": "",
- "Up/Down on the first box moves it Right/Left.": "",
- "Up/Down on the second box moves it Up/Down.": "",
- "Click a team box, then a Pokemon from the grid to copy it to the box.": "",
- "Picking...": "",
- "Click the Shiny Charm, then click Pokemon to make them shiny.": "빛나는부적 을 클릭한 다음 포켓몬 을 클릭하여 반짝이게 만들 빛나는",
- "Or click here to make everything shiny.": "",
- "Randomize!": [
-  "무작위의!"
- ],
- "This site uses cookies to save your choices. You can disable them here.": "이 사이트는 쿠키를 사용하여 선택 사항을 저장합니다. 여기에서 비활성화할 수 있습니다.",
- "This site uses cookies to save your choices. You can enable them here.": "이 사이트는 쿠키를 사용하여 선택 사항을 저장합니다. 여기에서 활성화할 수 있습니다.",
- "Pikachu Clone": "피카츄 클론",
- "Favorite,Favorite": [
-  "가장 좋아하는",
-  "가장 좋아하는"
- ],
- "Team": "지닌 포켓몬",
- "Regional": "지역",
- "Bird": "새",
- "Mammal": "포유류",
- "Fossil": "화석",
- "Regional Form": "리전폼",
- "Gigantamax": "거다이맥스",
- "Mythical": "환상의 포켓몬",
- "Ultra Beast": "울트라비스트",
- "Paradox": "패러독스",
- "Type": "타입",
- "Poké Ball": "몬스터볼",
- "Baby": "베이비",
- "Spinda": " \t얼루기",
- "Vivillon": "비비용",
- "Alcremie": "마휘핑",
- "Normal": "노말",
- "Fire": "불꽃",
- "Water": "물",
- "Grass": "풀",
- "Electric": " \t전기",
- "Ice": " \t얼음",
- "Fighting": "격투",
- "Poison": "독",
- "Ground": "땅",
- "Flying": "비행",
- "Psychic": "에스퍼",
- "Bug": "벌레",
- "Rock": "바위",
- "Ghost": "고스트",
- "Dragon": " \t드래곤",
- "Dark": "악",
- "Steel": "강철",
- "Fairy": "페어리",
- "Starter": "파트너",
- "Legend": " 전설의"
-}
+English: Gimmick<br/>Form
+Translation: 기믹 형태
+
+English: Pseudo Legend
+Translation: 의사 전설
+
+English: Box Legendary
+Translation: 상자 전설
+
+English: Download Image
+Translation: 이미지 다운로드
+
+English: Alternate download link
+Translation: 대체 다운로드 링크
+
+English: Export Choices
+Translation: 내보내기 선택
+
+English: Import Choices
+Translation: 가져오기 선택
+
+English: Reset the grid!
+Translation: 그리드 재설정
+
+English: Are you sure you want to reset the grid?
+Translation: 그리드를 재설정하시겠습니까?
+
+English: Don't like my choices? You can overrule them here!
+Translation: 
+
+English: Write Code will put a text version of the grid here
+Translation: 
+
+English: Then you can edit the names and Import Code to replace the images.
+Translation: 
+
+English: Most Pokemon are just their named capitalized, like SWELLOW.
+Translation: 
+
+English: Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.
+Translation: 
+
+English: You can also use this to keep backups
+Translation: 
+
+English: Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.
+Translation: 올루기의 스팟은 무작위로 지정하거나 수동으로 배치할 수 있습니다.<br/>모퉁이에 있는 각 상자 쌍은 가장 가까운 지점을 이동합니다.<br/>첫 번째 상자에서 위/아래로 오른쪽/왼쪽으로 이동합니다.<br/>위/아래로 두 번째 상자는 위/아래로 이동합니다.
+
+English: Click a team box, then a Pokémon from the grid to copy it to the box.
+Translation: 팀 상자를 클릭한 다음 그리드에서 포켓몬을 클릭하여 상자에 복사합니다.
+
+English: Picking...
+Translation: 선발...
+
+English: Click the Shiny Charm, then click Pokemon to make them shiny.
+Translation: 빛나는부적 을 클릭한 다음 포켓몬 을 클릭하여 반짝이게 만들 빛나는
+
+English: Or click here to make everything shiny.
+Translation: 또는 여기를 클릭하여 모든 것을 빛나는
+
+English: Randomize!
+Translation: 무작위의!
+
+English: This site uses cookies to save your choices. You can disable them here.
+Translation: 이 사이트는 쿠키를 사용하여 선택 사항을 저장합니다. 여기에서 비활성화할 수 있습니다.
+
+English: This site uses cookies to save your choices. You can enable them here.
+Translation: 이 사이트는 쿠키를 사용하여 선택 사항을 저장합니다. 여기에서 활성화할 수 있습니다.
+
+English: Pikachu Clone
+Translation: 피카츄 클론
+
+English: Eeveelution
+Translation: 이브이즈
+
+English: Favorite
+Translation: 가장<br/>좋아하는
+
+English: Team
+Translation: 지닌 포켓몬
+
+English: Regional 
+Translation: 지역 
+
+English: Regional Bird
+Translation: 지역 새
+
+English: Regional Mammal
+Translation: 지역 포유류
+
+English: Regional Bug
+Translation: 지역 벌레
+
+English: Fossil
+Translation: 화석
+
+English: Regional Form
+Translation: 리전폼
+
+English: Gigantamax
+Translation: 거다이맥스
+
+English: Mythical
+Translation: 환상의 포켓몬
+
+English: Ultra Beast
+Translation: 울트라비스트
+
+English: Paradox
+Translation: 패러독스
+
+English: Type
+Translation: 타입
+
+English: Poké Ball
+Translation: 몬스터볼
+
+English: Baby
+Translation:  베이비 
+
+English: New Evo
+Translation: 새로운 진화
+
+English: Spinda
+Translation: 얼루기
+
+English: Vivillon
+Translation: 비비용
+
+English: Alcremie
+Translation: 마휘핑
+
+English: Normal
+Translation: 노말
+
+English: Fire
+Translation: 불꽃
+
+English: Water
+Translation: 물
+
+English: Grass
+Translation: 풀
+
+English: Electric
+Translation:  	전기
+
+English: Ice
+Translation:  	얼음
+
+English: Fighting
+Translation: 격투
+
+English: Poison
+Translation: 독
+
+English: Ground
+Translation: 땅
+
+English: Flying
+Translation: 비행
+
+English: Psychic
+Translation: 에스퍼
+
+English: Bug
+Translation: 벌레
+
+English: Rock
+Translation: 바위
+
+English: Ghost
+Translation: 고스트
+
+English: Dragon
+Translation:  	드래곤
+
+English: Dark
+Translation: 악
+
+English: Steel
+Translation: 강철
+
+English: Fairy
+Translation: 페어리
+
+English: Starter
+Translation: 파트너
+
+English: Legend
+Translation:  전설의
+

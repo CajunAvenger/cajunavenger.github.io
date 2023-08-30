@@ -1,71 +1,192 @@
-{
- "Gimmick Form": "Forma Especial",
- "Eeveelution": "Eeveelución",
- "Box Legendary": "Legendario de Portada",
- "Pseudo Legend": "Pseudo-Legendario",
- "Download Image": "Descargar imagen",
- "Alternate download link": "Link alternativo de descarga",
- "Export Choices": "Exportar selecciones",
- "Import Choices": "Importar selecciones",
- "Reset the grid!": "Reestablecer la cuadrícula",
- "Are you sure you want to reset the grid?": "¿Estás seguro de querer reestablecer la cuadricula?",
- "Don't like my choices? You can overrule them here!": "¿No te gustan mis selecciones? ¡Puedes cambiarlas aquí!",
- "Write Code will put a text version of the grid here": "Exportar selecciones generará una versión de texto de la cuadrícula",
- "Then you can edit the names and Import Code to replace the images.": "Después podrás editar los nombres y darle click a Importar selecciones para reemplazar las imágenes.",
- "Most Pokemon are just their named capitalized, like SWELLOW.": "La mayoría de Pokémon simplemente son su nombre en mayúsculas, como SWELLOW",
- "Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.": "Las formas alternativas tienen etiquetas específicas, como MEOWTH_2 para Meowth de Galar.",
- "You can also use this to keep backups": "También puedes usar esto para realizar respaldos",
- "Spinda's spots can be randomized or manually placed.": "Las manchas de Spinda pueden ser aleatorias o cambiadas manualmente.",
- "Each box pair in the corners moves its nearest spot.": "Cada par de cajas en las esquinas cambian la mancha más cercana a ellas",
- "Up/Down on the first box moves it Right/Left.": "Arriba/Abajo en la primera caja la mueve hacía la Derecha/Izquierda",
- "Up/Down on the second box moves it Up/Down.": "Arriba/Abajo en la segunda caja la mueve hacía la Derecha/Izquierda",
- "Click a team box, then a Pokemon from the grid to copy it to the box.": "Haz click en la caja de equipo y después en un Pokémon de la cuadrícula para copiarlo a la caja de equipo",
- "Picking...": "Escogiendo...",
- "Click the Shiny Charm, then click Pokemon to make them shiny.": "Haz click en el Amuleto Iris, después haz click en un Pokémon para hacerlo shiny.",
- "Or click here to make everything shiny.": "O haz click aquí para hacer a todos shiny.",
- "Randomize!": [
-  "Aleatorio!"
- ],
- "This site uses cookies to save your choices. You can disable them here.": "Este sitio usa cookies para guardar tus selecciones. Puedes desactivarlas aquí.",
- "Pikachu Clone": "Clon de Pikachu",
- "Favorite,Favorite": [
-  "Favorito",
-  "Favorito"
- ],
- "Team": "Equipo",
- "Regional": "Regional",
- "Bird": "Ave",
- "Mammal": "Mamífero",
- "Fossil": "Fósil",
- "Regional Form": "Forma Regional",
- "Gigantamax": "Gigamax",
- "Mythical": "Pokémon Singular",
- "Ultra Beast": "Ultraente",
- "Paradox": "Pokémon Paradoja",
- "Type": "Tipo",
- "Poké Ball": "Poké Ball",
- "Baby": "Bebé",
- "Spinda": "Spinda",
- "Vivillon": "Vivillon",
- "Alcremie": "Alcremie",
- "Normal": "Normal",
- "Fire": "Fuego",
- "Water": "Agua",
- "Grass": "Planta",
- "Electric": "Eléctrico",
- "Ice": "Hielo",
- "Fighting": "Lucha",
- "Poison": "Veneno",
- "Ground": "Tierra",
- "Flying": "Volador",
- "Psychic": "Psíquico",
- "Bug": "Bicho",
- "Rock": "Roca",
- "Ghost": "Fantasma",
- "Dragon": "Dragón",
- "Dark": "Siniestro",
- "Steel": "Acero",
- "Fairy": "Hada",
- "Starter": "Inicial",
- "Legend": "Legendario",
-}
+English: Gimmick<br/>Form
+Translation: Forma<br/>Especial
+
+English: Pseudo Legend
+Translation: Pseudo-<br/>Legendario
+
+English: Box Legendary
+Translation: Legendario de Portada
+
+English: Download Image
+Translation: Descargar imagen
+
+English: Alternate download link
+Translation: Link alternativo de descarga
+
+English: Export Choices
+Translation: Exportar selecciones
+
+English: Import Choices
+Translation: Importar selecciones
+
+English: Reset the grid!
+Translation: Reestablecer la cuadrícula
+
+English: Are you sure you want to reset the grid?
+Translation: ¿Estás seguro de querer reestablecer la cuadricula?
+
+English: Don't like my choices? You can overrule them here!
+Translation: # ¿No te gustan mis selecciones? ¡Puedes cambiarlas aquí!
+
+English: Write Code will put a text version of the grid here
+Translation: # Exportar selecciones generará una versión de texto de la cuadrícula
+
+English: Then you can edit the names and Import Code to replace the images.
+Translation: # Después podrás editar los nombres y darle click a Importar selecciones para reemplazar las imágenes.
+
+English: Most Pokemon are just their named capitalized, like SWELLOW.
+Translation: # La mayoría de Pokémon simplemente son su nombre en mayúsculas, como SWELLOW
+
+English: Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.
+Translation: # Las formas alternativas tienen etiquetas específicas, como MEOWTH_2 para Meowth de Galar.
+
+English: You can also use this to keep backups
+Translation: # También puedes usar esto para realizar respaldos
+
+English: Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.
+Translation: Las manchas de Spinda pueden ser aleatorias o cambiadas manualmente.<br/>Cada par de cajas en las esquinas cambian la mancha más cercana a ellas<br/>Arriba/Abajo en la primera caja la mueve hacía la Derecha/Izquierda<br/>Arriba/Abajo en la segunda caja la mueve hacía la Derecha/Izquierda
+
+English: Click a team box, then a Pokémon from the grid to copy it to the box.
+Translation: Haz click en la caja de equipo y después en un Pokémon de la cuadrícula para copiarlo a la caja de equipo
+
+English: Picking...
+Translation: Escogiendo...
+
+English: Click the Shiny Charm, then click Pokemon to make them shiny.
+Translation: Haz click en el Amuleto Iris, después haz click en un Pokémon para hacerlo shiny.
+
+English: Or click here to make everything shiny.
+Translation: O haz click aquí para hacer a todos shiny.
+
+English: Randomize!
+Translation: Aleatorizar!
+
+English: This site uses cookies to save your choices. You can disable them here.
+Translation: Este sitio usa cookies para guardar tus selecciones. Puedes desactivarlas aquí.
+
+English: This site uses cookies to save your choices. You can enable them here.
+Translation: Este sitio usa cookies para guardar tus selecciones. Puedes habilitarlos aquí.
+
+English: Pikachu Clone
+Translation: Clon de Pikachu
+
+English: Eeveelution
+Translation: Eeveelución
+
+English: Favorite
+Translation: Favorito
+
+English: Team
+Translation: Equipo
+
+English: Regional 
+Translation:  Regional
+
+English: Regional Bird
+Translation: Ave Regional
+
+English: Regional Mammal
+Translation: Mamífero Regional
+
+English: Regional Bug
+Translation: Bicho Regional
+
+English: Fossil
+Translation: Fósil
+
+English: Regional Form
+Translation: Forma Regional
+
+English: Gigantamax
+Translation: Gigamax
+
+English: Mythical
+Translation: Pokémon Singular
+
+English: Ultra Beast
+Translation: Ultraente
+
+English: Paradox
+Translation: Pokémon Paradoja
+
+English: Type
+Translation: Tipo
+
+English: Poké Ball
+Translation: Poké Ball
+
+English: Baby
+Translation: Bebé
+
+English: New Evo
+Translation: Nueva<br/>Evolución
+
+English: Spinda
+Translation: Spinda
+
+English: Vivillon
+Translation: Vivillon
+
+English: Alcremie
+Translation: Alcremie
+
+English: Normal
+Translation: Normal
+
+English: Fire
+Translation: Fuego
+
+English: Water
+Translation: Agua
+
+English: Grass
+Translation: Planta
+
+English: Electric
+Translation: Eléctrico
+
+English: Ice
+Translation: Hielo
+
+English: Fighting
+Translation: Lucha
+
+English: Poison
+Translation: Veneno
+
+English: Ground
+Translation: Tierra
+
+English: Flying
+Translation: Volador
+
+English: Psychic
+Translation: Psíquico
+
+English: Bug
+Translation: Bicho
+
+English: Rock
+Translation: Roca
+
+English: Ghost
+Translation: Fantasma
+
+English: Dragon
+Translation: Dragón
+
+English: Dark
+Translation: Siniestro
+
+English: Steel
+Translation: Acero
+
+English: Fairy
+Translation: Hada
+
+English: Starter
+Translation: Inicial
+
+English: Legend
+Translation: Legend
+

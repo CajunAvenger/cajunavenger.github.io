@@ -1,70 +1,192 @@
-{
-"Gimmick Form": "Forma com Mecânica",
-"Eeveelution": "Evolução de Eevee",
-"Box Legendary": "Lendário de Capa",
-"Pseudo Legend": "Pseudo Lendário",
-"Download Image": "Baixe a imagem",
-"Alternate download link": "Link alternativo para download",
-"Export Choices": "Exportar Escolhas",
-"Import Choices": "Importar Escolhas",
-"Reset the grid!": "Reset o quadro",
-"Are you sure you want to reset the grid?": "Tem certeza que deseja resetar o quadro?",
-"Don't like my choices? You can overrule them here!": "Não gosta das minhas escolhas? Você pode anulá-las!",
-"Write Code will put a text version of the grid here": "Exportar Escolhas irá colocar uma versão em texto do quadro aqui",
-"Then you can edit the names and Import Code to replace the images.": "Então você poderá editar os nomes e Importar Escolhas para substituir as imagens.",
-"Most Pokemon are just their named capitalized, like SWELLOW.": "A maioria dos Pokémon são apenas seus nomes em letra maiúscula, como SWELLOW.",
-"Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.": "Formas Alternativas possuem tags específicas, como MEOWTH_2 para Meowth de Galar.",
-"You can also use this to keep backups": "Você também pode usar isso para guardar cópias de segurança",
-"Spinda's spots can be randomized or manually placed.": "As manchas do Spinda podem ser aleatórias ou colocadas manualmente.",
-"Each box pair in the corners moves its nearest spot.": "Cada par de caixas nos cantos da imagem movem as manchas próximas a eles.",
-"Up/Down on the first box moves it Right/Left.": "Para cima/Para baixo na primeira caixa move as manchas para a Direita/Esquerda.",
-"Up/Down on the second box moves it Up/Down.": "Para cima/Para baixo na segunda caixa move as manchas para Cima/Baixo.",
-"Click a team box, then a Pokemon from the grid to copy it to the box.": "Clique em um dos espaços em branco e depois em um Pokémon do quadro para colocá-lo no time",
-"Picking...": "Escolhendo...",
-"Click the Shiny Charm, then click Pokemon to make them shiny.": "Clique no Shiny Charm e, em seguida, clique nos Pokémon para torná-los brilhantes.",
-"Or click here to make everything shiny.": "Ou clique aqui para fazer que todos sejam brilhantes.",
-"Randomize!": "Aleatório",
-"This site uses cookies to save your choices. You can disable them here.": "Este site usa cookies para salvar suas escolhas. Você pode desativá-los aqui.",
-"This site uses cookies to save your choices. You can enable them here.": "Este site usa cookies para salvar suas escolhas. Você pode ativá-los aqui.",
-"Pikachu Clone": "Clone do Pikachu",
-"Favorite": [
-"Favorito",
-"Favorita"
-],
-"Team": "Equipe",
-"Regional": "Regional",
-"Bird": "Pássaro",
-"Mammal": "Mamífero",
-"Fossil": "Fóssil",
-"Regional Form": "Forma Regional",
-"Gigantamax": "Gigantamax",
-"Mythical": "Mítico",
-"Ultra Beast": "Ultracriatura",
-"Paradox": "Paradoxo",
-"Type": "Tipo",
-"Poké Ball": "Poké Bola",
-"Baby": "Bebê",
-"Spinda": "Spinda",
-"Vivillon": "Vivillon",
-"Alcremie": "Alcremie",
-"Normal": "Normal",
-"Fire": "Fogo",
-"Water": "Água",
-"Grass": "Planta",
-"Electric": "Elétrico",
-"Ice": "Gelo",
-"Fighting": "Luta",
-"Poison": "Venenoso",
-"Ground": "Terrestre",
-"Flying": "Voador",
-"Psychic": "Psíquico",
-"Bug": "Inseto",
-"Rock": "Pedra",
-"Ghost": "Fantasma",
-"Dragon": "Dragão",
-"Dark": "Sombrio",
-"Steel": "Aço",
-"Fairy": "Fada",
-"Starter": "Inicial",
-"Legend": "Lendário"
-}
+English: Gimmick<br/>Form
+Translation: Forma com<br/>Mecânica
+
+English: Pseudo Legend
+Translation: Pseudo<br/>Lendário
+
+English: Box Legendary
+Translation: Lendário de Capa
+
+English: Download Image
+Translation: Baixe a imagem
+
+English: Alternate download link
+Translation: Link alternativo para download
+
+English: Export Choices
+Translation: Exportar Escolhas
+
+English: Import Choices
+Translation: Importar Escolhas
+
+English: Reset the grid!
+Translation: Reset o quadro
+
+English: Are you sure you want to reset the grid?
+Translation: Tem certeza que deseja resetar o quadro?
+
+English: Don't like my choices? You can overrule them here!
+Translation: # Não gosta das minhas escolhas? Você pode anulá-las!
+
+English: Write Code will put a text version of the grid here
+Translation: # Exportar Escolhas irá colocar uma versão em texto do quadro aqui
+
+English: Then you can edit the names and Import Code to replace the images.
+Translation: # Então você poderá editar os nomes e Importar Escolhas para substituir as imagens.
+
+English: Most Pokemon are just their named capitalized, like SWELLOW.
+Translation: # A maioria dos Pokémon são apenas seus nomes em letra maiúscula, como SWELLOW.
+
+English: Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.
+Translation: # Formas Alternativas possuem tags específicas, como MEOWTH_2 para Meowth de Galar.
+
+English: You can also use this to keep backups
+Translation: # Você também pode usar isso para guardar cópias de segurança.
+
+English: Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.
+Translation: As manchas do Spinda podem ser aleatórias ou colocadas manualmente.<br/>Cada par de caixas nos cantos da imagem movem as manchas próximas a eles.<br/>Para cima/Para baixo na primeira caixa move as manchas para a Direita/Esquerda.<br/>Para cima/Para baixo na segunda caixa move as manchas para Cima/Baixo.
+
+English: Click a team box, then a Pokémon from the grid to copy it to the box.
+Translation: Clique em um dos espaços em branco e depois em um Pokémon do quadro para colocá-lo no time
+
+English: Picking...
+Translation: Escolhendo...
+
+English: Click the Shiny Charm, then click Pokemon to make them shiny.
+Translation: Clique no Shiny Charm e, em seguida, clique nos Pokémon para torná-los brilhantes.
+
+English: Or click here to make everything shiny.
+Translation: Ou clique aqui para fazer que todos sejam brilhantes.
+
+English: Randomize!
+Translation: Aleatório!
+
+English: This site uses cookies to save your choices. You can disable them here.
+Translation: Este site usa cookies para salvar suas escolhas. Você pode desativá-los aqui.
+
+English: This site uses cookies to save your choices. You can enable them here.
+Translation: Este site usa cookies para salvar suas escolhas. Você pode ativá-los aqui.
+
+English: Pikachu Clone
+Translation: Clone do Pikachu
+
+English: Eeveelution
+Translation: Eevolução
+
+English: Favorite
+Translation: Favorito
+
+English: Team
+Translation: Equipe
+
+English: Regional 
+Translation:  Regional
+
+English: Regional Bird
+Translation: Pássaro Regional
+
+English: Regional Mammal
+Translation: Mamífero Regional
+
+English: Regional Bug
+Translation: Inseto Regional
+
+English: Fossil
+Translation: Fóssil
+
+English: Regional Form
+Translation: Forma Regional
+
+English: Gigantamax
+Translation: Gigantamax
+
+English: Mythical
+Translation: Mítico
+
+English: Ultra Beast
+Translation: Ultracriatura
+
+English: Paradox
+Translation: Paradoxo
+
+English: Type
+Translation: Tipo
+
+English: Poké Ball
+Translation: Poké Bola
+
+English: Baby
+Translation: Bebê
+
+English: New Evo
+Translation: Nova<br/>Evolução
+
+English: Spinda
+Translation: Spinda
+
+English: Vivillon
+Translation: Vivillon
+
+English: Alcremie
+Translation: Alcremie
+
+English: Normal
+Translation: Normal
+
+English: Fire
+Translation: Fogo
+
+English: Water
+Translation: Água
+
+English: Grass
+Translation: Planta
+
+English: Electric
+Translation: Elétrico
+
+English: Ice
+Translation: Gelo
+
+English: Fighting
+Translation: Luta
+
+English: Poison
+Translation: Venenoso
+
+English: Ground
+Translation: Terrestre
+
+English: Flying
+Translation: Voador
+
+English: Psychic
+Translation: Psíquico
+
+English: Bug
+Translation: Inseto
+
+English: Rock
+Translation: Pedra
+
+English: Ghost
+Translation: Fantasma
+
+English: Dragon
+Translation: Dragão
+
+English: Dark
+Translation: Sombrio
+
+English: Steel
+Translation: Aço
+
+English: Fairy
+Translation: Fada
+
+English: Starter
+Translation: Inicial
+
+English: Legend
+Translation: Lendário
+

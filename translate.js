@@ -900,6 +900,11 @@ function writeEmpties() {
 		for(var l in languages) {
 			var eng = translatable[t].English;
 			var tra = translatable[t][languages[l]];
+			if(!tra) {
+				translatable[t][languages[l]] = "";
+				tra = translatable[t][languages[l]];
+			}
+				
 			if(eng != "") {
 				if(typeof eng == "string" && eng.match(/\n/)) {
 					var engs = eng.split("\n");
@@ -916,8 +921,17 @@ function writeEmpties() {
 	for(var l in holder) {
 		if(Object.keys(holder[l]).length == 0)
 			continue;
-		fs.writeFile('./translating_strings/'+l+'.txt', JSON.stringify(holder[l], null, 1), function(){})
+		fs.writeFile('./translating_strings/'+l+'.txt', converter(holder[l]), function(){})
 	}
+}
+function converter(json) {
+	let out = "";
+	for(let k in json) {
+		if(k == "Favorite,Favorite")
+			continue;
+		out += "English: " + k + "\nTranslation: " + json[k] + "\n\n";
+	}
+	return out;
 }
 function resolveFem(string, lang, arr) {
 	if(femme[lang].includes(string))
@@ -991,4 +1005,3 @@ function changeLang(lang) {
 		// unclear when this does and doesn't work
 	}
 }
-

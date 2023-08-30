@@ -1,72 +1,192 @@
-{
- "Eeveelution": "ブイズ",
- "Box Legendary": "パケ伝",
- "Pseudo Legend": "600族",
- "Gimmick Form": "",
- "Download Image": "",
- "Alternate download link": "",
- "Export Choices": "",
- "Import Choices": "",
- "Reset the grid!": "",
- "Are you sure you want to reset the grid?": "",
- "Don't like my choices? You can overrule them here!": "",
- "Export Choices will put a text version of the grid here": "",
- "Then you can edit the names and Import Choices to replace the images.": "",
- "Most Pokemon are just their named capitalized, like SWELLOW.": "",
- "Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.": "",
- "You can also use this to keep backups": "",
- "Spinda's spots can be randomized or manually placed.": "",
- "Each box pair in the corners moves its nearest spot.": "",
- "Up/Down on the first box moves it Right/Left.": "",
- "Up/Down on the second box moves it Up/Down.": "",
- "Click a team box, then a Pokemon from the grid to copy it to the box.": "",
- "Picking...": "",
- "Click the Shiny Charm, then click Pokemon to make them shiny.": "ひかるおまもりをクリックしてから、ポケモンをクリックして光るます。",
- "Or click here to make everything shiny.": "",
- "Randomize!": [
-  "ランダマイズ！"
- ],
- "This site uses cookies to save your choices. You can disable them here.": "このサイトでは、選択内容を保存するためにクッキーを使用しています。 ここでそれらを無効にすることができます。",
- "This site uses cookies to save your choices. You can enable them here.": "このサイトでは、選択内容を保存するためにクッキーを使用しています。 ここで有効にできます。",
- "Pikachu Clone": "ピカチュウのクローン",
- "Favorite,Favorite": [
-  "お気に入り",
-  "お気に入り"
- ],
- "Team": "手持ちポケモン",
- "Regional": "地域",
- "Bird": "鳥",
- "Mammal": "哺乳類",
- "Fossil": "化石",
- "Regional Form": "リージョンフォーム",
- "Gigantamax": "キョダイマックス",
- "Mythical": "幻のポケモン",
- "Ultra Beast": "ウルトラビースト",
- "Paradox": "パラドックス",
- "Type": "タイプ",
- "Poké Ball": "モンスターボール",
- "Baby": "얼루기",
- "Spinda": "パッチール",
- "Vivillon": "ビビヨン",
- "Alcremie": "マホイップ",
- "Normal": "ノーマル",
- "Fire": "ほのお ",
- "Water": "みず",
- "Grass": "くさ",
- "Electric": "でんき",
- "Ice": "こおり",
- "Fighting": "かくとう",
- "Poison": "どく",
- "Ground": "じめん",
- "Flying": "ひこう",
- "Psychic": "エスパー",
- "Bug": "むし",
- "Rock": "いわ",
- "Ghost": "ゴースト",
- "Dragon": "ドラゴン",
- "Dark": "あく",
- "Steel": "はがね",
- "Fairy": "フェアリー",
- "Starter": "はじめて",
- "Legend": "伝説"
-}
+English: Gimmick<br/>Form
+Translation: ギミック・<br/>フォム
+
+English: Pseudo Legend
+Translation: 600族
+
+English: Box Legendary
+Translation: パケ伝
+
+English: Download Image
+Translation: 画像をダウンロード
+
+English: Alternate download link
+Translation: 別のダウンロード リンク
+
+English: Export Choices
+Translation: エクスポートの選択肢
+
+English: Import Choices
+Translation: インポートの選択肢
+
+English: Reset the grid!
+Translation: グリッドをリセットする
+
+English: Are you sure you want to reset the grid?
+Translation: グリッドをリセットしますか?
+
+English: Don't like my choices? You can overrule them here!
+Translation: 
+
+English: Write Code will put a text version of the grid here
+Translation: 
+
+English: Then you can edit the names and Import Code to replace the images.
+Translation: 
+
+English: Most Pokemon are just their named capitalized, like SWELLOW.
+Translation: 
+
+English: Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.
+Translation: 
+
+English: You can also use this to keep backups
+Translation: 
+
+English: Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.
+Translation: パッチールのスポットは、ランダムまたは手動で配置できます。<br/>隅にある各ボックス ペアは、最も近いスポットに移動します。<br/>最初のボックスを上/下にすると、右/左に移動します。<br/>2 番目のボックスを上/下にすると、上/下に移動します。
+
+English: Click a team box, then a Pokémon from the grid to copy it to the box.
+Translation: チーム・ボクスをクリックしてグリッドでポケモンをクリックしてからボクスにそれをコッピします
+
+English: Picking...
+Translation: えらんでいます・・・
+
+English: Click the Shiny Charm, then click Pokemon to make them shiny.
+Translation: ひかるおまもりをクリックしてから、ポケモンをクリックして光るます。
+
+English: Or click here to make everything shiny.
+Translation: がここにクリックしてから、みんなのポケモンが光るになります
+
+English: Randomize!
+Translation: ランダマイズ！
+
+English: This site uses cookies to save your choices. You can disable them here.
+Translation: このサイトでは、選択内容を保存するためにクッキーを使用しています。 ここでそれらを無効にすることができます。
+
+English: This site uses cookies to save your choices. You can enable them here.
+Translation: このサイトでは、選択内容を保存するためにクッキーを使用しています。 ここで有効にできます。
+
+English: Pikachu Clone
+Translation: ピカチュウのクローン
+
+English: Eeveelution
+Translation: イーブイズ
+
+English: Favorite
+Translation: お気に入り
+
+English: Team
+Translation: 手持ちポケモン
+
+English: Regional 
+Translation: 地域
+
+English: Regional Bird
+Translation: 地域鳥
+
+English: Regional Mammal
+Translation: 地域哺乳類
+
+English: Regional Bug
+Translation: 地域むし
+
+English: Fossil
+Translation: 化石
+
+English: Regional Form
+Translation: リージョンフォーム
+
+English: Gigantamax
+Translation: キョダイマックス
+
+English: Mythical
+Translation: 幻のポケモン
+
+English: Ultra Beast
+Translation: ウルトラビースト
+
+English: Paradox
+Translation: パラドックス
+
+English: Type
+Translation: タイプ
+
+English: Poké Ball
+Translation: モンスターボール
+
+English: Baby
+Translation: 얼루기
+
+English: New Evo
+Translation: 新しい進化
+
+English: Spinda
+Translation: パッチール
+
+English: Vivillon
+Translation: ビビヨン
+
+English: Alcremie
+Translation: マホイップ
+
+English: Normal
+Translation: ノーマル
+
+English: Fire
+Translation: ほのお 
+
+English: Water
+Translation: みず
+
+English: Grass
+Translation: くさ
+
+English: Electric
+Translation: でんき
+
+English: Ice
+Translation: こおり
+
+English: Fighting
+Translation: かくとう
+
+English: Poison
+Translation: どく
+
+English: Ground
+Translation: じめん
+
+English: Flying
+Translation: ひこう
+
+English: Psychic
+Translation: エスパー
+
+English: Bug
+Translation: むし
+
+English: Rock
+Translation: いわ
+
+English: Ghost
+Translation: ゴースト
+
+English: Dragon
+Translation: ドラゴン
+
+English: Dark
+Translation: あく
+
+English: Steel
+Translation: はがね
+
+English: Fairy
+Translation: フェアリー
+
+English: Starter
+Translation: はじめて
+
+English: Legend
+Translation: 伝説
+

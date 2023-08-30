@@ -1,72 +1,192 @@
-{
- "Gimmick Form": "",
- "Eeveelution": "",
- "Box Legendary": "",
- "Pseudo Legend": "",
- "Download Image": "",
- "Alternate download link": "",
- "Export Choices": "",
- "Import Choices": "",
- "Reset the grid!": "",
- "Are you sure you want to reset the grid?": "",
- "Don't like my choices? You can overrule them here!": "",
- "Write Code will put a text version of the grid here": "",
- "Then you can edit the names and Import Code to replace the images.": "",
- "Most Pokemon are just their named capitalized, like SWELLOW.": "",
- "Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.": "",
- "You can also use this to keep backups": "",
- "Spinda's spots can be randomized or manually placed.": "",
- "Each box pair in the corners moves its nearest spot.": "",
- "Up/Down on the first box moves it Right/Left.": "",
- "Up/Down on the second box moves it Up/Down.": "",
- "Click a team box, then a Pokemon from the grid to copy it to the box.": "",
- "Picking...": "",
- "Click the Shiny Charm, then click Pokemon to make them shiny.": "Klicken Sie auf den Schillerpin und dann auf Pokemon, um sie glänzend zu Schillerndes.",
- "Or click here to make everything shiny.": "",
- "Randomize!": [
-  "Randomisieren!"
- ],
- "This site uses cookies to save your choices. You can disable them here.": "Diese Seite verwendet Cookies, um Ihre Auswahl zu speichern. Sie können sie hier deaktivieren.",
- "This site uses cookies to save your choices. You can enable them here.": "Diese Seite verwendet Cookies, um Ihre Auswahl zu speichern. Sie können sie hier aktivieren.",
- "Pikachu Clone": "Pikachuklon",
- "Favorite,Favorite": [
-  "Favorit",
-  "Favoritin"
- ],
- "Team": "Team",
- "Regional": "Regional",
- "Bird": "Vogel",
- "Mammal": "Säugetier",
- "Fossil": "Fossil",
- "Regional Form": "Regionalform",
- "Gigantamax": "Gigadynamax",
- "Mythical": "Mysteriöse Pokémon",
- "Ultra Beast": "Ultrabestie",
- "Paradox": "Paradox",
- "Type": "Typ",
- "Poké Ball": "Pokéball",
- "Baby": "Baby",
- "Spinda": "Pandir",
- "Vivillon": "Vivillon",
- "Alcremie": "Pokusan",
- "Normal": "Normal",
- "Fire": "Feuer ",
- "Water": "Wasser",
- "Grass": "Pflanze",
- "Electric": "Elektro",
- "Ice": "Eis",
- "Fighting": "Kampf",
- "Poison": "Gift",
- "Ground": "Boden",
- "Flying": "Flug",
- "Psychic": "Psycho",
- "Bug": "Käfer",
- "Rock": "Gestein",
- "Ghost": "Geist",
- "Dragon": "Drache",
- "Dark": "Unlicht",
- "Steel": "Stahl",
- "Fairy": "Fee",
- "Starter": "Starter",
- "Legend": "Legend"
-}
+English: Gimmick<br/>Form
+Translation: Gimmick-<br/>Formular
+
+English: Pseudo Legend
+Translation: Pseudolegendär
+
+English: Box Legendary
+Translation: Kiste Legendär
+
+English: Download Image
+Translation: Bild herunterladen
+
+English: Alternate download link
+Translation: Alternativer Download-Link
+
+English: Export Choices
+Translation: Exportieren
+
+English: Import Choices
+Translation: Importieren
+
+English: Reset the grid!
+Translation: Gitter zurücksetzen
+
+English: Are you sure you want to reset the grid?
+Translation: Möchten Sie das Raster wirklich zurücksetzen?
+
+English: Don't like my choices? You can overrule them here!
+Translation: 
+
+English: Write Code will put a text version of the grid here
+Translation: 
+
+English: Then you can edit the names and Import Code to replace the images.
+Translation: 
+
+English: Most Pokemon are just their named capitalized, like SWELLOW.
+Translation: 
+
+English: Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.
+Translation: 
+
+English: You can also use this to keep backups
+Translation: 
+
+English: Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.
+Translation: Die Punkte von Pandir können zufällig oder manuell platziert werden.<br/>Jedes Kästchenpaar in den Ecken bewegt sich zu seinem nächstgelegenen Punkt.<br/>Nach oben/unten auf dem ersten Kästchen bewegt es sich nach rechts/links.<br/>Nach oben/unten auf dem Das zweite Kästchen bewegt es nach oben/unten.
+
+English: Click a team box, then a Pokémon from the grid to copy it to the box.
+Translation: Klicken Sie auf eine Teambox und dann auf ein Pokémon aus dem Raster, um es in die Box zu kopieren.
+
+English: Picking...
+Translation: Pflücken...
+
+English: Click the Shiny Charm, then click Pokemon to make them shiny.
+Translation: Klicken Sie auf den Schillerpin und dann auf Pokemon, um sie shiny zu Schillerndes.
+
+English: Or click here to make everything shiny.
+Translation: Oder klicken Sie hier, um alles shiny zu machen.
+
+English: Randomize!
+Translation: Randomisieren!
+
+English: This site uses cookies to save your choices. You can disable them here.
+Translation: Diese Seite verwendet Cookies, um Ihre Auswahl zu speichern. Sie können sie hier deaktivieren.
+
+English: This site uses cookies to save your choices. You can enable them here.
+Translation: Diese Seite verwendet Cookies, um Ihre Auswahl zu speichern. Sie können sie hier aktivieren.
+
+English: Pikachu Clone
+Translation: Pikachuklon
+
+English: Eeveelution
+Translation: Evolilution
+
+English: Favorite
+Translation: Favorit
+
+English: Team
+Translation: Team
+
+English: Regional 
+Translation: Regional 
+
+English: Regional Bird
+Translation: Regional Vogel
+
+English: Regional Mammal
+Translation: Regional Säugetier
+
+English: Regional Bug
+Translation: Regional Käfer
+
+English: Fossil
+Translation: Fossil
+
+English: Regional Form
+Translation: Regionalform
+
+English: Gigantamax
+Translation: Gigadynamax
+
+English: Mythical
+Translation: Mysteriöse Pokémon
+
+English: Ultra Beast
+Translation: Ultrabestie
+
+English: Paradox
+Translation: Paradox
+
+English: Type
+Translation: Typ
+
+English: Poké Ball
+Translation: Pokéball
+
+English: Baby
+Translation: Baby
+
+English: New Evo
+Translation: Neue<br/>Entwicklung
+
+English: Spinda
+Translation: Pandir
+
+English: Vivillon
+Translation: Vivillon
+
+English: Alcremie
+Translation: Pokusan
+
+English: Normal
+Translation: Normal
+
+English: Fire
+Translation: Feuer 
+
+English: Water
+Translation: Wasser
+
+English: Grass
+Translation: Pflanze
+
+English: Electric
+Translation: Elektro
+
+English: Ice
+Translation: Eis
+
+English: Fighting
+Translation: Kampf
+
+English: Poison
+Translation: Gift
+
+English: Ground
+Translation: Boden
+
+English: Flying
+Translation: Flug
+
+English: Psychic
+Translation: Psycho
+
+English: Bug
+Translation: Käfer
+
+English: Rock
+Translation: Gestein
+
+English: Ghost
+Translation: Geist
+
+English: Dragon
+Translation: Drache
+
+English: Dark
+Translation: Unlicht
+
+English: Steel
+Translation: Stahl
+
+English: Fairy
+Translation: Fee
+
+English: Starter
+Translation: Starter
+
+English: Legend
+Translation: Legend
+
