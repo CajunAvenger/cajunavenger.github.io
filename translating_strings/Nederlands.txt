@@ -1,192 +1,191 @@
 English: Gimmick<br/>Form
-Translation: 
+Translation: Bijzondere Vorm
 
 English: Pseudo Legend
-Translation: 
+Translation: Pseudo Legendarische
 
 English: Box Legendary
-Translation: 
+Translation: Primaire Legendarische
 
 English: Download Image
-Translation: 
+Translation: Sla op als plaatje
 
 English: Alternate download link
-Translation: 
+Translation: Alternatieve download link
 
 English: Export Choices
-Translation: 
+Translation: Exporteer je keuzes
 
 English: Import Choices
-Translation: 
+Translation: Importeer je keuzes
 
 English: Reset the grid!
-Translation: 
+Translation: Reset het veld
 
 English: Are you sure you want to reset the grid?
-Translation: 
+Translation: Weet je zeker dat je het hele veld wil resetten? Je verliest hiermee alles wat je ingevuld hebt.
 
 English: Don't like my choices? You can overrule them here!
-Translation: 
+Translation: Niet eens met deze keuzes? Je kan ze hier verranderen.
 
 English: Write Code will put a text version of the grid here
-Translation: 
+Translation: De keuzes in het vlak worden hier onder in tekst aangegeven als je drukt op ‘exporteer keuzes’.
 
 English: Then you can edit the names and Import Code to replace the images.
-Translation: 
+Translation: Je kan hier onder alles aanpassen en dan op ‘importeer je keuze’ klikken en dan past hij het meteen aan.
 
 English: Most Pokemon are just their named capitalized, like SWELLOW.
-Translation: 
+Translation: De meeste namen zijn gewoon de normale naam volledig in hoofdletters, voorbeeld: SWELLOW.
 
 English: Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.
-Translation: 
+Translation: Andere vormen hebben speciale namen, voorbeeld MEOWTH_2 voor Galarian Meowth",
 
 English: You can also use this to keep backups
-Translation: 
+Translation: Dit kan je ook gebruiken om je voortgang op te slaan.
 
 English: Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.
-Translation: 
+Translation: De vlekken van spinda kunnen willekeurig geplaatst worden door op ‘willekeurig plaatsen!’ te drukken. Of je kan ze zelf verzetten door de nummertjes er naast aan te passen.<br/>Elk van de 4 duo’s van nummers past bij 1 van de 4 plekken op spinda.<br/>De bovenste van het duo beweegt hem naar links en rechts.<br/>De onderste van het duo beweegt hem naar boven en beneden.
 
 English: Click a team box, then a Pokémon from the grid to copy it to the box.
-Translation: 
+Translation: Klik op 1 van de 6 plekken in je team en klik dan op het plaatje van de pokemon die je op die plek in je team wil hebben.
 
 English: Picking...
-Translation: 
+Translation: Aan het kiezen…
 
 English: Click the Shiny Charm, then click Pokemon to make them shiny.
-Translation: 
+Translation: Klik op de shiny charm, en dan op de pokemon om hem shiny te maken.
 
 English: Or click here to make everything shiny.
-Translation: 
+Translation: Of klik hier om alle pokemon shiny te maken.
 
 English: Randomize!
-Translation: 
+Translation: Willekeurig plaatsen!
 
 English: This site uses cookies to save your choices. You can disable them here.
-Translation: 
+Translation: De site gebruikte cookies om je keuzes op te slaan. Hier zet je ze uit.
 
 English: This site uses cookies to save your choices. You can enable them here.
-Translation: 
+Translation: De site gebruikte cookies om je keuzes op te slaan. Hier zet je ze aan.
 
 English: Pikachu Clone
-Translation: 
+Translation: Pikachu clone
 
 English: Eeveelution
-Translation: 
+Translation: Eevee Evoluties
 
 English: Favorite
-Translation: 
+Translation: Favoriete
 
 English: Team
-Translation: 
+Translation: Team
 
-English: Regional 
-Translation: 
+English: Regional
+Translation: Regionaal
 
 English: Regional Bird
-Translation: 
+Translation: Regionale vogel
 
 English: Regional Mammal
-Translation: 
+Translation: Regionaal zoogdier
 
 English: Regional Bug
-Translation: 
+Translation: Regionaal insect
 
 English: Fossil
-Translation: 
+Translation: Fossiel
 
 English: Regional Form
-Translation: 
+Translation: Regionale form
 
 English: Gigantamax
-Translation: 
+Translation: Gigantamax
 
 English: Mythical
-Translation: 
+Translation: mythische
 
 English: Ultra Beast
-Translation: 
+Translation: Ultra Beast
 
 English: Paradox
-Translation: 
+Translation: Paradox
 
 English: Type
-Translation: 
+Translation: Type
 
 English: Poké Ball
-Translation: 
+Translation: Pokébal
 
 English: Baby
-Translation: 
+Translation: baby
 
 English: New Evo
-Translation: 
+Translation: Nieuwe evolutie
 
 English: Spinda
-Translation: 
+Translation: Spinda
 
 English: Vivillon
-Translation: 
+Translation: Vivillon
 
 English: Alcremie
-Translation: 
+Translation: Alcremie
 
 English: Normal
-Translation: 
+Translation: Normaal
 
 English: Fire
-Translation: 
+Translation: Vuur
 
 English: Water
-Translation: 
+Translation: Water
 
 English: Grass
-Translation: 
+Translation: Gras
 
 English: Electric
-Translation: 
+Translation: Electrisch
 
 English: Ice
-Translation: 
+Translation: IJS
 
 English: Fighting
-Translation: 
+Translation: Vecht
 
 English: Poison
-Translation: 
+Translation: Gif
 
 English: Ground
-Translation: 
+Translation: Grond
 
 English: Flying
-Translation: 
+Translation: Vliegend
 
 English: Psychic
-Translation: 
+Translation: Psygisch
 
 English: Bug
-Translation: 
+Translation: Insect
 
 English: Rock
-Translation: 
+Translation: Steen
 
 English: Ghost
-Translation: 
+Translation: Geest
 
 English: Dragon
-Translation: 
+Translation: Draak
 
 English: Dark
-Translation: 
+Translation: Duister
 
 English: Steel
-Translation: 
+Translation: Staal
 
 English: Fairy
-Translation: 
+Translation: Fee
 
 English: Starter
-Translation: 
+Translation: Starter
 
 English: Legend
-Translation: 
-
+Translation: Legendarische
