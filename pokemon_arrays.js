@@ -2489,7 +2489,11 @@ var arrays = {
 	  "KOMMOO",
 	  "DRAGAPULT",
 	  "GOODRA_1",
-	  "BAXCALIBUR"
+	  "BAXCALIBUR",
+	  "TYRANITAR_1",
+	  "SALAMENCE_1",
+	  "METAGROSS_1",
+	  "GARCHOMP_1"
 	 ],
 	 "Pikaclone": [
 	  "PICHU",
