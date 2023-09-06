@@ -3319,6 +3319,7 @@ var arrays = {
 		"KLEAVOR",
 		"URSALUNA",
 		"BASCULEGION",
+		"BASCULEGION_1",
 		"SNEASLER",
 		"OVERQWIL",
 		"ANNIHILAPE",
