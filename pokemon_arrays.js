@@ -2997,6 +2997,7 @@ var arrays = {
 	   "ZAMAZENTA_1",
 	   "ZAMAZENTA_2",
 	   "ETERNATUS",
+	   "ETERNATUS_1",
 	   "KUBFU",
 	   "URSHIFU",
 	   "URSHIFU_1",
