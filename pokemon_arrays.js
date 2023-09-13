@@ -162,7 +162,8 @@ var arrays = {
 	   "WOCHIEN",
 	   "DIPPLIN",
 	   "POLTCHAGEIST",
-	   "IRONLEAVES"
+	   "IRONLEAVES",
+	   "OGERPON"
 	  ]
 	 ],
 	 "Poison": [
@@ -279,7 +280,10 @@ var arrays = {
 	   "GLIMMORA",
 	   "WOOPER_1",
 	   "CLODSIRE",
-	   "IRONMOTH"
+	   "IRONMOTH",
+	   "OKIDOGI",
+	   "MONKIDORI",
+	   "FEZANDIPITI"
 	  ]
 	 ],
 	 "Fire": [
@@ -1667,7 +1671,8 @@ var arrays = {
 	   "FARIGIRAF",
 	   "SCREAMTAIL",
 	   "IRONCROWN",
-	   "IRONLEAVES"
+	   "IRONLEAVES",
+	   "MONKIDORI"
 	  ]
 	 ],
 	 "Ground": [
@@ -2096,7 +2101,8 @@ var arrays = {
 	   "TINKATON",
 	   "SCREAMTAIL",
 	   "FLUTTERMANE",
-	   "IRONVALIANT"
+	   "IRONVALIANT",
+	   "FEZANDIPITI"
 	  ]
 	 ],
 	 "Fighting": [
@@ -2213,7 +2219,9 @@ var arrays = {
 	   "KORAIDON",
 	   "TAUROS_1",
 	   "TAUROS_2",
-	   "TAUROS_3"
+	   "TAUROS_3",
+	   "OKIDOGI"
+
 	  ]
 	 ],
 	 "Rock": [
@@ -3457,7 +3465,7 @@ var arrays = {
 		"Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy"
 	],
     "PokeBall": [
-		"PokeBall", "GreatBall", "UltraBall", "MasterBall", "SafariBall", "FastBall", "LevelBall", "LureBall", "HeavyBall", "LoveBall", "FriendBall", "MoonBall", "SportBall", "NetBall", "DiveBall", "NestBall", "RepeatBall", "TimerBall", "LuxuryBall", "PremierBall", "DuskBall", "HealBall", "QuickBall", "CherishBall", "ParkBall", "DreamBall", "BeastBall", "StrangeBall", "HisuiPokeBall", "HisuiGreatBall", "HisuiUltraBall", "FeatherBall", "WingBall", "JetBall", "HisuiHeavyBall", "LeadenBall", "GigatonBall", "OriginBall"
+		"PokeBall", "GreatBall", "UltraBall", "MasterBall", "SafariBall", "FastBall", "LevelBall", "LureBall", "HeavyBall", "LoveBall", "FriendBall", "MoonBall", "SportBall", "NetBall", "DiveBall", "NestBall", "RepeatBall", "TimerBall", "LuxuryBall", "PremierBall", "DuskBall", "HealBall", "QuickBall", "CherishBall", "ParkBall", "DreamBall", "BeastBall", "StrangeBall", "GSBall", "HisuiPokeBall", "HisuiGreatBall", "HisuiUltraBall", "FeatherBall", "WingBall", "JetBall", "HisuiHeavyBall", "LeadenBall", "GigatonBall", "OriginBall"
 	]
 }
 var array_of_forms = ["GENESECT","GENESECT_1","GENESECT_2","GENESECT_3","GENESECT_4","LUNALA","LUNALA_1","SOLGALEO","SOLGALEO_1","MARSHADOW","MARSHADOW_1","MIMIKYU","MIMIKYU_1","ZACIAN","ZACIAN_2","ZAMAZENTA","ZAMAZENTA_2","ZARUDE","ZARUDE_1","PIKACHU","PIKACHU_2","PIKACHU_3","PIKACHU_4","PIKACHU_5","PIKACHU_6","PIKACHU_7","PIKACHU_8","PIKACHU_9","PIKACHU_10","PIKACHU_11","PIKACHU_12","PIKACHU_13","PIKACHU_14","PIKACHU_15","ABOMASNOW","ABOMASNOW_female","ALAKAZAM","ALAKAZAM_female","AIPOM","AIPOM_female","AMBIPOM","AMBIPOM_female","BEAUTIFLY","BEAUTIFLY_female","BIBAREL","BIBAREL_female","BIDOOF","BIDOOF_female","BLAZIKEN","BLAZIKEN_female","BUTTERFREE","BUTTERFREE_female","CACTURNE","CACTURNE_female","CAMERUPT","CAMERUPT_female","COMBEE","COMBEE_female","COMBUSKEN","COMBUSKEN_female","CROAGUNK","CROAGUNK_female","DODRIO","DODRIO_female","DODUO","DODUO_female","DONPHAN","DONPHAN_female","DUSTOX","DUSTOX_female","FINNEON","FINNEON_female","GARCHOMP","GARCHOMP_female","GIBLE","GIBLE_female","GIRAFARIG","GIRAFARIG_female","GLIGAR","GLIGAR_female","GLOOM","GLOOM_female","GOLBAT","GOLBAT_female","GOLDEEN","GOLDEEN_female","GULPIN","GULPIN_female","GYARADOS","GYARADOS_female","HERACROSS","HERACROSS_female","HOUNDOOM","HOUNDOOM_female","HYPNO","HYPNO_female","KADABRA","KADABRA_female","KRICKETOT","KRICKETOT_female","KRICKETUNE","KRICKETUNE_female","LEDIAN","LEDIAN_female","LEDYBA","LEDYBA_female","LUDICOLO","LUDICOLO_female","LUMINEON","LUMINEON_female","LUXIO","LUXIO_female","LUXRAY","LUXRAY_female","MAGIKARP","MAGIKARP_female","MAMOSWINE","MAMOSWINE_female","MEDICHAM","MEDICHAM_female","MEDITITE","MEDITITE_female","MEGANIUM","MEGANIUM_female","MILOTIC","MILOTIC_female","NUMEL","NUMEL_female","NUZLEAF","NUZLEAF_female","OCTILLERY","OCTILLERY_female","PIKACHU","PIKACHU_female","PILOSWINE","PILOSWINE_female","POLITOED","POLITOED_female","QUAGSIRE","QUAGSIRE_female","RAICHU","RAICHU_female","RATICATE","RATICATE_female","RATTATA","RATTATA_female","RELICANTH","RELICANTH_female","RHYDON","RHYDON_female","RHYHORN","RHYHORN_female","RHYPERIOR","RHYPERIOR_female","ROSELIA","ROSELIA_female","ROSERADE","ROSERADE_female","SCIZOR","SCIZOR_female","SCYTHER","SCYTHER_female","SEAKING","SEAKING_female","SHIFTRY","SHIFTRY_female","SHINX","SHINX_female","SNEASEL","SNEASEL_female","SNEASEL_1","SNEASEL_1_female","SNOVER","SNOVER_female","STARAPTOR","STARAPTOR_female","STARAVIA","STARAVIA_female","STARLY","STARLY_female","STEELIX","STEELIX_female","SUDOWOODO","SUDOWOODO_female","SWALOT","SWALOT_female","TANGROWTH","TANGROWTH_female","TOXICROAK","TOXICROAK_female","URSARING","URSARING_female","VENUSAUR","VENUSAUR_female","VILEPLUME","VILEPLUME_female","WEAVILE","WEAVILE_female","WOBBUFFET","WOBBUFFET_female","WOOPER","WOOPER_female"];
