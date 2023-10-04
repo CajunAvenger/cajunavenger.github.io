@@ -160,9 +160,9 @@ var arrays = {
 	   "SCOVILLAIN",
 	   "BRUTEBONNET",
 	   "WOCHIEN",
+	   "IRONLEAVES",
 	   "DIPPLIN",
 	   "POLTCHAGEIST",
-	   "IRONLEAVES",
 	   "OGERPON"
 	  ]
 	 ],
@@ -3341,8 +3341,8 @@ var arrays = {
 		"DUDUNSPARCE",
 		"DUDUNSPARCE_1",
 		"KINGAMBIT",
-		"ARCHALUDON",
-		"DIPPLIN"
+		"DIPPLIN",
+		"ARCHALUDON"
 	 ],
 	"Spinda": ["SPINDA"],
 	"Vivillon": [
