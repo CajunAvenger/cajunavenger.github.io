@@ -1080,4 +1080,3 @@ function changeLang(lang) {
 }
 
 
-exports.translatable = translatable;

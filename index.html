@@ -1206,10 +1206,10 @@ canvas {
 		path: '/',
 	    samesite: 'strict'
 	  };
-	  options.expires = new Date().getTime() + 365*24*60*60*1000;
+	  options.Expires = new Date(new Date().getTime() + 365*24*60*60*1000);
 
-	  if (options.expires instanceof Date) {
-		options.expires = options.expires.toUTCString();
+	  if (options.Expires instanceof Date) {
+		options.Expires = options.Expires.toUTCString();
 	  }
 
 	  var updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
