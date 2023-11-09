@@ -35,6 +35,8 @@ If you want to do something like put Galarian Meowth as your favorite Gen 1 gimm
 ## Additional Sprites
 Walking Wake and Iron Leaves sprites from [JordanosArt](https://twitter.com/JordanosArt).
 
-Archaludon, Dipplin, Poltchageist, Iron Crown, Raging Bolt, Okidogi, Munkidori, Fezandipii, Ogerpon, and Terapagos frmo [RetroNC](https://www.deviantart.com/retronc).
+Archaludon, Dipplin, Iron Crown, Raging Bolt, Okidogi, and Terapagos from [RetroNC](https://www.deviantart.com/retronc).
 
-Later generation sprites from the [Gen 8 Project](https://reliccastle.com/resources/1101/) and [Gen 9 Project](https://reliccastle.com/resources/952/).
+Substitute, Poltchageist, Sinistcha, Munkidori, Fezandipiti, Ogerpon, and Bloom Moon Ursaluna from [PokeAPI](https://github.com/PokeAPI/sprites)
+
+Later generation sprites from the [Gen 8 Project](https://reliccastle.com/resources/1101/), [Gen 9 Project](https://reliccastle.com/resources/952/), and [PokeAPI](https://github.com/PokeAPI/sprites)

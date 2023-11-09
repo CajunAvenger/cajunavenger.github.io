@@ -163,7 +163,11 @@ var arrays = {
 	   "IRONLEAVES",
 	   "DIPPLIN",
 	   "POLTCHAGEIST",
-	   "OGERPON"
+	   "SINISTCHA",
+	   "OGERPON",
+	   "OGERPON_1",
+	   "OGERPON_2",
+	   "OGERPON_3"
 	  ]
 	 ],
 	 "Poison": [
@@ -282,7 +286,7 @@ var arrays = {
 	   "CLODSIRE",
 	   "IRONMOTH",
 	   "OKIDOGI",
-	   "MONKIDORI",
+	   "MUNKIDORI",
 	   "FEZANDIPITI"
 	  ]
 	 ],
@@ -404,6 +408,7 @@ var arrays = {
 	   "SCOVILLAIN",
 	   "IRONMOTH",
 	   "CHIYU",
+	   "OGERPON_2",
 	   "TAUROS_2"
 	  ]
 	 ],
@@ -912,6 +917,7 @@ var arrays = {
 	   "TATSUGIRI_2",
 	   "IRONBUNDLE",
 	   "WALKINGWAKE",
+	   "OGERPON_1",
 	   "TAUROS_3"
 	  ]
 	 ],
@@ -1245,7 +1251,8 @@ var arrays = {
 	   "CYCLIZAR",
 	   "FARIGIRAF",
 	   "DUDUNSPARCE",
-	   "DUDUNSPARCE_1"
+	   "DUDUNSPARCE_1",
+	   "URSALUNA_1"
 	  ]
 	 ],
 	 "Dark": [
@@ -1255,7 +1262,8 @@ var arrays = {
 	   "MISSINGNO_1",
 	   "MISSINGNO_2",
 	   "MISSINGNO_3",
-	   "MISSINGNO_4"
+	   "MISSINGNO_4",
+	   "SUBSTITUTE"
 	  ],
 	  [
 	   "UMBREON",
@@ -1672,7 +1680,7 @@ var arrays = {
 	   "SCREAMTAIL",
 	   "IRONCROWN",
 	   "IRONLEAVES",
-	   "MONKIDORI"
+	   "MUNKIDORI"
 	  ]
 	 ],
 	 "Ground": [
@@ -1786,7 +1794,8 @@ var arrays = {
 	   "GREATTUSK",
 	   "SANDYSHOCKS",
 	   "IRONTREADS",
-	   "TINGLU"
+	   "TINGLU",
+	   "URSALUNA_1"
 	  ]
 	 ],
 	 "Ice": [
@@ -2335,7 +2344,8 @@ var arrays = {
 	   "KLAWF",
 	   "GLIMMET",
 	   "GLIMMORA",
-	   "IRONTHORNS"
+	   "IRONTHORNS",
+	   "OGERPON_3"
 	  ]
 	 ],
 	 "Ghost": [
@@ -2440,7 +2450,8 @@ var arrays = {
 	   "GIMMIGHOUL",
 	   "GIMMIGHOUL_1",
 	   "GHOLDENGO",
-	   "POLTCHAGEIST"
+	   "POLTCHAGEIST",
+	   "SINISTCHA"
 	  ]
 	 ],
 
@@ -3040,9 +3051,12 @@ var arrays = {
 	   "RAGINGBOLT",
 	   "IRONCROWN",
 	   "OKIDOGI",
-	   "MONKIDORI",
+	   "MUNKIDORI",
 	   "FEZANDIPITI",
 	   "OGERPON",
+	   "OGERPON_1",
+	   "OGERPON_2",
+	   "OGERPON_3",
 	   "TERAPAGOS"
 	  ]
 	 ],
@@ -3261,7 +3275,8 @@ var arrays = {
 		"WUGTRIO",
 		"TOEDSCOOL",
 		"TOEDSCRUEL",
-		"POLTCHAGEIST"
+		"POLTCHAGEIST",
+		"SINISTCHA"
 	  ]
 	 ],
 	 "Baby": [
@@ -3331,6 +3346,7 @@ var arrays = {
 		"WYRDEER",
 		"KLEAVOR",
 		"URSALUNA",
+		"URSALUNA_1",
 		"BASCULEGION",
 		"BASCULEGION_1",
 		"SNEASLER",
