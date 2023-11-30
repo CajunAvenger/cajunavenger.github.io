@@ -1,95 +1,95 @@
 English: Gimmick<br/>Form
-Translation: Gimmick-<br/>Formular
+Translation: Besondere Form
 
 English: Pseudo Legend
-Translation: Pseudolegendär
+Translation: Pseudo Legänderes
 
 English: Box Legendary
-Translation: Kiste Legendär
+Translation: Cover Legänderes
 
 English: Download Image
-Translation: Bild herunterladen
+Translation: Bild Herunterladen
 
 English: Alternate download link
-Translation: Alternativer Download-Link
+Translation: Andere Download Möglichkeit
 
-English: Export Choices
-Translation: Exportieren
+English: Export Choices
+Translation: Auswahl Exportieren
 
 English: Import Choices
-Translation: Importieren
+Translation: Auswahl Importieren
 
 English: Reset the grid!
-Translation: Gitter zurücksetzen
+Translation: Auswahl zurücksetzten!
 
 English: Are you sure you want to reset the grid?
-Translation: Möchten Sie das Raster wirklich zurücksetzen?
+Translation: Bist du dir sicher, dass du deine Auswahl zurücksetzten willst?
 
 English: Don't like my choices? You can overrule them here!
-Translation: 
+Translation: Dir geallen die Auswahlmöglichkeiten nicht? Du kannst sie hier überschreiben!
 
 English: Write Code will put a text version of the grid here
-Translation: 
+Translation: Beim Ausfüllen der Kästchen entsteht hier eine Text-Version!
 
 English: Then you can edit the names and Import Code to replace the images.
-Translation: 
+Translation: Dann kannst du die Namen bearbeiten und importieren um die Bilder zu ersetzen.
 
 English: Most Pokemon are just their named capitalized, like SWELLOW.
-Translation: 
+Translation: Die meisten Pokemon namen sind in Großbuchstaben und auf Englisch geschrieben.
 
 English: Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.
-Translation: 
+Translation: Alternative Formen haben spezielle Namen, zum Beispiel MEOWTH_2 für galar Mauzi.
 
 English: You can also use this to keep backups
-Translation: 
+Translation: Du kannst den Text auch als Backup benutzen.
 
 English: Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.
-Translation: Die Punkte von Pandir können zufällig oder manuell platziert werden.<br/>Jedes Kästchenpaar in den Ecken bewegt sich zu seinem nächstgelegenen Punkt.<br/>Nach oben/unten auf dem ersten Kästchen bewegt es sich nach rechts/links.<br/>Nach oben/unten auf dem Das zweite Kästchen bewegt es nach oben/unten.
+Translation: Pandirs Flecken können zufällig oder manuell plaziert werden. Jede Box bewegt jewils den ihr nächsten Fleck. +/- bei der ersten Box, bewegt den Fleck nach links oder rechts. +/- bei der zweiten Box bewegt den Fleck hoch oder runter.
 
 English: Click a team box, then a Pokémon from the grid to copy it to the box.
-Translation: Klicken Sie auf eine Teambox und dann auf ein Pokémon aus dem Raster, um es in die Box zu kopieren.
+Translation: Klick auf eine der 6 Team-Felder, dann auf ein Pokemon aus deiner Auswahl, um es ins Team zu kopieren.
 
 English: Picking...
-Translation: Pflücken...
+Translation: Wählen...
 
 English: Click the Shiny Charm, then click Pokemon to make them shiny.
-Translation: Klicken Sie auf den Schillerpin und dann auf Pokemon, um sie shiny zu Schillerndes.
+Translation: Klick auf den Schillerpin, dann auf ein Pokemon um dieses zu seinem Shiny zu machen.
 
 English: Or click here to make everything shiny.
-Translation: Oder klicken Sie hier, um alles shiny zu machen.
+Translation: Oder klicke hier, um alle Pokemon shiny zu machen.
 
 English: Randomize!
-Translation: Randomisieren!
+Translation: Zufallswahl!
 
 English: This site uses cookies to save your choices. You can disable them here.
-Translation: Diese Seite verwendet Cookies, um Ihre Auswahl zu speichern. Sie können sie hier deaktivieren.
+Translation: Diese Seite verwendet Cookies um deine Wahl zu speichern. Du kannst sie hier deaktivieren.
 
 English: This site uses cookies to save your choices. You can enable them here.
-Translation: Diese Seite verwendet Cookies, um Ihre Auswahl zu speichern. Sie können sie hier aktivieren.
+Translation: Diese Seite verwendet Cookies um deine Wahl zu speichern. Du kannst sie hier aktievieren.
 
 English: Pikachu Clone
-Translation: Pikachuklon
+Translation: Pikachu Klon
 
 English: Eeveelution
-Translation: Evolilution
+Translation: Evoli Entwicklung
 
 English: Favorite
-Translation: Favorit
+Translation: lieblings
 
 English: Team
 Translation: Team
 
-English: Regional 
-Translation: Regional 
+English: Regional
+Translation: Regional
 
 English: Regional Bird
-Translation: Regional Vogel
+Translation: Regiaonalvogel
 
 English: Regional Mammal
-Translation: Regional Säugetier
+Translation: Route 1 Normal Pokemon
 
 English: Regional Bug
-Translation: Regional Käfer
+Translation: Ragionalkäfer
 
 English: Fossil
 Translation: Fossil
@@ -101,16 +101,16 @@ English: Gigantamax
 Translation: Gigadynamax
 
 English: Mythical
-Translation: Mysteriöse Pokémon
+Translation: Mysteriös
 
 English: Ultra Beast
-Translation: Ultrabestie
+Translation: Ultra Bestie
 
 English: Paradox
 Translation: Paradox
 
 English: Type
-Translation: Typ
+Translation: Type
 
 English: Poké Ball
 Translation: Pokéball
@@ -119,7 +119,7 @@ English: Baby
 Translation: Baby
 
 English: New Evo
-Translation: Neue<br/>Entwicklung
+Translation: Neue Entwicklung
 
 English: Spinda
 Translation: Pandir
@@ -134,7 +134,7 @@ English: Normal
 Translation: Normal
 
 English: Fire
-Translation: Feuer 
+Translation: Feuer
 
 English: Water
 Translation: Wasser
@@ -188,5 +188,4 @@ English: Starter
 Translation: Starter
 
 English: Legend
-Translation: Legend
-
+Translation: Legänderes
