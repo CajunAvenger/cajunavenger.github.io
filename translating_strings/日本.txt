@@ -1,5 +1,5 @@
 English: Gimmick<br/>Form
-Translation: ギミック・<br/>フォム
+Translation: 特殊現象<br/>フォーム
 
 English: Pseudo Legend
 Translation: 600族
@@ -11,88 +11,88 @@ English: Download Image
 Translation: 画像をダウンロード
 
 English: Alternate download link
-Translation: 別のダウンロード リンク
+Translation: 二次ダウンロード元
 
 English: Export Choices
-Translation: エクスポートの選択肢
+Translation: 選択を出力
 
 English: Import Choices
-Translation: インポートの選択肢
+Translation: 選択を読み込む
 
 English: Reset the grid!
-Translation: グリッドをリセットする
+Translation: 初期化
 
 English: Are you sure you want to reset the grid?
-Translation: グリッドをリセットしますか?
+Translation: 本当に初期化しますか?
 
 English: Don't like my choices? You can overrule them here!
-Translation: 
+Translation: 製作者のポケ選が気に入らない場合はここで直接編集できます！
 
 English: Write Code will put a text version of the grid here
-Translation: 
+Translation: 「選択を出力」を押すと、ここにグリッドのテキスト版が生成されます。
 
 English: Then you can edit the names and Import Code to replace the images.
-Translation: 
+Translation: それからここで編集して、「選択を読み込む」を押すと画像を入れ替えられます。
 
 English: Most Pokemon are just their named capitalized, like SWELLOW.
-Translation: 
+Translation: ほとんどのポケモンは「SWELLOW」などと、全大文字の英名です。
 
 English: Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.
-Translation: 
+Translation: 別フォルムは「MEOWTH_2」などと、特殊なタグが使用されていることがあります。
 
 English: You can also use this to keep backups
-Translation: 
+Translation: この欄を使って、バックアップを取ることもできます。
 
 English: Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.
-Translation: パッチールのスポットは、ランダムまたは手動で配置できます。<br/>隅にある各ボックス ペアは、最も近いスポットに移動します。<br/>最初のボックスを上/下にすると、右/左に移動します。<br/>2 番目のボックスを上/下にすると、上/下に移動します。
+Translation: パッチールの模様は、手動またはおまかせで配置できます。<br/>4隅の数値は、それぞれに一番近い丸模様に該当します。<br/>上の欄は模様を左右に移動させます。<br/>下の欄は模様を上下に移動させます。
 
 English: Click a team box, then a Pokémon from the grid to copy it to the box.
-Translation: チーム・ボクスをクリックしてグリッドでポケモンをクリックしてからボクスにそれをコッピします
+Translation: パーティーの欄を選択してから、グリッド内のポケモンを選択してください。
 
 English: Picking...
-Translation: えらんでいます・・・
+Translation: 選択中…
 
 English: Click the Shiny Charm, then click Pokemon to make them shiny.
-Translation: ひかるおまもりをクリックしてから、ポケモンをクリックして光るます。
+Translation: ひかるおまもりを選択してからグリッド内のポケモンを選択すると、そのポケモンが色違いになります。
 
 English: Or click here to make everything shiny.
-Translation: がここにクリックしてから、みんなのポケモンが光るになります
+Translation: ここをクリックすると、全ポケモンが色違いになります。
 
 English: Randomize!
-Translation: ランダマイズ！
+Translation: おまかせ
 
 English: This site uses cookies to save your choices. You can disable them here.
-Translation: このサイトでは、選択内容を保存するためにクッキーを使用しています。 ここでそれらを無効にすることができます。
+Translation: このサイトでは、選択を保存するためにクッキーを使用しています。 ここでそのクッキーを無効にできます。
 
 English: This site uses cookies to save your choices. You can enable them here.
-Translation: このサイトでは、選択内容を保存するためにクッキーを使用しています。 ここで有効にできます。
+Translation: このサイトでは、選択を保存するためにクッキーを使用しています。 ここでそのクッキーを有効にできます。
 
 English: Pikachu Clone
-Translation: ピカチュウのクローン
+Translation: ピカポジ
 
 English: Eeveelution
-Translation: イーブイズ
+Translation: ブイズ
 
 English: Favorite
-Translation: お気に入り
+Translation: 推し
 
 English: Team
-Translation: 手持ちポケモン
+Translation: パーティー
 
 English: Regional 
-Translation: 地域
+Translation: リージョンフォーム
 
 English: Regional Bird
-Translation: 地域鳥
+Translation: 序盤鳥
 
 English: Regional Mammal
-Translation: 地域哺乳類
+Translation: 序盤ノーマル
 
 English: Regional Bug
-Translation: 地域むし
+Translation: 序盤虫
 
 English: Fossil
-Translation: 化石
+Translation: 化石ポケモン
 
 English: Regional Form
 Translation: リージョンフォーム
@@ -116,10 +116,10 @@ English: Poké Ball
 Translation: モンスターボール
 
 English: Baby
-Translation: 얼루기
+Translation: ベイビィポケモン
 
 English: New Evo
-Translation: 新しい進化
+Translation: 追加進化
 
 English: Spinda
 Translation: パッチール
@@ -185,7 +185,7 @@ English: Fairy
 Translation: フェアリー
 
 English: Starter
-Translation: はじめて
+Translation: 御三家
 
 English: Legend
 Translation: 伝説
