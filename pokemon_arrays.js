@@ -2701,7 +2701,7 @@ var arrays = {
 	  "ZEKROM",
 	  "KYUREM_1",
 	  "KYUREM_2",
-	  "XERNEAS",
+	  "XERNEAS_1",
 	  "YVELTAL",
 	  "GROUDON_1",
 	  "KYOGRE_1",
