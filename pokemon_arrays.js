@@ -1629,7 +1629,8 @@ var arrays = {
 	   "METAGROSS_1",
 	   "LATIAS_1",
 	   "LATIOS_1",
-	   "GALLADE_1"
+	   "GALLADE_1",
+	   "MEWTWO_3"
 	  ],
 	  [
 	   "ORICORIO_2",
@@ -2981,7 +2982,8 @@ var arrays = {
 	   "VOLCANION",
 	   "GROUDON_1",
 	   "KYOGRE_1",
-	   "RAYQUAZA_1"
+	   "RAYQUAZA_1",
+	   "MEWTWO_3"
 	  ],
 	  [
 	   "TYPENULL",
