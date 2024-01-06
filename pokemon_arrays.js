@@ -167,7 +167,8 @@ var arrays = {
 	   "OGERPON",
 	   "OGERPON_1",
 	   "OGERPON_2",
-	   "OGERPON_3"
+	   "OGERPON_3",
+	   "HYDRAPPLE"
 	  ]
 	 ],
 	 "Poison": [
@@ -409,7 +410,8 @@ var arrays = {
 	   "IRONMOTH",
 	   "CHIYU",
 	   "OGERPON_2",
-	   "TAUROS_2"
+	   "TAUROS_2",
+	   "GOUGINGFIRE"
 	  ]
 	 ],
 	 "Flying": [
@@ -706,10 +708,12 @@ var arrays = {
 	   "ROARINGMOON",
 	   "KORAIDON",
 	   "MIRAIDON",
-	   "RAGINGBOLT",
 	   "WALKINGWAKE",
 	   "ARCHALUDON",
-	   "DIPPLIN"
+	   "DIPPLIN",
+	   "HYDRAPPLE",
+	   "GOUGINGFIRE",
+	   "RAGINGBOLT"
 	  ]
 	 ],
 	 "Water": [
@@ -1252,7 +1256,10 @@ var arrays = {
 	   "FARIGIRAF",
 	   "DUDUNSPARCE",
 	   "DUDUNSPARCE_1",
-	   "URSALUNA_1"
+	   "URSALUNA_1",
+	   "TERAPAGOS",
+	   "TERAPAGOS_1",
+	   "TERAPAGOS_2"
 	  ]
 	 ],
 	 "Dark": [
@@ -1679,9 +1686,10 @@ var arrays = {
 	   "VELUZA",
 	   "FARIGIRAF",
 	   "SCREAMTAIL",
-	   "IRONCROWN",
 	   "IRONLEAVES",
-	   "MUNKIDORI"
+	   "MUNKIDORI",
+	   "IRONBOULDER",
+	   "IRONCROWN"
 	  ]
 	 ],
 	 "Ground": [
@@ -2346,7 +2354,8 @@ var arrays = {
 	   "GLIMMET",
 	   "GLIMMORA",
 	   "IRONTHORNS",
-	   "OGERPON_3"
+	   "OGERPON_3",
+	   "IRONBOULDER"
 	  ]
 	 ],
 	 "Ghost": [
@@ -2782,9 +2791,11 @@ var arrays = {
 	  "IRONTHORNS",
 	  "IRONVALIANT",
 	  "MIRAIDON",
-	  "RAGINGBOLT",
 	  "WALKINGWAKE",
 	  "IRONLEAVES",
+	  "GOUGINGFIRE",
+	  "RAGINGBOLT",
+	  "IRONBOULDER",
 	  "IRONCROWN"
 	 ],
 	 "Starter": [
@@ -3059,7 +3070,9 @@ var arrays = {
 	   "OGERPON_1",
 	   "OGERPON_2",
 	   "OGERPON_3",
-	   "TERAPAGOS"
+	   "TERAPAGOS",
+	   "TERAPAGOS_1",
+	   "TERAPAGOS_2"
 	  ]
 	 ],
 	 "Gimmick": [
@@ -3278,7 +3291,8 @@ var arrays = {
 		"TOEDSCOOL",
 		"TOEDSCRUEL",
 		"POLTCHAGEIST",
-		"SINISTCHA"
+		"SINISTCHA",
+		"TERAPAGOS_2"
 	  ]
 	 ],
 	 "Baby": [
@@ -3360,7 +3374,8 @@ var arrays = {
 		"DUDUNSPARCE_1",
 		"KINGAMBIT",
 		"DIPPLIN",
-		"ARCHALUDON"
+		"ARCHALUDON",
+		"HYDRAPPLE"
 	 ],
 	"Spinda": ["SPINDA"],
 	"Vivillon": [
