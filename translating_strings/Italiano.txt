@@ -71,7 +71,7 @@ English: Pikachu Clone
 Translation: Clone di Pikachu
 
 English: Eeveelution
-Translation: Eeveeluzione
+Translation: Eeveeluzione Preferita
 
 English: Favorite
 Translation: Preferito
@@ -80,7 +80,7 @@ English: Team
 Translation: Squadra
 
 English: Regional
-Translation:  Regionale
+Translation: Regionale
 
 English: Regional Bird
 Translation: Uccello Regionale
@@ -95,7 +95,7 @@ English: Fossil
 Translation: Fossile
 
 English: Regional Form
-Translation: Forma Regionale
+Translation: Forma Regionale Preferita
 
 English: Gigantamax
 Translation: Gigamax
@@ -104,7 +104,7 @@ English: Mythical
 Translation: Pokémon Misterioso
 
 English: Ultra Beast
-Translation: Ultracreatura
+Translation: Ultracreatura Preferita
 
 English: Paradox
 Translation: Paradosso
@@ -113,13 +113,13 @@ English: Type
 Translation: Tipo
 
 English: Poké Ball
-Translation: Poké Ball
+Translation: Poké Ball Preferita
 
 English: Baby
 Translation: Baby
 
 English: New Evo
-Translation: Nuova<br/>Evoluzione
+Translation: Nuova<br/>Evoluzione Preferita
 
 English: Spinda
 Translation: Spinda
