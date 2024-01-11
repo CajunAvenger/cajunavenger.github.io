@@ -28,11 +28,11 @@ Translation: Sei sicuro di voler reimpostare la griglia?
 English: Don't like my choices? You can overrule them here!
 Translation: Non ti piacciono le mie scelte? Le puoi sovrascrivere qui!
 
-English: Write Code will put a text version of the grid here
-Translation: Scrivi Codive metterà un versione di testo della griglia qui
+English: Export Choices will put a text version of the grid here
+Translation: Esporta Scelte metterà un versione di testo della griglia qui
 
-English: Then you can edit the names and Import Code to replace the images.
-Translation: Dopo puoi modificare i nomi e Importare Codice per rimpiazzare le immagini.
+English: Then you can edit the names and Import Choices to replace the images.
+Translation: Dopo puoi modificare i nomi e Importa Scelt per rimpiazzare le immagini.
 
 English: Most Pokemon are just their named capitalized, like SWELLOW.
 Translation: La maggioranza dei Pokemon sono solo il loro nome in maiuscolo, per esempio SWELLOW.
@@ -79,8 +79,8 @@ Translation: Preferito
 English: Team
 Translation: Squadra
 
-English: Regional
-Translation: Regionale
+English: Regional 
+Translation:  Regionale
 
 English: Regional Bird
 Translation: Uccello Regionale

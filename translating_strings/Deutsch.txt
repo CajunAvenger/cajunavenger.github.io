@@ -13,7 +13,7 @@ Translation: Bild Herunterladen
 English: Alternate download link
 Translation: Andere Download Möglichkeit
 
-English: Export Choices
+English: Export Choices
 Translation: Auswahl Exportieren
 
 English: Import Choices
@@ -28,11 +28,11 @@ Translation: Bist du dir sicher, dass du deine Auswahl zurücksetzten willst?
 English: Don't like my choices? You can overrule them here!
 Translation: Dir geallen die Auswahlmöglichkeiten nicht? Du kannst sie hier überschreiben!
 
-English: Write Code will put a text version of the grid here
-Translation: Beim Ausfüllen der Kästchen entsteht hier eine Text-Version!
+English: Export Choices will put a text version of the grid here
+Translation: Beim Auswahl Exportieren entsteht hier eine Text-Version!
 
-English: Then you can edit the names and Import Code to replace the images.
-Translation: Dann kannst du die Namen bearbeiten und importieren um die Bilder zu ersetzen.
+English: Then you can edit the names and Import Choices to replace the images.
+Translation: Dann kannst du die Namen bearbeiten und Auswahl Importieren um die Bilder zu ersetzen.
 
 English: Most Pokemon are just their named capitalized, like SWELLOW.
 Translation: Die meisten Pokemon namen sind in Großbuchstaben und auf Englisch geschrieben.

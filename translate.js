@@ -47,6 +47,7 @@ var femme = {
 	"Português": ["-a", "Forma Regional"],
 	"Español": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional"],
 	"Español_Latino": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional"],
+	"Italiano": ["Eeveeluzione", "Forma Regionale", "Ultracreatura", "Poké Ball", "Nuova<br/>Evoluzione"],
 	"Français": ["Ultra-Chimère", "Poké Ball", "Forme Régionale"]
 }
 var font_sizes = {
@@ -70,6 +71,7 @@ var font_sizes = {
 		"English": 27,
 		"Français": 23,
 		"Español": 25,
+		"Italiano": 25,
 		"Español_Latino": 25,
 		"日本": 22,
 		"한국어": 22,
@@ -135,7 +137,8 @@ var font_sizes = {
 	"Legend": {
 		"English": 25,
 		"Français": 23,
-		"Deutsch": 20
+		"Deutsch": 20,
+		"Italiano": 20
 	}
 }
 function getTranslString (check) {
@@ -185,7 +188,7 @@ var translatable = {
   "简中": "",
   "繁中": "",
   "Français": "Légendaire de Boîte",
-  "Italiano": "Scatola leggendaria",
+  "Italiano": "Leggendario di scatola",
   "한국어": "상자 전설",
   "Nederlands": "Primaire Legendarische"
  },
@@ -224,7 +227,7 @@ var translatable = {
   "简中": "",
   "繁中": "",
   "Français": "Exporter les choix",
-  "Italiano": "Scelte di esportazione",
+  "Italiano": "Esporta Scelte",
   "한국어": "내보내기 선택",
   "Nederlands": "Exporteer je keuzes"
  },
@@ -237,7 +240,7 @@ var translatable = {
   "简中": "",
   "繁中": "",
   "Français": "Importer les choix",
-  "Italiano": "Scelte di importazione",
+  "Italiano": "Importa Scelte",
   "한국어": "가져오기 선택",
   "Nederlands": "Importeer je keuzes"
  },
@@ -268,17 +271,17 @@ var translatable = {
   "Nederlands": "Weet je zeker dat je het hele veld wil resetten? Je verliest hiermee alles wat je ingevuld hebt."
  },
  "import": {
-  "English": "# Don't like my choices? You can overrule them here!\n# Write Code will put a text version of the grid here\n# Then you can edit the names and Import Code to replace the images.\n# Most Pokemon are just their named capitalized, like SWELLOW.\n# Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.\n# You can also use this to keep backups",
+  "English": "# Don't like my choices? You can overrule them here!\n# Export Choices will put a text version of the grid here\n# Then you can edit the names and Import Choices to replace the images.\n# Most Pokemon are just their named capitalized, like SWELLOW.\n# Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.\n# You can also use this to keep backups",
   "Español": "# ¿No te gustan mis selecciones? ¡Puedes cambiarlas aquí!\n# Exportar selecciones generará una versión de texto de la cuadrícula\n# Después podrás editar los nombres y darle click a Importar selecciones para reemplazar las imágenes.\n# La mayoría de Pokémon simplemente son su nombre en mayúsculas, como SWELLOW\n# Las formas alternativas tienen etiquetas específicas, como MEOWTH_2 para Meowth de Galar.\n# También puedes usar esto para realizar respaldos",
   "Português": "# Não gosta das minhas escolhas? Você pode anulá-las!\n# Exportar Escolhas irá colocar uma versão em texto do quadro aqui\n# Então você poderá editar os nomes e Importar Escolhas para substituir as imagens.\n# A maioria dos Pokémon são apenas seus nomes em letra maiúscula, como SWELLOW.\n# Formas Alternativas possuem tags específicas, como MEOWTH_2 para Meowth de Galar.\n# Você também pode usar isso para guardar cópias de segurança.",
-  "Deutsch": "Dir geallen die Auswahlmöglichkeiten nicht? Du kannst sie hier überschreiben!\n# Beim Ausfüllen der Kästchen entsteht hier eine Text-Version!\n# Dann kannst du die Namen bearbeiten und importieren um die Bilder zu ersetzen.\n# Die meisten Pokemon namen sind in Großbuchstaben und auf Englisch geschrieben.\n# Alternative Formen haben spezielle Namen, zum Beispiel MEOWTH_2 für galar Mauzi.\n# Du kannst den Text auch als Backup benutzen.",
+  "Deutsch": "Dir geallen die Auswahlmöglichkeiten nicht? Du kannst sie hier überschreiben!\n# Beim Auswahl Exportieren entsteht hier eine Text-Version!\n# Dann kannst du die Namen bearbeiten und Auswahl Importieren um die Bilder zu ersetzen.\n# Die meisten Pokemon namen sind in Großbuchstaben und auf Englisch geschrieben.\n# Alternative Formen haben spezielle Namen, zum Beispiel MEOWTH_2 für galar Mauzi.\n# Du kannst den Text auch als Backup benutzen.",
   "日本": "# 製作者のポケ選が気に入らない場合はここで直接編集できます！\n# 「選択を出力」を押すと、ここにグリッドのテキスト版が生成されます。\n# それからここで編集して、「選択を読み込む」を押すと画像を入れ替えられます。\n# ほとんどのポケモンは「SWELLOW」などと、全大文字の英名です。\n# 別フォルムは「MEOWTH_2」などと、特殊なタグが使用されていることがあります。\n# この欄を使って、バックアップを取ることもできます。",
   "简中": "",
   "繁中": "",
   "Français": "# Vous n'aimez pas mes choix ? Vous pouvez les écraser ici !\n# Exporter les choix va mettre une version textuelle de la grille ici\n# Vous pouvez alors éditer les noms et Importer les choix pour remplacer les images.\n# La plupart des noms de Pokémon sont en majuscules, comme SWELLOW\n# Les formes alternatives ont des indices spéciaux, comme MEOWTH_2 pour Miaouss de Galar\n# Vous pouvez aussi l'utiliser pour sauvegarder vos choix",
-  "Italiano": "",
+  "Italiano": "# Non ti piacciono le mie scelte? Le puoi sovrascrivere qui!\n# Esporta Scelte metterà un versione di testo della griglia qui\n# Dopo puoi modificare i nomi e Importa Scelt per rimpiazzare le immagini.\n# La maggioranza dei Pokemon sono solo il loro nome in maiuscolo, per esempio SWELLOW.\n# Le forme alternative hanno nomi specifici, come MEOWTH_2 per Meowth Galariano.\n# Puoi anche usare questo per ritienere dei backup",
   "한국어": "",
-  "Nederlands": "# Niet eens met deze keuzes? Je kan ze hier verranderen.<br/>#  De keuzes in het vlak worden hier onder in tekst aangegeven als je drukt op ‘exporteer keuzes’.<br/># Je kan hier onder alles aanpassen en dan op ‘importeer je keuze’ klikken en dan past hij het meteen aan.<br/># De meeste namen zijn gewoon de normale naam volledig in hoofdletters, voorbeeld: SWELLOW.<br/># Andere vormen hebben speciale namen, voorbeeld MEOWTH_2 voor Galarian Meowth<br/># Dit kan je ook gebruiken om je voortgang op te slaan."
+  "Nederlands": "# Niet eens met deze keuzes? Je kan ze hier verranderen.<br/>#  De keuzes in het vlak worden hier onder in tekst aangegeven als je drukt op ‘exporteer je keuzes’.<br/># Je kan hier onder alles aanpassen en dan op ‘importeer je keuze’ klikken en dan past hij het meteen aan.<br/># De meeste namen zijn gewoon de normale naam volledig in hoofdletters, voorbeeld: SWELLOW.<br/># Andere vormen hebben speciale namen, voorbeeld MEOWTH_2 voor Galarian Meowth<br/># Dit kan je ook gebruiken om je voortgang op te slaan."
  },
  "spinda-help": {
   "English": "Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.",
@@ -328,7 +331,7 @@ var translatable = {
   "简中": "点击闪耀护符然后点击宝可梦让它们发光。",
   "繁中": "單擊闪耀护符然後單擊宝可梦使它們發光。",
   "Français": "Cliquez sur le Charme Chroma, puis cliquez sur un Pokemon pour le rendre shiny.",
-  "Italiano": "Fai clic sul Cromamuleto , quindi fai clic su Pokemon per renderli shiny.",
+  "Italiano": "Fai clic sul Cromamuleto, quindi fai clic su Pokemon per renderli shiny.",
   "한국어": "빛나는부적 을 클릭한 다음 포켓몬 을 클릭하여 반짝이게 만들 빛나는",
   "Nederlands": "Klik op de shiny charm, en dan op de pokemon om hem shiny te maken."
  },
@@ -957,7 +960,7 @@ var translatable = {
   "简中": "传说的",
   "繁中": "傳說的",
   "Français": "Légendes",
-  "Italiano": "Leggend",
+  "Italiano": "Leggendari",
   "한국어": " 전설의",
   "Nederlands": "Legend"
  }

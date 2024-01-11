@@ -28,10 +28,10 @@ Translation: Étes-vous sûrs que vous voulez réinitialiser la grille ?
 English: Don't like my choices? You can overrule them here!
 Translation: # Vous n'aimez pas mes choix ? Vous pouvez les écraser ici !
 
-English: Write Code will put a text version of the grid here
+English: Export Code will put a text version of the grid here
 Translation: # Exporter les choix va mettre une version textuelle de la grille ici
 
-English: Then you can edit the names and Import Code to replace the images.
+English: Then you can edit the names and Import Choices to replace the images.
 Translation: # Vous pouvez alors éditer les noms et Importer les choix pour remplacer les images.
 
 English: Most Pokemon are just their named capitalized, like SWELLOW.

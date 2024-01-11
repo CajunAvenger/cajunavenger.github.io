@@ -28,10 +28,10 @@ Translation: Weet je zeker dat je het hele veld wil resetten? Je verliest hierme
 English: Don't like my choices? You can overrule them here!
 Translation: Niet eens met deze keuzes? Je kan ze hier verranderen.
 
-English: Write Code will put a text version of the grid here
-Translation: De keuzes in het vlak worden hier onder in tekst aangegeven als je drukt op ‘exporteer keuzes’.
+English: Export Choices will put a text version of the grid here
+Translation: De keuzes in het vlak worden hier onder in tekst aangegeven als je drukt op ‘exporteer je keuzes’.
 
-English: Then you can edit the names and Import Code to replace the images.
+English: Then you can edit the names and Import Choices to replace the images.
 Translation: Je kan hier onder alles aanpassen en dan op ‘importeer je keuze’ klikken en dan past hij het meteen aan.
 
 English: Most Pokemon are just their named capitalized, like SWELLOW.

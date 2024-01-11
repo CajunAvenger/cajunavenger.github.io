@@ -28,10 +28,10 @@ Translation: 本当に初期化しますか?
 English: Don't like my choices? You can overrule them here!
 Translation: 製作者のポケ選が気に入らない場合はここで直接編集できます！
 
-English: Write Code will put a text version of the grid here
+English: Export Choices will put a text version of the grid here
 Translation: 「選択を出力」を押すと、ここにグリッドのテキスト版が生成されます。
 
-English: Then you can edit the names and Import Code to replace the images.
+English: Then you can edit the names and Import Choices to replace the images.
 Translation: それからここで編集して、「選択を読み込む」を押すと画像を入れ替えられます。
 
 English: Most Pokemon are just their named capitalized, like SWELLOW.
