@@ -28,10 +28,10 @@ Translation:
 English: Don't like my choices? You can overrule them here!
 Translation: 
 
-English: Write Code will put a text version of the grid here
+English: Export Choices will put a text version of the grid here
 Translation: 
 
-English: Then you can edit the names and Import Code to replace the images.
+English: Then you can edit the names and Import Choices to replace the images.
 Translation: 
 
 English: Most Pokemon are just their named capitalized, like SWELLOW.

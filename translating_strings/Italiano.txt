@@ -5,7 +5,7 @@ English: Pseudo Legend
 Translation: Pseudo Leggendario
 
 English: Box Legendary
-Translation: Scatola leggendaria
+Translation: Leggendario di scatola
 
 English: Download Image
 Translation: Scarica Immagine
@@ -14,10 +14,10 @@ English: Alternate download link
 Translation: Link di download alternativo
 
 English: Export Choices
-Translation: Scelte di esportazione
+Translation: Esporta Scelte
 
 English: Import Choices
-Translation: Scelte di importazione
+Translation: Importa Scelte
 
 English: Reset the grid!
 Translation: Ripristina la griglia
@@ -26,22 +26,22 @@ English: Are you sure you want to reset the grid?
 Translation: Sei sicuro di voler reimpostare la griglia?
 
 English: Don't like my choices? You can overrule them here!
-Translation: 
+Translation: Non ti piacciono le mie scelte? Le puoi sovrascrivere qui!
 
-English: Write Code will put a text version of the grid here
-Translation: 
+English: Export Choices will put a text version of the grid here
+Translation: Esporta Scelte metterà un versione di testo della griglia qui
 
-English: Then you can edit the names and Import Code to replace the images.
-Translation: 
+English: Then you can edit the names and Import Choices to replace the images.
+Translation: Dopo puoi modificare i nomi e Importa Scelt per rimpiazzare le immagini.
 
 English: Most Pokemon are just their named capitalized, like SWELLOW.
-Translation: 
+Translation: La maggioranza dei Pokemon sono solo il loro nome in maiuscolo, per esempio SWELLOW.
 
 English: Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.
-Translation: 
+Translation: Le forme alternative hanno nomi specifici, come MEOWTH_2 per Meowth Galariano.
 
 English: You can also use this to keep backups
-Translation: 
+Translation: Puoi anche usare questo per ritienere dei backup
 
 English: Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.
 Translation: Gli spot di Spinda possono essere randomizzati o posizionati manualmente.<br/>Ogni coppia di riquadri negli angoli sposta il punto più vicino.<br/>Su/Giù sulla prima casella la sposta a destra/sinistra.<br/>Su/Giù sulla seconda casella lo sposta Su/Giù.
@@ -53,7 +53,7 @@ English: Picking...
 Translation: Aggiunta...
 
 English: Click the Shiny Charm, then click Pokemon to make them shiny.
-Translation: Fai clic sul Cromamuleto , quindi fai clic su Pokemon per renderli shiny.
+Translation: Fai clic sul Cromamuleto, quindi fai clic su Pokemon per renderli shiny.
 
 English: Or click here to make everything shiny.
 Translation: Oppure clicca qui per rendere tutto shiny.
@@ -71,7 +71,7 @@ English: Pikachu Clone
 Translation: Clone di Pikachu
 
 English: Eeveelution
-Translation: Eeveeluzione
+Translation: Eeveeluzione Preferita
 
 English: Favorite
 Translation: Preferito
@@ -95,7 +95,7 @@ English: Fossil
 Translation: Fossile
 
 English: Regional Form
-Translation: Forma Regionale
+Translation: Forma Regionale Preferita
 
 English: Gigantamax
 Translation: Gigamax
@@ -104,7 +104,7 @@ English: Mythical
 Translation: Pokémon Misterioso
 
 English: Ultra Beast
-Translation: Ultracreatura
+Translation: Ultracreatura Preferita
 
 English: Paradox
 Translation: Paradosso
@@ -113,13 +113,13 @@ English: Type
 Translation: Tipo
 
 English: Poké Ball
-Translation: Poké Ball
+Translation: Poké Ball Preferita
 
 English: Baby
 Translation: Baby
 
 English: New Evo
-Translation: Nuova<br/>Evoluzione
+Translation: Nuova<br/>Evoluzione Preferita
 
 English: Spinda
 Translation: Spinda
@@ -188,5 +188,5 @@ English: Starter
 Translation: Iniziale
 
 English: Legend
-Translation: Leggend
+Translation: Leggendari
 

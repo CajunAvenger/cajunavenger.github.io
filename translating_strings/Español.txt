@@ -28,10 +28,10 @@ Translation: ¿Estás seguro de querer reestablecer la cuadricula?
 English: Don't like my choices? You can overrule them here!
 Translation: # ¿No te gustan mis selecciones? ¡Puedes cambiarlas aquí!
 
-English: Write Code will put a text version of the grid here
+English: Export Choices will put a text version of the grid here
 Translation: # Exportar selecciones generará una versión de texto de la cuadrícula
 
-English: Then you can edit the names and Import Code to replace the images.
+English: Then you can edit the names and Import Choices to replace the images.
 Translation: # Después podrás editar los nombres y darle click a Importar selecciones para reemplazar las imágenes.
 
 English: Most Pokemon are just their named capitalized, like SWELLOW.
