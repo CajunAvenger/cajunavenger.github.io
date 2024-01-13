@@ -558,6 +558,7 @@ canvas {
 					continue
 				ele.src = ele.src.replace(spriteFile, swap[spriteFile])
 			}
+			writeCookie(g);
 		}
 		spriteFile = swap[spriteFile];
 		activateShiny();
