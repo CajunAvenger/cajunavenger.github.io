@@ -288,7 +288,8 @@ var arrays = {
 	   "IRONMOTH",
 	   "OKIDOGI",
 	   "MUNKIDORI",
-	   "FEZANDIPITI"
+	   "FEZANDIPITI",
+	   "PECHARUNT"
 	  ]
 	 ],
 	 "Fire": [
@@ -2461,7 +2462,8 @@ var arrays = {
 	   "GIMMIGHOUL_1",
 	   "GHOLDENGO",
 	   "POLTCHAGEIST",
-	   "SINISTCHA"
+	   "SINISTCHA",
+	   "PECHARUNT"
 	  ]
 	 ],
 
@@ -2759,7 +2761,8 @@ var arrays = {
 	  "MELMETAL",
 	  "MELMETAL_1",
 	  "ZARUDE",
-	  "ZARUDE_1"
+	  "ZARUDE_1",
+	  "PECHARUNT"
 	 ],
 	 "Ultra": [
 	  "NIHILEGO",
@@ -3059,10 +3062,6 @@ var arrays = {
 	   "CHIYU",
 	   "KORAIDON",
 	   "MIRAIDON",
-	   "WALKINGWAKE",
-	   "IRONLEAVES",
-	   "RAGINGBOLT",
-	   "IRONCROWN",
 	   "OKIDOGI",
 	   "MUNKIDORI",
 	   "FEZANDIPITI",
@@ -3072,7 +3071,8 @@ var arrays = {
 	   "OGERPON_3",
 	   "TERAPAGOS",
 	   "TERAPAGOS_1",
-	   "TERAPAGOS_2"
+	   "TERAPAGOS_2",
+	   "PECHARUNT"
 	  ]
 	 ],
 	 "Gimmick": [
