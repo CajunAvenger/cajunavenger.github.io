@@ -93,7 +93,8 @@ var arrays = {
 	   "AMOONGUSS",
 	   "FERROSEED",
 	   "FERROTHORN",
-	   "VIRIZION"
+	   "VIRIZION",
+	   "BLACKDOOR"
 	  ],
 	  [
 	   "CHESPIN",
@@ -353,7 +354,8 @@ var arrays = {
 	   "HEATMOR",
 	   "LARVESTA",
 	   "VOLCARONA",
-	   "RESHIRAM"
+	   "RESHIRAM",
+	   "WHITEDOOR"
 	  ],
 	  [
 	   "FENNEKIN",
@@ -514,7 +516,8 @@ var arrays = {
 	   "THUNDURUS",
 	   "THUNDURUS_1",
 	   "LANDORUS",
-	   "LANDORUS_1"
+	   "LANDORUS_1",
+	   "UFO"
 	  ],
 	  [
 	   "FLETCHLING",
@@ -1177,7 +1180,11 @@ var arrays = {
 	   "RUFFLET",
 	   "BRAVIARY",
 	   "MELOETTA",
-	   "MELOETTA_1"
+	   "MELOETTA_1",
+	   "MONICA",
+	   "HUMANOID",
+	   "F00",
+	   "F00_1"
 	  ],
 	  [
 	   "BUNNELBY",
@@ -1318,7 +1325,10 @@ var arrays = {
 	   "MANDIBUZZ",
 	   "DEINO",
 	   "ZWEILOUS",
-	   "HYDREIGON"
+	   "HYDREIGON",
+	   "BRYCENMAN",
+	   "MONSTER",
+	   "MAJIN"
 	  ],
 	  [
 	   "GRENINJA",
@@ -1439,7 +1449,9 @@ var arrays = {
 	   "STUNFISK",
 	   "THUNDURUS",
 	   "THUNDURUS_1",
-	   "ZEKROM"
+	   "ZEKROM",
+	   "UFO",
+	   "MT2"
 	  ],
 	  [
 	   "HELIOPTILE",
@@ -1617,7 +1629,9 @@ var arrays = {
 	   "REUNICLUS",
 	   "ELGYEM",
 	   "BEHEEYEM",
-	   "MELOETTA"
+	   "MELOETTA",
+	   "BRYCENMAN",
+	   "UFO"
 	  ],
 	  [
 	   "DELPHOX",
@@ -1944,7 +1958,12 @@ var arrays = {
 	   "BISHARP",
 	   "DURANT",
 	   "COBALION",
-	   "GENESECT"
+	   "GENESECT",
+	   "MT",
+	   "MT2",
+	   "TRANSPORT",
+	   "F00",
+	   "F00_1"
 	  ],
 	  [
 	   "HONEDGE",
@@ -2176,7 +2195,8 @@ var arrays = {
 	   "VIRIZION",
 	   "KELDEO",
 	   "KELDEO_1",
-	   "MELOETTA_1"
+	   "MELOETTA_1",
+	   "BLACKBELT"
 	  ],
 	  [
 	   "CHESNAUGHT",
@@ -2399,7 +2419,8 @@ var arrays = {
 	   "LAMPENT",
 	   "CHANDELURE",
 	   "GOLETT",
-	   "GOLURK"
+	   "GOLURK",
+	   "MAJIN"
 	  ],
 	  [
 	   "HONEDGE",
@@ -3147,7 +3168,21 @@ var arrays = {
 	  ],
 	  [
 	   "AUDINO_1",
-	   "GARBODOR_1"
+	   "GARBODOR_1",
+	   "BRYCENMAN",
+	   "UFO",
+	   "MT",
+	   "MT2",
+	   "TRANSPORT",
+	   "BLACKBELT",
+	   "BLACKDOOR",
+	   "WHITEDOOR",
+	   "MONICA",
+	   "HUMANOID",
+	   "MONSTER",
+	   "F00",
+	   "F00_1",
+	   "MAJIN"
 	  ],
 	  [
 	   "VENUSAUR_1",
