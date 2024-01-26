@@ -1,5 +1,5 @@
 English: Gimmick<br/>Form
-Translation: Modulo<br/>espediente
+Translation: Forma<br/>speciale
 
 English: Pseudo Legend
 Translation: Pseudo Leggendario

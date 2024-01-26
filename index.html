@@ -1005,7 +1005,7 @@ canvas {
 				var ele = document.getElementById('box'+g+'_'+t);
 				if(!ele || ele.src == "./blank.png")
 					continue;
-				ctx.drawImage(ele, ele.offsetLeft, ele.offsetTop);
+				ctx.drawImage(ele, ele.offsetLeft, ele.offsetTop, 96, 96);
 				if(g == 0 && t == 22) {
 					// render spinda
 					var spots = ["spot1", "spot2", "spot3", "spot4", "spinda2", "spinda-cover"];

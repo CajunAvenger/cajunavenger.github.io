@@ -162,7 +162,7 @@ var translatable = {
   "简中": "",
   "繁中": "",
   "Français": "Forme à<br/>Gimmick",
-  "Italiano": "Modulo<br/>espediente",
+  "Italiano": "Forma<br/>speciale",
   "한국어": "기믹 형태",
   "Nederlands": "Bijzondere<br/>Vorm"
  },
