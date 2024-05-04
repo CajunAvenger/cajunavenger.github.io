@@ -1,74 +1,74 @@
 English: Gimmick<br/>Form
-Translation: 
+Translation: 特殊形态
 
 English: Pseudo Legend
-Translation: 
+Translation: 准传说
 
 English: Box Legendary
-Translation: 
+Translation: 封面神
 
 English: Download Image
-Translation: 
+Translation: 下载图片
 
 English: Alternate download link
-Translation: 
+Translation: 替代下载链接
 
 English: Export Choices
-Translation: 
+Translation: 导出选项
 
 English: Import Choices
-Translation: 
+Translation: 导入选项
 
 English: Reset the grid!
-Translation: 
+Translation: 重置表格
 
 English: Are you sure you want to reset the grid?
-Translation: 
+Translation: 你确定要重置表格吗？
 
 English: Don't like my choices? You can overrule them here!
-Translation: 
+Translation: 不喜欢我的选项？可以在这里否决！
 
 English: Export Choices will put a text version of the grid here
-Translation: 
+Translation: 导出选项将会在这里生成一份文字版本的该表格
 
 English: Then you can edit the names and Import Choices to replace the images.
-Translation: 
+Translation: 这样你就可以编辑它们的名字，用导入选项替换图片。
 
 English: Most Pokemon are just their named capitalized, like SWELLOW.
-Translation: 
+Translation: 大部分宝可梦的名字是大写的，比如“SWELLOW”
 
 English: Alternate forms have specific tags, like MEOWTH_2 for Galarian Meowth.
-Translation: 
+Translation: 而其他形态会有特殊的标签，比如“MEOWTH_2”代表伽勒尔喵喵。
 
 English: You can also use this to keep backups
-Translation: 
+Translation: 您也可以使用它来保留备份
 
 English: Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.
-Translation: 
+Translation: 晃晃班的斑点可以随机化，或是手动放置。<br/>四个角的数值分别对应最接近这个角的斑点。<br/>上方栏控制左右移动。<br/>下方栏位控制上下移动。
 
 English: Click a team box, then a Pokémon from the grid to copy it to the box.
-Translation: 
+Translation: 点击同行宝可梦盒子，再点击表格中的宝可梦，来将其复制到盒子里。
 
 English: Picking...
-Translation: 
+Translation: 选择中……
 
 English: Click the Shiny Charm, then click Pokemon to make them shiny.
-Translation: 点击闪耀护符然后点击宝可梦让它们发光。
+Translation: 点击闪耀护符，再点击宝可梦让它们闪光。
 
 English: Or click here to make everything shiny.
-Translation: 
+Translation: 或点击这里让所有宝可梦闪光。
 
 English: Randomize!
-Translation: 随机化！
+Translation: 随机！
 
 English: This site uses cookies to save your choices. You can disable them here.
-Translation: 本网站使用曲奇饼来保存您的选择。 您可以在此处禁用它们。
+Translation: 本网站使用cookies来保存您的选择。 您可以在此处禁用它们。
 
 English: This site uses cookies to save your choices. You can enable them here.
-Translation: 本网站使用曲奇饼来保存您的选择。 您可以在此处启用它们。
+Translation: 本网站使用cookies来保存您的选择。 您可以在此处启用它们。
 
 English: Pikachu Clone
-Translation: 皮卡丘克隆
+Translation: 电老鼠
 
 English: Eeveelution
 Translation: 伊布家族
@@ -77,22 +77,22 @@ English: Favorite
 Translation: 最喜欢的
 
 English: Team
-Translation: 同行
+Translation: 同行宝可梦
 
 English: Regional 
 Translation: 地区
 
 English: Regional Bird
-Translation: 地区鸟
+Translation: 家门鸟
 
 English: Regional Mammal
-Translation: 地区哺乳动物
+Translation: 家门鼠
 
 English: Regional Bug
-Translation: 地区虫
+Translation: 家门虫
 
 English: Fossil
-Translation: 化石
+Translation: 化石宝可梦
 
 English: Regional Form
 Translation: 地區型態
@@ -107,7 +107,7 @@ English: Ultra Beast
 Translation: 究极异兽
 
 English: Paradox
-Translation: 悖謬
+Translation: 悖论种
 
 English: Type
 Translation: 属性
@@ -116,10 +116,10 @@ English: Poké Ball
 Translation: 精灵球
 
 English: Baby
-Translation: 婴儿
+Translation: 宝宝
 
 English: New Evo
-Translation: 新进化
+Translation: 新进化型
 
 English: Spinda
 Translation: 晃晃斑
@@ -134,7 +134,7 @@ English: Normal
 Translation: 一般
 
 English: Fire
-Translation: 炎
+Translation: 火
 
 English: Water
 Translation: 水
@@ -185,8 +185,8 @@ English: Fairy
 Translation: 妖精
 
 English: Starter
-Translation: 起动机
+Translation: 初始宝可梦
 
 English: Legend
-Translation: 传说的
+Translation: 传说宝可梦
 
