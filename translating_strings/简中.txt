@@ -11,7 +11,7 @@ English: Download Image
 Translation: 下载图片
 
 English: Alternate download link
-Translation: 替代下载链接
+Translation: 备用下载链接
 
 English: Export Choices
 Translation: 导出选项
@@ -26,13 +26,13 @@ English: Are you sure you want to reset the grid?
 Translation: 你确定要重置表格吗？
 
 English: Don't like my choices? You can overrule them here!
-Translation: 不喜欢我的选项？可以在这里否决！
+Translation: 不喜欢作者的选项？可以在这里直接编辑！
 
 English: Export Choices will put a text version of the grid here
 Translation: 导出选项将会在这里生成一份文字版本的该表格
 
 English: Then you can edit the names and Import Choices to replace the images.
-Translation: 这样你就可以编辑它们的名字，用导入选项替换图片。
+Translation: 这样就可以编辑名称并用导入选项替换图片。
 
 English: Most Pokemon are just their named capitalized, like SWELLOW.
 Translation: 大部分宝可梦的名字是大写的，比如“SWELLOW”
@@ -44,7 +44,7 @@ English: You can also use this to keep backups
 Translation: 您也可以使用它来保留备份
 
 English: Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.
-Translation: 晃晃班的斑点可以随机化，或是手动放置。<br/>四个角的数值分别对应最接近这个角的斑点。<br/>上方栏控制左右移动。<br/>下方栏位控制上下移动。
+Translation: 晃晃班的斑点可以随机化，或是手动放置。<br/>四个角的数值分别对应最接近这个角的斑点。<br/>上方栏位控制左右移动。<br/>下方栏位控制上下移动。
 
 English: Click a team box, then a Pokémon from the grid to copy it to the box.
 Translation: 点击同行宝可梦盒子，再点击表格中的宝可梦，来将其复制到盒子里。
@@ -68,7 +68,7 @@ English: This site uses cookies to save your choices. You can enable them here.
 Translation: 本网站使用cookies来保存您的选择。 您可以在此处启用它们。
 
 English: Pikachu Clone
-Translation: 电老鼠
+Translation: 电鼠类宝可梦
 
 English: Eeveelution
 Translation: 伊布家族
@@ -95,7 +95,7 @@ English: Fossil
 Translation: 化石宝可梦
 
 English: Regional Form
-Translation: 地區型態
+Translation: 地区形态
 
 English: Gigantamax
 Translation: 超极巨化
@@ -107,7 +107,7 @@ English: Ultra Beast
 Translation: 究极异兽
 
 English: Paradox
-Translation: 悖论种
+Translation: 悖谬宝可梦
 
 English: Type
 Translation: 属性
@@ -116,7 +116,7 @@ English: Poké Ball
 Translation: 精灵球
 
 English: Baby
-Translation: 宝宝
+Translation: 幼年宝可梦
 
 English: New Evo
 Translation: 新进化型
@@ -185,7 +185,7 @@ English: Fairy
 Translation: 妖精
 
 English: Starter
-Translation: 初始宝可梦
+Translation: 最初的伙伴
 
 English: Legend
 Translation: 传说宝可梦
