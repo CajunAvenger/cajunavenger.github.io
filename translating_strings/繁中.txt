@@ -2,7 +2,7 @@ English: Gimmick<br/>Form
 Translation: 特殊形態
 
 English: Pseudo Legend
-Translation: 準傳說
+Translation: 六百族
 
 English: Box Legendary
 Translation: 封面獸
@@ -44,7 +44,7 @@ English: You can also use this to keep backups
 Translation: 您也可以使用它來保留備份
 
 English: Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.
-Translation: 晃動班的斑點可以隨機化，或是手動放置。 <br/>四個角的數值分別對應最接近這個角的斑點。 <br/>上方欄位控制左右移動。 <br/>下方欄位控制上下移動。
+Translation: 晃晃班的斑點可以隨機化，或是手動放置。 <br/>四個角的數值分別對應最接近這個角的斑點。 <br/>上方欄位控制左右移動。 <br/>下方欄位控制上下移動。
 
 English: Click a team box, then a Pokémon from the grid to copy it to the box.
 Translation: 單擊同行寶可夢的方框，然後單擊表格中的寶可夢，將其複製到框中。
@@ -68,7 +68,7 @@ English: This site uses cookies to save your choices. You can enable them here.
 Translation: 本網站使用cookies來保存您的選擇。 您可以在此處啟用它們。
 
 English: Pikachu Clone
-Translation: 電鼠類寶可夢
+Translation: 電氣鼠
 
 English: Eeveelution
 Translation: 伊布家族
@@ -86,10 +86,10 @@ English: Regional Bird
 Translation: 家門鳥
 
 English: Regional Mammal
-Translation: 家門蟲
+Translation: 家門怪
 
 English: Regional Bug
-Translation: 地區蟲
+Translation: 家門鼠
 
 English: Fossil
 Translation: 化石
