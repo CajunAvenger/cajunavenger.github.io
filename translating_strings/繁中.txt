@@ -89,7 +89,7 @@ English: Regional Mammal
 Translation: 家門怪
 
 English: Regional Bug
-Translation: 家門鼠
+Translation: 家門蟲
 
 English: Fossil
 Translation: 化石
