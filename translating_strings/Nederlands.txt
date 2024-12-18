@@ -161,7 +161,7 @@ English: Flying
 Translation: Vliegend
 
 English: Psychic
-Translation: Psygisch
+Translation: Psychisch
 
 English: Bug
 Translation: Insect
