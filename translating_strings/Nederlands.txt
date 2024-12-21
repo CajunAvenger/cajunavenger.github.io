@@ -146,7 +146,7 @@ English: Electric
 Translation: Electrisch
 
 English: Ice
-Translation: IJS
+Translation: IJs
 
 English: Fighting
 Translation: Vecht
