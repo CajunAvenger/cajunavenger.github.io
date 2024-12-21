@@ -780,7 +780,7 @@ var translatable = {
   "Français": "Glace",
   "Italiano": "Ghiaccio",
   "한국어": " \t얼음",
-  "Nederlands": "Ijs"
+  "Nederlands": "IJs"
  },
  "Fighting": {
   "English": "Fighting",
@@ -845,7 +845,7 @@ var translatable = {
   "Français": "Psy",
   "Italiano": "Psico",
   "한국어": "에스퍼",
-  "Nederlands": "Psygisch"
+  "Nederlands": "Psychisch"
  },
  "Bug": {
   "English": "Bug",
