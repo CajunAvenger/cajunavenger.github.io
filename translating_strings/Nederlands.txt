@@ -146,7 +146,7 @@ English: Electric
 Translation: Electrisch
 
 English: Ice
-Translation: IJS
+Translation: IJs
 
 English: Fighting
 Translation: Vecht
@@ -161,7 +161,7 @@ English: Flying
 Translation: Vliegend
 
 English: Psychic
-Translation: Psygisch
+Translation: Psychisch
 
 English: Bug
 Translation: Insect
