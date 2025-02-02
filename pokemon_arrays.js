@@ -3015,6 +3015,8 @@ var arrays = {
 	   "HOOPA",
 	   "HOOPA_1",
 	   "VOLCANION",
+	   "LATIAS_1",
+	   "LATIOS_1",
 	   "GROUDON_1",
 	   "KYOGRE_1",
 	   "RAYQUAZA_1",
@@ -3157,7 +3159,8 @@ var arrays = {
 	   "LATIOS_1",
 	   "KYOGRE_1",
 	   "GROUDON_1",
-	   "RAYQUAZA_1"
+	   "RAYQUAZA_1",
+	   "LUGIA_1"
 	  ],
 	  [
 	   "LOPUNNY_1",
@@ -3256,7 +3259,8 @@ var arrays = {
 		"GRIMER_1",
 		"MUK_1",
 		"EXEGGUTOR_1",
-		"MAROWAK_1"
+		"MAROWAK_1",
+		"GRENINJA_2"
 	  ],
 	  [
 	   "RILLABOOM_1",
