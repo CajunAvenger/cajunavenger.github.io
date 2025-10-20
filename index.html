@@ -496,6 +496,13 @@ canvas {
 		[1976, 1409], [1976, 1409], [1976, 1409], [1976, 1409], [1976, 1409], [1976, 1409], [1976, 1409], [1976, 1409], [1976, 1409],
 		[2158, 1210], [2158, 1409]
 	]
+	var BOTTOM_ROWS = 0;
+	var ALCREMIE_MIN = 24;
+	var ALCREMIE_MAX = 33;
+	var GENERATION_FAV = 22;
+	var TYPE_FAV = 10;
+	var SPINDA_BOX = 22;
+	var MAX_BOX = 35;
 
 	var choices = [];
 	var currently_previewing = [];
@@ -726,7 +733,7 @@ canvas {
 			closeBox();
 		}
 		currently_selecting = [gen, type];
-		if(gen == 0) {
+		if(gen == BOTTOM_ROWS) {
 			// bottom stuff
 			var box = other_order[type];
 			if(arrays[box]) {
@@ -734,14 +741,14 @@ canvas {
 				if(box == "Types")
 					type_arr = calcTypes();
 			}
-		}else if(gen == 10 && type == 22) {
+		}else if(gen == TYPE_FAV && type == GENERATION_FAV) {
 			// super favorite
 			currently_previewing = [];
 			for(var c=1; c<choices.length; c++) {
-				start = 22;
-				if(c == 10)
+				start = GENERATION_FAV;
+				if(c == TYPE_FAV)
 					start = 1;
-				for(var i=start; i<23; i++) {
+				for(var i=start; i<GENERATION_FAV+1; i++) {
 					if(choices[c][i] == "" || choices[c][i] == undefined)
 						continue;
 					if(currently_previewing.includes(choices[c][i]))
@@ -749,7 +756,7 @@ canvas {
 					currently_previewing.push(choices[c][i])
 				}
 			}
-		}else if(gen == 10) {
+		}else if(gen == TYPE_FAV) {
 			// favorite for a type
 			currently_previewing = [];
 			for(var g in choices) {
@@ -761,7 +768,7 @@ canvas {
 					continue;
 				currently_previewing.push(choices[g][type]);
 			}
-		}else if(type == 22) {
+		}else if(type == GENERATION_FAV) {
 			// favorite for a gen
 			currently_previewing = [];
 			for(var m in choices[gen]) {
@@ -796,7 +803,7 @@ canvas {
 		// position the bubble
 		var left_corner = (type*99)+96
 		var top_corner = (gen*99)+99
-		if(gen == 0) {
+		if(gen == BOTTOM_ROWS) {
 			left_corner = zerogen_coords[Math.min(35, type)][0] + 100
 			top_corner = zerogen_coords[Math.min(35, type)][1] + 100
 		}
@@ -817,9 +824,24 @@ canvas {
 				if(choices[currently_selecting[0]][currently_selecting[1]] == mon_key)
 					mon_key = "BLANK";
 				var mon_img = domlink + spriteFile + "/" + mon_key + ".png"
-				var ele = document.getElementById('preview'+pr_ind)
+				var ele = document.getElementById('preview'+pr_ind);
+				if(!ele) {
+					ele = document.createElement("img");
+					ele.classList = "preview";
+					ele.id = "preview" + pr_ind;
+					ele.height = 96;
+					ele.width = 96;
+					ele.onclick = function() {pickMon(pr_ind)};
+					document.getElementById("preview-boxes").appendChild(ele);
+				}
 				ele.src = mon_img;
 				ele.style.zIndex = 9;
+				var mon_data = keyToMonData(mon_key);
+				let tooltip = mon_data.form_data.name + (mon_data.is_fs ? " (female)" : "");
+				if(tooltip == "Alcremie" && gen == BOTTOM_ROWS && currently_selecting[1] >= ALCREMIE_MIN && currently_selecting[1] <= ALCREMIE_MAX)
+					tooltip = alcremieTooltip(mon_key, toppings);
+				
+				ele.title = tooltip;
 				//change the position
 				ele.style.top = top_corner + 99*r;
 				ele.style.left = left_corner + 99*c + hole_offset;
@@ -891,9 +913,9 @@ canvas {
 		if(currently_previewing.length < num)
 			return;
 		var alchold = 0;
-		if(currently_selecting[1] > 24 && currently_selecting[1] < 34) {
+		if(currently_selecting[1] > ALCREMIE_MIN && currently_selecting[1] <= ALCREMIE_MAX) {
 			alchold = currently_selecting[1];
-			currently_selecting[1] = 24;
+			currently_selecting[1] = ALCREMIE_MIN;
 		}
 		var targetBox = document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]);
 		if(!toppings && choices[currently_selecting[0]][currently_selecting[1]] == currently_previewing[num]) {
@@ -903,14 +925,14 @@ canvas {
 			choices[currently_selecting[0]][currently_selecting[1]] = currently_previewing[num];
 			targetBox.src = domlink + spriteFile + "/" + currently_previewing[num] + ".png"
 		}
-		if(currently_selecting[0] == 0 && currently_selecting[1] == 24) {
+		if(currently_selecting[0] == 0 && currently_selecting[1] == ALCREMIE_MIN) {
 			// alcremie
 			if(!toppings && currently_previewing[num] != "ALCREMIE_70") {
 				//open toppings
 				var gen = currently_selecting[0]
 				closeBox();
 				toppings = true;
-				openBox(gen, 25+num);
+				openBox(gen, ALCREMIE_MIN+1+num);
 			}else{
 				//apply toppings
 				closeBox();
@@ -968,7 +990,7 @@ canvas {
 			}
 			for(var e in ents) {
 				var name = ents[e].replace("&", "");
-				if(gen == 0 && e == 22)
+				if(gen == BOTTOM_ROWS && e == SPINDA_BOX)
 					name = "SPINDA";
 				ele = document.getElementById('box'+gen+'_'+e);
 				if(!ele)
@@ -1002,12 +1024,12 @@ canvas {
 		ctx.drawImage(document.getElementById('back'), 0, 0);
 		// draw the pokemon
 		for(var g=0; g<11; g++) {
-			for(var t=1; t<36; t++) {
+			for(var t=1; t<=MAX_BOX; t++) {
 				var ele = document.getElementById('box'+g+'_'+t);
 				if(!ele || ele.src == "./blank.png")
 					continue;
 				ctx.drawImage(ele, ele.offsetLeft, ele.offsetTop, 96, 96);
-				if(g == 0 && t == 22) {
+				if(g == BOTTOM_ROWS && t == SPINDA_BOX) {
 					// render spinda
 					var spots = ["spot1", "spot2", "spot3", "spot4", "spinda2", "spinda-cover"];
 					for(var s in spots) {
@@ -1158,9 +1180,9 @@ canvas {
 			document.getElementById(sname + "x").value = new_x;
 			document.getElementById(sname + "y").value = new_y;
 		}
-		if(!choices[0][22] == "SPINDA") {
-			choices[0][22] = "SPINDA";
-			writeCookie(0)
+		if(!choices[BOTTOM_ROWS][SPINDA_BOX] == "SPINDA") {
+			choices[BOTTOM_ROWS][SPINDA_BOX] = "SPINDA";
+			writeCookie(BOTTOM_ROWS);
 		}
 		writeSpindaCookie()
 	}
@@ -1264,9 +1286,17 @@ canvas {
 		setCookie("spinda", cookie_text);
 	}
 	function loadCookies() {
-		var lang_code = window.location.href.match(/\?lang=([^&]+)/);
-		if(lang_code) {
-			changeLang(lang_code[1]);
+		var searchParams = new URL(location).searchParams;
+		var langCode = searchParams.get("lang");
+		var modeCode = searchParams.get("mode");
+		if(langCode) {
+			changeLang(langCode);
+			document.getElementById("language-select").value = lang_code[currentLang];
+		}
+		if(modeCode) {
+			MODE.SITE = Number(modeCode);
+			remodeArrays();
+			document.getElementById("mode-select").value = MODE.SITE;
 		}
 		var cookie_vals = [];
 		for(var c in cookie_names)
@@ -1291,30 +1321,35 @@ canvas {
 		
 	}
 	function getCookieName(g) {
-		if(parseInt(g) < 10)
+		if(parseInt(g) < TYPE_FAV)
 			return "gen"+g;
-		if(g == 10)
+		if(g == TYPE_FAV)
 			return "favs";
 		return "spinda";
 	}
 </script>
 </head>
 <body onLoad="loadCookies();">
-<div id="language-select">Language: 
-<a href="javascript:changeLang('English')" id="lang_en" style>English</a>
-• <a href="javascript:changeLang('Português')" id="lang_pt">Português</a>
-• <a href="javascript:changeLang('Français')" id="lang_fr">Français</a>
-• <a href="javascript:changeLang('Español')" id="lang_es">Español</a>
-• <a href="javascript:changeLang('Español_Latino')" id="lang_el">Español (Latino)</a>
-• <a href="javascript:changeLang('Deutsch')" id="lang_de">Deutsch</a>
-• <a href="javascript:changeLang('Italiano')" id="lang_it">Italiano</a>
-• <a href="javascript:changeLang('Nederlands')" id="lang_ne">Nederlands</a>
-• <a href="javascript:changeLang('日本')" id="lang_ja">日本</a>
-• <a href="javascript:changeLang('한국어')" id="lang_ko">한국어</a>
-• <a href="javascript:changeLang('简中')" id="lang_zhs">简中</a>
-• <a href="javascript:changeLang('繁中')" id="lang_zht">繁中</a>
-• <a href="https://cajunavenger.github.io/?lang=en" id="new_url">https://cajunavenger.github.io/?lang=en</a>
-</div>
+Language: <select id="language-select" onchange="updateLang()">
+	<option value="en">English</option>
+	<option value="pt">Português</option>
+	<option value="fr">Français</option>
+	<option value="es">Español</option>
+	<option value="el">Español (Latino)</option>
+	<option value="de">Deutsch</option>
+	<option value="it">Italiano</option>
+	<option value="ne">Nederlands</option>
+	<option value="ja">日本</option>
+	<option value="ko">한국어</option>
+	<option value="zhs">简中</option>
+	<option value="zht">繁中</option>
+</select>
+Mode: <select id="mode-select" onchange="updateMode()">
+	<option value="1">Strict</option>
+	<option value="2" selected>Standard</option>
+	<option value="3">Surplus</option>
+	<option value="4">Silly</option>
+</select>
 <div id="grid-wrapper">
 <!--<img class="back" id="back" src="https://cajunavenger.github.io/background.png" alt="" height="1571" width="2276" onclick="closeBox();"/>-->
 <img class="back" id="back" src="https://cajunavenger.github.io/background3.png" alt="" height="1571" width="2276" onclick="closeBox();"/>
@@ -1565,7 +1600,7 @@ canvas {
 <img class="selectionBox fav-type-box type-20-box" id="box10_20" onclick="openBox(10, 20);" src="./blank.png" height="96" width="96">
 <img class="selectionBox fav-type-box type-21-box" id="box10_21" onclick="openBox(10, 21);" src="./blank.png" height="96" width="96">
 <img class="selectionBox fav-type-box type-22-box" id="box10_22" onclick="openBox(10, 22);" src="./blank.png" height="96" width="96"><img class="charm" id="charm" src="./charm.png" alt="" height="64" width="64" onclick="activateShiny();" />
-
+<span id="preview-boxes">
 <img class="preview" id="preview0" src="./blank.png" height="96" width="96" onclick="pickMon(0);">
 <img class="preview" id="preview1" src="./blank.png" height="96" width="96" onclick="pickMon(1);">
 <img class="preview" id="preview2" src="./blank.png" height="96" width="96" onclick="pickMon(2);">
@@ -1626,9 +1661,10 @@ canvas {
 <img class="preview" id="preview57" src="./blank.png" height="96" width="96" onclick="pickMon(57);">
 <img class="preview" id="preview58" src="./blank.png" height="96" width="96" onclick="pickMon(58);">
 <img class="preview" id="preview59" src="./blank.png" height="96" width="96" onclick="pickMon(59);">
+</span>
 <img id="spinda" src="https://cajunavenger.github.io/Front/SPINDA.png">
 <img id="spinda2" src="https://cajunavenger.github.io/spinda/Front/SPINDA.png">
-<img id="spinda-cover" src="https://cajunavenger.github.io/spinda/cover.png" onclick="shinySpinda();">
+<img id="spinda-cover" src="https://cajunavenger.github.io/spinda/cover.png" onclick="shinySpinda();" title="Spinda!">
 <img id="spot1" class="spinda-spot" src="https://cajunavenger.github.io/spinda/Front/spot1.png">
 <img id="spot2" class="spinda-spot" src="https://cajunavenger.github.io/spinda/Front/spot2.png">
 <img id="spot3" class="spinda-spot" src="https://cajunavenger.github.io/spinda/Front/spot3.png">
@@ -1718,11 +1754,12 @@ canvas {
 </div>
 <div id="credits">
 	<b>Updates</b><br>
-	• Gen 9 Pokemon are all added! Until they add more...<br>
-	• We've added Simplified and Traditional Chinese to our translation offerings~<br>
-	• The website will now remember your choices on refresh 🍪<br>
-	• Gen 6 Gimmick now lets you choose your favorite Mega.<br>
-	• Added Baby, New Evo, and language support!<br/>
+	• Z-A Updates will happen as soon as I can!<br>
+	• Pokemon now reveal their names on hover.<br>
+	• There's now a Mode Select at the top of page:<br>
+	• Strict Mode will remove many minor forms across the grid.<br>
+	• Surplus Mode wil back-add forms, so you can pick Mega Gyarados for Gen 1 Dark.<br>
+	• Silly Mode adds everything I've got! Have GMax Pikachu be your favorite Gen 7 Starter, or Chill Drive Genesect be your favorite Legendary!<br/>
 	• Report language issues or help add new ones <a href="https://github.com/CajunAvenger/cajunavenger.github.io/issues/23">here!</a><br><br>
 	<b>Credits</b><br>
 	<a href="https://github.com/CajunAvenger/cajunavenger.github.io">Source Code</a> - <a href="https://github.com/CajunAvenger/cajunavenger.github.io/issues">Issues or Feature Requests?</a> - <a href="https://bsky.app/profile/cajun-writes-code.bsky.social">Bluesky</a><br />

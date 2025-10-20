@@ -1068,18 +1068,23 @@ function changeLang(lang) {
 			}
 		}
 	}
-	var nextURL = "https://cajunavenger.github.io/"
+
+	let nextURL = new URL(location);
+	nextURL.searchParams.delete("lang");
 	if(lang != "English")
-		nextURL += "?lang=" + lang_code[lang];
+		nextURL.searchParams.set("lang", lang_code[lang]);
 	var nextTitle = "Ultimate Favorite Pokemon Picker";
 	var nextState = { additionalInformation: 'Updated the language parameter' };
-	document.getElementById("new_url").innerHTML = nextURL;
-	document.getElementById("new_url").href = nextURL;
+	//document.getElementById("new_url").innerHTML = nextURL;
+	//document.getElementById("new_url").href = nextURL;
 	try{
 		window.history.replaceState(nextState, nextTitle, nextURL);
 	}catch(e){
 		// unclear when this does and doesn't work
 	}
 }
-
+function updateLang() {
+	let langsel = document.getElementById("language-select");
+	changeLang(langsel.value);
+}
 
