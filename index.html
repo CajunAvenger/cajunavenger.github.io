@@ -821,8 +821,14 @@ canvas {
 			for(var c=0; c<pokemon_in_row; c++) {
 				var mon_key = currently_previewing[pr_ind];
 				// if this mon is already in the box, put the remove option instead
-				if(choices[currently_selecting[0]][currently_selecting[1]] == mon_key)
+				var mon_data = keyToMonData(mon_key);
+				let tooltip = mon_data.form_data.name + (mon_data.is_fs ? " (female)" : "");
+				if(tooltip == "Alcremie" && gen == BOTTOM_ROWS && currently_selecting[1] >= ALCREMIE_MIN && currently_selecting[1] <= ALCREMIE_MAX)
+					tooltip = alcremieTooltip(mon_key, toppings);
+				if(choices[currently_selecting[0]][currently_selecting[1]] == mon_key) {
 					mon_key = "BLANK";
+					tooltip = "Deselect " + tooltip;
+				}
 				var mon_img = domlink + spriteFile + "/" + mon_key + ".png"
 				var ele = document.getElementById('preview'+pr_ind);
 				if(!ele) {
@@ -836,10 +842,6 @@ canvas {
 				}
 				ele.src = mon_img;
 				ele.style.zIndex = 9;
-				var mon_data = keyToMonData(mon_key);
-				let tooltip = mon_data.form_data.name + (mon_data.is_fs ? " (female)" : "");
-				if(tooltip == "Alcremie" && gen == BOTTOM_ROWS && currently_selecting[1] >= ALCREMIE_MIN && currently_selecting[1] <= ALCREMIE_MAX)
-					tooltip = alcremieTooltip(mon_key, toppings);
 				
 				ele.title = tooltip;
 				//change the position
