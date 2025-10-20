@@ -3680,6 +3680,7 @@ function remodeArrays() {
 	}
 	let mechanical = ["mega", "gmax"];
 	let other_gimmick = ["regional", "regional2", "gimmick", "pokestar"];
+	let all_gimmick = mechanical.concat(other_gimmick);
 	/*
 	Hierarchy
 		New Pokemon. Minor forms can appear here if nondisruptive
@@ -3814,31 +3815,34 @@ function remodeArrays() {
 			*/
 			// types always go in Launch
 			// also in base debut if different and Surplus+
-			for(let t in types) {
-				addToArray(sprite, types[t], launch, form_data.fs, spliceInfo);
-				if(launch != debut && MODE.SITE >= MODE.SURPLUS) {
-					addToArray(sprite, types[t], debut, form_data.fs, spliceInfo);
+			// gimmick forms don't go to types in Strict
+			if(MODE.SITE > MODE.STRICT || !all_gimmick.includes(kind)) {
+				for(let t in types) {
+					addToArray(sprite, types[t], launch, form_data.fs, spliceInfo);
+					if(launch != debut && MODE.SITE >= MODE.SURPLUS) {
+						addToArray(sprite, types[t], debut, form_data.fs, spliceInfo);
+					}
+				}
+				// Legendary goes in launch; +debut if SURPLUS
+				if(base_mon.hasOwnProperty("ls")) {
+					addToArray(sprite, "Legendary", launch, form_data.fs, spliceInfo);
+					if(launch != debut && MODE.SITE >= MODE.SURPLUS) {
+						addToArray(sprite, "Legendary", debut, form_data.fs, spliceInfo);
+					}
+					if(base_mon.ls == 2) {
+						// Mythical
+						addToArray(sprite, "Mythical", null, form_data.fs, spliceInfo);
+					}
 				}
 			}
 			// Gimmick
 			// goes in Debut if Mega, Gmax, or SURPLUS+ Regional, Gimmick
-			if(mechanical.includes(kind) || (other_gimmick.includes(kind) && MODE.SITE >= MODE.SURPLUS)) {
+			if(mechanical.includes(kind) || (other_gimmick.includes(kind) && MODE.SITE != MODE.STANDARD)) {
 				addToArray(sprite, "Gimmick", debut, form_data.fs, spliceInfo);
 			}
 			// goes in Launch if Regional, Gimmick, Gen6Mega, or SURPLUS+ Mega, Gmax
-			if(other_gimmick.includes(kind) || (mechanical.includes(kind) && MODE.SITE >= MODE.SURPLUS) || (kind == "mega" && launch == 6)) {
+			if(other_gimmick.includes(kind) || (mechanical.includes(kind) && MODE.SITE != MODE.STANDARD) || (kind == "mega" && launch == 6)) {
 				addToArray(sprite, "Gimmick", launch, form_data.fs, spliceInfo);
-			}
-			// Legendary goes in launch; +debut if SURPLUS
-			if(base_mon.hasOwnProperty("ls")) {
-				addToArray(sprite, "Legendary", launch, form_data.fs, spliceInfo);
-				if(launch != debut && MODE.SITE >= MODE.SURPLUS) {
-					addToArray(sprite, "Legendary", debut, form_data.fs, spliceInfo);
-				}
-				if(base_mon.ls == 2) {
-					// Mythical
-					addToArray(sprite, "Mythical", null, form_data.fs, spliceInfo);
-				}
 			}
 		}
 	}
