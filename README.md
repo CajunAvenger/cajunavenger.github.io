@@ -20,21 +20,30 @@ You can now create your own custom Spinda! At the four corners of the box are nu
 ### And Alcremie too!
 There's now a spot for Alcremie forms, first picking the base form and then opening a second box for toppings.
 
+### Strict, Surplus, and Silly Modes
+**Strict Mode** will remove minor forms from most of the grid, and restrict Gimmick forms to that column.
+
+**Surplus Mode** will unlock Gimmick forms in the Generation row for both their launch and their base's home, and expand options like being able to choose Goomy instead of Goodra for Favorite Pseudo, or Cyndaquil as Gen 8 Starter.
+
+**Silly Mode** pulls out all the sprites, letting you pick GMax Pikachu for Gen 1 Starter, female Sneasel as your Gen 2 Ice type, Fairy Arceus as your Gen 4 Legend, Poltchageist as your Gen 8 Gimmick, Maskless Ogerpon Hearthflame as your Gen 9 Fire, even Duraladon as your Favorite Pseudo!
+
 ## Write, Import, Download
 At the very bottom of the page there are three buttons and a textbox.
 
 **Download Image** is easy, it downloads your result as a single .png file. This should work for mobile users now as well.
 
-**Write Code** will convert the grid into a text form. You can save this to continue working on it later, or manually edit it, see Overwriting.
+**Write Code** will convert the grid into a text form. You can save this as a backup, or manually edit it, see Overwriting.
 
 **Import Code** then takes that code written in the textbox and puts it back into the grid.
 
 #### Overwriting
-If you want to do something like put Galarian Meowth as your favorite Gen 1 gimmick or Swellow as your favorite regional bird, put a filler Pokemon in that position, then click Write Code, replace that Pokemon's name with the one you want, then click Import Code. Most Pokemon will just be their names capitalized (SWELLOW), but alternate forms will have a tag (MEOWTH_2). You can verify a name by putting it in the grid by itself and writing the code.
+If you want to do something like put Jolteon as your favorite Gen 3 starter or Chinchou as your favorite regional bird, put a filler Pokemon in that position, then click Write Code, replace that Pokemon's name with the one you want, then click Import Code. Most Pokemon will just be their names capitalized (SWELLOW), but alternate forms will have a tag (MEOWTH_2). You can verify a name by putting it in the grid by itself and writing the code.
 
 ## Additional Sprites
 Walking Wake and Iron Leaves sprites from [JordanosArt](https://twitter.com/JordanosArt).
 
-Archaludon, Dipplin, and Okidogi from [RetroNC](https://www.deviantart.com/retronc).
+Archaludon, Dipplin, Raging Bolt, and Okidogi from [RetroNC](https://www.deviantart.com/retronc).
 
-Gen 6-9 and Substitute sprites from the [Gen 8 Project](https://reliccastle.com/resources/1101/), [Gen 9 Project](https://reliccastle.com/resources/952/), and [PokeAPI](https://github.com/PokeAPI/sprites)
+Other Gen 9 sprites from [KingOfThe-X-Roads](https://www.deviantart.com/kingofthe-x-roads).
+
+Gen 6-8 and Substitute sprites from the [Smogon Community Sprite Project](https://docs.google.com/spreadsheets/d/1MCjDktTOOFjLKM5C-RW6SfBQGkjlxDSCZAZDma_ItuA/) and [PokeAPI](https://github.com/PokeAPI/sprites)
