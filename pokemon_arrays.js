@@ -4303,10 +4303,21 @@ function keyToMonData(k) {
 	let form_n = splitter[3] || "";
 	let is_fs = !!splitter[4];
 	let mon = pokedex[splitter[1]];
+	if(!mon)
+		return keyToNonMonData(k);
 	let form_data = mon;
 	if(mon.forms && mon.forms[form_n])
 		form_data = mon.forms[form_n];
 	return {mon:mon, base_key:splitter[1], form_key:form_n, form_data:form_data, is_fs:is_fs};
+}
+function keyToNonMonData(k) {
+	let longName = k.replace(/(.)([A-Z])/g, "$1 $2");
+	let nom = {
+		name: longName,
+		gen: 0,
+		num: 0
+	}
+	return {mon:nom, base_key:k, form_key:"", form_data:nom, is_fs:false}
 }
 function alcremieTooltip(k, has_toppings) {
 	let splitter = k.match(/^([^_]+)(_(\d+))?(_female)?$/);
