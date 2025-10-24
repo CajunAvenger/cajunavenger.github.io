@@ -598,6 +598,63 @@ canvas {
 			}
 		}
 	}
+	var SPRITE_INT = {
+		MAKE_SHINY: 1,
+		MAKE_NORMAL: 2,
+		TOGGLE_SHINY: 3,
+	}
+	var GEN_SETTINGS = ["Yellow", "Gold", "FRLG"];
+	function resolveMonSprite(mon_key, shiny_value) {
+		let mon_data = keyToMonData(mon_key);
+		let debut = mon_data.mon.gen;
+		let launch = mon_data.form_data.gen || debut;
+		let setting = GEN_SETTINGS[launch-1] || "Default";
+		
+		let shinyFolder = spriteFile;
+		let genFolder = "/";
+		switch(shiny_value) {
+			case SPRITE_INT.MAKE_SHINY:
+				shinyFolder = "Shiny";
+				break;
+			case SPRITE_INT.MAKE_NORMAL:
+				shinyFolder = "Front";
+				break;
+			case SPRITE_INT.TOGGLE_SHINY:
+				shinyFolder = swap[spriteFile];
+				break;
+		}
+		
+		switch(setting) {
+			case "RedBlue":
+			case "Yellow":
+				// never Shiny
+				if(launch == 1) {
+					shinyFolder = "Front";
+					genFolder = "/g1" + setting + "/";
+				}
+				break;
+			case "Gold":
+			case "Silver":
+				if(launch <= 2) {
+					shinyFolder = "Front";
+					genFolder = "/g2" + setting + "/";
+				}
+				break;
+			case "FRLG":
+			case "RSE":
+				if(launch <= 3) {
+					// FRLG uses alt sprites for gen 1 and teddi
+					if(setting == "FRLG" && (launch == 1 || mon_data.mon.name == "Teddiursa")) {
+						genFolder = "/g3FRLG/"
+					}
+					else{
+						genFolder = "/g3RSE/";
+					}
+				}
+			
+		}
+		return domlink + shinyFolder + genFolder + mon_key + ".png";
+	}
 	
 	function bubbleRows(count) {
 		if(count == 6) {
@@ -829,7 +886,7 @@ canvas {
 					mon_key = "BLANK";
 					tooltip = "Deselect " + tooltip;
 				}
-				var mon_img = domlink + spriteFile + "/" + mon_key + ".png"
+				var mon_img = resolveMonSprite(mon_key);
 				var ele = document.getElementById('preview'+pr_ind);
 				if(!ele) {
 					ele = document.createElement("img");
@@ -1767,7 +1824,7 @@ Mode: <select id="mode-select" onchange="updateMode()">
 	<a href="https://github.com/CajunAvenger/cajunavenger.github.io">Source Code</a> - <a href="https://github.com/CajunAvenger/cajunavenger.github.io/issues">Issues or Feature Requests?</a> - <a href="https://bsky.app/profile/cajun-writes-code.bsky.social">Bluesky</a><br />
 	• Walking Wake and Iron Leaves sprites by <a href="https://bsky.app/profile/JordanosArt.bsky.social">JordanosArt</a><br>
 	• Archaludon, Dipplin, Raging Bolt, and Okidogi from <a href="https://www.deviantart.com/retronc">RetroNC</a>.<br>
-	• Most other Gen 9 sprites from <a href="https://www.deviantart.com/kingofthe-x-roads">KingOfThe-X-Roads</a>.
+	• Most other Gen 9 sprites from <a href="https://www.deviantart.com/kingofthe-x-roads">KingOfThe-X-Roads</a>.<br>
 	• Other later generation sprites from <a href="https://www.smogon.com/forums/threads/smogon-sprite-project.3647722/">Smogon Sprite Project</a> and <a href="https://github.com/PokeAPI/sprites/">PokeAPI</a><br />
 	• If you want to support more code silliness, you can donate to my <s>caffeine addiction</s> <a href="https://ko-fi.com/cajun42">Ko-Fi</a>.<br />
 </div>
