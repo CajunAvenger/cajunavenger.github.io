@@ -44,7 +44,7 @@ English: You can also use this to keep backups
 Translation: # Vous pouvez aussi l'utiliser pour sauvegarder vos choix
 
 English: Spinda's spots can be randomized or manually placed.<br/>Each box pair in the corners moves its nearest spot.<br/>Up/Down on the first box moves it Right/Left.<br/>Up/Down on the second box moves it Up/Down.
-Translation: Les tâches de Spinda peuvent être placées aléatoirement ou à la main<br/>Chaque paire de chiffre dans les coins déplace la tâche la plus proche<br/>Haut/Bas dans la première la déplace vers la Gauche/Droite<br/>Haut/Bas dans la seconde la déplace vers le Haut/Bas
+Translation: Les taches de Spinda peuvent être placées aléatoirement ou à la main<br/>Chaque paire de chiffre dans les coins déplace la tâche la plus proche<br/>Haut/Bas dans la première la déplace vers la Gauche/Droite<br/>Haut/Bas dans la seconde la déplace vers le Haut/Bas
 
 English: Click a team box, then a Pokémon from the grid to copy it to the box.
 Translation: Cliquez sur une place dans votre équipe, puis un Pokémon de la grille pour l'y copier
@@ -53,13 +53,13 @@ English: Picking...
 Translation: Choix en cours...
 
 English: Click the Shiny Charm, then click Pokemon to make them shiny.
-Translation: Cliquez sur le Charme Chroma, puis cliquez sur un Pokemon pour le rendre shiny.
+Translation: Cliquez sur le Charme Chroma, puis cliquez sur un Pokémon pour le rendre shiny.
 
 English: Or click here to make everything shiny.
 Translation: Ou cliquez ici pour les rendres tous shiny
 
 English: Randomize!
-Translation: Aléatoire!
+Translation: Aléatoire !
 
 English: This site uses cookies to save your choices. You can disable them here.
 Translation: Ce site utilise des cookies pour enregistrer vos choix. Vous pouvez les désactiver ici.
