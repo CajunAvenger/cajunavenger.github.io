@@ -4107,10 +4107,12 @@ function remodeArrays() {
 		for(let p in pull_from) {
 			let check = pull_from[p];
 			if(typeof check == "string") {
-				addToArray(check, "Starter", g);
+				let mon_data = keyToMonData(check);
+				addToArray(check, "Starter", g, mon_data.form_data.fs, mon_data.form_data.splice);
 			}
 			else if(MODE.SITE >= check[1]) {
-				addToArray(check[0], "Starter", g)
+				let mon_data = keyToMonData(check[0]);
+				addToArray(check[0], "Starter", g, mon_data.form_data.fs, mon_data.form_data.splice)
 			}
 		}
 	}
@@ -4323,7 +4325,17 @@ let starterLayout = [
 		["CHARIZARD_3", 3],
 		["BLASTOISE_2", 3],
 		["PIKACHU_70", 3],
-		["EEVEE_1", 3]
+		["EEVEE_1", 3],
+		//BDSP
+		["TURTWIG", 4],
+		["GROTLE", 4],
+		["TORTERRA", 4],
+		["CHIMCHAR", 4],
+		["MONFERNO", 4],
+		["INFERNAPE", 4],
+		["PIPLUP", 4],
+		["PRINPLUP", 4],
+		["EMPOLEON", 4]
 	],
 	[
 		"SPRIGATITO",
