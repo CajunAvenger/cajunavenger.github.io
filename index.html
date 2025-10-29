@@ -480,6 +480,7 @@ canvas {
 	});
 </script>
 -->
+<script src="dex_mini.js"></script>
 <script src="pokemon_arrays.js"></script>
 <script src="translate.js"></script>
 <script language="JavaScript">
@@ -828,6 +829,11 @@ canvas {
 				if(choices[currently_selecting[0]][currently_selecting[1]] == mon_key) {
 					mon_key = "BLANK";
 					tooltip = "Deselect " + tooltip;
+				}
+				else if(currently_selecting[1] == 19) {
+					let game = starterGame(mon_key, currently_selecting[0]);
+					if(game != "")
+						tooltip += " (" + game + ")";
 				}
 				var mon_img = domlink + spriteFile + "/" + mon_key + ".png"
 				var ele = document.getElementById('preview'+pr_ind);
