@@ -48,7 +48,7 @@ var femme = {
 	"Español": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional"],
 	"Español_Latino": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional"],
 	"Italiano": ["Eeveeluzione", "Forma Regionale", "Ultracreatura", "Poké Ball", "Nuova<br/>Evoluzione"],
-	"Français": ["Ultra-Chimère", "Poké Ball", "Forme Régionale"]
+	"Français": ["Ultra-Chimère", "Poké Ball", "Forme Régionale", "Nouvelle<br/>évolution", "Évolition"]
 }
 var font_sizes = {
 	"ShinyCharm1": {
@@ -291,7 +291,7 @@ var translatable = {
   "日本": "パッチールの模様は、手動またはおまかせで配置できます。<br/>4隅の数値は、それぞれに一番近い丸模様に該当します。<br/>上の欄は模様を左右に移動させます。<br/>下の欄は模様を上下に移動させます。",
   "简中": "晃晃班的斑点可以随机化，或是手动放置。<br/>四个角的数值分别对应最接近这个角的斑点。<br/>上方栏位控制左右移动。<br/>下方栏位控制上下移动。",
   "繁中": "晃晃班的斑點可以隨機化，或是手動放置。 <br/>四個角的數值分別對應最接近這個角的斑點。 <br/>上方欄位控制左右移動。 <br/>下方欄位控制上下移動。",
-  "Français": "Les tâches de Spinda peuvent être placées aléatoirement ou à la main<br/>Chaque paire de chiffre dans les coins déplace la tâche la plus proche<br/>Haut/Bas dans la première la déplace vers la Gauche/Droite<br/>Haut/Bas dans la seconde la déplace vers le Haut/Bas",
+  "Français": "Les taches de Spinda peuvent être placées aléatoirement ou à la main<br/>Chaque paire de chiffre dans les coins déplace la tâche la plus proche<br/>Haut/Bas dans la première la déplace vers la Gauche/Droite<br/>Haut/Bas dans la seconde la déplace vers le Haut/Bas",
   "Italiano": "Gli spot di Spinda possono essere randomizzati o posizionati manualmente.<br/>Ogni coppia di riquadri negli angoli sposta il punto più vicino.<br/>Su/Giù sulla prima casella la sposta a destra/sinistra.<br/>Su/Giù sulla seconda casella lo sposta Su/Giù.",
   "한국어": "올루기의 스팟은 무작위로 지정하거나 수동으로 배치할 수 있습니다.<br/>모퉁이에 있는 각 상자 쌍은 가장 가까운 지점을 이동합니다.<br/>첫 번째 상자에서 위/아래로 오른쪽/왼쪽으로 이동합니다.<br/>위/아래로 두 번째 상자는 위/아래로 이동합니다.",
   "Nederlands": "De vlekken van spinda kunnen willekeurig geplaatst worden door op ‘willekeurig plaatsen!’ te drukken. Of je kan ze zelf verzetten door de nummertjes er naast aan te passen.<br/>Elk van de 4 duo’s van nummers past bij 1 van de 4 plekken op spinda.<br/>De bovenste van het duo beweegt hem naar links en rechts.<br/>De onderste van het duo beweegt hem naar boven en beneden."
