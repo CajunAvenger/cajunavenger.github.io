@@ -803,7 +803,8 @@ var pokedex = {
     forms: {},
   },
   STARYU: { name: "Staryu", num: 120, gen: 1, types: ["Water"] },
-  STARMIE: { name: "Starmie", num: 121, gen: 1, types: ["Water", "Psychic"] },
+  STARMIE: { name: "Starmie", num: 121, gen: 1, types: ["Water", "Psychic"],
+    forms: { 1: { name: "Mega Starmie", gen: 9, kind: "mega" } }, },
   MRMIME: {
     name: "Mr. Mime",
     num: 122,
@@ -1004,6 +1005,7 @@ var pokedex = {
     num: 149,
     gen: 1,
     types: ["Dragon", "Flying"],
+    forms: { 1: { name: "Mega Dragonite", gen: 9, kind: "mega" } },
   },
   MEWTWO: {
     name: "Mewtwo",
@@ -1045,6 +1047,7 @@ var pokedex = {
     fs: true,
     forms: {},
     starters: ["Johto", "Lumiose_prevo"],
+    forms: { 1: { name: "Mega Meganium", gen: 9, kind: "mega" } },
   },
   CYNDAQUIL: {
     name: "Cyndaquil",
@@ -1096,6 +1099,7 @@ var pokedex = {
     gen: 2,
     types: ["Water"],
     starters: ["Johto", "Lumiose_prevo"],
+    forms: { 1: { name: "Mega Feraligatr", gen: 9, kind: "mega" } },
   },
   SENTRET: { name: "Sentret", num: 161, gen: 2, types: ["Normal"] },
   FURRET: { name: "Furret", num: 162, gen: 2, types: ["Normal"] },
@@ -1432,7 +1436,8 @@ var pokedex = {
   },
   DELIBIRD: { name: "Delibird", num: 225, gen: 2, types: ["Ice", "Flying"] },
   MANTINE: { name: "Mantine", num: 226, gen: 2, types: ["Water", "Flying"] },
-  SKARMORY: { name: "Skarmory", num: 227, gen: 2, types: ["Steel", "Flying"] },
+  SKARMORY: { name: "Skarmory", num: 227, gen: 2, types: ["Steel", "Flying"],
+    forms: { 1: { name: "Mega Skarmory", gen: 9, kind: "mega" } }, },
   HOUNDOUR: { name: "Houndour", num: 228, gen: 2, types: ["Dark", "Fire"] },
   HOUNDOOM: {
     name: "Houndoom",
@@ -2425,7 +2430,8 @@ var pokedex = {
   },
   PROBOPASS: { name: "Probopass", num: 476, gen: 4, types: ["Rock", "Steel"] },
   DUSKNOIR: { name: "Dusknoir", num: 477, gen: 4, types: ["Ghost"] },
-  FROSLASS: { name: "Froslass", num: 478, gen: 4, types: ["Ice", "Ghost"] },
+  FROSLASS: { name: "Froslass", num: 478, gen: 4, types: ["Ice", "Ghost"],
+    forms: { 1: { name: "Mega Froslass", gen: 9, kind: "mega" } }, },
   ROTOM: {
     name: "Rotom",
     num: 479,
@@ -2565,6 +2571,7 @@ var pokedex = {
     gen: 5,
     types: ["Fire", "Fighting"],
     starters: ["Unova", "Lumiose_prevo"],
+    forms: { 1: { name: "Mega Emboar", gen: 9, kind: "mega" } },
   },
   OSHAWOTT: {
     name: "Oshawott",
@@ -2638,6 +2645,7 @@ var pokedex = {
     num: 530,
     gen: 5,
     types: ["Ground", "Steel"],
+    forms: { 1: { name: "Mega Excadrill", gen: 9, kind: "mega" } },
   },
   AUDINO: {
     name: "Audino",
@@ -2681,7 +2689,8 @@ var pokedex = {
     gen: 5,
     types: ["Bug", "Poison"],
   },
-  SCOLIPEDE: { name: "Scolipede", num: 545, gen: 5, types: ["Bug", "Poison"] },
+  SCOLIPEDE: { name: "Scolipede", num: 545, gen: 5, types: ["Bug", "Poison"],
+    forms: { 1: { name: "Mega Scolipede", gen: 9, kind: "mega" } }, },
   COTTONEE: { name: "Cottonee", num: 546, gen: 5, types: ["Grass", "Fairy"] },
   WHIMSICOTT: {
     name: "Whimsicott",
@@ -2770,7 +2779,8 @@ var pokedex = {
   DWEBBLE: { name: "Dwebble", num: 557, gen: 5, types: ["Bug", "Rock"] },
   CRUSTLE: { name: "Crustle", num: 558, gen: 5, types: ["Bug", "Rock"] },
   SCRAGGY: { name: "Scraggy", num: 559, gen: 5, types: ["Dark", "Fighting"] },
-  SCRAFTY: { name: "Scrafty", num: 560, gen: 5, types: ["Dark", "Fighting"] },
+  SCRAFTY: { name: "Scrafty", num: 560, gen: 5, types: ["Dark", "Fighting"],
+    forms: { 1: { name: "Mega Scrafty", gen: 9, kind: "mega" } }, },
   SIGILYPH: {
     name: "Sigilyph",
     num: 561,
@@ -2917,7 +2927,8 @@ var pokedex = {
   KLINKLANG: { name: "Klinklang", num: 601, gen: 5, types: ["Steel"] },
   TYNAMO: { name: "Tynamo", num: 602, gen: 5, types: ["Electric"] },
   EELEKTRIK: { name: "Eelektrik", num: 603, gen: 5, types: ["Electric"] },
-  EELEKTROSS: { name: "Eelektross", num: 604, gen: 5, types: ["Electric"] },
+  EELEKTROSS: { name: "Eelektross", num: 604, gen: 5, types: ["Electric"],
+    forms: { 1: { name: "Mega Eelektross", gen: 9, kind: "mega" } }, },
   ELGYEM: { name: "Elgyem", num: 605, gen: 5, types: ["Psychic"] },
   BEHEEYEM: { name: "Beheeyem", num: 606, gen: 5, types: ["Psychic"] },
   LITWICK: { name: "Litwick", num: 607, gen: 5, types: ["Ghost", "Fire"] },
@@ -2927,6 +2938,7 @@ var pokedex = {
     num: 609,
     gen: 5,
     types: ["Ghost", "Fire"],
+    forms: { 1: { name: "Mega Chandelure", gen: 9, kind: "mega" } },
   },
   AXEW: { name: "Axew", num: 610, gen: 5, types: ["Dragon"] },
   FRAXURE: { name: "Fraxure", num: 611, gen: 5, types: ["Dragon"] },
@@ -3117,6 +3129,7 @@ var pokedex = {
     gen: 6,
     types: ["Grass", "Fighting"],
     starter: "Kalos",
+    forms: { 1: { name: "Mega Chesnaught", gen: 9, kind: "mega" } },
   },
   FENNEKIN: {
     name: "Fennekin",
@@ -3138,6 +3151,7 @@ var pokedex = {
     gen: 6,
     types: ["Fire", "Psychic"],
     starter: "Kalos",
+    forms: { 1: { name: "Mega Delphox", gen: 9, kind: "mega" } },
   },
   FROAKIE: {
     name: "Froakie",
@@ -3158,7 +3172,8 @@ var pokedex = {
     num: 658,
     gen: 6,
     types: ["Water", "Dark"],
-    forms: { 2: { name: "Ash Greninja", gen: 7, kind: "gimmick" } },
+    forms: { 2: { name: "Ash Greninja", gen: 7, kind: "gimmick" },
+  3: { name: "Mega Greninja", gen: 9, kind: "mega" } },
     starter: "Kalos",
   },
   BUNNELBY: { name: "Bunnelby", num: 659, gen: 6, types: ["Normal"] },
@@ -3221,7 +3236,8 @@ var pokedex = {
     num: 668,
     gen: 6,
     types: ["Fire", "Normal"],
-    forms: { 1: { name: "Pyroar (female)", kind: "major" } },
+    forms: { 1: { name: "Pyroar (female)", kind: "major" },
+            2: {name: "Mega Pyroar", gen: 9, kind: "mega"} },
   },
   FLABEBE: {
     name: "Flabebe",
@@ -3246,6 +3262,7 @@ var pokedex = {
       3: { name: "Floette Blue", kind: "minor" },
       4: { name: "Floette White", kind: "minor" },
       5: { name: "Eternal Flower Floette", kind: "minor" },
+      6: { name: "Mega Floette", gen: 9, kind: "mega" },
     },
   },
   FLORGES: {
@@ -3303,16 +3320,22 @@ var pokedex = {
   SWIRLIX: { name: "Swirlix", num: 684, gen: 6, types: ["Fairy"] },
   SLURPUFF: { name: "Slurpuff", num: 685, gen: 6, types: ["Fairy"] },
   INKAY: { name: "Inkay", num: 686, gen: 6, types: ["Dark", "Psychic"] },
-  MALAMAR: { name: "Malamar", num: 687, gen: 6, types: ["Dark", "Psychic"] },
+  MALAMAR: { name: "Malamar", num: 687, gen: 6, types: ["Dark", "Psychic"],
+    forms: { 1: { name: "Mega Malamar", gen: 9, kind: "mega" } }, },
   BINACLE: { name: "Binacle", num: 688, gen: 6, types: ["Rock", "Water"] },
   BARBARACLE: {
     name: "Barbaracle",
     num: 689,
     gen: 6,
     types: ["Rock", "Water"],
+    
+    forms: { 1: { name: "Mega Barbaracle", gen: 9, kind: "mega" } },
   },
   SKRELP: { name: "Skrelp", num: 690, gen: 6, types: ["Poison", "Water"] },
-  DRAGALGE: { name: "Dragalge", num: 691, gen: 6, types: ["Poison", "Dragon"] },
+  DRAGALGE: { name: "Dragalge", num: 691, gen: 6, types: ["Poison", "Dragon"],
+    
+    forms: { 1: { name: "Mega Dragalge", gen: 9, kind: "mega" } },
+   },
   CLAUNCHER: { name: "Clauncher", num: 692, gen: 6, types: ["Water"] },
   CLAWITZER: { name: "Clawitzer", num: 693, gen: 6, types: ["Water"] },
   HELIOPTILE: {
@@ -3337,6 +3360,8 @@ var pokedex = {
     num: 701,
     gen: 6,
     types: ["Fighting", "Flying"],
+    
+    forms: { 1: { name: "Mega Hawlucha", gen: 9, kind: "mega" } },
   },
   DEDENNE: { name: "Dedenne", num: 702, gen: 6, types: ["Electric", "Fairy"] },
   CARBINK: { name: "Carbink", num: 703, gen: 6, types: ["Rock", "Fairy"] },
@@ -3414,6 +3439,7 @@ var pokedex = {
     forms: {
       1: { name: "Zygarde 10%", gen: 7, kind: "major" },
       2: { name: "Zygarde 100%", gen: 7, kind: "major" },
+      3: { name: "Mega Zygarde", gen: 9, kind: "mega"},
     },
     ls: 1,
   },
@@ -3685,7 +3711,8 @@ var pokedex = {
     forms: { 1: { name: "Busted Mimikyu", kind: "minor" } },
   },
   BRUXISH: { name: "Bruxish", num: 779, gen: 7, types: ["Water", "Psychic"] },
-  DRAMPA: { name: "Drampa", num: 780, gen: 7, types: ["Normal", "Dragon"] },
+  DRAMPA: { name: "Drampa", num: 780, gen: 7, types: ["Normal", "Dragon"],
+    forms: { 1: { name: "Mega Drampa", gen: 9, kind: "mega" } }, },
   DHELMISE: { name: "Dhelmise", num: 781, gen: 7, types: ["Ghost", "Grass"] },
   JANGMOO: { name: "Jangmo-o", num: 782, gen: 7, types: ["Dragon"] },
   HAKAMOO: {
@@ -4039,7 +4066,13 @@ var pokedex = {
     types: ["Fairy"],
     forms: { 70: { name: "GMax Alcremie", kind: "gmax" } },
   },
-  FALINKS: { name: "Falinks", num: 870, gen: 8, types: ["Fighting"] },
+  FALINKS: {
+    name: "Falinks",
+    num: 870,
+    gen: 8,
+    types: ["Fighting"],
+    forms: { 1: { name: "Mega Falinks", gen: 9, kind: "mega" } },
+  },
   PINCURCHIN: { name: "Pincurchin", num: 871, gen: 8, types: ["Electric"] },
   SNOM: { name: "Snom", num: 872, gen: 8, types: ["Ice", "Bug"] },
   FROSMOTH: { name: "Frosmoth", num: 873, gen: 8, types: ["Ice", "Bug"] },
