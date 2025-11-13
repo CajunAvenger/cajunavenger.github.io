@@ -4,10 +4,10 @@
 <meta name="description" content="Find your favorite Pokemon of each generation, each type, and of all time.">
 <meta name="keywords" content="Ultimate, Favorite, Pokemon, Pokémon, Picker">
 <meta name="author" content="Cajun">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
 <style>
 @font-face {
     font-family: "Copenhagen Grotesk";
@@ -509,7 +509,7 @@ canvas {
 	var currently_previewing = [];
 	var currently_selecting = null;
 	var shinyCharm = false;
-	var spriteFile = "Front";
+	var spriteFile = "./cajunavenger.github.io/Front";
 	var teamSelect = false;
 	var toppings = false;
 
@@ -858,8 +858,8 @@ canvas {
 					var tind = type_arr.indexOf(currently_previewing[pr_ind]);
 					if(tind >= 0) {
 						var aura = document.getElementById("aura"+tind);
-						aura.src = domlink + "aura/" + tind + ".png";
-						console.log(domlink + "aura/" + tind + ".png");
+						aura.src = domlink + "./aura/" + tind + ".png";
+						console.log(domlink + "./aura/" + tind + ".png");
 						console.log(aura.src);
 						aura.style.top = top_corner + 99*r;
 						aura.style.left = left_corner + 99*c + hole_offset;
@@ -1360,7 +1360,7 @@ Mode: <select id="mode-select" onchange="updateMode()">
 </select>
 <div id="grid-wrapper">
 <!--<img class="back" id="back" src="https://cajunavenger.github.io/background.png" alt="" height="1571" width="2276" onclick="closeBox();"/>-->
-<img class="back" id="back" src="https://cajunavenger.github.io/background3.png" alt="" height="1571" width="2276" onclick="closeBox();"/>
+<img class="back" id="back" src="./background3.png" alt="" height="1571" width="2276" onclick="closeBox();"/>
 <canvas id="final" height="1571" width="2276"></canvas>
 <img class="selectionBox team-top team-left" id="box0_1" onclick="openBox(0, 1);" src="./blank.png" height="96" width="96">
 <img class="selectionBox team-top team-mid" id="box0_2" onclick="openBox(0, 2);" src="./blank.png" height="96" width="96">
@@ -1384,7 +1384,7 @@ Mode: <select id="mode-select" onchange="updateMode()">
 <img class="selectionBox bottom-row2-box bottom-box-4" id="box0_19" onclick="openBox(0, 19);" src="./blank.png" height="96" width="96">
 <img class="selectionBox bottom-row2-box bottom-box-5" id="box0_20" onclick="openBox(0, 20);" src="./blank.png" height="96" width="96">
 <img class="selectionBox bottom-row2-box bottom-box-6" id="box0_21" onclick="openBox(0, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-7" id="box0_22" onclick="" src="https://cajunavenger.github.io/Front/SPINDA.png" height="96" width="96">
+<img class="selectionBox bottom-row2-box bottom-box-7" id="box0_22" onclick="" src="./Front/SPINDA.png" height="96" width="96">
 <img class="selectionBox bottom-row2-box bottom-box-8" id="box0_23" onclick="openBox(0, 23);" src="./blank.png" height="96" width="96">
 <img class="selectionBox bottom-row2-box bottom-box-9" id="box0_24" onclick="openBox(0, 24);" src="./blank.png" height="96" width="96">
 <img class="selectionBox bottom-row2-box bottom-box-10" id="box0_35" onclick="openBox(0, 35);" src="./blank.png" height="96" width="96">
@@ -1670,13 +1670,13 @@ Mode: <select id="mode-select" onchange="updateMode()">
 <img class="preview" id="preview58" src="./blank.png" height="96" width="96" onclick="pickMon(58);">
 <img class="preview" id="preview59" src="./blank.png" height="96" width="96" onclick="pickMon(59);">
 </span>
-<img id="spinda" src="https://cajunavenger.github.io/Front/SPINDA.png">
-<img id="spinda2" src="https://cajunavenger.github.io/spinda/Front/SPINDA.png">
-<img id="spinda-cover" src="https://cajunavenger.github.io/spinda/cover.png" onclick="shinySpinda();" title="Spinda!">
-<img id="spot1" class="spinda-spot" src="https://cajunavenger.github.io/spinda/Front/spot1.png">
-<img id="spot2" class="spinda-spot" src="https://cajunavenger.github.io/spinda/Front/spot2.png">
-<img id="spot3" class="spinda-spot" src="https://cajunavenger.github.io/spinda/Front/spot3.png">
-<img id="spot4" class="spinda-spot" src="https://cajunavenger.github.io/spinda/Front/spot4.png">
+<img id="spinda" src="./Front/SPINDA.png">
+<img id="spinda2" src="./Front/SPINDA.png">
+<img id="spinda-cover" src="./spinda/cover.png" onclick="shinySpinda();" title="Spinda!">
+<img id="spot1" class="spinda-spot" src="./spinda/Front/spot1.png">
+<img id="spot2" class="spinda-spot" src="./spinda/Front/spot2.png">
+<img id="spot3" class="spinda-spot" src="./spinda/Front/spot3.png">
+<img id="spot4" class="spinda-spot" src="./spinda/Front/spot4.png">
 <input type="number" id="spot1x" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'x')">
 <input type="number" id="spot1y" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'y')">
 <input type="number" id="spot3x" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'x')">
