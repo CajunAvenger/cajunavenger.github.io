@@ -509,7 +509,7 @@ canvas {
 	var currently_previewing = [];
 	var currently_selecting = null;
 	var shinyCharm = false;
-	var spriteFile = "./Front";
+	var spriteFile = "./cajunavenger.github.io/cajunavenger.github.io/Front";
 	var teamSelect = false;
 	var toppings = false;
 
@@ -528,7 +528,7 @@ canvas {
 		"gen5", "gen6", "gen7", "gen8", "gen9",
 		"favs", "spinda"
 	]
-	var swap = {"./Front": "./Shiny", "./Shiny": "./Front"};
+	var swap = {"./cajunavenger.github.io/cajunavenger.github.io/Front": "./cajunavenger.github.io/cajunavenger.github.io/Shiny", "./cajunavenger.github.io/cajunavenger.github.io/Shiny": "./cajunavenger.github.io/cajunavenger.github.io/Front"};
 
 	function resetChoices() {
 		choices = [[]];
@@ -574,9 +574,9 @@ canvas {
 	function toggleShiny(gen, type) {
 		ele = document.getElementById('box'+gen+"_"+type);
 		if(ele.src.match(/Front/)) {
-			ele.src = ele.src.replace(/Front/, "./Shiny");
+			ele.src = ele.src.replace(/Front/, "./cajunavenger.github.io/cajunavenger.github.io/Shiny");
 		}else{
-			ele.src = ele.src.replace(/Shiny/, "./Front");
+			ele.src = ele.src.replace(/Shiny/, "./cajunavenger.github.io/cajunavenger.github.io/Front");
 		}
 		writeCookie(gen);
 	}
@@ -585,16 +585,16 @@ canvas {
 			toggleShiny(0, 22);
 			var ele = document.getElementById('spinda2');
 			if(ele.src.match(/Front/)) {
-				ele.src = ele.src.replace(/Front/, "./Shiny");
+				ele.src = ele.src.replace(/Front/, "./cajunavenger.github.io/cajunavenger.github.io/Shiny");
 			}else{
-				ele.src = ele.src.replace(/Shiny/, "./Front");
+				ele.src = ele.src.replace(/Shiny/, "./cajunavenger.github.io/cajunavenger.github.io/Front");
 			}
 			for(var i=1; i<5; i++) {
 				ele = document.getElementById('spot'+i);
 				if(ele.src.match(/Front/)) {
-					ele.src = ele.src.replace(/Front/, "./Shiny");
+					ele.src = ele.src.replace(/Front/, "./cajunavenger.github.io/cajunavenger.github.io/Shiny");
 				}else{
-					ele.src = ele.src.replace(/Shiny/, "./Front");
+					ele.src = ele.src.replace(/Shiny/, "./cajunavenger.github.io/cajunavenger.github.io/Front");
 				}
 			}
 		}
@@ -721,7 +721,7 @@ canvas {
 			// pick a team slot
 			teamSelect = true;
 			currently_selecting = [gen, type];
-			document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = "./picking.png";
+			document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = "./cajunavenger.github.io/picking.png";
 			return;
 		}
 		if(currently_selecting != null) {
@@ -792,9 +792,9 @@ canvas {
 		var underflow = maxCols-(currently_previewing.length%maxCols)
 		if(underflow == maxCols)
 			underflow = 0
-		var bubble_img = "./bubble/"+maxRows+"r.png";
+		var bubble_img = "./cajunavenger.github.io/bubble/"+maxRows+"r.png";
 		if(maxCols > 5) {
-			bubble_img = "./bubble/"+maxCols+"c.png";
+			bubble_img = "./cajunavenger.github.io/bubble/"+maxCols+"c.png";
 		}
 		*/
 		// get upgraded bubble row numbers
@@ -858,8 +858,8 @@ canvas {
 					var tind = type_arr.indexOf(currently_previewing[pr_ind]);
 					if(tind >= 0) {
 						var aura = document.getElementById("aura"+tind);
-						aura.src = domlink + "./aura/" + tind + ".png";
-						console.log(domlink + "./aura/" + tind + ".png");
+						aura.src = domlink + "./cajunavenger.github.io/aura/" + tind + ".png";
+						console.log(domlink + "./cajunavenger.github.io/aura/" + tind + ".png");
 						console.log(aura.src);
 						aura.style.top = top_corner + 99*r;
 						aura.style.left = left_corner + 99*c + hole_offset;
@@ -899,7 +899,7 @@ canvas {
 	function closeBox() {
 		for(var i=0; i<currently_previewing.length; i++) {
 			var ele = document.getElementById('preview'+i);
-			ele.src = "./blank.png";
+			ele.src = "./cajunavenger.github.io/blank.png";
 			ele.style.zIndex = 0;
 		}
 		document.getElementById('bubble').style.zIndex = 0;
@@ -907,7 +907,7 @@ canvas {
 		document.getElementById('aura1').style.zIndex = 0;
 		document.getElementById('aura2').style.zIndex = 0;
 		if(teamSelect) {
-			document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = "./blank.png";
+			document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = "./cajunavenger.github.io/blank.png";
 			teamSelect = false;
 		}
 		currently_previewing = [];
@@ -928,7 +928,7 @@ canvas {
 		var targetBox = document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]);
 		if(!toppings && choices[currently_selecting[0]][currently_selecting[1]] == currently_previewing[num]) {
 			choices[currently_selecting[0]][currently_selecting[1]] = "";
-			targetBox.src = "./blank.png";
+			targetBox.src = "./cajunavenger.github.io/blank.png";
 		}else{
 			choices[currently_selecting[0]][currently_selecting[1]] = currently_previewing[num];
 			targetBox.src = domlink + spriteFile + "/" + currently_previewing[num] + ".png"
@@ -1004,7 +1004,7 @@ canvas {
 				if(!ele)
 					continue;
 				if(!choices[l] || name == "") {
-					ele.src = "./blank.png";
+					ele.src = "./cajunavenger.github.io/blank.png";
 					continue;
 				}
 				choices[l][e] = name
@@ -1034,7 +1034,7 @@ canvas {
 		for(var g=0; g<11; g++) {
 			for(var t=1; t<=MAX_BOX; t++) {
 				var ele = document.getElementById('box'+g+'_'+t);
-				if(!ele || ele.src == "./blank.png")
+				if(!ele || ele.src == "./cajunavenger.github.io/blank.png")
 					continue;
 				ctx.drawImage(ele, ele.offsetLeft, ele.offsetTop, 96, 96);
 				if(g == BOTTOM_ROWS && t == SPINDA_BOX) {
@@ -1360,323 +1360,323 @@ Mode: <select id="mode-select" onchange="updateMode()">
 </select>
 <div id="grid-wrapper">
 <!--<img class="back" id="back" src="https://cajunavenger.github.io/background.png" alt="" height="1571" width="2276" onclick="closeBox();"/>-->
-<img class="back" id="back" src="./background3.png" alt="" height="1571" width="2276" onclick="closeBox();"/>
+<img class="back" id="back" src="./cajunavenger.github.io/background3.png" alt="" height="1571" width="2276" onclick="closeBox();"/>
 <canvas id="final" height="1571" width="2276"></canvas>
-<img class="selectionBox team-top team-left" id="box0_1" onclick="openBox(0, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox team-top team-mid" id="box0_2" onclick="openBox(0, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox team-top team-right" id="box0_3" onclick="openBox(0, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox team-bottom team-left" id="box0_4" onclick="openBox(0, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox team-bottom team-mid" id="box0_5" onclick="openBox(0, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox team-bottom team-right" id="box0_6" onclick="openBox(0, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-1" id="box0_7" onclick="openBox(0, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-2" id="box0_8" onclick="openBox(0, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-3" id="box0_9" onclick="openBox(0, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-4" id="box0_10" onclick="openBox(0, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-5" id="box0_11" onclick="openBox(0, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-6" id="box0_12" onclick="openBox(0, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-7" id="box0_13" onclick="openBox(0, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-8" id="box0_14" onclick="openBox(0, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-9" id="box0_15" onclick="openBox(0, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-10" id="box0_34" onclick="openBox(0, 34);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-1" id="box0_16" onclick="openBox(0, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-2" id="box0_17" onclick="openBox(0, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-3" id="box0_18" onclick="openBox(0, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-4" id="box0_19" onclick="openBox(0, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-5" id="box0_20" onclick="openBox(0, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-6" id="box0_21" onclick="openBox(0, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-7" id="box0_22" onclick="" src="./Front/SPINDA.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-8" id="box0_23" onclick="openBox(0, 23);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-9" id="box0_24" onclick="openBox(0, 24);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-10" id="box0_35" onclick="openBox(0, 35);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-1-box" id="box1_1" onclick="openBox(1, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-2-box" id="box1_2" onclick="openBox(1, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-3-box" id="box1_3" onclick="openBox(1, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-4-box" id="box1_4" onclick="openBox(1, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-5-box" id="box1_5" onclick="openBox(1, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-6-box" id="box1_6" onclick="openBox(1, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-7-box" id="box1_7" onclick="openBox(1, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-8-box" id="box1_8" onclick="openBox(1, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-9-box" id="box1_9" onclick="openBox(1, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-10-box" id="box1_10" onclick="openBox(1, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-11-box" id="box1_11" onclick="openBox(1, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-12-box" id="box1_12" onclick="openBox(1, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-13-box" id="box1_13" onclick="openBox(1, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-14-box" id="box1_14" onclick="openBox(1, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-15-box" id="box1_15" onclick="openBox(1, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-16-box" id="box1_16" onclick="openBox(1, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-17-box" id="box1_17" onclick="openBox(1, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-18-box" id="box1_18" onclick="openBox(1, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-19-box" id="box1_19" onclick="openBox(1, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-20-box" id="box1_20" onclick="openBox(1, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-21-box" id="box1_21" onclick="openBox(1, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-22-box" id="box1_22" onclick="openBox(1, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-1-box" id="box2_1" onclick="openBox(2, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-2-box" id="box2_2" onclick="openBox(2, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-3-box" id="box2_3" onclick="openBox(2, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-4-box" id="box2_4" onclick="openBox(2, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-5-box" id="box2_5" onclick="openBox(2, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-6-box" id="box2_6" onclick="openBox(2, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-7-box" id="box2_7" onclick="openBox(2, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-8-box" id="box2_8" onclick="openBox(2, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-9-box" id="box2_9" onclick="openBox(2, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-10-box" id="box2_10" onclick="openBox(2, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-11-box" id="box2_11" onclick="openBox(2, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-12-box" id="box2_12" onclick="openBox(2, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-13-box" id="box2_13" onclick="openBox(2, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-14-box" id="box2_14" onclick="openBox(2, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-15-box" id="box2_15" onclick="openBox(2, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-16-box" id="box2_16" onclick="openBox(2, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-17-box" id="box2_17" onclick="openBox(2, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-18-box" id="box2_18" onclick="openBox(2, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-19-box" id="box2_19" onclick="openBox(2, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-20-box" id="box2_20" onclick="openBox(2, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-21-box" id="box2_21" onclick="openBox(2, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-22-box" id="box2_22" onclick="openBox(2, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-1-box" id="box3_1" onclick="openBox(3, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-2-box" id="box3_2" onclick="openBox(3, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-3-box" id="box3_3" onclick="openBox(3, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-4-box" id="box3_4" onclick="openBox(3, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-5-box" id="box3_5" onclick="openBox(3, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-6-box" id="box3_6" onclick="openBox(3, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-7-box" id="box3_7" onclick="openBox(3, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-8-box" id="box3_8" onclick="openBox(3, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-9-box" id="box3_9" onclick="openBox(3, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-10-box" id="box3_10" onclick="openBox(3, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-11-box" id="box3_11" onclick="openBox(3, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-12-box" id="box3_12" onclick="openBox(3, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-13-box" id="box3_13" onclick="openBox(3, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-14-box" id="box3_14" onclick="openBox(3, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-15-box" id="box3_15" onclick="openBox(3, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-16-box" id="box3_16" onclick="openBox(3, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-17-box" id="box3_17" onclick="openBox(3, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-18-box" id="box3_18" onclick="openBox(3, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-19-box" id="box3_19" onclick="openBox(3, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-20-box" id="box3_20" onclick="openBox(3, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-21-box" id="box3_21" onclick="openBox(3, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-22-box" id="box3_22" onclick="openBox(3, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-1-box" id="box4_1" onclick="openBox(4, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-2-box" id="box4_2" onclick="openBox(4, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-3-box" id="box4_3" onclick="openBox(4, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-4-box" id="box4_4" onclick="openBox(4, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-5-box" id="box4_5" onclick="openBox(4, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-6-box" id="box4_6" onclick="openBox(4, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-7-box" id="box4_7" onclick="openBox(4, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-8-box" id="box4_8" onclick="openBox(4, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-9-box" id="box4_9" onclick="openBox(4, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-10-box" id="box4_10" onclick="openBox(4, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-11-box" id="box4_11" onclick="openBox(4, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-12-box" id="box4_12" onclick="openBox(4, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-13-box" id="box4_13" onclick="openBox(4, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-14-box" id="box4_14" onclick="openBox(4, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-15-box" id="box4_15" onclick="openBox(4, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-16-box" id="box4_16" onclick="openBox(4, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-17-box" id="box4_17" onclick="openBox(4, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-18-box" id="box4_18" onclick="openBox(4, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-19-box" id="box4_19" onclick="openBox(4, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-20-box" id="box4_20" onclick="openBox(4, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-21-box" id="box4_21" onclick="openBox(4, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-22-box" id="box4_22" onclick="openBox(4, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-1-box" id="box5_1" onclick="openBox(5, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-2-box" id="box5_2" onclick="openBox(5, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-3-box" id="box5_3" onclick="openBox(5, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-4-box" id="box5_4" onclick="openBox(5, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-5-box" id="box5_5" onclick="openBox(5, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-6-box" id="box5_6" onclick="openBox(5, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-7-box" id="box5_7" onclick="openBox(5, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-8-box" id="box5_8" onclick="openBox(5, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-9-box" id="box5_9" onclick="openBox(5, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-10-box" id="box5_10" onclick="openBox(5, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-11-box" id="box5_11" onclick="openBox(5, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-12-box" id="box5_12" onclick="openBox(5, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-13-box" id="box5_13" onclick="openBox(5, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-14-box" id="box5_14" onclick="openBox(5, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-15-box" id="box5_15" onclick="openBox(5, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-16-box" id="box5_16" onclick="openBox(5, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-17-box" id="box5_17" onclick="openBox(5, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-18-box" id="box5_18" onclick="openBox(5, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-19-box" id="box5_19" onclick="openBox(5, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-20-box" id="box5_20" onclick="openBox(5, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-21-box" id="box5_21" onclick="openBox(5, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-22-box" id="box5_22" onclick="openBox(5, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-1-box" id="box6_1" onclick="openBox(6, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-2-box" id="box6_2" onclick="openBox(6, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-3-box" id="box6_3" onclick="openBox(6, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-4-box" id="box6_4" onclick="openBox(6, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-5-box" id="box6_5" onclick="openBox(6, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-6-box" id="box6_6" onclick="openBox(6, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-7-box" id="box6_7" onclick="openBox(6, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-8-box" id="box6_8" onclick="openBox(6, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-9-box" id="box6_9" onclick="openBox(6, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-10-box" id="box6_10" onclick="openBox(6, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-11-box" id="box6_11" onclick="openBox(6, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-12-box" id="box6_12" onclick="openBox(6, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-13-box" id="box6_13" onclick="openBox(6, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-14-box" id="box6_14" onclick="openBox(6, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-15-box" id="box6_15" onclick="openBox(6, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-16-box" id="box6_16" onclick="openBox(6, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-17-box" id="box6_17" onclick="openBox(6, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-18-box" id="box6_18" onclick="openBox(6, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-19-box" id="box6_19" onclick="openBox(6, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-20-box" id="box6_20" onclick="openBox(6, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-21-box" id="box6_21" onclick="openBox(6, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-22-box" id="box6_22" onclick="openBox(6, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-1-box" id="box7_1" onclick="openBox(7, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-2-box" id="box7_2" onclick="openBox(7, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-3-box" id="box7_3" onclick="openBox(7, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-4-box" id="box7_4" onclick="openBox(7, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-5-box" id="box7_5" onclick="openBox(7, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-6-box" id="box7_6" onclick="openBox(7, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-7-box" id="box7_7" onclick="openBox(7, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-8-box" id="box7_8" onclick="openBox(7, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-9-box" id="box7_9" onclick="openBox(7, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-10-box" id="box7_10" onclick="openBox(7, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-11-box" id="box7_11" onclick="openBox(7, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-12-box" id="box7_12" onclick="openBox(7, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-13-box" id="box7_13" onclick="openBox(7, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-14-box" id="box7_14" onclick="openBox(7, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-15-box" id="box7_15" onclick="openBox(7, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-16-box" id="box7_16" onclick="openBox(7, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-17-box" id="box7_17" onclick="openBox(7, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-18-box" id="box7_18" onclick="openBox(7, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-19-box" id="box7_19" onclick="openBox(7, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-20-box" id="box7_20" onclick="openBox(7, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-21-box" id="box7_21" onclick="openBox(7, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-22-box" id="box7_22" onclick="openBox(7, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-1-box" id="box8_1" onclick="openBox(8, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-2-box" id="box8_2" onclick="openBox(8, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-3-box" id="box8_3" onclick="openBox(8, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-4-box" id="box8_4" onclick="openBox(8, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-5-box" id="box8_5" onclick="openBox(8, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-6-box" id="box8_6" onclick="openBox(8, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-7-box" id="box8_7" onclick="openBox(8, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-8-box" id="box8_8" onclick="openBox(8, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-9-box" id="box8_9" onclick="openBox(8, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-10-box" id="box8_10" onclick="openBox(8, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-11-box" id="box8_11" onclick="openBox(8, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-12-box" id="box8_12" onclick="openBox(8, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-13-box" id="box8_13" onclick="openBox(8, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-14-box" id="box8_14" onclick="openBox(8, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-15-box" id="box8_15" onclick="openBox(8, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-16-box" id="box8_16" onclick="openBox(8, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-17-box" id="box8_17" onclick="openBox(8, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-18-box" id="box8_18" onclick="openBox(8, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-19-box" id="box8_19" onclick="openBox(8, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-20-box" id="box8_20" onclick="openBox(8, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-21-box" id="box8_21" onclick="openBox(8, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-22-box" id="box8_22" onclick="openBox(8, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-1-box" id="box9_1" onclick="openBox(9, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-2-box" id="box9_2" onclick="openBox(9, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-3-box" id="box9_3" onclick="openBox(9, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-4-box" id="box9_4" onclick="openBox(9, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-5-box" id="box9_5" onclick="openBox(9, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-6-box" id="box9_6" onclick="openBox(9, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-7-box" id="box9_7" onclick="openBox(9, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-8-box" id="box9_8" onclick="openBox(9, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-9-box" id="box9_9" onclick="openBox(9, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-10-box" id="box9_10" onclick="openBox(9, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-11-box" id="box9_11" onclick="openBox(9, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-12-box" id="box9_12" onclick="openBox(9, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-13-box" id="box9_13" onclick="openBox(9, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-14-box" id="box9_14" onclick="openBox(9, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-15-box" id="box9_15" onclick="openBox(9, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-16-box" id="box9_16" onclick="openBox(9, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-17-box" id="box9_17" onclick="openBox(9, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-18-box" id="box9_18" onclick="openBox(9, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-19-box" id="box9_19" onclick="openBox(9, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-20-box" id="box9_20" onclick="openBox(9, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-21-box" id="box9_21" onclick="openBox(9, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-22-box" id="box9_22" onclick="openBox(9, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-1-box" id="box10_1" onclick="openBox(10, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-2-box" id="box10_2" onclick="openBox(10, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-3-box" id="box10_3" onclick="openBox(10, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-4-box" id="box10_4" onclick="openBox(10, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-5-box" id="box10_5" onclick="openBox(10, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-6-box" id="box10_6" onclick="openBox(10, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-7-box" id="box10_7" onclick="openBox(10, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-8-box" id="box10_8" onclick="openBox(10, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-9-box" id="box10_9" onclick="openBox(10, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-10-box" id="box10_10" onclick="openBox(10, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-11-box" id="box10_11" onclick="openBox(10, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-12-box" id="box10_12" onclick="openBox(10, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-13-box" id="box10_13" onclick="openBox(10, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-14-box" id="box10_14" onclick="openBox(10, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-15-box" id="box10_15" onclick="openBox(10, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-16-box" id="box10_16" onclick="openBox(10, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-17-box" id="box10_17" onclick="openBox(10, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-18-box" id="box10_18" onclick="openBox(10, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-19-box" id="box10_19" onclick="openBox(10, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-20-box" id="box10_20" onclick="openBox(10, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-21-box" id="box10_21" onclick="openBox(10, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-22-box" id="box10_22" onclick="openBox(10, 22);" src="./blank.png" height="96" width="96"><img class="charm" id="charm" src="./charm.png" alt="" height="64" width="64" onclick="activateShiny();" />
+<img class="selectionBox team-top team-left" id="box0_1" onclick="openBox(0, 1);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox team-top team-mid" id="box0_2" onclick="openBox(0, 2);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox team-top team-right" id="box0_3" onclick="openBox(0, 3);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox team-bottom team-left" id="box0_4" onclick="openBox(0, 4);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox team-bottom team-mid" id="box0_5" onclick="openBox(0, 5);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox team-bottom team-right" id="box0_6" onclick="openBox(0, 6);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row1-box bottom-box-1" id="box0_7" onclick="openBox(0, 7);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row1-box bottom-box-2" id="box0_8" onclick="openBox(0, 8);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row1-box bottom-box-3" id="box0_9" onclick="openBox(0, 9);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row1-box bottom-box-4" id="box0_10" onclick="openBox(0, 10);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row1-box bottom-box-5" id="box0_11" onclick="openBox(0, 11);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row1-box bottom-box-6" id="box0_12" onclick="openBox(0, 12);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row1-box bottom-box-7" id="box0_13" onclick="openBox(0, 13);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row1-box bottom-box-8" id="box0_14" onclick="openBox(0, 14);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row1-box bottom-box-9" id="box0_15" onclick="openBox(0, 15);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row1-box bottom-box-10" id="box0_34" onclick="openBox(0, 34);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row2-box bottom-box-1" id="box0_16" onclick="openBox(0, 16);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row2-box bottom-box-2" id="box0_17" onclick="openBox(0, 17);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row2-box bottom-box-3" id="box0_18" onclick="openBox(0, 18);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row2-box bottom-box-4" id="box0_19" onclick="openBox(0, 19);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row2-box bottom-box-5" id="box0_20" onclick="openBox(0, 20);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row2-box bottom-box-6" id="box0_21" onclick="openBox(0, 21);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row2-box bottom-box-7" id="box0_22" onclick="" src="./cajunavenger.github.io/Front/SPINDA.png" height="96" width="96">
+<img class="selectionBox bottom-row2-box bottom-box-8" id="box0_23" onclick="openBox(0, 23);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row2-box bottom-box-9" id="box0_24" onclick="openBox(0, 24);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox bottom-row2-box bottom-box-10" id="box0_35" onclick="openBox(0, 35);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-1-box" id="box1_1" onclick="openBox(1, 1);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-2-box" id="box1_2" onclick="openBox(1, 2);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-3-box" id="box1_3" onclick="openBox(1, 3);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-4-box" id="box1_4" onclick="openBox(1, 4);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-5-box" id="box1_5" onclick="openBox(1, 5);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-6-box" id="box1_6" onclick="openBox(1, 6);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-7-box" id="box1_7" onclick="openBox(1, 7);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-8-box" id="box1_8" onclick="openBox(1, 8);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-9-box" id="box1_9" onclick="openBox(1, 9);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-10-box" id="box1_10" onclick="openBox(1, 10);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-11-box" id="box1_11" onclick="openBox(1, 11);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-12-box" id="box1_12" onclick="openBox(1, 12);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-13-box" id="box1_13" onclick="openBox(1, 13);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-14-box" id="box1_14" onclick="openBox(1, 14);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-15-box" id="box1_15" onclick="openBox(1, 15);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-16-box" id="box1_16" onclick="openBox(1, 16);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-17-box" id="box1_17" onclick="openBox(1, 17);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-18-box" id="box1_18" onclick="openBox(1, 18);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-19-box" id="box1_19" onclick="openBox(1, 19);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-20-box" id="box1_20" onclick="openBox(1, 20);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-21-box" id="box1_21" onclick="openBox(1, 21);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-1-box type-22-box" id="box1_22" onclick="openBox(1, 22);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-1-box" id="box2_1" onclick="openBox(2, 1);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-2-box" id="box2_2" onclick="openBox(2, 2);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-3-box" id="box2_3" onclick="openBox(2, 3);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-4-box" id="box2_4" onclick="openBox(2, 4);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-5-box" id="box2_5" onclick="openBox(2, 5);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-6-box" id="box2_6" onclick="openBox(2, 6);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-7-box" id="box2_7" onclick="openBox(2, 7);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-8-box" id="box2_8" onclick="openBox(2, 8);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-9-box" id="box2_9" onclick="openBox(2, 9);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-10-box" id="box2_10" onclick="openBox(2, 10);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-11-box" id="box2_11" onclick="openBox(2, 11);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-12-box" id="box2_12" onclick="openBox(2, 12);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-13-box" id="box2_13" onclick="openBox(2, 13);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-14-box" id="box2_14" onclick="openBox(2, 14);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-15-box" id="box2_15" onclick="openBox(2, 15);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-16-box" id="box2_16" onclick="openBox(2, 16);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-17-box" id="box2_17" onclick="openBox(2, 17);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-18-box" id="box2_18" onclick="openBox(2, 18);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-19-box" id="box2_19" onclick="openBox(2, 19);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-20-box" id="box2_20" onclick="openBox(2, 20);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-21-box" id="box2_21" onclick="openBox(2, 21);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-2-box type-22-box" id="box2_22" onclick="openBox(2, 22);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-1-box" id="box3_1" onclick="openBox(3, 1);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-2-box" id="box3_2" onclick="openBox(3, 2);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-3-box" id="box3_3" onclick="openBox(3, 3);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-4-box" id="box3_4" onclick="openBox(3, 4);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-5-box" id="box3_5" onclick="openBox(3, 5);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-6-box" id="box3_6" onclick="openBox(3, 6);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-7-box" id="box3_7" onclick="openBox(3, 7);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-8-box" id="box3_8" onclick="openBox(3, 8);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-9-box" id="box3_9" onclick="openBox(3, 9);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-10-box" id="box3_10" onclick="openBox(3, 10);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-11-box" id="box3_11" onclick="openBox(3, 11);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-12-box" id="box3_12" onclick="openBox(3, 12);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-13-box" id="box3_13" onclick="openBox(3, 13);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-14-box" id="box3_14" onclick="openBox(3, 14);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-15-box" id="box3_15" onclick="openBox(3, 15);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-16-box" id="box3_16" onclick="openBox(3, 16);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-17-box" id="box3_17" onclick="openBox(3, 17);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-18-box" id="box3_18" onclick="openBox(3, 18);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-19-box" id="box3_19" onclick="openBox(3, 19);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-20-box" id="box3_20" onclick="openBox(3, 20);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-21-box" id="box3_21" onclick="openBox(3, 21);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-3-box type-22-box" id="box3_22" onclick="openBox(3, 22);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-1-box" id="box4_1" onclick="openBox(4, 1);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-2-box" id="box4_2" onclick="openBox(4, 2);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-3-box" id="box4_3" onclick="openBox(4, 3);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-4-box" id="box4_4" onclick="openBox(4, 4);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-5-box" id="box4_5" onclick="openBox(4, 5);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-6-box" id="box4_6" onclick="openBox(4, 6);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-7-box" id="box4_7" onclick="openBox(4, 7);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-8-box" id="box4_8" onclick="openBox(4, 8);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-9-box" id="box4_9" onclick="openBox(4, 9);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-10-box" id="box4_10" onclick="openBox(4, 10);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-11-box" id="box4_11" onclick="openBox(4, 11);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-12-box" id="box4_12" onclick="openBox(4, 12);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-13-box" id="box4_13" onclick="openBox(4, 13);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-14-box" id="box4_14" onclick="openBox(4, 14);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-15-box" id="box4_15" onclick="openBox(4, 15);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-16-box" id="box4_16" onclick="openBox(4, 16);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-17-box" id="box4_17" onclick="openBox(4, 17);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-18-box" id="box4_18" onclick="openBox(4, 18);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-19-box" id="box4_19" onclick="openBox(4, 19);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-20-box" id="box4_20" onclick="openBox(4, 20);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-21-box" id="box4_21" onclick="openBox(4, 21);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-4-box type-22-box" id="box4_22" onclick="openBox(4, 22);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-1-box" id="box5_1" onclick="openBox(5, 1);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-2-box" id="box5_2" onclick="openBox(5, 2);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-3-box" id="box5_3" onclick="openBox(5, 3);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-4-box" id="box5_4" onclick="openBox(5, 4);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-5-box" id="box5_5" onclick="openBox(5, 5);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-6-box" id="box5_6" onclick="openBox(5, 6);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-7-box" id="box5_7" onclick="openBox(5, 7);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-8-box" id="box5_8" onclick="openBox(5, 8);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-9-box" id="box5_9" onclick="openBox(5, 9);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-10-box" id="box5_10" onclick="openBox(5, 10);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-11-box" id="box5_11" onclick="openBox(5, 11);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-12-box" id="box5_12" onclick="openBox(5, 12);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-13-box" id="box5_13" onclick="openBox(5, 13);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-14-box" id="box5_14" onclick="openBox(5, 14);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-15-box" id="box5_15" onclick="openBox(5, 15);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-16-box" id="box5_16" onclick="openBox(5, 16);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-17-box" id="box5_17" onclick="openBox(5, 17);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-18-box" id="box5_18" onclick="openBox(5, 18);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-19-box" id="box5_19" onclick="openBox(5, 19);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-20-box" id="box5_20" onclick="openBox(5, 20);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-21-box" id="box5_21" onclick="openBox(5, 21);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-5-box type-22-box" id="box5_22" onclick="openBox(5, 22);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-1-box" id="box6_1" onclick="openBox(6, 1);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-2-box" id="box6_2" onclick="openBox(6, 2);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-3-box" id="box6_3" onclick="openBox(6, 3);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-4-box" id="box6_4" onclick="openBox(6, 4);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-5-box" id="box6_5" onclick="openBox(6, 5);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-6-box" id="box6_6" onclick="openBox(6, 6);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-7-box" id="box6_7" onclick="openBox(6, 7);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-8-box" id="box6_8" onclick="openBox(6, 8);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-9-box" id="box6_9" onclick="openBox(6, 9);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-10-box" id="box6_10" onclick="openBox(6, 10);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-11-box" id="box6_11" onclick="openBox(6, 11);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-12-box" id="box6_12" onclick="openBox(6, 12);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-13-box" id="box6_13" onclick="openBox(6, 13);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-14-box" id="box6_14" onclick="openBox(6, 14);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-15-box" id="box6_15" onclick="openBox(6, 15);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-16-box" id="box6_16" onclick="openBox(6, 16);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-17-box" id="box6_17" onclick="openBox(6, 17);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-18-box" id="box6_18" onclick="openBox(6, 18);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-19-box" id="box6_19" onclick="openBox(6, 19);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-20-box" id="box6_20" onclick="openBox(6, 20);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-21-box" id="box6_21" onclick="openBox(6, 21);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-6-box type-22-box" id="box6_22" onclick="openBox(6, 22);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-1-box" id="box7_1" onclick="openBox(7, 1);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-2-box" id="box7_2" onclick="openBox(7, 2);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-3-box" id="box7_3" onclick="openBox(7, 3);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-4-box" id="box7_4" onclick="openBox(7, 4);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-5-box" id="box7_5" onclick="openBox(7, 5);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-6-box" id="box7_6" onclick="openBox(7, 6);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-7-box" id="box7_7" onclick="openBox(7, 7);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-8-box" id="box7_8" onclick="openBox(7, 8);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-9-box" id="box7_9" onclick="openBox(7, 9);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-10-box" id="box7_10" onclick="openBox(7, 10);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-11-box" id="box7_11" onclick="openBox(7, 11);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-12-box" id="box7_12" onclick="openBox(7, 12);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-13-box" id="box7_13" onclick="openBox(7, 13);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-14-box" id="box7_14" onclick="openBox(7, 14);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-15-box" id="box7_15" onclick="openBox(7, 15);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-16-box" id="box7_16" onclick="openBox(7, 16);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-17-box" id="box7_17" onclick="openBox(7, 17);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-18-box" id="box7_18" onclick="openBox(7, 18);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-19-box" id="box7_19" onclick="openBox(7, 19);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-20-box" id="box7_20" onclick="openBox(7, 20);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-21-box" id="box7_21" onclick="openBox(7, 21);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-7-box type-22-box" id="box7_22" onclick="openBox(7, 22);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-1-box" id="box8_1" onclick="openBox(8, 1);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-2-box" id="box8_2" onclick="openBox(8, 2);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-3-box" id="box8_3" onclick="openBox(8, 3);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-4-box" id="box8_4" onclick="openBox(8, 4);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-5-box" id="box8_5" onclick="openBox(8, 5);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-6-box" id="box8_6" onclick="openBox(8, 6);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-7-box" id="box8_7" onclick="openBox(8, 7);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-8-box" id="box8_8" onclick="openBox(8, 8);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-9-box" id="box8_9" onclick="openBox(8, 9);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-10-box" id="box8_10" onclick="openBox(8, 10);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-11-box" id="box8_11" onclick="openBox(8, 11);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-12-box" id="box8_12" onclick="openBox(8, 12);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-13-box" id="box8_13" onclick="openBox(8, 13);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-14-box" id="box8_14" onclick="openBox(8, 14);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-15-box" id="box8_15" onclick="openBox(8, 15);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-16-box" id="box8_16" onclick="openBox(8, 16);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-17-box" id="box8_17" onclick="openBox(8, 17);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-18-box" id="box8_18" onclick="openBox(8, 18);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-19-box" id="box8_19" onclick="openBox(8, 19);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-20-box" id="box8_20" onclick="openBox(8, 20);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-21-box" id="box8_21" onclick="openBox(8, 21);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-8-box type-22-box" id="box8_22" onclick="openBox(8, 22);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-1-box" id="box9_1" onclick="openBox(9, 1);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-2-box" id="box9_2" onclick="openBox(9, 2);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-3-box" id="box9_3" onclick="openBox(9, 3);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-4-box" id="box9_4" onclick="openBox(9, 4);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-5-box" id="box9_5" onclick="openBox(9, 5);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-6-box" id="box9_6" onclick="openBox(9, 6);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-7-box" id="box9_7" onclick="openBox(9, 7);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-8-box" id="box9_8" onclick="openBox(9, 8);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-9-box" id="box9_9" onclick="openBox(9, 9);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-10-box" id="box9_10" onclick="openBox(9, 10);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-11-box" id="box9_11" onclick="openBox(9, 11);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-12-box" id="box9_12" onclick="openBox(9, 12);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-13-box" id="box9_13" onclick="openBox(9, 13);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-14-box" id="box9_14" onclick="openBox(9, 14);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-15-box" id="box9_15" onclick="openBox(9, 15);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-16-box" id="box9_16" onclick="openBox(9, 16);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-17-box" id="box9_17" onclick="openBox(9, 17);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-18-box" id="box9_18" onclick="openBox(9, 18);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-19-box" id="box9_19" onclick="openBox(9, 19);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-20-box" id="box9_20" onclick="openBox(9, 20);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-21-box" id="box9_21" onclick="openBox(9, 21);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox gen-9-box type-22-box" id="box9_22" onclick="openBox(9, 22);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-1-box" id="box10_1" onclick="openBox(10, 1);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-2-box" id="box10_2" onclick="openBox(10, 2);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-3-box" id="box10_3" onclick="openBox(10, 3);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-4-box" id="box10_4" onclick="openBox(10, 4);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-5-box" id="box10_5" onclick="openBox(10, 5);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-6-box" id="box10_6" onclick="openBox(10, 6);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-7-box" id="box10_7" onclick="openBox(10, 7);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-8-box" id="box10_8" onclick="openBox(10, 8);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-9-box" id="box10_9" onclick="openBox(10, 9);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-10-box" id="box10_10" onclick="openBox(10, 10);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-11-box" id="box10_11" onclick="openBox(10, 11);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-12-box" id="box10_12" onclick="openBox(10, 12);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-13-box" id="box10_13" onclick="openBox(10, 13);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-14-box" id="box10_14" onclick="openBox(10, 14);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-15-box" id="box10_15" onclick="openBox(10, 15);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-16-box" id="box10_16" onclick="openBox(10, 16);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-17-box" id="box10_17" onclick="openBox(10, 17);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-18-box" id="box10_18" onclick="openBox(10, 18);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-19-box" id="box10_19" onclick="openBox(10, 19);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-20-box" id="box10_20" onclick="openBox(10, 20);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-21-box" id="box10_21" onclick="openBox(10, 21);" src="./cajunavenger.github.io/blank.png" height="96" width="96">
+<img class="selectionBox fav-type-box type-22-box" id="box10_22" onclick="openBox(10, 22);" src="./cajunavenger.github.io/blank.png" height="96" width="96"><img class="charm" id="charm" src="./cajunavenger.github.io/charm.png" alt="" height="64" width="64" onclick="activateShiny();" />
 <span id="preview-boxes">
-<img class="preview" id="preview0" src="./blank.png" height="96" width="96" onclick="pickMon(0);">
-<img class="preview" id="preview1" src="./blank.png" height="96" width="96" onclick="pickMon(1);">
-<img class="preview" id="preview2" src="./blank.png" height="96" width="96" onclick="pickMon(2);">
-<img class="preview" id="preview3" src="./blank.png" height="96" width="96" onclick="pickMon(3);">
-<img class="preview" id="preview4" src="./blank.png" height="96" width="96" onclick="pickMon(4);">
-<img class="preview" id="preview5" src="./blank.png" height="96" width="96" onclick="pickMon(5);">
-<img class="preview" id="preview6" src="./blank.png" height="96" width="96" onclick="pickMon(6);">
-<img class="preview" id="preview7" src="./blank.png" height="96" width="96" onclick="pickMon(7);">
-<img class="preview" id="preview8" src="./blank.png" height="96" width="96" onclick="pickMon(8);">
-<img class="preview" id="preview9" src="./blank.png" height="96" width="96" onclick="pickMon(9);">
-<img class="preview" id="preview10" src="./blank.png" height="96" width="96" onclick="pickMon(10);">
-<img class="preview" id="preview11" src="./blank.png" height="96" width="96" onclick="pickMon(11);">
-<img class="preview" id="preview12" src="./blank.png" height="96" width="96" onclick="pickMon(12);">
-<img class="preview" id="preview13" src="./blank.png" height="96" width="96" onclick="pickMon(13);">
-<img class="preview" id="preview14" src="./blank.png" height="96" width="96" onclick="pickMon(14);">
-<img class="preview" id="preview15" src="./blank.png" height="96" width="96" onclick="pickMon(15);">
-<img class="preview" id="preview16" src="./blank.png" height="96" width="96" onclick="pickMon(16);">
-<img class="preview" id="preview17" src="./blank.png" height="96" width="96" onclick="pickMon(17);">
-<img class="preview" id="preview18" src="./blank.png" height="96" width="96" onclick="pickMon(18);">
-<img class="preview" id="preview19" src="./blank.png" height="96" width="96" onclick="pickMon(19);">
-<img class="preview" id="preview20" src="./blank.png" height="96" width="96" onclick="pickMon(20);">
-<img class="preview" id="preview21" src="./blank.png" height="96" width="96" onclick="pickMon(21);">
-<img class="preview" id="preview22" src="./blank.png" height="96" width="96" onclick="pickMon(22);">
-<img class="preview" id="preview23" src="./blank.png" height="96" width="96" onclick="pickMon(23);">
-<img class="preview" id="preview24" src="./blank.png" height="96" width="96" onclick="pickMon(24);">
-<img class="preview" id="preview25" src="./blank.png" height="96" width="96" onclick="pickMon(25);">
-<img class="preview" id="preview26" src="./blank.png" height="96" width="96" onclick="pickMon(26);">
-<img class="preview" id="preview27" src="./blank.png" height="96" width="96" onclick="pickMon(27);">
-<img class="preview" id="preview28" src="./blank.png" height="96" width="96" onclick="pickMon(28);">
-<img class="preview" id="preview29" src="./blank.png" height="96" width="96" onclick="pickMon(29);">
-<img class="preview" id="preview30" src="./blank.png" height="96" width="96" onclick="pickMon(30);">
-<img class="preview" id="preview31" src="./blank.png" height="96" width="96" onclick="pickMon(31);">
-<img class="preview" id="preview32" src="./blank.png" height="96" width="96" onclick="pickMon(32);">
-<img class="preview" id="preview33" src="./blank.png" height="96" width="96" onclick="pickMon(33);">
-<img class="preview" id="preview34" src="./blank.png" height="96" width="96" onclick="pickMon(34);">
-<img class="preview" id="preview35" src="./blank.png" height="96" width="96" onclick="pickMon(35);">
-<img class="preview" id="preview36" src="./blank.png" height="96" width="96" onclick="pickMon(36);">
-<img class="preview" id="preview37" src="./blank.png" height="96" width="96" onclick="pickMon(37);">
-<img class="preview" id="preview38" src="./blank.png" height="96" width="96" onclick="pickMon(38);">
-<img class="preview" id="preview39" src="./blank.png" height="96" width="96" onclick="pickMon(39);">
-<img class="preview" id="preview40" src="./blank.png" height="96" width="96" onclick="pickMon(40);">
-<img class="preview" id="preview41" src="./blank.png" height="96" width="96" onclick="pickMon(41);">
-<img class="preview" id="preview42" src="./blank.png" height="96" width="96" onclick="pickMon(42);">
-<img class="preview" id="preview43" src="./blank.png" height="96" width="96" onclick="pickMon(43);">
-<img class="preview" id="preview44" src="./blank.png" height="96" width="96" onclick="pickMon(44);">
-<img class="preview" id="preview45" src="./blank.png" height="96" width="96" onclick="pickMon(45);">
-<img class="preview" id="preview46" src="./blank.png" height="96" width="96" onclick="pickMon(46);">
-<img class="preview" id="preview47" src="./blank.png" height="96" width="96" onclick="pickMon(47);">
-<img class="preview" id="preview48" src="./blank.png" height="96" width="96" onclick="pickMon(48);">
-<img class="preview" id="preview49" src="./blank.png" height="96" width="96" onclick="pickMon(49);">
-<img class="preview" id="preview50" src="./blank.png" height="96" width="96" onclick="pickMon(50);">
-<img class="preview" id="preview51" src="./blank.png" height="96" width="96" onclick="pickMon(51);">
-<img class="preview" id="preview52" src="./blank.png" height="96" width="96" onclick="pickMon(52);">
-<img class="preview" id="preview53" src="./blank.png" height="96" width="96" onclick="pickMon(53);">
-<img class="preview" id="preview54" src="./blank.png" height="96" width="96" onclick="pickMon(54);">
-<img class="preview" id="preview55" src="./blank.png" height="96" width="96" onclick="pickMon(55);">
-<img class="preview" id="preview56" src="./blank.png" height="96" width="96" onclick="pickMon(56);">
-<img class="preview" id="preview57" src="./blank.png" height="96" width="96" onclick="pickMon(57);">
-<img class="preview" id="preview58" src="./blank.png" height="96" width="96" onclick="pickMon(58);">
-<img class="preview" id="preview59" src="./blank.png" height="96" width="96" onclick="pickMon(59);">
+<img class="preview" id="preview0" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(0);">
+<img class="preview" id="preview1" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(1);">
+<img class="preview" id="preview2" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(2);">
+<img class="preview" id="preview3" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(3);">
+<img class="preview" id="preview4" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(4);">
+<img class="preview" id="preview5" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(5);">
+<img class="preview" id="preview6" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(6);">
+<img class="preview" id="preview7" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(7);">
+<img class="preview" id="preview8" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(8);">
+<img class="preview" id="preview9" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(9);">
+<img class="preview" id="preview10" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(10);">
+<img class="preview" id="preview11" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(11);">
+<img class="preview" id="preview12" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(12);">
+<img class="preview" id="preview13" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(13);">
+<img class="preview" id="preview14" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(14);">
+<img class="preview" id="preview15" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(15);">
+<img class="preview" id="preview16" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(16);">
+<img class="preview" id="preview17" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(17);">
+<img class="preview" id="preview18" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(18);">
+<img class="preview" id="preview19" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(19);">
+<img class="preview" id="preview20" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(20);">
+<img class="preview" id="preview21" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(21);">
+<img class="preview" id="preview22" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(22);">
+<img class="preview" id="preview23" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(23);">
+<img class="preview" id="preview24" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(24);">
+<img class="preview" id="preview25" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(25);">
+<img class="preview" id="preview26" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(26);">
+<img class="preview" id="preview27" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(27);">
+<img class="preview" id="preview28" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(28);">
+<img class="preview" id="preview29" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(29);">
+<img class="preview" id="preview30" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(30);">
+<img class="preview" id="preview31" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(31);">
+<img class="preview" id="preview32" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(32);">
+<img class="preview" id="preview33" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(33);">
+<img class="preview" id="preview34" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(34);">
+<img class="preview" id="preview35" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(35);">
+<img class="preview" id="preview36" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(36);">
+<img class="preview" id="preview37" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(37);">
+<img class="preview" id="preview38" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(38);">
+<img class="preview" id="preview39" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(39);">
+<img class="preview" id="preview40" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(40);">
+<img class="preview" id="preview41" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(41);">
+<img class="preview" id="preview42" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(42);">
+<img class="preview" id="preview43" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(43);">
+<img class="preview" id="preview44" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(44);">
+<img class="preview" id="preview45" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(45);">
+<img class="preview" id="preview46" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(46);">
+<img class="preview" id="preview47" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(47);">
+<img class="preview" id="preview48" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(48);">
+<img class="preview" id="preview49" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(49);">
+<img class="preview" id="preview50" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(50);">
+<img class="preview" id="preview51" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(51);">
+<img class="preview" id="preview52" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(52);">
+<img class="preview" id="preview53" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(53);">
+<img class="preview" id="preview54" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(54);">
+<img class="preview" id="preview55" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(55);">
+<img class="preview" id="preview56" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(56);">
+<img class="preview" id="preview57" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(57);">
+<img class="preview" id="preview58" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(58);">
+<img class="preview" id="preview59" src="./cajunavenger.github.io/blank.png" height="96" width="96" onclick="pickMon(59);">
 </span>
-<img id="spinda" src="./Front/SPINDA.png">
-<img id="spinda2" src="./Front/SPINDA.png">
-<img id="spinda-cover" src="./spinda/cover.png" onclick="shinySpinda();" title="Spinda!">
-<img id="spot1" class="spinda-spot" src="./Front/spot1.png">
-<img id="spot2" class="spinda-spot" src="./Front/spot2.png">
-<img id="spot3" class="spinda-spot" src="./Front/spot3.png">
-<img id="spot4" class="spinda-spot" src="./Front/spot4.png">
+<img id="spinda" src="./cajunavenger.github.io/Front/SPINDA.png">
+<img id="spinda2" src="./cajunavenger.github.io/Front/SPINDA.png">
+<img id="spinda-cover" src="./cajunavenger.github.io/spinda/cover.png" onclick="shinySpinda();" title="Spinda!">
+<img id="spot1" class="spinda-spot" src="./cajunavenger.github.io/Front/spot1.png">
+<img id="spot2" class="spinda-spot" src="./cajunavenger.github.io/Front/spot2.png">
+<img id="spot3" class="spinda-spot" src="./cajunavenger.github.io/Front/spot3.png">
+<img id="spot4" class="spinda-spot" src="./cajunavenger.github.io/Front/spot4.png">
 <input type="number" id="spot1x" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'x')">
 <input type="number" id="spot1y" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'y')">
 <input type="number" id="spot3x" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'x')">
