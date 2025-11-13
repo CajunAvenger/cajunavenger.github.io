@@ -607,7 +607,7 @@ var arrays = {
 		  "KILOWATTREL",
 		  "BOMBIRDIER",
 		  "FLAMIGO",
-		  "IRONJUGULIS"
+		  "IRONJUGULIS",
 		]
 	  ],
 	  "Dragon": [
@@ -2151,7 +2151,7 @@ var arrays = {
 		  "SCREAMTAIL",
 		  "FLUTTERMANE",
 		  "IRONVALIANT",
-		  "FEZANDIPITI"
+		  "FEZANDIPITI",
 		]
 	  ],
 	  "Fighting": [
@@ -3139,6 +3139,10 @@ var arrays = {
 		  "AERODACTYL_1",
 		  "MEWTWO_1",
 		  "MEWTWO_2",
+		  "CLEFABLE_1",
+		  "VICTREEBEL_1",
+		  "STARMIE_1",
+		  "DRAGONITE_1",
 		  "VENUSAUR_2",
 		  "CHARIZARD_3",
 		  "BLASTOISE_2",
@@ -3151,6 +3155,7 @@ var arrays = {
 		  "LAPRAS_1",
 		  "EEVEE_1",
 		  "SNORLAX_1"
+		  
 		],
 		[
 		  "AMPHAROS_1",
@@ -3158,7 +3163,10 @@ var arrays = {
 		  "SCIZOR_1",
 		  "HERACROSS_1",
 		  "HOUNDOOM_1",
-		  "TYRANITAR_1"
+		  "TYRANITAR_1",
+		  "MEGANIUM_1",
+		  "FERALIGATR_1",
+		  "SKARMORY_1",
 		],
 		[
 		  "SCEPTILE_1",
@@ -3192,9 +3200,16 @@ var arrays = {
 		  "LUCARIO_1",
 		  "ABOMASNOW_1",
 		  "GALLADE_1",
+		  "FROSLASS_1",
 		  "DIALGA_2"
 		],
 		[
+		  "EMBOAR_1",	
+		  "EXCADRILL_1",
+		  "SCOLIPEDE_1",
+		  "SCRAFTY_1",
+		  "EELEKTROSS_1",
+		  "CHANDELURE_1",
 		  "AUDINO_1",
 		  "GARBODOR_1",
 		  "BRYCENMAN",
@@ -3263,6 +3278,16 @@ var arrays = {
 		  "GALLADE_1",
 		  "AUDINO_1",
 		  "DIANCIE_1",
+		  "CHESNAUGHT_1",
+		  "DELPHOX_1",
+		  "GRENINJA_3",
+		  "PYROAR_2",
+		  "FLOETTE_6",
+		  "MALAMAR_1",
+		  "BARBARACLE_1",
+		  "DRAGALGE_1",
+		  "HAWLUCHA_1",
+		  "ZYGARDE_3",
 		  "MEWTWO_3"
 		],
 		[
@@ -3286,7 +3311,8 @@ var arrays = {
 		  "MAROWAK_1",
 		  "MELMETAL_1",
 		  "GRENINJA_2",
-		  "NECROZMA_3"
+		  "NECROZMA_3",
+		  "DRAMPA_1"
 		],
 		[
 		  "MEOWTH_2",
@@ -3344,7 +3370,8 @@ var arrays = {
 		  "DURALUDON_1",
 		  "ETERNATUS_1",
 		  "URSHIFU_2",
-		  "URSHIFU_3"
+		  "URSHIFU_3",
+		  "FALINKS_1"
 		],
 		[
 		  "TOEDSCOOL",
@@ -3361,7 +3388,34 @@ var arrays = {
 		  "OGERPON_5",
 		  "OGERPON_6",
 		  "OGERPON_7",
-		  "TERAPAGOS_2"
+		  "TERAPAGOS_2",
+		  "CLEFABLE_1",
+		  "VICTREEBEL_1",
+		  "STARMIE_1",
+		  "DRAGONITE_1",
+		  "MEGANIUM_1",
+		  "FERALIGATR_1",
+		  "SKARMORY_1",
+		  "FROSLASS_1",
+		  "EMBOAR_1",
+		  "EXCADRILL_1",
+		  "SCOLIPEDE_1",
+		  "SCRAFTY_1",
+		  "EELEKTROSS_1",
+		  "CHANDELURE_1",
+		  "CHESNAUGHT_1",
+		  "DELPHOX_1",
+		  "GRENINJA_3",
+		  "PYROAR_2",
+		  "FLOETTE_6",
+		  "MALAMAR_1",
+		  "BARBARACLE_1",
+		  "DRAGALGE_1",
+		  "HAWLUCHA_1",
+		  "ZYGARDE_3",
+		  "DRAMPA_1",
+		  "FALINKS_1"
+
 		]
 	  ],
 	  "Baby": [
