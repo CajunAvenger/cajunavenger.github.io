@@ -4,10 +4,10 @@
 <meta name="description" content="Find your favorite Pokemon of each generation, each type, and of all time.">
 <meta name="keywords" content="Ultimate, Favorite, Pokemon, Pokémon, Picker">
 <meta name="author" content="Cajun">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="cajunavenger.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="cajunavenger.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="cajunavenger.github.io/favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
 <style>
 @font-face {
     font-family: "Copenhagen Grotesk";
@@ -574,9 +574,9 @@ canvas {
 	function toggleShiny(gen, type) {
 		ele = document.getElementById('box'+gen+"_"+type);
 		if(ele.src.match(/Front/)) {
-			ele.src = ele.src.replace(/Front/, "./Shiny");
+			ele.src = ele.src.replace(/Front/, "Shiny");
 		}else{
-			ele.src = ele.src.replace(/Shiny/, "./Front");
+			ele.src = ele.src.replace(/Shiny/, "Front");
 		}
 		writeCookie(gen);
 	}
@@ -585,16 +585,16 @@ canvas {
 			toggleShiny(0, 22);
 			var ele = document.getElementById('spinda2');
 			if(ele.src.match(/Front/)) {
-				ele.src = ele.src.replace(/Front/, "./Shiny");
+				ele.src = ele.src.replace(/Front/, "Shiny");
 			}else{
-				ele.src = ele.src.replace(/Shiny/, "./Front");
+				ele.src = ele.src.replace(/Shiny/, "Front");
 			}
 			for(var i=1; i<5; i++) {
 				ele = document.getElementById('spot'+i);
 				if(ele.src.match(/Front/)) {
-					ele.src = ele.src.replace(/Front/, "./Shiny");
+					ele.src = ele.src.replace(/Front/, "Shiny");
 				}else{
-					ele.src = ele.src.replace(/Shiny/, "./Front");
+					ele.src = ele.src.replace(/Shiny/, "Front");
 				}
 			}
 		}
