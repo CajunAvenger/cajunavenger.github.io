@@ -509,7 +509,7 @@ canvas {
 	var currently_previewing = [];
 	var currently_selecting = null;
 	var shinyCharm = false;
-	var spriteFile = "./cajunavenger.github.io/Front";
+	var spriteFile = "Front";
 	var teamSelect = false;
 	var toppings = false;
 
@@ -858,9 +858,7 @@ canvas {
 					var tind = type_arr.indexOf(currently_previewing[pr_ind]);
 					if(tind >= 0) {
 						var aura = document.getElementById("aura"+tind);
-						aura.src = domlink + "./aura/" + tind + ".png";
-						console.log(domlink + "./aura/" + tind + ".png");
-						console.log(aura.src);
+						aura.src = "/aura/" + tind + ".png";
 						aura.style.top = top_corner + 99*r;
 						aura.style.left = left_corner + 99*c + hole_offset;
 						aura.style.zIndex = 8;
@@ -1670,13 +1668,13 @@ Mode: <select id="mode-select" onchange="updateMode()">
 <img class="preview" id="preview58" src="./blank.png" height="96" width="96" onclick="pickMon(58);">
 <img class="preview" id="preview59" src="./blank.png" height="96" width="96" onclick="pickMon(59);">
 </span>
-<img id="spinda" src="./Front/SPINDA.png">
-<img id="spinda2" src="./Front/SPINDA.png">
-<img id="spinda-cover" src="./spinda/cover.png" onclick="shinySpinda();" title="Spinda!">
-<img id="spot1" class="spinda-spot" src="./spinda/Front/spot1.png">
-<img id="spot2" class="spinda-spot" src="./spinda/Front/spot2.png">
-<img id="spot3" class="spinda-spot" src="./spinda/Front/spot3.png">
-<img id="spot4" class="spinda-spot" src="./spinda/Front/spot4.png">
+<img id="spinda" src="/Front/SPINDA.png">
+<img id="spinda2" src="/spinda/Front/SPINDA.png">
+<img id="spinda-cover" src="/spinda/cover.png" onclick="shinySpinda();" title="Spinda!">
+<img id="spot1" class="spinda-spot" src="/spinda/Front/spot1.png">
+<img id="spot2" class="spinda-spot" src="/spinda/Front/spot2.png">
+<img id="spot3" class="spinda-spot" src="/spinda/Front/spot3.png">
+<img id="spot4" class="spinda-spot" src="/spinda/Front/spot4.png">
 <input type="number" id="spot1x" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'x')">
 <input type="number" id="spot1y" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'y')">
 <input type="number" id="spot3x" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'x')">
