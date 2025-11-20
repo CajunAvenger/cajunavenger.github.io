@@ -3287,7 +3287,7 @@ var arrays = {
 		  "BARBARACLE_1",
 		  "DRAGALGE_1",
 		  "HAWLUCHA_1",
-		  "ZYGARDE_3",
+		  "ZYGARDE_5",
 		  "MEWTWO_3"
 		],
 		[
@@ -3412,7 +3412,7 @@ var arrays = {
 		  "BARBARACLE_1",
 		  "DRAGALGE_1",
 		  "HAWLUCHA_1",
-		  "ZYGARDE_3",
+		  "ZYGARDE_5",
 		  "DRAMPA_1",
 		  "FALINKS_1"
 
