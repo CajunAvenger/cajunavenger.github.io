@@ -4,10 +4,10 @@
 <meta name="description" content="Find your favorite Pokemon of each generation, each type, and of all time.">
 <meta name="keywords" content="Ultimate, Favorite, Pokemon, Pokémon, Picker">
 <meta name="author" content="Cajun">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
 <style>
 @font-face {
     font-family: "Copenhagen Grotesk";
@@ -560,7 +560,10 @@ canvas {
 			deleteCookie("shiny");
 		}
 		for(var g=0; g<11; g++) {
-			for(var t=0; t<23; t++) {
+			let max = 23;
+			if(g == 0)
+				max = MAX_BOX;
+			for(var t=0; t<max; t++) {
 				ele = document.getElementById('box'+g+"_"+t);
 				if(ele == null)
 					continue
@@ -568,6 +571,7 @@ canvas {
 			}
 			writeCookie(g);
 		}
+		shinySpinda(true);
 		spriteFile = swap[spriteFile];
 		activateShiny();
 	}
@@ -580,8 +584,8 @@ canvas {
 		}
 		writeCookie(gen);
 	}
-	function shinySpinda() {
-		if(shinyCharm) {
+	function shinySpinda(force) {
+		if(shinyCharm || force) {
 			toggleShiny(0, 22);
 			var ele = document.getElementById('spinda2');
 			if(ele.src.match(/Front/)) {
@@ -858,9 +862,7 @@ canvas {
 					var tind = type_arr.indexOf(currently_previewing[pr_ind]);
 					if(tind >= 0) {
 						var aura = document.getElementById("aura"+tind);
-						aura.src = domlink + "aura/" + tind + ".png";
-						console.log(domlink + "aura/" + tind + ".png");
-						console.log(aura.src);
+						aura.src = "/aura/" + tind + ".png";
 						aura.style.top = top_corner + 99*r;
 						aura.style.left = left_corner + 99*c + hole_offset;
 						aura.style.zIndex = 8;
@@ -1360,7 +1362,7 @@ Mode: <select id="mode-select" onchange="updateMode()">
 </select>
 <div id="grid-wrapper">
 <!--<img class="back" id="back" src="https://cajunavenger.github.io/background.png" alt="" height="1571" width="2276" onclick="closeBox();"/>-->
-<img class="back" id="back" src="https://cajunavenger.github.io/background3.png" alt="" height="1571" width="2276" onclick="closeBox();"/>
+<img class="back" id="back" src="./background3.png" alt="" height="1571" width="2276" onclick="closeBox();"/>
 <canvas id="final" height="1571" width="2276"></canvas>
 <img class="selectionBox team-top team-left" id="box0_1" onclick="openBox(0, 1);" src="./blank.png" height="96" width="96">
 <img class="selectionBox team-top team-mid" id="box0_2" onclick="openBox(0, 2);" src="./blank.png" height="96" width="96">
@@ -1384,7 +1386,7 @@ Mode: <select id="mode-select" onchange="updateMode()">
 <img class="selectionBox bottom-row2-box bottom-box-4" id="box0_19" onclick="openBox(0, 19);" src="./blank.png" height="96" width="96">
 <img class="selectionBox bottom-row2-box bottom-box-5" id="box0_20" onclick="openBox(0, 20);" src="./blank.png" height="96" width="96">
 <img class="selectionBox bottom-row2-box bottom-box-6" id="box0_21" onclick="openBox(0, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-7" id="box0_22" onclick="" src="https://cajunavenger.github.io/Front/SPINDA.png" height="96" width="96">
+<img class="selectionBox bottom-row2-box bottom-box-7" id="box0_22" onclick="" src="./Front/SPINDA.png" height="96" width="96">
 <img class="selectionBox bottom-row2-box bottom-box-8" id="box0_23" onclick="openBox(0, 23);" src="./blank.png" height="96" width="96">
 <img class="selectionBox bottom-row2-box bottom-box-9" id="box0_24" onclick="openBox(0, 24);" src="./blank.png" height="96" width="96">
 <img class="selectionBox bottom-row2-box bottom-box-10" id="box0_35" onclick="openBox(0, 35);" src="./blank.png" height="96" width="96">
@@ -1670,13 +1672,13 @@ Mode: <select id="mode-select" onchange="updateMode()">
 <img class="preview" id="preview58" src="./blank.png" height="96" width="96" onclick="pickMon(58);">
 <img class="preview" id="preview59" src="./blank.png" height="96" width="96" onclick="pickMon(59);">
 </span>
-<img id="spinda" src="https://cajunavenger.github.io/Front/SPINDA.png">
-<img id="spinda2" src="https://cajunavenger.github.io/spinda/Front/SPINDA.png">
-<img id="spinda-cover" src="https://cajunavenger.github.io/spinda/cover.png" onclick="shinySpinda();" title="Spinda!">
-<img id="spot1" class="spinda-spot" src="https://cajunavenger.github.io/spinda/Front/spot1.png">
-<img id="spot2" class="spinda-spot" src="https://cajunavenger.github.io/spinda/Front/spot2.png">
-<img id="spot3" class="spinda-spot" src="https://cajunavenger.github.io/spinda/Front/spot3.png">
-<img id="spot4" class="spinda-spot" src="https://cajunavenger.github.io/spinda/Front/spot4.png">
+<img id="spinda" src="/Front/SPINDA.png">
+<img id="spinda2" src="/spinda/Front/SPINDA.png">
+<img id="spinda-cover" src="/spinda/cover.png" onclick="shinySpinda();" title="Spinda!">
+<img id="spot1" class="spinda-spot" src="/spinda/Front/spot1.png">
+<img id="spot2" class="spinda-spot" src="/spinda/Front/spot2.png">
+<img id="spot3" class="spinda-spot" src="/spinda/Front/spot3.png">
+<img id="spot4" class="spinda-spot" src="/spinda/Front/spot4.png">
 <input type="number" id="spot1x" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'x')">
 <input type="number" id="spot1y" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'y')">
 <input type="number" id="spot3x" class="spotinput" min="0" max="16" value="8" oninput="spindaSpot(this, 'x')">
@@ -1762,20 +1764,22 @@ Mode: <select id="mode-select" onchange="updateMode()">
 </div>
 <div id="credits">
 	<b>Updates</b><br>
-	• Z-A Updates will happen as soon as I can!<br>
+	• Z-A Megas are now in the grid! A dedicated Mega box at the bottom is coming soon.<br>
+	• They'll be all together in Gen 9 Gimmick until that happens.<br>
 	• Pokemon now reveal their names on hover.<br>
 	• There's now a Mode Select at the top of page:<br>
 	• Strict Mode will remove many minor forms across the grid.<br>
-	• Surplus Mode wil back-add forms, so you can pick Mega Gyarados for Gen 1 Dark.<br>
+	• Surplus Mode will back-add forms, so you can pick Mega Gyarados for Gen 1 Dark.<br>
 	• Silly Mode adds everything I've got! Have GMax Pikachu be your favorite Gen 7 Starter, or Chill Drive Genesect be your favorite Legendary!<br/>
 	• Report language issues or help add new ones <a href="https://github.com/CajunAvenger/cajunavenger.github.io/issues/23">here!</a><br><br>
 	<b>Credits</b><br>
 	<a href="https://github.com/CajunAvenger/cajunavenger.github.io">Source Code</a> - <a href="https://github.com/CajunAvenger/cajunavenger.github.io/issues">Issues or Feature Requests?</a> - <a href="https://bsky.app/profile/cajun-writes-code.bsky.social">Bluesky</a><br />
 	• Walking Wake and Iron Leaves sprites by <a href="https://bsky.app/profile/JordanosArt.bsky.social">JordanosArt</a><br>
-	• Archaludon, Dipplin, Raging Bolt, and Okidogi from <a href="https://www.deviantart.com/retronc">RetroNC</a>.<br>
+	• Archaludon, Dipplin, Raging Bolt, Okidogi, Zygarde Cell & Core, and Gen 9 Megas from <a href="https://www.youtube.com/@retronc">RetroNC</a>.<br>
 	• Most other Gen 9 sprites from <a href="https://www.deviantart.com/kingofthe-x-roads">KingOfThe-X-Roads</a>.<br>
 	• Other later generation sprites from <a href="https://www.smogon.com/forums/threads/smogon-sprite-project.3647722/">Smogon Sprite Project</a> and <a href="https://github.com/PokeAPI/sprites/">PokeAPI</a><br />
 	• If you want to support more code silliness, you can donate to my <s>caffeine addiction</s> <a href="https://ko-fi.com/cajun42">Ko-Fi</a>.<br />
+	<br>
 </div>
 </body>
 </html>
