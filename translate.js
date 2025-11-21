@@ -356,7 +356,7 @@ var translatable = {
   "日本": "おまかせ",
   "简中": "随机！",
   "繁中": "隨機！",
-  "Français": "Aléatoire!",
+  "Français": "Aléatoire !",
   "Italiano": "Casuale!",
   "한국어": "무작위의!",
   "Nederlands": "Willekeurig plaatsen!"
