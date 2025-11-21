@@ -174,7 +174,10 @@ var arrays = {
 		  "OGERPON_6",
 		  "OGERPON_3",
 		  "OGERPON_7",
-		  "HYDRAPPLE"
+		  "HYDRAPPLE",
+		  "VICTREEBEL_1",
+		  "MEGANIUM_1",
+		  "CHESNAUGHT_1"
 		]
 	  ],
 	  "Poison": [
@@ -296,7 +299,10 @@ var arrays = {
 		  "MUNKIDORI",
 		  "FEZANDIPITI",
 		  "PECHARUNT",
-		  "PECHARUNT_1"
+		  "PECHARUNT_1",
+		  "VICTREEBEL_1",
+		  "SCOLIPEDE_1",
+		  "DRAGALGE_1"
 		]
 	  ],
 	  "Fire": [
@@ -421,7 +427,11 @@ var arrays = {
 		  "OGERPON_2",
 		  "OGERPON_6",
 		  "GOUGINGFIRE",
-		  "TAUROS_2"
+		  "TAUROS_2",
+		  "EMBOAR_1",
+		  "CHANDELURE_1",
+		  "DELPHOX_1",
+		  "PYROAR_2"
 		]
 	  ],
 	  "Flying": [
@@ -608,6 +618,10 @@ var arrays = {
 		  "BOMBIRDIER",
 		  "FLAMIGO",
 		  "IRONJUGULIS",
+		  "CLEFABLE_1",
+		  "DRAGONITE_1",
+		  "SKARMORY_1",
+		  "HAWLUCHA_1"
 		]
 	  ],
 	  "Dragon": [
@@ -726,7 +740,12 @@ var arrays = {
 		  "ARCHALUDON",
 		  "HYDRAPPLE",
 		  "GOUGINGFIRE",
-		  "RAGINGBOLT"
+		  "RAGINGBOLT",
+		  "DRAGONITE_1",
+		  "FERALIGATR_1",
+		  "DRAGALGE_1",
+		  "ZYGARDE_5",
+		  "DRAMPA_1"
 		]
 	  ],
 	  "Water": [
@@ -936,7 +955,10 @@ var arrays = {
 		  "WALKINGWAKE",
 		  "OGERPON_1",
 		  "OGERPON_5",
-		  "TAUROS_3"
+		  "TAUROS_3",
+		  "STARMIE_1",
+		  "FERALIGATR_1",
+		  "GRENINJA_1"
 		]
 	  ],
 	  "Bug": [
@@ -1079,7 +1101,8 @@ var arrays = {
 		  "LOKIX",
 		  "RELLOR",
 		  "RABSCA",
-		  "SLITHERWING"
+		  "SLITHERWING",
+		  "SCOLIPEDE_1"
 		]
 	  ],
 	  "Normal": [
@@ -1277,7 +1300,9 @@ var arrays = {
 		  "TERAPAGOS",
 		  "TERAPAGOS_1",
 		  "TERAPAGOS_2",
-		  "URSALUNA_1"
+		  "URSALUNA_1",
+		  "PYROAR_2",
+		  "DRAMPA_1"
 		]
 	  ],
 	  "Dark": [
@@ -1399,7 +1424,10 @@ var arrays = {
 		  "CHIENPAO",
 		  "TINGLU",
 		  "CHIYU",
-		  "ROARINGMOON"
+		  "ROARINGMOON",
+		  "SCRAFTY_1",
+		  "GRENINJA_1",
+		  "MALAMAR_1"
 		]
 	  ],
 	  "Electric": [
@@ -1527,7 +1555,8 @@ var arrays = {
 		  "IRONTHORNS",
 		  "MIRAIDON",
 		  "MIRAIDON_1",
-		  "RAGINGBOLT"
+		  "RAGINGBOLT",
+		  "EELEKTROSS_1"
 		]
 	  ],
 	  "Psychic": [
@@ -1715,7 +1744,10 @@ var arrays = {
 		  "IRONLEAVES",
 		  "MUNKIDORI",
 		  "IRONBOULDER",
-		  "IRONCROWN"
+		  "IRONCROWN",
+		  "STARMIE_1",
+		  "DELPHOX_1",
+		  "MALAMAR_1"
 		]
 	  ],
 	  "Ground": [
@@ -1830,7 +1862,9 @@ var arrays = {
 		  "SANDYSHOCKS",
 		  "IRONTREADS",
 		  "TINGLU",
-		  "URSALUNA_1"
+		  "URSALUNA_1",
+		  "EXCADRILL_1",
+		  "ZYGARDE_5"
 		]
 	  ],
 	  "Ice": [
@@ -1917,7 +1951,8 @@ var arrays = {
 		  "FRIGIBAX",
 		  "ARCTIBAX",
 		  "BAXCALIBUR",
-		  "CHIENPAO"
+		  "CHIENPAO",
+		  "FROSLASS_1"
 		]
 	  ],
 	  "Steel": [
@@ -2036,7 +2071,9 @@ var arrays = {
 		  "IRONTREADS",
 		  "GHOLDENGO",
 		  "ARCHALUDON",
-		  "IRONCROWN"
+		  "IRONCROWN",
+		  "SKARMORY_1",
+		  "EXCADRILL_1"
 		]
 	  ],
 	  "Fairy": [
@@ -2152,6 +2189,9 @@ var arrays = {
 		  "FLUTTERMANE",
 		  "IRONVALIANT",
 		  "FEZANDIPITI",
+		  "CLEFABLE_1",
+		  "MEGANIUM_1",
+		  "FLOETTE_6"
 		]
 	  ],
 	  "Fighting": [
@@ -2271,7 +2311,13 @@ var arrays = {
 		  "OKIDOGI",
 		  "TAUROS_1",
 		  "TAUROS_2",
-		  "TAUROS_3"
+		  "TAUROS_3",
+		  "EMBOAR_1",
+		  "SCRAFTY_1",
+		  "CHESNAUGHT_1",
+		  "BARBARACLE_1",
+		  "HAWLUCHA_1",
+		  "FALINKS_1"
 		]
 	  ],
 	  "Rock": [
@@ -2388,7 +2434,8 @@ var arrays = {
 		  "IRONTHORNS",
 		  "OGERPON_3",
 		  "OGERPON_7",
-		  "IRONBOULDER"
+		  "IRONBOULDER",
+		  "BARBARACLE_1"
 		]
 	  ],
 	  "Ghost": [
@@ -2497,7 +2544,9 @@ var arrays = {
 		  "POLTCHAGEIST",
 		  "SINISTCHA",
 		  "PECHARUNT",
-		  "PECHARUNT_1"
+		  "PECHARUNT_1",
+		  "FROSLASS_1",
+		  "CHANDELURE_1"
 		]
 	  ],
 
@@ -2759,7 +2808,8 @@ var arrays = {
 		"ZAMAZENTA_1",
 		"ARCEUS",
 		"KORAIDON",
-		"MIRAIDON"
+		"MIRAIDON",
+		"ZYGARDE_5"
 	  ],
 	  "Mythical": [
 		"MEW",
@@ -2940,7 +2990,10 @@ var arrays = {
 		  "SKELEDIRGE",
 		  "QUAXLY",
 		  "QUAXWELL",
-		  "QUAQUAVAL"
+		  "QUAQUAVAL",
+		  "MEGANIUM_1",
+		  "EMBOAR_1",
+		  "FERALIGATR_1"
 		]
 	  ],
 	  "Legendary": [
@@ -3118,7 +3171,8 @@ var arrays = {
 		  "TERAPAGOS_1",
 		  "TERAPAGOS_2",
 		  "PECHARUNT",
-		  "PECHARUNT_1"
+		  "PECHARUNT_1",
+		  "ZYGARDE_5"
 		]
 	  ],
 	  "Gimmick": [
@@ -3945,7 +3999,7 @@ function remodeArrays() {
 				addToArray(sprite, "Gimmick", debut, form_data.fs, spliceInfo);
 			}
 			// goes in Launch if Regional, Gimmick, Gen6Mega, or SURPLUS+ Mega, Gmax
-			if(other_gimmick.includes(kind) || (mechanical.includes(kind) && MODE.SITE != MODE.STANDARD) || (kind == "mega" && launch == 6)) {
+			if(other_gimmick.includes(kind) || (mechanical.includes(kind) && MODE.SITE != MODE.STANDARD) || kind == "mega") {
 				addToArray(sprite, "Gimmick", launch, form_data.fs, spliceInfo);
 			}
 		}
@@ -4405,15 +4459,15 @@ let starterLayout = [
 		["CHIKORITA", 3],
 		["BAYLEEF", 3],
 		["MEGANIUM", 3],
-		//"MEGANIUM_1",
+		"MEGANIUM_1",
 		["TEPIG", 3],
 		["PIGNITE", 3],
 		["EMBOAR", 3],
-		//"EMBOAR_1",
+		"EMBOAR_1",
 		["TOTODILE", 3],
 		["CROCONAW", 3],
 		["FERALIGATR", 3],
-		//"FERALIGATR_1"
+		"FERALIGATR_1"
 		// 
 	]
 ]
