@@ -847,7 +847,8 @@ canvas {
 					ele.id = "preview" + pr_ind;
 					ele.height = 96;
 					ele.width = 96;
-					ele.onclick = function() {pickMon(pr_ind)};
+					let num = 0 + pr_ind;
+					ele.onclick = function() {pickMon(num)};
 					document.getElementById("preview-boxes").appendChild(ele);
 				}
 				ele.src = mon_img;
@@ -1328,7 +1329,6 @@ canvas {
 			}
 		}
 		loadTextbox(cookie_vals.join("\n"));
-		
 	}
 	function getCookieName(g) {
 		if(parseInt(g) < TYPE_FAV)
