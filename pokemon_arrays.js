@@ -159,6 +159,7 @@ var arrays = {
 		  "TOEDSCRUEL",
 		  "CAPSAKID",
 		  "SCOVILLAIN",
+		  "SCOVILLAIN_1",
 		  "BRUTEBONNET",
 		  "WOCHIEN",
 		  "IRONLEAVES",
@@ -422,6 +423,7 @@ var arrays = {
 		  "ARMAROUGE",
 		  "CERULEDGE",
 		  "SCOVILLAIN",
+		  "SCOVILLAIN_1",
 		  "IRONMOTH",
 		  "CHIYU",
 		  "OGERPON_2",
@@ -730,6 +732,7 @@ var arrays = {
 		  "FRIGIBAX",
 		  "ARCTIBAX",
 		  "BAXCALIBUR",
+		  "BAXCALIBUR_1",
 		  "ROARINGMOON",
 		  "KORAIDON",
 		  "KORAIDON_1",
@@ -743,6 +746,7 @@ var arrays = {
 		  "RAGINGBOLT",
 		  "DRAGONITE_1",
 		  "FERALIGATR_1",
+		  "GARCHOMP_2",
 		  "DRAGALGE_1",
 		  "ZYGARDE_5",
 		  "DRAMPA_1"
@@ -1425,6 +1429,7 @@ var arrays = {
 		  "TINGLU",
 		  "CHIYU",
 		  "ROARINGMOON",
+		  "ABSOL_2",
 		  "SCRAFTY_1",
 		  "GRENINJA_1",
 		  "MALAMAR_1"
@@ -1556,7 +1561,10 @@ var arrays = {
 		  "MIRAIDON",
 		  "MIRAIDON_1",
 		  "RAGINGBOLT",
-		  "EELEKTROSS_1"
+		  "RAICHU_2",
+		  "RAICHU_3",
+		  "EELEKTROSS_1",
+		  "ZERAORA_1"
 		]
 	  ],
 	  "Psychic": [
@@ -1746,7 +1754,9 @@ var arrays = {
 		  "IRONBOULDER",
 		  "IRONCROWN",
 		  "STARMIE_1",
+		  "CHIMECHO_1",
 		  "DELPHOX_1",
+		  "MEOWSTIC_2",
 		  "MALAMAR_1"
 		]
 	  ],
@@ -1951,6 +1961,7 @@ var arrays = {
 		  "FRIGIBAX",
 		  "ARCTIBAX",
 		  "BAXCALIBUR",
+		  "BAXCALIBUR_1",
 		  "CHIENPAO",
 		  "FROSLASS_1"
 		]
@@ -2073,6 +2084,8 @@ var arrays = {
 		  "ARCHALUDON",
 		  "IRONCROWN",
 		  "SKARMORY_1",
+		  "CHIMECHO_1",
+		  "LUCARIO_2",
 		  "EXCADRILL_1"
 		]
 	  ],
@@ -2312,6 +2325,7 @@ var arrays = {
 		  "TAUROS_1",
 		  "TAUROS_2",
 		  "TAUROS_3",
+		  "LUCARIO_2",
 		  "EMBOAR_1",
 		  "SCRAFTY_1",
 		  "CHESNAUGHT_1",
@@ -2545,6 +2559,7 @@ var arrays = {
 		  "SINISTCHA",
 		  "PECHARUNT",
 		  "PECHARUNT_1",
+		  "ABSOL_2",
 		  "FROSLASS_1",
 		  "CHANDELURE_1"
 		]
@@ -3444,6 +3459,8 @@ var arrays = {
 		  "OGERPON_6",
 		  "OGERPON_7",
 		  "TERAPAGOS_2",
+		  "RAICHU_2",
+		  "RAICHU_3",
 		  "CLEFABLE_1",
 		  "VICTREEBEL_1",
 		  "STARMIE_1",
@@ -3451,6 +3468,10 @@ var arrays = {
 		  "MEGANIUM_1",
 		  "FERALIGATR_1",
 		  "SKARMORY_1",
+		  "CHIMECHO_1",
+		  "ABSOL_2",
+		  "GARCHOMP_2",
+		  "LUCARIO_2",
 		  "FROSLASS_1",
 		  "EMBOAR_1",
 		  "EXCADRILL_1",
@@ -3463,13 +3484,17 @@ var arrays = {
 		  "GRENINJA_1",
 		  "PYROAR_2",
 		  "FLOETTE_6",
+		  "MEOWSTIC_2",
 		  "MALAMAR_1",
 		  "BARBARACLE_1",
 		  "DRAGALGE_1",
 		  "HAWLUCHA_1",
 		  "ZYGARDE_5",
 		  "DRAMPA_1",
-		  "FALINKS_1"
+		  "ZERAORA_1",
+		  "FALINKS_1",
+		  "SCOVILLAIN_1",
+		  "BAXCALIBUR_1"
 
 		]
 	  ],
@@ -4161,6 +4186,8 @@ function remodeArrays() {
 			"SALAMENCE_1": 1,
 			"METAGROSS_1": 1,
 			"GARCHOMP_1": 1,
+			"GARCHOMP_2": 1,
+			"BAXCALIBUR_1": 1
 		},
 		Pikaclone: {
 			"PICHU": 1,
@@ -4169,6 +4196,8 @@ function remodeArrays() {
 			"PIKACHU": 1,
 			"RAICHU": 1,
 			"RAICHU_1": 1,
+			"RAICHU_2": 2,
+			"RAICHU_3": 2,
 			"PIKACHU_70": 1,
 			"PLUSLE": 1,
 			"MINUN": 1,
@@ -4363,12 +4392,15 @@ let starterLayout = [
 		"CHESPIN",
 		"QUILLADIN",
 		"CHESNAUGHT",
+		["CHESNAUGHT_1", 4],
 		"FENNEKIN",
 		"BRAIXEN",
 		"DELPHOX",
+		["DELPHOX_1", 4],
 		"FROAKIE",
 		"FROGADIER",
 		"GRENINJA",
+		["GRENINJA_1", 4],
 		["GRENINJA_2", 3],
 		// Megas
 		["VENUSAUR_1", 3],
