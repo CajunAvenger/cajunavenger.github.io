@@ -293,6 +293,7 @@ var arrays = {
 		  "REVAVROOM",
 		  "GLIMMET",
 		  "GLIMMORA",
+		  "GLIMMORA_1",
 		  "WOOPER_1",
 		  "CLODSIRE",
 		  "IRONMOTH",
@@ -430,6 +431,7 @@ var arrays = {
 		  "OGERPON_6",
 		  "GOUGINGFIRE",
 		  "TAUROS_2",
+		  "HEATRAN_1",
 		  "EMBOAR_1",
 		  "CHANDELURE_1",
 		  "DELPHOX_1",
@@ -623,6 +625,7 @@ var arrays = {
 		  "CLEFABLE_1",
 		  "DRAGONITE_1",
 		  "SKARMORY_1",
+		  "STARAPTOR_1",
 		  "HAWLUCHA_1"
 		]
 	  ],
@@ -729,6 +732,7 @@ var arrays = {
 		  "TATSUGIRI",
 		  "TATSUGIRI_1",
 		  "TATSUGIRI_2",
+		  "TATSUGIRI_3",
 		  "FRIGIBAX",
 		  "ARCTIBAX",
 		  "BAXCALIBUR",
@@ -955,6 +959,7 @@ var arrays = {
 		  "TATSUGIRI",
 		  "TATSUGIRI_1",
 		  "TATSUGIRI_2",
+		  "TATSUGIRI_3",
 		  "IRONBUNDLE",
 		  "WALKINGWAKE",
 		  "OGERPON_1",
@@ -1106,7 +1111,8 @@ var arrays = {
 		  "RELLOR",
 		  "RABSCA",
 		  "SLITHERWING",
-		  "SCOLIPEDE_1"
+		  "SCOLIPEDE_1",
+		  "GOLISOPOD_1"
 		]
 	  ],
 	  "Normal": [
@@ -1430,6 +1436,7 @@ var arrays = {
 		  "CHIYU",
 		  "ROARINGMOON",
 		  "ABSOL_2",
+		  "DARKRAI_2",
 		  "SCRAFTY_1",
 		  "GRENINJA_1",
 		  "MALAMAR_1"
@@ -1874,6 +1881,7 @@ var arrays = {
 		  "TINGLU",
 		  "URSALUNA_1",
 		  "EXCADRILL_1",
+		  "GOLURK_1",
 		  "ZYGARDE_5"
 		]
 	  ],
@@ -1963,7 +1971,8 @@ var arrays = {
 		  "BAXCALIBUR",
 		  "BAXCALIBUR_1",
 		  "CHIENPAO",
-		  "FROSLASS_1"
+		  "FROSLASS_1",
+		  "CRABOMINABLE_1"
 		]
 	  ],
 	  "Steel": [
@@ -2086,7 +2095,10 @@ var arrays = {
 		  "SKARMORY_1",
 		  "CHIMECHO_1",
 		  "LUCARIO_2",
-		  "EXCADRILL_1"
+		  "HEATRAN_1",
+		  "EXCADRILL_1",
+		  "GOLISOPOD_1",
+		  "MAGEARNA_2"
 		]
 	  ],
 	  "Fairy": [
@@ -2204,7 +2216,8 @@ var arrays = {
 		  "FEZANDIPITI",
 		  "CLEFABLE_1",
 		  "MEGANIUM_1",
-		  "FLOETTE_6"
+		  "FLOETTE_6",
+		  "MAGEARNA_2"
 		]
 	  ],
 	  "Fighting": [
@@ -2325,12 +2338,14 @@ var arrays = {
 		  "TAUROS_1",
 		  "TAUROS_2",
 		  "TAUROS_3",
+		  "STARAPTOR_1",
 		  "LUCARIO_2",
 		  "EMBOAR_1",
 		  "SCRAFTY_1",
 		  "CHESNAUGHT_1",
 		  "BARBARACLE_1",
 		  "HAWLUCHA_1",
+		  "CRABOMINABLE_1",
 		  "FALINKS_1"
 		]
 	  ],
@@ -2449,7 +2464,8 @@ var arrays = {
 		  "OGERPON_3",
 		  "OGERPON_7",
 		  "IRONBOULDER",
-		  "BARBARACLE_1"
+		  "BARBARACLE_1",
+		  "GLIMMORA_1"
 		]
 	  ],
 	  "Ghost": [
@@ -2561,7 +2577,8 @@ var arrays = {
 		  "PECHARUNT_1",
 		  "ABSOL_2",
 		  "FROSLASS_1",
-		  "CHANDELURE_1"
+		  "CHANDELURE_1",
+		  "GOLURK_1"
 		]
 	  ],
 
@@ -2623,7 +2640,9 @@ var arrays = {
 		"TYRANITAR_1",
 		"SALAMENCE_1",
 		"METAGROSS_1",
-		"GARCHOMP_1"
+		"GARCHOMP_1",
+		"GARCHOMP_2",
+		"BAXCALIBUR_1"
 	  ],
 	  "Pikaclone": [
 		"PICHU",
@@ -2838,6 +2857,7 @@ var arrays = {
 		"PHIONE",
 		"MANAPHY",
 		"DARKRAI",
+		"DARKRAI_2",
 		"SHAYMIN",
 		"SHAYMIN_1",
 		"ARCEUS",
@@ -2854,6 +2874,7 @@ var arrays = {
 		"VOLCANION",
 		"MAGEARNA",
 		"MAGEARNA_1",
+		"MAGEARNA_2",
 		"MARSHADOW",
 		"MARSHADOW_1",
 		"ZERAORA",
@@ -3188,7 +3209,10 @@ var arrays = {
 		  "TERAPAGOS_2",
 		  "PECHARUNT",
 		  "PECHARUNT_1",
-		  "ZYGARDE_5"
+		  "HEATRAN_1",
+		  "DARKRAI_2",
+		  "ZYGARDE_5",
+		  "MAGEARNA_2"
 		]
 	  ],
 	  "Gimmick": [
@@ -3470,15 +3494,19 @@ var arrays = {
 		  "SKARMORY_1",
 		  "CHIMECHO_1",
 		  "ABSOL_2",
+		  "STARAPTOR_1",
 		  "GARCHOMP_2",
 		  "LUCARIO_2",
 		  "FROSLASS_1",
+		  "HEATRAN_1",
+		  "DARKRAI_2",
 		  "EMBOAR_1",
 		  "EXCADRILL_1",
 		  "SCOLIPEDE_1",
 		  "SCRAFTY_1",
 		  "EELEKTROSS_1",
 		  "CHANDELURE_1",
+		  "GOLURK_1",
 		  "CHESNAUGHT_1",
 		  "DELPHOX_1",
 		  "GRENINJA_1",
@@ -3490,10 +3518,14 @@ var arrays = {
 		  "DRAGALGE_1",
 		  "HAWLUCHA_1",
 		  "ZYGARDE_5",
+		  "CRABOMINABLE_1",
 		  "DRAMPA_1",
+		  "MAGEARNA_2",
 		  "ZERAORA_1",
 		  "FALINKS_1",
 		  "SCOVILLAIN_1",
+		  "GLIMMORA_1",
+		  "TATSUGIRI_3",
 		  "BAXCALIBUR_1"
 
 		]
@@ -4059,6 +4091,7 @@ function remodeArrays() {
 			"STARLY": 1,
 			"STARAVIA": 4,
 			"STARAPTOR": 3,
+			"STARAPTOR_1": 4,
 			"PIDOVE": 1,
 			"TRANQUILL": 4,
 			"UNFEZANT": 3,
