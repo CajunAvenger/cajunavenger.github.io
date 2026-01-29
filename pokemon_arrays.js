@@ -3519,6 +3519,7 @@ var arrays = {
 		  "HAWLUCHA_1",
 		  "ZYGARDE_5",
 		  "CRABOMINABLE_1",
+		  "GOLISOPOD_1",
 		  "DRAMPA_1",
 		  "MAGEARNA_2",
 		  "ZERAORA_1",
