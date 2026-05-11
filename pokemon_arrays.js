@@ -2880,6 +2880,7 @@ var arrays = {
 		"MARSHADOW",
 		"MARSHADOW_1",
 		"ZERAORA",
+		"ZERAORA_1",
 		"MELTAN",
 		"MELMETAL",
 		"MELMETAL_1",
@@ -3214,7 +3215,8 @@ var arrays = {
 		  "HEATRAN_1",
 		  "DARKRAI_2",
 		  "ZYGARDE_5",
-		  "MAGEARNA_2"
+		  "MAGEARNA_2",
+		  "ZERAORA_1"
 		]
 	  ],
 	  "Gimmick": [
