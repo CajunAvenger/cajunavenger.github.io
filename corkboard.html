@@ -1,0 +1,504 @@
+<html>
+<head>
+<style>
+#grid {
+	display: grid;
+	grid-template-columns: 100vw;
+	grid-template-rows: 100vh;
+	position: absolute;
+	top: 12vh;
+	height: 200vh;
+}
+#header {
+	position: fixed;
+	height: 10vh;
+	z-index: 2000;
+}
+#modal {
+	z-index: 3000;
+	position: fixed;
+	width: 25%;
+	margin-left: 37%;
+	top: 15%;
+	border: 1px solid black;
+	padding: 10px;
+	background: white;
+}
+.holdbox {
+	position: absolute;
+	background: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid black;
+	z-index: 1;
+}
+.round {
+	border-radius: 50%;
+}
+.round.wide {
+	border-radius: 50%/100%;
+}
+.round.tall {
+	border-radius: 100%/50%;
+}
+.hold-canvas {
+	position: absolute;
+	background: transparent;
+	z-index: 1000;
+}
+.whinput {
+	width: 4em;
+}
+.label {
+	display: inline-block;
+	width: 6em;
+}
+#sketcher {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: transparent;
+	z-index: -1;
+}
+input[type="color"] {
+	border-radius: 50%;
+	height: 1.5em;
+	width: 1.5em;
+	border: 1px solid #666;
+}
+.linkline {
+	z-index: 0;
+	position: absolute;
+}
+.selected {
+	box-shadow: 0px 0px 10px #0f0;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+	let counter = 0;
+	let sketching = [];
+	let links = {};
+	let linking = [];
+	
+	let default_height = 50;
+	let default_width = 50;
+	
+	function newInit() {
+		debugDraggable("test", 50);
+		addDraggable("#2", 100, 100, 75, 220);
+		let sk = document.getElementById("sketcher")
+		sk.width = 2*window.screen.width;
+		sk.height = 3*window.screen.height;
+	}
+
+	// drag event handlers
+	// allow dropin
+	function dragoverHandler(ev) {
+		ev.preventDefault();
+	}
+	// cache drag data
+	function dragstartHandler(ev) {
+		ev.dataTransfer.setData("text", ev.target.id);
+		ev.dataTransfer.setData("X", parseInt(ev.clientX));
+		ev.dataTransfer.setData("Y", parseInt(ev.clientY));
+	}
+	// handle data after a drop
+	function dropHandler(ev) {
+		ev.preventDefault();
+		let dropping = document.getElementById(ev.dataTransfer.getData("text"));
+		let startLeft = dropping.offsetLeft;
+		let startTop = dropping.offsetTop;
+
+		let shiftLeft = ev.clientX - ev.dataTransfer.getData("X");
+		let shiftTop = ev.clientY - ev.dataTransfer.getData("Y") - 1;
+		//console.log(startLeft, startTop, shiftLeft, shiftTop);
+		updateCoordinates(dropping, startLeft + shiftLeft, startTop + shiftTop);
+		regenerateLinks(dropping.id);
+	}
+	// handle double click
+	function dblclickHandler(ev) {
+		if(linking.length) {
+			linkHandler(ev);
+		}
+		else{
+			editHandler(ev);
+		}
+	}
+
+	// line event handlers
+	// begin line drawing mode
+	function beginLineMode() {
+		// todo, explain
+		// next click is the starting point
+		let canvas = document.getElementById("sketcher");
+		canvas.addEventListener("click", handleSketching);
+		canvas.style["z-index"] = 1001;
+		let on_btn = document.getElementById("sketch-on");
+		let off_btn = document.getElementById("sketch-off");
+		on_btn.style.display = "none";
+		off_btn.style.display = "";
+	}
+	// end line drawing mode
+	function endLineMode() {
+		if(sketching.length)
+			endSketching();
+		let canvas = document.getElementById("sketcher");
+		canvas.removeEventListener("click", handleSketching);
+		canvas.style["z-index"] = -1;		
+		let on_btn = document.getElementById("sketch-on");
+		let off_btn = document.getElementById("sketch-off");
+		on_btn.style.display = "";
+		off_btn.style.display = "none";
+	}
+	// clear sketcking data
+	function endSketching() {
+		sketching = [];
+		document.body.removeEventListener("mousemove", sketchLine);
+		let canvas = document.getElementById("sketcher");
+		clearCanvas(canvas);
+	}
+	// click event handler
+	function handleSketching(event) {
+		if(!sketching.length) {
+			// set starting coordinates and begin showing the guideline
+			sketching = [event.layerX, event.layerY];
+			document.body.addEventListener("mousemove", sketchLine);
+		}
+		else{
+			// draw final line and end listening
+			let grid = document.getElementById("grid");
+			let x_correct = grid.offsetLeft;
+			let y_correct = grid.offsetTop;
+			addDraggableLine(
+				sketching[0]-x_correct,
+				sketching[1]-y_correct,
+				event.layerX-x_correct, 
+				event.layerY-y_correct,
+				document.getElementById("line-color").value
+			);
+			endSketching();
+		}
+	}
+	// draw the guide line on mousemove
+	function sketchLine(event) {
+		if(!sketching.length)
+			return;
+		let canvas = document.getElementById("sketcher")
+		let ctx = canvas.getContext("2d");
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.beginPath();
+		ctx.moveTo(sketching[0], sketching[1]);
+		ctx.lineTo(event.layerX, event.layerY);
+		ctx.strokeStyle = '#aaa';
+		ctx.lineWidth = 1;
+		ctx.stroke();
+	}
+	
+	// link event handlers
+	function startLinking() {
+		linking = [true];
+		document.getElementById("link-on").style.display = "none";
+		document.getElementById("link-off").style.display = "";
+	}
+	function endLinking() {
+		if(linking[1])
+			document.getElementById(linking[1])?.classList.remove("selected");
+		linking = [];
+		document.getElementById("link-on").style.display = "";
+		document.getElementById("link-off").style.display = "none";
+		// todo disable the highlight
+	}
+	function linkHandler(ev) {
+		linking.push(ev.target.id);
+		if(linking.length == 3) {
+			linkElements(linking[1], linking[2]);
+			document.getElementById(linking[1]).classList.remove("selected");
+			linking = [true];
+		}else{
+			// todo highlight that one
+			ev.target.classList.add("selected");
+		}
+	}
+	
+	// edit handlers
+	function editHandler() {
+		
+	}
+	function closeModal() {
+		document.getElementById("modal").style.display = "none";
+	}
+	function openCreate() {
+		document.getElementById("modal-header").innerHTML = "<b>Creating...</b>";
+		document.getElementById("modal-editor").innerHTML = "";
+		document.getElementById("delete-btn").style.display = "none";
+		document.getElementById("new-text").value = "";
+		document.getElementById("new-width").value = default_width;
+		document.getElementById("new-height").value = default_height;
+		document.getElementById("new-z").value = 1;
+		document.getElementById("modal").style.display = "";
+	}
+	function saveModal() {
+		let existing = document.getElementById("modal-editor").innerText;
+		let need_regen = false;
+
+		let text = document.getElementById("new-text").value;
+		let w = document.getElementById("new-width").value;
+		let h = document.getElementById("new-height").value;
+		let z = document.getElementById("new-z").value;
+		let color = document.getElementById("new-color").value;
+		let font_color = document.getElementById("new-text-color").value;
+		let font_size = document.getElementById("new-font-scale").value;
+		
+		let shape = "square";
+		if(document.getElementById("circle-radio").checked)
+			shape = "circle";
+		
+		let ele;
+		if(existing)
+			ele = document.getElementById(existing);
+		if(!ele) {
+			ele = addDraggable(text, 1, 1, h, w);
+		}else{
+			ele.innerHTML = text;
+			if(w && ele.style.width != w) {
+				need_regen = true;
+				ele.style.width = w;
+			}
+			if(h && ele.style.height != h) {
+				needs_regen = true;
+				ele.style.height = h;
+			}
+			if(needs_regen)
+				regenerateLinks(ele.id);
+		}
+
+		if(z !== "")
+			ele.style["z-index"] = z;
+			
+		if(shape == "square") {
+			ele.classList.remove("round");
+		}
+		else{
+			ele.classList.add("round");
+			if(w>=2*h) {
+				ele.classList.add("wide");
+			}else{
+				ele.classList.remove("wide");
+			}
+			if(h>=2*w) {
+				ele.classList.add("tall");
+			}else{
+				ele.classList.remove("tall");
+			}
+		}
+		
+		ele.style.background = color;
+		ele.style.color = font_color;
+		ele.style["font-size"] = (font_size || 1) + "em";
+		
+		closeModal();
+	}
+	// create containers
+	// place draggable card
+	function addDraggable(text, r, c, h, w) {
+		counter++
+		let ele = document.createElement("div");
+		ele.id = "holder"+counter;
+		ele.className = "holdbox";
+		ele.setAttribute("draggable", true);
+		if(h)
+			ele.setAttribute("height", h);
+		if(w)
+			ele.setAttribute("width", w);
+		ele.addEventListener("dragover", dragoverHandler);
+		ele.addEventListener("dragstart", dragstartHandler);
+		ele.addEventListener("dblclick", dblclickHandler);
+		ele.innerHTML = text;
+		document.getElementById("grid").append(ele);
+		updateCoordinates(ele, r, c, h, w);
+		return ele;
+	}
+	// return (but not place) a draggable canvas
+	function draggableCanvas2() {
+		let dummy = document.getElementById("dummy");
+		counter++;
+		let str = '<canvas id="holder'+counter+'" class="hold-canvas"';
+		str += 'draggable="true" ';
+		str += 'ondragover="dragoverHandler(event)" ';
+		str += 'ondragstart="dragstartHandler(event)">';
+		str += '</canvas>';
+		dummy.innerHTML = str;
+		let ele = document.getElementById("holder"+counter);
+		document.getElementById("grid").append(ele);
+		return ele;
+	}
+	function draggableCanvas() {
+		counter++;
+		let ele = document.createElement("canvas");
+		ele.id = "holder"+counter;
+		ele.className = "hold-canvas";
+		ele.setAttribute("draggable", true);
+		ele.addEventListener("dragover", dragoverHandler);
+		ele.addEventListener("dragstart", dragstartHandler);
+		ele.addEventListener("dblclick", dblclickHandler);
+		document.getElementById("grid").appendChild(ele);
+		return ele;
+	}
+	// place draggable canvas line
+	function addDraggableLine(start_x, start_y, end_x, end_y, color = "#000") {
+
+		let canvas = draggableCanvas();
+		addLine(canvas, start_x, start_y, end_x, end_y, color);
+	}
+	function addLine(canvas, start_x, start_y, end_x, end_y, color="#000") {
+		let width = Math.abs(start_x-end_x);
+		let height = Math.abs(start_y-end_y);
+		
+		if(height < 20)
+			height = 20;
+		if(width < 20)
+			width = 20;
+		
+		canvas.height = height;
+		canvas.width = width;
+		
+		let min_x = Math.min(start_x, end_x);
+		let min_y = Math.min(start_y, end_y);
+		
+		let start = [start_x-min_x, start_y-min_y];
+		let end = [end_x-min_x, end_y-min_y];
+		
+		let ctx = canvas.getContext("2d");
+		ctx.beginPath();
+		ctx.moveTo(start[0], start[1]);
+		ctx.lineTo(end[0], end[1]);
+		ctx.strokeStyle = color;
+		ctx.lineWidth = 1;
+		ctx.stroke();
+		updateCoordinates(canvas, min_x, min_y);
+	}
+
+	// move things
+	// change x/y coordinates after a drop
+	function updateCoordinates(ele, x, y, h, w) {
+		if(y < 0)
+			y = 0;
+		if(x < 0)
+			x = Math.max(x, -0.5*ele.offsetWidth);
+		ele.style.left = x;
+		ele.style.top = y;
+		if(h)
+			ele.style.height = h;
+		if(w)
+			ele.style.width = w;
+	}
+	// reset canvas pixels
+	function clearCanvas(canvas) {
+		let ctx = canvas.getContext("2d");
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+	}
+	
+	// link things
+	function linkElements(id1, id2, color) {
+		let ele1 = document.getElementById(id1);
+		let ele2 = document.getElementById(id2);
+
+		if(!links[id1])
+			links[id1] = {};
+		if(!links[id2])
+			links[id2] = {};
+		if(!links[id1].hasOwnProperty(id2)) {
+			counter++;
+			links[id1][id2] = [counter, (color || "#000")];
+			links[id2][id1] = [counter, (color || "#000")];
+		}else if(color) {
+			links[id1][id2][1] = color;
+			links[id2][id1][1] = color;
+		}
+		
+		let link_ele = grabLink(links[id1][id2][0]);
+		generateLink(ele1, ele2, link_ele, links[id1][id2][1]);
+	}
+	function generateLink(ele1, ele2, link_ele, color) {
+		let start = eleCenterPoint(ele1);
+		let end = eleCenterPoint(ele2);
+		
+		clearCanvas(link_ele);
+		
+		addLine(link_ele, start[0], start[1], end[0], end[1], color);
+	}
+	function regenerateLinks(id) {
+		for(let i in links[id]) {
+			linkElements(id, i);
+		}
+	}
+	function eleCenterPoint(ele) {
+		return [
+			ele.offsetLeft + (0.5*ele.offsetWidth),
+			ele.offsetTop + (0.5*ele.offsetHeight)
+		]
+	}
+	function grabLink(c) {
+		let ele = document.getElementById("link"+c);
+		if(!ele) {
+			ele = document.createElement("canvas");
+			ele.id = "link"+c;
+			ele.className = "linkline";
+			document.getElementById("grid").appendChild(ele);
+		}
+		return ele;
+	}
+	// debug
+	function debugDraggable(text, size) {
+		addDraggable(text, 1, 1, size, size);
+	}
+	
+	
+</script>
+</head>
+<body onload="newInit()">
+	<div id="header">
+		<input type="button" value="Create a card" onclick="openCreate()" title="Create a new draggable card"> 
+		<span id="link-on">
+			<input type="button" value="Link two cards" onclick="startLinking()" title="Double click two cards to draw a permanent line between them"> 
+		</span><span id="link-off" style="display:none;">
+			<input type="button" value="Cancel linking" onclick="endLinking()" title="Click a card to link, or this button to cancel linking">
+		</span>
+		<span id="sketch-on"><input type="button" value="Draw lines" onclick="beginLineMode()" title="Click two points on the canvas to draw a draggable line"></span>
+		<span id="sketch-off" style="display:none;">
+			<input type="button" value="Cancel lines" onclick="endLineMode()" title="Click the canvas to create endpoints, or this button to cancel drawing"> 
+			<input id="line-color" type="color">
+		</span>
+	</div>
+	<div id="grid" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
+	<canvas id="sketcher"></canvas>
+	<div id="dummy"></div>
+	<div id="modal" style="display:none;">
+		<span id="modal-header">Creating...</span><span id="modal-editor"></span> 
+		<input type="button" value="Cancel" onclick="closeModal()">
+		<span id="delete-btn"> <input type="button" value="Delete this card"></span>
+		<br>
+		Text:<br>
+		<textarea id="new-text" style="width:23em;height:5em;"></textarea><br>
+		<span class="label">Style:</span> 
+		<select id="styles">
+			<option value="">Select a saved style</option>
+		</select><br>
+		<span class="label">Height/Width:</span> <input id="new-height" class="whinput" type="number"> x <input id="new-width" class="whinput" type="number"><br>
+		<span class="label">Layer:</span> <input id="new-z" class="whinput" type="number"><br>
+		<span class="label">Shape:</span> 
+		<input type="radio" name="shape" id="square-radio" value="Square">
+		<label for="rectangle-radio">Square</label> 
+		<input type="radio" name="shape" id="circle-radio" value="Round">
+		<label for="circle-radio">Round</label><br>
+		<span class="label">Card Color:</span> <input id="new-color" type="color" value="#ffffff"><br>
+		<span class="label">Text Color:</span> <input id="new-text-color" type="color"><br>
+		<span class="label">Font Scale:</span> <input id="new-font-scale" class="whimput" type="number"><br>
+		<input type="button" value="Save style as..."><br>
+		<br>
+		<input type="button" value="Save card" onclick="saveModal()">
+	</div>
+</body>
+</html>
