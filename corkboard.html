@@ -76,21 +76,37 @@ input[type="color"] {
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="drag-drop-touch.esm.min.js?autoload" type="module"></script>
 <script>
 	let counter = 0;
+	let linkcount = 0;
 	let sketching = [];
+	let eleSaveData = {};
 	let links = {};
-	let linking = [];
+	let selection = [];
+	let autosave;
 	
 	let default_height = 50;
 	let default_width = 50;
 	
+	let hasMouse = false;
+
 	function newInit() {
-		debugDraggable("test", 50);
-		addDraggable("#2", 100, 100, 75, 220);
+		hasMouse = matchMedia('(pointer:fine)').matches;
+		if(!hasMouse)
+			document.getElementById("dbl").innerText = "Long press";
+		
 		let sk = document.getElementById("sketcher")
 		sk.width = 2*window.screen.width;
 		sk.height = 3*window.screen.height;
+		
+		loadData();
+		return;
+		debugDraggable("test", 50);
+		addDraggable("#2", 100, 100, 75, 220);
+		addDraggable("#3", 50, 50, 50, 50);
+		addDraggable("#4", 200, 50, 50, 50);
+		
 	}
 
 	// drag event handlers
@@ -112,19 +128,66 @@ input[type="color"] {
 		let startTop = dropping.offsetTop;
 
 		let shiftLeft = ev.clientX - ev.dataTransfer.getData("X");
-		let shiftTop = ev.clientY - ev.dataTransfer.getData("Y") - 1;
-		//console.log(startLeft, startTop, shiftLeft, shiftTop);
+		let shiftTop = ev.clientY - ev.dataTransfer.getData("Y");
+		if(!event.fwd)
+			shiftTop--; // idk why drag and touch-drag are desynced by 1 vertical pixel 
+		console.log(startLeft, startTop, shiftLeft, shiftTop);
 		updateCoordinates(dropping, startLeft + shiftLeft, startTop + shiftTop);
-		regenerateLinks(dropping.id);
+		let regen_for = [dropping.id];
+		// if in a selection, move the rest
+		if(selection.includes(dropping)) {
+			for(let s in selection) {
+				if(selection[s] == dropping)
+					continue;
+				let ele = selection[s];
+				let originLeft = ele.offsetLeft;
+				let originTop = ele.offsetTop;
+				updateCoordinates(ele, originLeft + shiftLeft, originTop + shiftTop);
+				regen_for.push(ele.id);
+			}
+		}
+		for(let r in regen_for)
+			regenerateLinks(regen_for[r]);
 	}
-	// handle double click
+
+	// click/touch event handlers
+	function touchHandler(ev) {
+		let ele = ev.target;
+		let timer = setTimeout(() => {
+			dblclickHandler(ev);
+		}, 500)
+		ele.addEventListener("touchend", () => {clearInterval(timer)}, {once:true})
+		ele.addEventListener("dragstart", () => {clearInterval(timer)}, {once:true})
+	}
 	function dblclickHandler(ev) {
-		if(linking.length) {
-			linkHandler(ev);
+		let ele = ev.target;
+		let sindex = selection.indexOf(ele);
+		if(sindex < 0) {
+			selection.push(ele);
+			ele.classList.add("selected");
 		}
 		else{
-			editHandler(ev);
+			selection.splice(sindex, 1);
+			ele.classList.remove("selected");
 		}
+		
+		toggleSelectionText();
+	}
+	function toggleSelectionText() {
+		if(selection.length == 0) {
+			document.getElementById("no-selection").style.display = "";
+			document.getElementById("yes-selection").style.display = "none";
+		}else{
+			document.getElementById("no-selection").style.display = "none";
+			document.getElementById("yes-selection").style.display = "";
+		}
+	}
+	function deselectAll() {
+		for(let s in selection) {
+			selection[s].classList.remove("selected");
+		}
+		selection = [];
+		toggleSelectionText();
 	}
 
 	// line event handlers
@@ -196,32 +259,6 @@ input[type="color"] {
 		ctx.stroke();
 	}
 	
-	// link event handlers
-	function startLinking() {
-		linking = [true];
-		document.getElementById("link-on").style.display = "none";
-		document.getElementById("link-off").style.display = "";
-	}
-	function endLinking() {
-		if(linking[1])
-			document.getElementById(linking[1])?.classList.remove("selected");
-		linking = [];
-		document.getElementById("link-on").style.display = "";
-		document.getElementById("link-off").style.display = "none";
-		// todo disable the highlight
-	}
-	function linkHandler(ev) {
-		linking.push(ev.target.id);
-		if(linking.length == 3) {
-			linkElements(linking[1], linking[2]);
-			document.getElementById(linking[1]).classList.remove("selected");
-			linking = [true];
-		}else{
-			// todo highlight that one
-			ev.target.classList.add("selected");
-		}
-	}
-	
 	// edit handlers
 	function editHandler() {
 		
@@ -274,14 +311,18 @@ input[type="color"] {
 				regenerateLinks(ele.id);
 		}
 
-		if(z !== "")
+		if(z !== "") {
 			ele.style["z-index"] = z;
+			eleSaveData[ele.id].z = z;
+		}
 			
 		if(shape == "square") {
 			ele.classList.remove("round");
+			delete eleSaveData[ele.id].sq;
 		}
 		else{
 			ele.classList.add("round");
+			eleSaveData[ele.id].sq = 1;
 			if(w>=2*h) {
 				ele.classList.add("wide");
 			}else{
@@ -295,17 +336,37 @@ input[type="color"] {
 		}
 		
 		ele.style.background = color;
+		if(color != "#ffffff")
+			eleSaveData[ele.id].back = color;
 		ele.style.color = font_color;
-		ele.style["font-size"] = (font_size || 1) + "em";
-		
+		if(font_color != "#000000")
+			eleSaveData[ele.id].font_color = font_color;
+		if(!font_size)
+			font_size = 1;
+		ele.style["font-size"] = font_size + "em";
+		if(font_size != 1)
+			eleSaveData[ele.id].font_scale = font_size;
+
+		markUnsaved();
 		closeModal();
 	}
+
 	// create containers
 	// place draggable card
-	function addDraggable(text, r, c, h, w) {
+	function addDraggable(text, r, c, h, w, load) {
 		counter++
 		let ele = document.createElement("div");
 		ele.id = "holder"+counter;
+		if(!load) {
+			eleSaveData[ele.id] = {
+				text: text,
+				r:r,
+				c:c,
+				h:h,
+				w:w
+			};
+			markUnsaved();
+		}
 		ele.className = "holdbox";
 		ele.setAttribute("draggable", true);
 		if(h)
@@ -315,30 +376,17 @@ input[type="color"] {
 		ele.addEventListener("dragover", dragoverHandler);
 		ele.addEventListener("dragstart", dragstartHandler);
 		ele.addEventListener("dblclick", dblclickHandler);
+		ele.addEventListener("touchstart", touchHandler);
 		ele.innerHTML = text;
 		document.getElementById("grid").append(ele);
 		updateCoordinates(ele, r, c, h, w);
 		return ele;
 	}
 	// return (but not place) a draggable canvas
-	function draggableCanvas2() {
-		let dummy = document.getElementById("dummy");
-		counter++;
-		let str = '<canvas id="holder'+counter+'" class="hold-canvas"';
-		str += 'draggable="true" ';
-		str += 'ondragover="dragoverHandler(event)" ';
-		str += 'ondragstart="dragstartHandler(event)">';
-		str += '</canvas>';
-		dummy.innerHTML = str;
-		let ele = document.getElementById("holder"+counter);
-		document.getElementById("grid").append(ele);
-		return ele;
-	}
 	function draggableCanvas() {
 		counter++;
 		let ele = document.createElement("canvas");
 		ele.id = "holder"+counter;
-		ele.className = "hold-canvas";
 		ele.setAttribute("draggable", true);
 		ele.addEventListener("dragover", dragoverHandler);
 		ele.addEventListener("dragstart", dragstartHandler);
@@ -347,10 +395,21 @@ input[type="color"] {
 		return ele;
 	}
 	// place draggable canvas line
-	function addDraggableLine(start_x, start_y, end_x, end_y, color = "#000") {
-
+	function addDraggableLine(start_x, start_y, end_x, end_y, color = "#000", load) {
 		let canvas = draggableCanvas();
-		addLine(canvas, start_x, start_y, end_x, end_y, color);
+		if(!load) {
+			eleSaveData[canvas.id] = {
+				x1: start_x,
+				y1: start_y,
+				x2: end_x,
+				y2: end_y,
+				l: 1,
+				color: color
+			}
+			markUnsaved();
+		}
+		canvas.className = "hold-canvas";
+		return addLine(canvas, start_x, start_y, end_x, end_y, color);
 	}
 	function addLine(canvas, start_x, start_y, end_x, end_y, color="#000") {
 		let width = Math.abs(start_x-end_x);
@@ -378,6 +437,7 @@ input[type="color"] {
 		ctx.lineWidth = 1;
 		ctx.stroke();
 		updateCoordinates(canvas, min_x, min_y);
+		return canvas;
 	}
 
 	// move things
@@ -389,10 +449,21 @@ input[type="color"] {
 			x = Math.max(x, -0.5*ele.offsetWidth);
 		ele.style.left = x;
 		ele.style.top = y;
-		if(h)
+		if(h) {
 			ele.style.height = h;
-		if(w)
+		}
+		if(w) {
 			ele.style.width = w;
+		}
+		if(eleSaveData[ele.id]) {
+			eleSaveData[ele.id].r = x;
+			eleSaveData[ele.id].c = y;
+			if(h)
+				eleSaveData[ele.id].h = h;
+			if(w)
+				eleSaveData[ele.id].w = w;
+			markUnsaved();
+		}
 	}
 	// reset canvas pixels
 	function clearCanvas(canvas) {
@@ -401,6 +472,54 @@ input[type="color"] {
 	}
 	
 	// link things
+	function applyLinks() {
+		let kind = document.getElementById("link-logic").value;
+		let color = document.getElementById("link-color").value;
+		
+		if(kind == "all")
+			applyLinkAll(color);
+		if(kind == "one")
+			applyLinkOne(color);
+		if(kind == "chain")
+			applyLinkChain(color);
+		if(kind == "loop")
+			applyLinkLoop(color);
+		
+		document.getElementById("link-logic").value = "none";
+	}
+	function applyLinkAll(color) {
+		for(let i=0; i<selection.length-1; i++) {
+			for(let j=i+1; j<selection.length; j++) {
+				linkElements(selection[i].id, selection[j].id, color);
+			}
+		}
+	}
+	function applyLinkOne(color) {
+		for(let i=1; i<selection.length; i++) {
+			linkElements(selection[0].id, selection[i].id, color);
+		}
+	}
+	function applyLinkChain(color) {
+		for(let i=1; i<selection.length; i++) {
+			linkElements(selection[i-1].id, selection[i].id, color);
+		}
+	}
+	function applyLinkLoop(color) {
+		applyLinkChain(color);
+		linkElements(selection[selection.length-1].id, selection[0].id, color);
+	}
+	function linkHandler(ev) {
+		linking.push(ev.target.id);
+		if(linking.length == 3) {
+			linkElements(linking[1], linking[2]);
+			document.getElementById(linking[1]).classList.remove("selected");
+			linking = [true];
+		}else{
+			// todo highlight that one
+			ev.target.classList.add("selected");
+		}
+	}
+	
 	function linkElements(id1, id2, color) {
 		let ele1 = document.getElementById(id1);
 		let ele2 = document.getElementById(id2);
@@ -410,9 +529,10 @@ input[type="color"] {
 		if(!links[id2])
 			links[id2] = {};
 		if(!links[id1].hasOwnProperty(id2)) {
-			counter++;
-			links[id1][id2] = [counter, (color || "#000")];
-			links[id2][id1] = [counter, (color || "#000")];
+			linkcount++;
+			links[id1][id2] = [linkcount, (color || "#000")];
+			links[id2][id1] = [linkcount, (color || "#000")];
+			markUnsaved();
 		}else if(color) {
 			links[id1][id2][1] = color;
 			links[id2][id1][1] = color;
@@ -450,6 +570,110 @@ input[type="color"] {
 		}
 		return ele;
 	}
+	
+	// save
+	function writeData() {
+		let saveData = {
+			ele: eleSaveData,
+			links: links,
+			counter: counter
+		}
+		localStorage.setItem("corkboard", JSON.stringify(saveData));
+		// todo should make sure it doesn't overflow
+		markSaved();
+	}
+	function markUnsaved() {
+		if(autosave)
+			return;
+		document.getElementById("saved-span").style.display = "none";
+		document.getElementById("save-span").style.display = "";
+		autosave = setTimeout(() => {
+			writeData();
+		}, 30*1000)
+	}
+	function markSaved() {
+		document.getElementById("saved-span").style.display = "";
+		document.getElementById("save-span").style.display = "none";
+		clearInterval(autosave);
+		autosave = null;
+	}
+	function loadData() {
+		let saveData = localStorage.getItem("corkboard");
+		if(!saveData)
+			return;
+		saveData = JSON.parse(saveData);
+		eleSaveData = saveData.ele;
+		links = saveData.links;
+		
+		for(let e in eleSaveData) {
+			let data = eleSaveData[e];
+			let ele;
+			if(data.l) {
+				ele = addDraggableLine(data.x1, data.y1, data.x2, data.y2, data.color, true);
+			}
+			else{
+				ele = addDraggable(data.text, data.r, data.c, data.h, data.w, true);
+			}
+			
+			// update other stuff
+			ele.id = e;
+			if(data.z)
+				ele.style["z-index"] = data.z;
+			if(data.back)
+				ele.style["background"] = data.back;
+			if(data.font_color)
+				ele.style["color"] = data.font_color;
+			if(data.font_scale)
+				ele.style["font-size"] = data.font_scale + "em";
+			if(data.sq) {
+				ele.classList.add("round");
+				if(data.w>=2*data.h)
+					ele.classList.add("wide");
+				if(data.h>=2*data.w)
+					ele.classList.add("tall");
+			}
+			// anchors
+		}
+		counter = saveData.counter;
+		
+		let genned = {};
+		for(let l in links) {
+			for(let m in links[m]) {
+				let revKey = m + "-" + l;
+				if(genned[revKey])
+					continue;
+				let key = l + "-" + m;
+				genned[key] = true;
+				linkElements(l, m);
+			}
+		}
+		
+		markSaved();
+	}
+	function confirmDelete() {
+		if(selection.length == 0)
+			return;
+		if(confirm("Delete all " + selection.length + " selected cards?"))
+			deleteSelection();
+	}
+	function deleteSelection() {
+		for(let s in selection) {
+			let id = selection[s].id;
+			delete eleSaveData[id];
+			for(let oid in links[id]) {
+				let elen = links[oid][id][0];
+				ele = grabLink(elen);
+				ele.remove();
+				delete links[oid][id];
+			}
+			delete links[id];
+			selection[s].remove();
+		}
+		
+		selection = [];
+		toggleSelectionText();
+		markUnsaved();
+	}
 	// debug
 	function debugDraggable(text, size) {
 		addDraggable(text, 1, 1, size, size);
@@ -461,15 +685,29 @@ input[type="color"] {
 <body onload="newInit()">
 	<div id="header">
 		<input type="button" value="Create a card" onclick="openCreate()" title="Create a new draggable card"> 
-		<span id="link-on">
-			<input type="button" value="Link two cards" onclick="startLinking()" title="Double click two cards to draw a permanent line between them"> 
-		</span><span id="link-off" style="display:none;">
-			<input type="button" value="Cancel linking" onclick="endLinking()" title="Click a card to link, or this button to cancel linking">
-		</span>
-		<span id="sketch-on"><input type="button" value="Draw lines" onclick="beginLineMode()" title="Click two points on the canvas to draw a draggable line"></span>
+		<span id="sketch-on"><input type="button" value="Draw lines" onclick="beginLineMode()" title="Click two points on the canvas to draw a draggable line"> </span>
 		<span id="sketch-off" style="display:none;">
 			<input type="button" value="Cancel lines" onclick="endLineMode()" title="Click the canvas to create endpoints, or this button to cancel drawing"> 
-			<input id="line-color" type="color">
+		</span>
+		<input id="line-color" type="color">  
+		<span id="no-selection"> <span id="dbl">Double click</span> one or more cards to edit or multi-move.</span>
+		<span id="yes-selection" style="display:none;">
+			<input id="deselect-cards" type="button" value="Deselect all" title="Deselect all cards" onclick="deselectAll()"> 
+			<input id="edit-card" type="button" value="Edit last selected" title="Double click cards to select them, then edit or link them."> 
+			<input id="delete-cards" type="button" value="Delete all selected" title="Deletes all selected cards." onclick="confirmDelete()">
+			<select id="link-logic" oninput="applyLinks()">
+				<option value="none">Link Cards</option>
+				<option value="all">Connect All</option>
+				<option value="one">Connect to First</option>
+				<option value="chain">Connect in Sequence</option>
+				<option value="loop">Connect in Loop</option>
+			</select> Link Color: 
+			<input id="link-color" type="color">
+		</span> 
+		<span id="saved-span">
+			<input type="button" id="saved-btn" value="Saved!" class="saved" title="Your corkboard has been saved.">
+		</span><span id="save-span" style="display:none;">
+			<input type="button" id="save-btn" value="Save changes" onclick="writeData()" title="Manually save changes if the autosave isn't working.">
 		</span>
 	</div>
 	<div id="grid" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
