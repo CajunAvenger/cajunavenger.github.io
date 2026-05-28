@@ -3,16 +3,34 @@
 <style>
 #grid {
 	display: grid;
-	grid-template-columns: 100vw;
-	grid-template-rows: 100vh;
+	grid-template-columns: 315vw;
+	grid-template-rows: 315vh;
+	background-size: 25px 25px;
+	background-image:
+		linear-gradient(to right, gainsboro 1px, transparent 1px),
+		linear-gradient(to bottom, gainsboro 1px, transparent 1px);
 	position: absolute;
-	top: 12vh;
-	height: 200vh;
+	top: 2.5em;
 }
 #header {
 	position: fixed;
-	height: 10vh;
+	height: 2em;
+	width: 315vw;
 	z-index: 2000;
+}
+@media (pointer:coarse) {
+	#grid {
+		grid-template-columns: 100vw;
+	}
+	#header {
+		width: 100vw;
+	}
+}
+#ribbon {
+	background-color: white;
+	position: relative;
+	border: 1px solid black;
+	padding: 6px;
 }
 #modal {
 	z-index: 3000;
@@ -27,11 +45,26 @@
 .holdbox {
 	position: absolute;
 	background: white;
+	color: black;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	flex-direction: column;
 	border: 1px solid black;
 	z-index: 1;
+}
+.holdbox.autosize {
+	width: auto;
+	height: auto;
+	padding: 5px;
+}
+.flex-line {
+	pointer-events: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 .round {
 	border-radius: 50%;
@@ -53,6 +86,16 @@
 .label {
 	display: inline-block;
 	width: 6em;
+}
+.line {
+	background-color: #000000;
+	color: transparent;
+	height: 3px;
+	margin: 5px;
+	pointer-events: none;
+	position: relative;
+	top: 0.45em;
+	display: inline-block;
 }
 #sketcher {
 	position: absolute;
@@ -85,9 +128,11 @@ input[type="color"] {
 	let links = {};
 	let selection = [];
 	let autosave;
+	let selecting_box = [];
+	let selecting_timer;
 	
-	let default_height = 50;
-	let default_width = 50;
+	let default_height = "auto";
+	let default_width = "auto";
 	
 	let hasMouse = false;
 
@@ -98,15 +143,9 @@ input[type="color"] {
 		
 		let sk = document.getElementById("sketcher")
 		sk.width = 2*window.screen.width;
-		sk.height = 3*window.screen.height;
+		sk.height = 2*window.screen.height;
 		
 		loadData();
-		return;
-		debugDraggable("test", 50);
-		addDraggable("#2", 100, 100, 75, 220);
-		addDraggable("#3", 50, 50, 50, 50);
-		addDraggable("#4", 200, 50, 50, 50);
-		
 	}
 
 	// drag event handlers
@@ -161,6 +200,9 @@ input[type="color"] {
 	}
 	function dblclickHandler(ev) {
 		let ele = ev.target;
+		toggleSelectionOf(ele);
+	}
+	function toggleSelectionOf(ele) {
 		let sindex = selection.indexOf(ele);
 		if(sindex < 0) {
 			selection.push(ele);
@@ -259,6 +301,91 @@ input[type="color"] {
 		ctx.stroke();
 	}
 	
+	// selection box
+	function drawingSelection(ev) {
+		if(ev.target.id != "grid")
+			return;
+		selecting_box = [ev.layerX+ev.target.offsetLeft, ev.layerY+ev.target.offsetTop];
+		document.body.addEventListener("mousemove", drawSelectionBox);
+	}
+	function drawnSelection(ev) {
+		document.body.removeEventListener("mousemove", drawSelectionBox);
+		clearCanvas(document.getElementById("sketcher"));
+		if(!selecting_box.length)
+			return;
+		let grid = document.getElementById("grid");
+		selecting_box.push(...correctSelectionXY(ev));
+		let bounding_top_left = {
+			x: Math.min(selecting_box[0], selecting_box[2]),
+			y: Math.min(selecting_box[1], selecting_box[3])
+		}
+		let bounding_bottom_right = {
+			x: Math.max(selecting_box[0], selecting_box[2]),
+			y: Math.max(selecting_box[1], selecting_box[3])
+		}
+		for(let e in eleSaveData) {
+			let ele = document.getElementById(e);
+			let rect = {
+				left: ele.offsetLeft + grid.offsetLeft,
+				top: ele.offsetTop + grid.offsetTop
+			}
+			rect.right = rect.left + ele.offsetWidth;
+			rect.bottom = rect.top + ele.offsetHeight;
+			
+			let top_left = {x:rect.left, y:rect.top};
+			let bottom_right = {x:rect.right, y:rect.bottom};
+			if(!rectOverlap(bounding_top_left, bounding_bottom_right, top_left, bottom_right))
+				continue;
+			toggleSelectionOf(ele);
+		}
+		selecting_box = [];
+	}
+	function rectOverlap(l1, r1, l2, r2) {
+		// out of left/right bound
+		if(l1.x > r2.x || l2.x > r1.x)
+			return false;
+		// out of up/down bound
+		if(r1.y < l2.y || r2.y < l1.y)
+			return false;
+		// in bound
+		return true;
+	}
+	function drawSelectionBox(ev) {
+		if(!selecting_box.length)
+			return;
+		let canvas = document.getElementById("sketcher")
+		let ctx = canvas.getContext("2d");
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.strokeStyle = '#000';
+		ctx.lineWidth = 1;
+		ctx.setLineDash([5, 3]);
+		let [x, y] = correctSelectionXY(ev);
+		let points = [
+			[selecting_box[0], selecting_box[1]],
+			[x, selecting_box[1]],
+			[x, y],
+			[selecting_box[0], y]
+		]
+		for(let p=0; p<points.length; p++) {
+			let start = points[p];
+			let end = points[(p+1)%points.length];
+			ctx.beginPath();
+			ctx.moveTo(start[0], start[1]);
+			ctx.lineTo(end[0], end[1]);
+			ctx.stroke();
+		}
+	}
+	function correctSelectionXY(ev) {
+		let x = ev.layerX+ev.target.offsetLeft;
+		let y = ev.layerY+ev.target.offsetTop;
+		if(ev.target.id != "grid") {
+			let grid = document.getElementById("grid");
+			x += grid.offsetLeft;
+			y += grid.offsetTop;
+		}
+		return [x, y];
+	}
+	
 	// edit handlers
 	function editHandler() {
 		
@@ -269,20 +396,40 @@ input[type="color"] {
 	function openCreate() {
 		document.getElementById("modal-header").innerHTML = "<b>Creating...</b>";
 		document.getElementById("modal-editor").innerHTML = "";
-		document.getElementById("delete-btn").style.display = "none";
 		document.getElementById("new-text").value = "";
 		document.getElementById("new-width").value = default_width;
 		document.getElementById("new-height").value = default_height;
 		document.getElementById("new-z").value = 1;
 		document.getElementById("modal").style.display = "";
 	}
+	function editLast() {
+		if(!selection.length)
+			return;
+		openEdit(selection[selection.length-1])
+	}
+	function openEdit(ele) {
+		document.getElementById("modal-header").innerHTML = '<b>Editing <span id="modal-editor"></span>...</b>';
+		document.getElementById("modal-editor").innerHTML = ele.id;
+		document.getElementById("new-text").value = unprocessText(ele);
+		document.getElementById("new-width").value = ele.style.width;
+		document.getElementById("new-height").value = ele.style.height;
+		document.getElementById("new-z").value = ele.style["z-index"];
+		document.getElementById("new-color").value = (ele.style["background-color"] || "#ffffff");
+		document.getElementById("new-text-color").value = ele.style["color"];
+		document.getElementById("new-font-scale").value = (ele.style["font-size"] || "1em").replace("em", "");
+		document.getElementById("modal").style.display = "";
+	}
 	function saveModal() {
 		let existing = document.getElementById("modal-editor").innerText;
 		let need_regen = false;
 
-		let text = document.getElementById("new-text").value;
+		let text = processText(document.getElementById("new-text").value);
 		let w = document.getElementById("new-width").value;
 		let h = document.getElementById("new-height").value;
+		if(!w)
+			w = "auto";
+		if(!h)
+			h = "auto";
 		let z = document.getElementById("new-z").value;
 		let color = document.getElementById("new-color").value;
 		let font_color = document.getElementById("new-text-color").value;
@@ -293,21 +440,35 @@ input[type="color"] {
 			shape = "circle";
 		
 		let ele;
-		if(existing)
+		if(existing) {
 			ele = document.getElementById(existing);
+			eleSaveData[ele.id].text = text;
+			eleSaveData[ele.id].w = w;
+			eleSaveData[ele.id].h = h;
+			if(w == "auto" || h == "auto") {
+				ele.classList.add("autosize");
+			}
+			else{
+				ele.classList.remove("autosize");
+			}
+			markUnsaved();
+		}
 		if(!ele) {
 			ele = addDraggable(text, 1, 1, h, w);
 		}else{
-			ele.innerHTML = text;
+			if(ele.innerHTML != text) {
+				ele.innerHTML = text;
+				need_regen = true;
+			}
 			if(w && ele.style.width != w) {
 				need_regen = true;
 				ele.style.width = w;
 			}
 			if(h && ele.style.height != h) {
-				needs_regen = true;
+				need_regen = true;
 				ele.style.height = h;
 			}
-			if(needs_regen)
+			if(need_regen)
 				regenerateLinks(ele.id);
 		}
 
@@ -336,8 +497,11 @@ input[type="color"] {
 		}
 		
 		ele.style.background = color;
-		if(color != "#ffffff")
+		if(color == "#ffffff") {
+			delete eleSaveData[ele.id].back;
+		}else{
 			eleSaveData[ele.id].back = color;
+		}
 		ele.style.color = font_color;
 		if(font_color != "#000000")
 			eleSaveData[ele.id].font_color = font_color;
@@ -350,25 +514,55 @@ input[type="color"] {
 		markUnsaved();
 		closeModal();
 	}
-
+	function processText(str) {
+		let breaks = str.split("\n");
+		if(breaks) {
+			let s = '<div class="flex-line">';
+			let e = '</div>';
+			str = s + breaks.join(e + s) + e;
+		}
+		str = str.replace(/<line:?([^>]*)>/g, function(match, _1) {
+			let ret = '<span class="line"'
+			if(_1)
+				ret += ' style="background-color:' + _1 + ';"';
+			ret += '>legend</span>'
+			return ret;
+		})
+		return str;
+	}
+	function unprocessText(ele) {
+		let strs = [];
+		for(let i=0; i<ele.children.length; i++) {
+			strs.push(unprocessLegend(ele.children[i].innerHTML));
+		}
+		return strs.join("\n");
+	}
+	function unprocessLegend(str) {
+		return str.replace(/<span class="line"([^>]*)>legend<\/span>/g, function(m, _1) {
+			if(!_1)
+				return "<line>";
+			let pull = _1.match(/background-color: *([^;]+);/);
+			if(!pull)
+				return "<line>";
+			return "<line:" + pull[1] + ">";
+		})
+	}
 	// create containers
 	// place draggable card
 	function addDraggable(text, r, c, h, w, load) {
 		counter++
 		let ele = document.createElement("div");
 		ele.id = "holder"+counter;
-		if(!load) {
-			eleSaveData[ele.id] = {
-				text: text,
-				r:r,
-				c:c,
-				h:h,
-				w:w
-			};
-			markUnsaved();
-		}
+		if(!load && !eleSaveData.hasOwnProperty(ele.id))
+			eleSaveData[ele.id] = {text:text}
+		
 		ele.className = "holdbox";
 		ele.setAttribute("draggable", true);
+		if(h == "auto" || w == "auto") {
+			ele.classList.add("autosize");
+		}else{
+			ele.classList.remove("autosize");
+		}
 		if(h)
 			ele.setAttribute("height", h);
 		if(w)
@@ -379,7 +573,7 @@ input[type="color"] {
 		ele.addEventListener("touchstart", touchHandler);
 		ele.innerHTML = text;
 		document.getElementById("grid").append(ele);
-		updateCoordinates(ele, r, c, h, w);
+		updateCoordinates(ele, r, c, h, w, load);
 		return ele;
 	}
 	// return (but not place) a draggable canvas
@@ -434,7 +628,7 @@ input[type="color"] {
 		ctx.moveTo(start[0], start[1]);
 		ctx.lineTo(end[0], end[1]);
 		ctx.strokeStyle = color;
-		ctx.lineWidth = 1;
+		ctx.lineWidth = 2;
 		ctx.stroke();
 		updateCoordinates(canvas, min_x, min_y);
 		return canvas;
@@ -442,7 +636,7 @@ input[type="color"] {
 
 	// move things
 	// change x/y coordinates after a drop
-	function updateCoordinates(ele, x, y, h, w) {
+	function updateCoordinates(ele, x, y, h, w, load) {
 		if(y < 0)
 			y = 0;
 		if(x < 0)
@@ -455,7 +649,7 @@ input[type="color"] {
 		if(w) {
 			ele.style.width = w;
 		}
-		if(eleSaveData[ele.id]) {
+		if(!load && eleSaveData[ele.id]) {
 			eleSaveData[ele.id].r = x;
 			eleSaveData[ele.id].c = y;
 			if(h)
@@ -484,9 +678,13 @@ input[type="color"] {
 			applyLinkChain(color);
 		if(kind == "loop")
 			applyLinkLoop(color);
-		
+		if(kind == "purge")
+			applyLinkPurge();
+		if(kind == "unlink")
+			applyUnlinkSelected();
 		document.getElementById("link-logic").value = "none";
 	}
+	// link all in selection to each other
 	function applyLinkAll(color) {
 		for(let i=0; i<selection.length-1; i++) {
 			for(let j=i+1; j<selection.length; j++) {
@@ -494,19 +692,40 @@ input[type="color"] {
 			}
 		}
 	}
+	// link all in selection to the first
 	function applyLinkOne(color) {
 		for(let i=1; i<selection.length; i++) {
 			linkElements(selection[0].id, selection[i].id, color);
 		}
 	}
+	// link all in selection to the next one
 	function applyLinkChain(color) {
 		for(let i=1; i<selection.length; i++) {
 			linkElements(selection[i-1].id, selection[i].id, color);
 		}
 	}
+	// link all in selection to the first one, then back around
 	function applyLinkLoop(color) {
 		applyLinkChain(color);
 		linkElements(selection[selection.length-1].id, selection[0].id, color);
+	}
+	// break all links
+	function applyLinkPurge() {
+		for(let s in selection) {
+			let id1 = selection[s].id;
+			for(let id2 in links[id1]) {
+				unlinkElements(id1, id2);
+			}
+		} 
+	}
+	// break all links between another selected card
+	function applyUnlinkSelected() {
+		for(let i=0; i<selection.length-1; i++) {
+			for(let j=i+1; j<selection.length; j++) {
+				if(links[selection[i].id][selection[j].id])
+					unlinkElements(selection[i].id, selection[j].id);
+			}
+		}
 	}
 	function linkHandler(ev) {
 		linking.push(ev.target.id);
@@ -540,6 +759,18 @@ input[type="color"] {
 		
 		let link_ele = grabLink(links[id1][id2][0]);
 		generateLink(ele1, ele2, link_ele, links[id1][id2][1]);
+	}
+	function unlinkElements(id1, id2) {
+		let connect = links[id1][id2];
+		if(!connect)
+			connect = links[id2][id1];
+		if(!connect)
+			return;
+		let link_ele = grabLink(connect[0]);
+		link_ele.remove();
+		delete links[id1][id2];
+		delete links[id2][id1];
+		markUnsaved();
 	}
 	function generateLink(ele1, ele2, link_ele, color) {
 		let start = eleCenterPoint(ele1);
@@ -576,7 +807,8 @@ input[type="color"] {
 		let saveData = {
 			ele: eleSaveData,
 			links: links,
-			counter: counter
+			counter: counter,
+			linkcount: linkcount
 		}
 		localStorage.setItem("corkboard", JSON.stringify(saveData));
 		// todo should make sure it doesn't overflow
@@ -612,7 +844,7 @@ input[type="color"] {
 				ele = addDraggableLine(data.x1, data.y1, data.x2, data.y2, data.color, true);
 			}
 			else{
-				ele = addDraggable(data.text, data.r, data.c, data.h, data.w, true);
+				ele = addDraggable(processText(data.text), data.r, data.c, data.h, data.w, true);
 			}
 			
 			// update other stuff
@@ -634,11 +866,14 @@ input[type="color"] {
 			}
 			// anchors
 		}
-		counter = saveData.counter;
+		if(saveData.counter)
+			counter = saveData.counter;
+		if(saveData.linkcount)
+			linkcount = saveData.linkcount;
 		
 		let genned = {};
 		for(let l in links) {
-			for(let m in links[m]) {
+			for(let m in links[l]) {
 				let revKey = m + "-" + l;
 				if(genned[revKey])
 					continue;
@@ -684,16 +919,17 @@ input[type="color"] {
 </head>
 <body onload="newInit()">
 	<div id="header">
+		<span id="ribbon">
 		<input type="button" value="Create a card" onclick="openCreate()" title="Create a new draggable card"> 
 		<span id="sketch-on"><input type="button" value="Draw lines" onclick="beginLineMode()" title="Click two points on the canvas to draw a draggable line"> </span>
 		<span id="sketch-off" style="display:none;">
 			<input type="button" value="Cancel lines" onclick="endLineMode()" title="Click the canvas to create endpoints, or this button to cancel drawing"> 
 		</span>
 		<input id="line-color" type="color">  
-		<span id="no-selection"> <span id="dbl">Double click</span> one or more cards to edit or multi-move.</span>
+		<span id="no-selection"> <span id="dbl">Double click</span> one or more cards/lines to edit or multi-move.</span>
 		<span id="yes-selection" style="display:none;">
 			<input id="deselect-cards" type="button" value="Deselect all" title="Deselect all cards" onclick="deselectAll()"> 
-			<input id="edit-card" type="button" value="Edit last selected" title="Double click cards to select them, then edit or link them."> 
+			<input id="edit-card" type="button" value="Edit last selected" onclick="editLast()" title="Double click cards to select them, then edit or link them."> 
 			<input id="delete-cards" type="button" value="Delete all selected" title="Deletes all selected cards." onclick="confirmDelete()">
 			<select id="link-logic" oninput="applyLinks()">
 				<option value="none">Link Cards</option>
@@ -701,6 +937,8 @@ input[type="color"] {
 				<option value="one">Connect to First</option>
 				<option value="chain">Connect in Sequence</option>
 				<option value="loop">Connect in Loop</option>
+				<option value="purge">Break all Links</option>
+				<option value="unlink">Break Links In Selected</option>
 			</select> Link Color: 
 			<input id="link-color" type="color">
 		</span> 
@@ -709,14 +947,14 @@ input[type="color"] {
 		</span><span id="save-span" style="display:none;">
 			<input type="button" id="save-btn" value="Save changes" onclick="writeData()" title="Manually save changes if the autosave isn't working.">
 		</span>
+		</span>
 	</div>
-	<div id="grid" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
+	<div id="grid" onmousedown="drawingSelection(event)" onmouseup="drawnSelection(event)" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
 	<canvas id="sketcher"></canvas>
 	<div id="dummy"></div>
 	<div id="modal" style="display:none;">
 		<span id="modal-header">Creating...</span><span id="modal-editor"></span> 
 		<input type="button" value="Cancel" onclick="closeModal()">
-		<span id="delete-btn"> <input type="button" value="Delete this card"></span>
 		<br>
 		Text:<br>
 		<textarea id="new-text" style="width:23em;height:5em;"></textarea><br>
