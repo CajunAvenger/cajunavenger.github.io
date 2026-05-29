@@ -87,7 +87,7 @@
 	display: inline-block;
 	width: 6em;
 }
-.line {
+.legend-line {
 	background-color: #000000;
 	color: transparent;
 	height: 3px;
@@ -96,6 +96,17 @@
 	position: relative;
 	top: 0.45em;
 	display: inline-block;
+}
+.legend-bar {
+	background-color: #000000;
+	color: transparent;
+	height: 0.9em;
+	margin: 5px;
+	pointer-events: none;
+	position: relative;
+	top: 2px;
+	display: inline-block;
+	border: 1px solid black;
 }
 #sketcher {
 	position: absolute;
@@ -113,9 +124,17 @@ input[type="color"] {
 .linkline {
 	z-index: 0;
 	position: absolute;
+	pointer-events: none;
 }
 .selected {
 	box-shadow: 0px 0px 10px #0f0;
+}
+.inactive {
+	color: gray;
+}
+#delete-cards {
+	color: white;
+	background-color: #e46;
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
@@ -129,10 +148,13 @@ input[type="color"] {
 	let selection = [];
 	let autosave;
 	let selecting_box = [];
-	let selecting_timer;
+	let undoHistory = [];
+	let redoHistory = [];
 	
 	let default_height = "auto";
 	let default_width = "auto";
+	
+	let clusterKey = 1;
 	
 	let hasMouse = false;
 
@@ -148,6 +170,11 @@ input[type="color"] {
 		loadData();
 	}
 
+	// select the radio button by clicking the label
+	function selectRadio(kind) {
+		document.getElementById(kind+"-radio").checked = true;
+	}
+
 	// drag event handlers
 	// allow dropin
 	function dragoverHandler(ev) {
@@ -155,6 +182,17 @@ input[type="color"] {
 	}
 	// cache drag data
 	function dragstartHandler(ev) {
+		if(ev.shiftKey) {
+			ev.preventDefault();
+			// pivot to selection
+			let grid = document.getElementById("grid");
+			selecting_box = [
+				ev.layerX + ev.target.offsetLeft + grid.offsetLeft,
+				ev.layerY + ev.target.offsetTop + grid.offsetTop
+			];
+			document.body.addEventListener("mousemove", drawSelectionBox);
+			return;
+		}
 		ev.dataTransfer.setData("text", ev.target.id);
 		ev.dataTransfer.setData("X", parseInt(ev.clientX));
 		ev.dataTransfer.setData("Y", parseInt(ev.clientY));
@@ -170,7 +208,8 @@ input[type="color"] {
 		let shiftTop = ev.clientY - ev.dataTransfer.getData("Y");
 		if(!event.fwd)
 			shiftTop--; // idk why drag and touch-drag are desynced by 1 vertical pixel 
-		console.log(startLeft, startTop, shiftLeft, shiftTop);
+		//console.log(startLeft, startTop, shiftLeft, shiftTop);
+		clusterKey++;
 		updateCoordinates(dropping, startLeft + shiftLeft, startTop + shiftTop);
 		let regen_for = [dropping.id];
 		// if in a selection, move the rest
@@ -202,34 +241,60 @@ input[type="color"] {
 		let ele = ev.target;
 		toggleSelectionOf(ele);
 	}
-	function toggleSelectionOf(ele) {
-		let sindex = selection.indexOf(ele);
-		if(sindex < 0) {
-			selection.push(ele);
-			ele.classList.add("selected");
+
+	// key press event handlers
+	function handleKeyDown(ev) {
+		let action;
+		switch(ev.code) {
+			case "ArrowLeft":
+				action = "left";
+				break;
+			case "ArrowRight":
+				action = "right";
+				break;
+			case "ArrowUp":
+				action = "up";
+				break;
+			case "ArrowDown":
+				action = "down";
+				break;
+			case "KeyZ":
+				if(ev.ctrlKey)
+					action = "undo";
+				break;
+			case "KeyY":
+				if(ev.ctrlKey)
+					action = "redo";
+				break;
 		}
-		else{
-			selection.splice(sindex, 1);
-			ele.classList.remove("selected");
+		if(!action)
+			return;
+		
+		switch(action) {
+			case "left":
+				if(arrowMovement(-1, 0))
+					ev.preventDefault();
+				break;
+			case "right":
+				if(arrowMovement(1, 0))
+					ev.preventDefault();
+				break;
+			case "up":
+				if(arrowMovement(0, -1))
+					ev.preventDefault();
+				break;
+			case "down":
+				if(arrowMovement(0, 1))
+					ev.preventDefault();
+				break;
+			case "undo":
+				undoLast();
+				break;
+			case "redo":
+				redoLast();
+				break;
 		}
 		
-		toggleSelectionText();
-	}
-	function toggleSelectionText() {
-		if(selection.length == 0) {
-			document.getElementById("no-selection").style.display = "";
-			document.getElementById("yes-selection").style.display = "none";
-		}else{
-			document.getElementById("no-selection").style.display = "none";
-			document.getElementById("yes-selection").style.display = "";
-		}
-	}
-	function deselectAll() {
-		for(let s in selection) {
-			selection[s].classList.remove("selected");
-		}
-		selection = [];
-		toggleSelectionText();
 	}
 
 	// line event handlers
@@ -302,12 +367,51 @@ input[type="color"] {
 	}
 	
 	// selection box
+	// initial click, set up listener to draw the box
 	function drawingSelection(ev) {
 		if(ev.target.id != "grid")
 			return;
 		selecting_box = [ev.layerX+ev.target.offsetLeft, ev.layerY+ev.target.offsetTop];
 		document.body.addEventListener("mousemove", drawSelectionBox);
 	}
+	// draw the dotted selection box
+	function drawSelectionBox(ev) {
+		if(!selecting_box.length)
+			return;
+		let canvas = document.getElementById("sketcher")
+		let ctx = canvas.getContext("2d");
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.strokeStyle = '#000';
+		ctx.lineWidth = 1;
+		ctx.setLineDash([5, 3]);
+		let [x, y] = correctSelectionXY(ev);
+		let points = [
+			[selecting_box[0], selecting_box[1]],
+			[x, selecting_box[1]],
+			[x, y],
+			[selecting_box[0], y]
+		]
+		for(let p=0; p<points.length; p++) {
+			let start = points[p];
+			let end = points[(p+1)%points.length];
+			ctx.beginPath();
+			ctx.moveTo(start[0], start[1]);
+			ctx.lineTo(end[0], end[1]);
+			ctx.stroke();
+		}
+	}
+	// convert event position to canvas position
+	function correctSelectionXY(ev) {
+		let x = ev.layerX+ev.target.offsetLeft;
+		let y = ev.layerY+ev.target.offsetTop;
+		if(ev.target.id != "grid") {
+			let grid = document.getElementById("grid");
+			x += grid.offsetLeft;
+			y += grid.offsetTop;
+		}
+		return [x, y];
+	}
+	// final script, select and cleanup
 	function drawnSelection(ev) {
 		document.body.removeEventListener("mousemove", drawSelectionBox);
 		clearCanvas(document.getElementById("sketcher"));
@@ -336,10 +440,12 @@ input[type="color"] {
 			let bottom_right = {x:rect.right, y:rect.bottom};
 			if(!rectOverlap(bounding_top_left, bounding_bottom_right, top_left, bottom_right))
 				continue;
+			clusterKey++;
 			toggleSelectionOf(ele);
 		}
 		selecting_box = [];
 	}
+	// check if two rect overlap by comparing top left and bottom right coordinates
 	function rectOverlap(l1, r1, l2, r2) {
 		// out of left/right bound
 		if(l1.x > r2.x || l2.x > r1.x)
@@ -350,49 +456,47 @@ input[type="color"] {
 		// in bound
 		return true;
 	}
-	function drawSelectionBox(ev) {
-		if(!selecting_box.length)
-			return;
-		let canvas = document.getElementById("sketcher")
-		let ctx = canvas.getContext("2d");
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		ctx.strokeStyle = '#000';
-		ctx.lineWidth = 1;
-		ctx.setLineDash([5, 3]);
-		let [x, y] = correctSelectionXY(ev);
-		let points = [
-			[selecting_box[0], selecting_box[1]],
-			[x, selecting_box[1]],
-			[x, y],
-			[selecting_box[0], y]
-		]
-		for(let p=0; p<points.length; p++) {
-			let start = points[p];
-			let end = points[(p+1)%points.length];
-			ctx.beginPath();
-			ctx.moveTo(start[0], start[1]);
-			ctx.lineTo(end[0], end[1]);
-			ctx.stroke();
+	// select/unselect an element
+	function toggleSelectionOf(ele, undoable = true) {
+		let sindex = selection.indexOf(ele);
+		if(sindex < 0) {
+			selection.push(ele);
+			ele.classList.add("selected");
+		}
+		else{
+			selection.splice(sindex, 1);
+			ele.classList.remove("selected");
+		}
+		if(undoable) {
+			addHistoryEvent({
+				action: "selection-change",
+				id: ele.id
+			});
+		}
+		toggleSelectionText();
+	}
+	// update header text based on selected elements
+	function toggleSelectionText() {
+		if(selection.length == 0) {
+			document.getElementById("no-selection").style.display = "";
+			document.getElementById("yes-selection").style.display = "none";
+		}else{
+			document.getElementById("no-selection").style.display = "none";
+			document.getElementById("yes-selection").style.display = "";
 		}
 	}
-	function correctSelectionXY(ev) {
-		let x = ev.layerX+ev.target.offsetLeft;
-		let y = ev.layerY+ev.target.offsetTop;
-		if(ev.target.id != "grid") {
-			let grid = document.getElementById("grid");
-			x += grid.offsetLeft;
-			y += grid.offsetTop;
+	// deselect all header button
+	function deselectAll() {
+		for(let s in selection) {
+			selection[s].classList.remove("selected");
 		}
-		return [x, y];
+		selection = [];
+		toggleSelectionText();
 	}
 	
+	
 	// edit handlers
-	function editHandler() {
-		
-	}
-	function closeModal() {
-		document.getElementById("modal").style.display = "none";
-	}
+	// load New Card defaults and open modal
 	function openCreate() {
 		document.getElementById("modal-header").innerHTML = "<b>Creating...</b>";
 		document.getElementById("modal-editor").innerHTML = "";
@@ -402,15 +506,11 @@ input[type="color"] {
 		document.getElementById("new-z").value = 1;
 		document.getElementById("modal").style.display = "";
 	}
-	function editLast() {
-		if(!selection.length)
-			return;
-		openEdit(selection[selection.length-1])
-	}
+	// load Edit Card info and open modal
 	function openEdit(ele) {
 		document.getElementById("modal-header").innerHTML = '<b>Editing <span id="modal-editor"></span>...</b>';
 		document.getElementById("modal-editor").innerHTML = ele.id;
-		document.getElementById("new-text").value = unprocessText(ele);
+		document.getElementById("new-text").value = eleSaveData[ele.id].text;
 		document.getElementById("new-width").value = ele.style.width;
 		document.getElementById("new-height").value = ele.style.height;
 		document.getElementById("new-z").value = ele.style["z-index"];
@@ -419,11 +519,22 @@ input[type="color"] {
 		document.getElementById("new-font-scale").value = (ele.style["font-size"] || "1em").replace("em", "");
 		document.getElementById("modal").style.display = "";
 	}
-	function saveModal() {
+	// alias script of above for the edit button
+	function editLast() {
+		if(!selection.length)
+			return;
+		openEdit(selection[selection.length-1])
+	}
+	// close the window
+	function closeModal() {
+		document.getElementById("modal").style.display = "none";
+	}
+	// write modal form to eleSaveData
+	function loadModal() {
 		let existing = document.getElementById("modal-editor").innerText;
 		let need_regen = false;
 
-		let text = processText(document.getElementById("new-text").value);
+		let text = document.getElementById("new-text").value;
 		let w = document.getElementById("new-width").value;
 		let h = document.getElementById("new-height").value;
 		if(!w)
@@ -439,51 +550,76 @@ input[type="color"] {
 		if(document.getElementById("circle-radio").checked)
 			shape = "circle";
 		
-		let ele;
-		if(existing) {
-			ele = document.getElementById(existing);
-			eleSaveData[ele.id].text = text;
-			eleSaveData[ele.id].w = w;
-			eleSaveData[ele.id].h = h;
-			if(w == "auto" || h == "auto") {
-				ele.classList.add("autosize");
-			}
-			else{
-				ele.classList.remove("autosize");
-			}
-			markUnsaved();
-		}
-		if(!ele) {
-			ele = addDraggable(text, 1, 1, h, w);
-		}else{
-			if(ele.innerHTML != text) {
-				ele.innerHTML = text;
-				need_regen = true;
-			}
-			if(w && ele.style.width != w) {
-				need_regen = true;
-				ele.style.width = w;
-			}
-			if(h && ele.style.height != h) {
-				need_regen = true;
-				ele.style.height = h;
-			}
-			if(need_regen)
-				regenerateLinks(ele.id);
+		let event = {
+			action: "update-card"
 		}
 
-		if(z !== "") {
-			ele.style["z-index"] = z;
-			eleSaveData[ele.id].z = z;
+		let id = "holder" + (counter+1);
+		if(existing) {
+			id = existing;
+			event.old = JSON.stringify(eleSaveData[id]);
 		}
-			
+		event.id = id;
+		if(!eleSaveData[id])
+			eleSaveData[id] = {};
+		eleSaveData[id].text = text;
+		eleSaveData[id].w = w;
+		eleSaveData[id].h = h;
+		if(z !== "")
+			eleSaveData[id].z = z;
+		
 		if(shape == "square") {
-			ele.classList.remove("round");
-			delete eleSaveData[ele.id].sq;
+			delete eleSaveData[id].sq;
+		}else{
+			eleSaveData[id].sq = 1;
+		}
+		
+		if(color == "#ffffff") {
+			delete eleSaveData[id].back;
+		}else{
+			eleSaveData[id].back = color;
+		}
+		
+		if(font_color != "#000000")
+			eleSaveData[id].font_color = font_color;
+		
+		if(!font_size)
+			font_size = 1;
+		if(font_size != 1)
+			eleSaveData[id].font_scale = font_size;
+
+		if(!existing) {
+			addDraggable(text, 1, 1, h, w);
+		}else{
+			event.new = JSON.stringify(eleSaveData[id]);
+			addHistoryEvent(event);
+		}
+		updateDraggable(id, need_regen);
+		
+		closeModal();
+	}
+	// update an element to match eleSaveData
+	function updateDraggable(id, regen_links = true) {
+		let ele = document.getElementById(id);
+		let sd = eleSaveData[id];
+		
+		ele.innerHTML = processText(sd.text);
+		ele.style["width"] = eleSaveData[ele.id].w;
+		ele.style["height"] = eleSaveData[ele.id].h;
+		if(sd.w == "auto" || sd.h == "auto") {
+			ele.classList.add("autosize");
 		}
 		else{
+			ele.classList.remove("autosize");
+		}
+		
+		if(!sd.sq) {
+			ele.classList.remove("round");
+		}
+		else{
+			let w = eleSaveData[ele.id].w;
+			let h = eleSaveData[ele.id].h;
 			ele.classList.add("round");
-			eleSaveData[ele.id].sq = 1;
 			if(w>=2*h) {
 				ele.classList.add("wide");
 			}else{
@@ -496,24 +632,22 @@ input[type="color"] {
 			}
 		}
 		
-		ele.style.background = color;
-		if(color == "#ffffff") {
-			delete eleSaveData[ele.id].back;
-		}else{
-			eleSaveData[ele.id].back = color;
-		}
-		ele.style.color = font_color;
-		if(font_color != "#000000")
-			eleSaveData[ele.id].font_color = font_color;
-		if(!font_size)
-			font_size = 1;
-		ele.style["font-size"] = font_size + "em";
-		if(font_size != 1)
-			eleSaveData[ele.id].font_scale = font_size;
-
+		if(sd.z !== undefined)
+			ele.style["z-index"] = sd.z;
+		
+		if(sd.back)
+			ele.style.background = sd.back;
+		if(sd.font_color)
+			ele.style.color = sd.font_color;
+		if(sd.font_scale)
+			ele.style["font-size"] = font_scale + "em";
+		
+		if(regen_links)
+			regenerateLinks(id);
+		
 		markUnsaved();
-		closeModal();
 	}
+	// format plaintext to HTML
 	function processText(str) {
 		let breaks = str.split("\n");
 		if(breaks) {
@@ -522,7 +656,14 @@ input[type="color"] {
 			str = s + breaks.join(e + s) + e;
 		}
 		str = str.replace(/<line:?([^>]*)>/g, function(match, _1) {
-			let ret = '<span class="line"'
+			let ret = '<span class="legend-line"'
+			if(_1)
+				ret += ' style="background-color:' + _1 + ';"';
+			ret += '>legend</span>'
+			return ret;
+		})
+		str = str.replace(/<bar:?([^>]*)>/g, function(match, _1) {
+			let ret = '<span class="legend-bar"'
 			if(_1)
 				ret += ' style="background-color:' + _1 + ';"';
 			ret += '>legend</span>'
@@ -530,29 +671,37 @@ input[type="color"] {
 		})
 		return str;
 	}
-	function unprocessText(ele) {
-		let strs = [];
-		for(let i=0; i<ele.children.length; i++) {
-			strs.push(unprocessLegend(ele.children[i].innerHTML));
+	// deformat HTML to plaintext for debugging
+	function unprocessText(str) {
+		let strs = str.split('</div><div class="flex-line">');
+		strs[0] = strs[0].replace(/^<div class="flex-line">/, "");
+		strs[strs.length-1].replace(/<\/div>$/, "");
+		for(let s in strs) {
+			strs[s] = unprocessLegend(strs[s]);
 		}
 		return strs.join("\n");
 	}
 	function unprocessLegend(str) {
-		return str.replace(/<span class="line"([^>]*)>legend<\/span>/g, function(m, _1) {
-			if(!_1)
-				return "<line>";
-			let pull = _1.match(/background-color: *([^;]+);/);
+		return str.replace(/<span class="(?:legend-)?(line|bar)"([^>]*)>legend<\/span>/g, function(m, _1, _2) {
+			if(!_2)
+				return "<"+_1+">";
+			let pull = _2.match(/background-color: *([^;]+);/);
 			if(!pull)
-				return "<line>";
-			return "<line:" + pull[1] + ">";
+				return "<"+_1+">";
+			return "<"+_1+":" + pull[1] + ">";
 		})
 	}
+
 	// create containers
 	// place draggable card
-	function addDraggable(text, r, c, h, w, load) {
-		counter++
+	function addDraggable(text, r, c, h, w, load, id) {
 		let ele = document.createElement("div");
-		ele.id = "holder"+counter;
+		if(id) {
+			ele.id = id;
+		}else{
+			counter++
+			ele.id = "holder"+counter;
+		}
 		if(!load && !eleSaveData.hasOwnProperty(ele.id))
 			eleSaveData[ele.id] = {text:text}
 		
@@ -571,9 +720,16 @@ input[type="color"] {
 		ele.addEventListener("dragstart", dragstartHandler);
 		ele.addEventListener("dblclick", dblclickHandler);
 		ele.addEventListener("touchstart", touchHandler);
-		ele.innerHTML = text;
+		ele.innerHTML = processText(text);
 		document.getElementById("grid").append(ele);
-		updateCoordinates(ele, r, c, h, w, load);
+		updateCoordinates(ele, r, c, h, w, load, false);
+		let event = {
+			action: "create-card",
+			id: ele.id,
+			saveData: JSON.stringify(eleSaveData[ele.id])
+		}
+		if(!load)
+			addHistoryEvent(event);
 		return ele;
 	}
 	// return (but not place) a draggable canvas
@@ -601,6 +757,11 @@ input[type="color"] {
 				color: color
 			}
 			markUnsaved();
+			let event = {
+				action: "create-line",
+				saveData: JSON.stringify(eleSaveData[canvas.id])
+			}
+			addHistoryEvent(event);
 		}
 		canvas.className = "hold-canvas";
 		return addLine(canvas, start_x, start_y, end_x, end_y, color);
@@ -633,14 +794,37 @@ input[type="color"] {
 		updateCoordinates(canvas, min_x, min_y);
 		return canvas;
 	}
-
+	// reset canvas pixels
+	function clearCanvas(canvas) {
+		let ctx = canvas.getContext("2d");
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+	}
+	
 	// move things
 	// change x/y coordinates after a drop
-	function updateCoordinates(ele, x, y, h, w, load) {
+	function adjustCoordinates(ele, x, y, load, undoable) {
+		let new_x = parseInt(ele.style.left.replace("px", "")) + x; 
+		let new_y = parseInt(ele.style.top.replace("px", "")) + y;
+		updateCoordinates(ele, new_x, new_y, ele.style.height, ele.style.width, load, undoable);
+	}
+	function updateCoordinates(ele, x, y, h, w, load, undoable = true) {
 		if(y < 0)
 			y = 0;
 		if(x < 0)
 			x = Math.max(x, -0.5*ele.offsetWidth);
+		let event = {
+			action: "move-draggable",
+			id: ele.id,
+			x1: (ele.style.left || 0),
+			y1: (ele.style.top || 0),
+			h1: (ele.style.height || "auto"),
+			w1: (ele.style.width || "auto"),
+			x2: x,
+			y2: y,
+			h2: h,
+			w2: w,
+			clusterKey: clusterKey
+		}
 		ele.style.left = x;
 		ele.style.top = y;
 		if(h) {
@@ -657,19 +841,64 @@ input[type="color"] {
 			if(w)
 				eleSaveData[ele.id].w = w;
 			markUnsaved();
+			if(undoable) {
+				addHistoryEvent(event);
+			}
 		}
 	}
-	// reset canvas pixels
-	function clearCanvas(canvas) {
-		let ctx = canvas.getContext("2d");
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
+	// move 1px with arrow keys
+	function arrowMovement(x, y, ele, last) {
+		let applied = determineArrowMover(ele, last);
+		if(!applied.length)
+			return false;
+		for(let a in applied) {
+			adjustCoordinates(applied[a], x, y, false, false);
+			regenerateLinks(applied[a].id);
+		}
+		// if the last undo event was arrow-movement, add to it
+		// otherwise create a new one
+		if(!last)
+			last = undoHistory[undoHistory.length-1];
+		if(last.action == "arrow-movement") {
+			last.x += x;
+			last.y += y;
+		}
+		else{
+			let event = {
+				action: "arrow-movement",
+				x: x,
+				y: y,
+				id: applied[0].id
+			}
+			if(applied == selection)
+				event.cluster = [];
+			addHistoryEvent(event);
+		}
+		return true;
 	}
-	
+	// determine what elements the arrow keys should move
+	function determineArrowMover(ele, last) {
+		// if given an ele, use that
+		if(ele)
+			return [ele];
+		// if the last undo history was a simple move, use that
+		// otherwise use the selection box
+		if(!last)
+			last = undoHistory[undoHistory.length-1];
+		if(!last)
+			return selection;
+		if(last.action != "move-draggable" && last.action != "arrow-movement")
+			return selection;
+		if(last.hasOwnProperty("cluster"))
+			return selection;
+		return [document.getElementById(last.id)];
+	}
+
 	// link things
 	function applyLinks() {
 		let kind = document.getElementById("link-logic").value;
 		let color = document.getElementById("link-color").value;
-		
+		clusterKey++;
 		if(kind == "all")
 			applyLinkAll(color);
 		if(kind == "one")
@@ -727,22 +956,12 @@ input[type="color"] {
 			}
 		}
 	}
-	function linkHandler(ev) {
-		linking.push(ev.target.id);
-		if(linking.length == 3) {
-			linkElements(linking[1], linking[2]);
-			document.getElementById(linking[1]).classList.remove("selected");
-			linking = [true];
-		}else{
-			// todo highlight that one
-			ev.target.classList.add("selected");
-		}
-	}
-	
-	function linkElements(id1, id2, color) {
+	// save link info
+	function linkElements(id1, id2, color, undoable = true) {
 		let ele1 = document.getElementById(id1);
 		let ele2 = document.getElementById(id2);
-
+		let event;
+		
 		if(!links[id1])
 			links[id1] = {};
 		if(!links[id2])
@@ -752,15 +971,36 @@ input[type="color"] {
 			links[id1][id2] = [linkcount, (color || "#000")];
 			links[id2][id1] = [linkcount, (color || "#000")];
 			markUnsaved();
-		}else if(color) {
+			event = {
+				action: "create-link",
+				id1: id1,
+				id2: id2,
+				id3: links[id1][id2][0],
+				color1: links[id1][id2][1],
+				clusterKey: clusterKey
+			}
+		}
+		else if(color) {
+			event = {
+				action: "recolor-link",
+				id1: id1,
+				id2: id2,
+				id3: links[id1][id2][0],
+				color1: links[id1][id2][1],
+				color2: color,
+				clusterKey: clusterKey
+			}
 			links[id1][id2][1] = color;
 			links[id2][id1][1] = color;
 		}
 		
 		let link_ele = grabLink(links[id1][id2][0]);
 		generateLink(ele1, ele2, link_ele, links[id1][id2][1]);
+		if(event && undoable)
+			addHistoryEvent(event);
 	}
-	function unlinkElements(id1, id2) {
+	// remove link info
+	function unlinkElements(id1, id2, undoable = true) {
 		let connect = links[id1][id2];
 		if(!connect)
 			connect = links[id2][id1];
@@ -768,10 +1008,21 @@ input[type="color"] {
 			return;
 		let link_ele = grabLink(connect[0]);
 		link_ele.remove();
+		let event = {
+			action: "break-link",
+			id1: id1,
+			id2: id2,
+			id3: links[id1][id2][0],
+			color1: links[id1][id2][1],
+			clusterKey: clusterKey
+		}
 		delete links[id1][id2];
 		delete links[id2][id1];
 		markUnsaved();
+		if(undoable)
+			addHistoryEvent(event);
 	}
+	// render a linkline
 	function generateLink(ele1, ele2, link_ele, color) {
 		let start = eleCenterPoint(ele1);
 		let end = eleCenterPoint(ele2);
@@ -780,17 +1031,20 @@ input[type="color"] {
 		
 		addLine(link_ele, start[0], start[1], end[0], end[1], color);
 	}
+	// render all an element's links
 	function regenerateLinks(id) {
 		for(let i in links[id]) {
 			linkElements(id, i);
 		}
 	}
+	// determine the link endpoint for an element
 	function eleCenterPoint(ele) {
 		return [
 			ele.offsetLeft + (0.5*ele.offsetWidth),
 			ele.offsetTop + (0.5*ele.offsetHeight)
 		]
 	}
+	// grab the linklink element
 	function grabLink(c) {
 		let ele = document.getElementById("link"+c);
 		if(!ele) {
@@ -836,7 +1090,10 @@ input[type="color"] {
 		saveData = JSON.parse(saveData);
 		eleSaveData = saveData.ele;
 		links = saveData.links;
-		
+		if(saveData.counter)
+			counter = saveData.counter;
+		if(saveData.linkcount)
+			linkcount = saveData.linkcount;
 		for(let e in eleSaveData) {
 			let data = eleSaveData[e];
 			let ele;
@@ -844,9 +1101,8 @@ input[type="color"] {
 				ele = addDraggableLine(data.x1, data.y1, data.x2, data.y2, data.color, true);
 			}
 			else{
-				ele = addDraggable(processText(data.text), data.r, data.c, data.h, data.w, true);
+				ele = addDraggable(data.text, data.r, data.c, data.h, data.w, true);
 			}
-			
 			// update other stuff
 			ele.id = e;
 			if(data.z)
@@ -864,6 +1120,7 @@ input[type="color"] {
 				if(data.h>=2*data.w)
 					ele.classList.add("tall");
 			}
+
 			// anchors
 		}
 		if(saveData.counter)
@@ -885,6 +1142,8 @@ input[type="color"] {
 		
 		markSaved();
 	}
+
+	// delete
 	function confirmDelete() {
 		if(selection.length == 0)
 			return;
@@ -892,32 +1151,224 @@ input[type="color"] {
 			deleteSelection();
 	}
 	function deleteSelection() {
+		clusterKey++;
 		for(let s in selection) {
-			let id = selection[s].id;
-			delete eleSaveData[id];
-			for(let oid in links[id]) {
-				let elen = links[oid][id][0];
-				ele = grabLink(elen);
-				ele.remove();
-				delete links[oid][id];
-			}
-			delete links[id];
-			selection[s].remove();
+			deleteCard(selection[s].id);
 		}
 		
 		selection = [];
 		toggleSelectionText();
 		markUnsaved();
 	}
+	function deleteCard(id, undoable = true) {
+		let event = {
+			action: "delete-card",
+			id: id,
+			saveData: eleSaveData[id],
+			linkData: links[id]
+		}
+		if(undoable)
+			addHistoryEvent(event);
+		delete eleSaveData[id];
+		for(let oid in links[id]) {
+			let elen = links[oid][id][0];
+			ele = grabLink(elen);
+			ele.remove();
+			delete links[oid][id];
+		}
+		delete links[id];
+		document.getElementById(id)?.remove();
+	}
+
+	// undo/redo
+	function undoLast() {
+		let last = undoHistory[undoHistory.length-1];
+		if(!last)
+			return;
+		redoHistory.push(undoHistory.splice(undoHistory.length-1, 1)[0]);
+		let applied = [last];
+		if(last.cluster)
+			applied = applied.concat(last.cluster);
+		switch(last.action) {
+			case "create-card":
+			case "create-line":
+				deleteCard(last.id);
+				break;
+			case "move-draggable":
+				for(let a in applied) {
+					updateCoordinates(
+						document.getElementById(applied[a].id),
+						applied[a].x1,
+						applied[a].y1,
+						applied[a].h1,
+						applied[a].w1,
+						false,
+						false,
+					)
+					regenerateLinks(applied[a].id);
+				}
+				break;
+			case "create-link":
+				for(let a in applied) {
+					unlinkElements(applied[a].id1, applied[a].id2, applied[a].color1, false);
+				}
+				break;
+			case "break-link":
+			case "recolor-link":
+				for(let a in applied) {
+					linkElements(applied[a].id1, applied[a].id2, applied[a].color1, false);
+				}
+				break;
+			case "delete-card":
+				for(let a in applied) {
+					eleSaveData[applied[a].id] = applied[a].saveData;
+					let sd = eleSaveData[applied[a].id];
+					let ele = addDraggable(sd.text, sd.r, sd.c, sd.h, sd.w, true, applied[a].id);
+					updateDraggable(applied[a].id);
+					for(let oid in applied[a].linkData) {
+						linkElements(applied[a].id, oid, applied[a].linkData[oid][1], false);
+					}
+					links[applied[a].id] = applied[a].linkData;
+				}
+				break;
+			case "update-card":
+				for(let a in applied) {
+					eleSaveData[applied[a].id] = JSON.parse(applied[a].new);
+					updateDraggable(applied[a].id);
+				}
+				break;
+			case "selection-change":
+				for(let a in applied) {
+					toggleSelectionOf(document.getElementById(applied[a].id), false);
+				}
+				break;
+			case "arrow-movement":
+				applied = determineArrowMover(null, last);
+				for(let a in applied) {
+					adjustCoordinates(applied[a], -last.x, -last.y, false, false);
+					regenerateLinks(applied[a].id);
+				}
+				break;
+		}
+		markUnsaved();
+	}
+	function redoLast() {
+		let last = redoHistory[redoHistory.length-1];
+		if(!last)
+			return;
+		undoHistory.push(redoHistory.splice(redoHistory.length-1, 1)[0]);
+		let applied = [last];
+		let sd;
+		if(last.cluster)
+			applied = applied.concat(last.cluster);
+		switch(last.action) {
+			case "create-card":
+				sd = JSON.parse(last.saveData);
+				let ele = addDraggable(sd.text, sd.r, sd.c, sd.h, sd.w, true);
+				eleSaveData[ele.id] = sd;
+				break;
+			case "create-line":
+				sd = JSON.parse(last.saveData);
+				ele = addDraggableLine(sd.x1, sd.y1, sd.x2, sd.y2, sd.color, true);
+				eleSaveData[ele.id] = sd;
+				break;
+			case "move-draggable":
+				for(let a in applied) {
+					updateCoordinates(
+						document.getElementById(applied[a].id),
+						applied[a].x2,
+						applied[a].y2,
+						applied[a].h2,
+						applied[a].w2,
+						false,
+						false,
+					)
+					regenerateLinks(applied[a].id);
+				}
+				break;
+			case "recolor-link":
+			case "create-link":
+				for(let a in applied) {
+					linkElements(applied[a].id1, applied[a].id2, applied[a].color1, false);
+				}
+				break;
+			case "break-link":
+				for(let a in applied) {
+					unlinkElements(applied[a].id1, applied[a].id2, applied[a].color2, false);
+				}
+				break;
+			case "delete-card":
+				for(let a in applied) {
+					deleteCard(applied[a].id);
+				}
+				break;
+			case "update-card":
+				for(let a in applied) {
+					eleSaveData[applied[a].id] = JSON.parse(applied[a].old);
+					updateDraggable(applied[a].id);
+				}
+				break;
+			case "selection-change":
+				for(let a in applied) {
+					toggleSelectionOf(document.getElementById(applied[a].id), false);
+				}
+				break;
+			case "arrow-movement":
+				applied = determineArrowMover(null, last);
+				for(let a in applied) {
+					adjustCoordinates(applied[a], last.x, last.y, false, false);
+					regenerateLinks(applied[a].id);
+				}
+				break;
+		}
+		markUnsaved();
+	}
+	function undoButton() {
+		undoLast();
+		activateUndoButtons();
+	}
+	function redoButton() {
+		redoLast();
+		activateUndoButtons();
+	}
+	function activateUndoButtons() {
+		if(undoHistory.length > 0) {
+			document.getElementById("undo-btn").classList.remove("inactive");
+		}else{
+			document.getElementById("undo-btn").classList.add("inactive");
+		}
+		if(redoHistory.length > 0) {
+			document.getElementById("redo-btn").classList.remove("inactive");
+		}else{
+			document.getElementById("redo-btn").classList.add("inactive");
+		}
+
+	}
+	function addHistoryEvent(ev) {
+		let last = undoHistory[undoHistory.length-1];
+		if(!last || ev.action != last.action || ev.clusterKey != last.clusterKey) {
+			undoHistory.push(ev);
+			redoHistory = [];
+			activateUndoButtons();
+			return;
+		}
+		if(last.action == "arrow-movement") {
+			last.x += ev.x;
+			last.y += ev.y;
+			return;
+		}
+		if(!last.cluster)
+			last.cluster = [];
+		last.cluster.push(ev);
+	}
+	
 	// debug
 	function debugDraggable(text, size) {
 		addDraggable(text, 1, 1, size, size);
 	}
-	
-	
 </script>
 </head>
-<body onload="newInit()">
+<body onload="newInit()" onkeydown="handleKeyDown(event)">
 	<div id="header">
 		<span id="ribbon">
 		<input type="button" value="Create a card" onclick="openCreate()" title="Create a new draggable card"> 
@@ -942,6 +1393,8 @@ input[type="color"] {
 			</select> Link Color: 
 			<input id="link-color" type="color">
 		</span> 
+		<input id="undo-btn" type="button" value="Undo" onclick="undoButton()" title="Undo your last action if possible." class="inactive"> 
+		<input id="redo-btn" type="button" value="Redo" onclick="redoButton()" title="Redo your last undo if possible." class="inactive">
 		<span id="saved-span">
 			<input type="button" id="saved-btn" value="Saved!" class="saved" title="Your corkboard has been saved.">
 		</span><span id="save-span" style="display:none;">
@@ -966,15 +1419,15 @@ input[type="color"] {
 		<span class="label">Layer:</span> <input id="new-z" class="whinput" type="number"><br>
 		<span class="label">Shape:</span> 
 		<input type="radio" name="shape" id="square-radio" value="Square">
-		<label for="rectangle-radio">Square</label> 
+		<label for="rectangle-radio" onclick="selectRadio('square')">Square</label> 
 		<input type="radio" name="shape" id="circle-radio" value="Round">
-		<label for="circle-radio">Round</label><br>
+		<label for="circle-radio" onclick="selectRadio('circle')">Round</label><br>
 		<span class="label">Card Color:</span> <input id="new-color" type="color" value="#ffffff"><br>
 		<span class="label">Text Color:</span> <input id="new-text-color" type="color"><br>
 		<span class="label">Font Scale:</span> <input id="new-font-scale" class="whimput" type="number"><br>
 		<input type="button" value="Save style as..."><br>
 		<br>
-		<input type="button" value="Save card" onclick="saveModal()">
+		<input type="button" value="Save card" onclick="loadModal()">
 	</div>
 </body>
 </html>
