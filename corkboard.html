@@ -1,6 +1,22 @@
 <html>
 <head>
 <style>
+#header {
+	position: fixed;
+	height: 2em;
+	width: 315vw;
+	z-index: 2000;
+}
+#ribbon {
+	background-color: white;
+	position: relative;
+	border: 1px solid black;
+	padding: 6px;
+}
+#delete-cards, #cancel-cards {
+	color: white;
+	background-color: #e46;
+}
 #grid {
 	display: grid;
 	grid-template-columns: 315vw;
@@ -12,11 +28,35 @@
 	position: absolute;
 	top: 2.5em;
 }
-#header {
+#modal {
+	z-index: 3000;
 	position: fixed;
-	height: 2em;
-	width: 315vw;
-	z-index: 2000;
+	top: 2.5em;
+	border: 1px solid black;
+	padding: 10px;
+	background: white;
+	min-width: 19em;
+}
+#sketcher {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: transparent;
+	z-index: -1;
+}
+#preview-holder {
+	position: relative;
+}
+#preview {
+	height: fit-content;
+	width: fit-content;
+	position: relative;
+}
+input[type="color"] {
+	border-radius: 50%;
+	height: 1.5em;
+	width: 1.5em;
+	border: 1px solid #666;
 }
 @media (pointer:coarse) {
 	#grid {
@@ -26,22 +66,7 @@
 		width: 100vw;
 	}
 }
-#ribbon {
-	background-color: white;
-	position: relative;
-	border: 1px solid black;
-	padding: 6px;
-}
-#modal {
-	z-index: 3000;
-	position: fixed;
-	width: 25%;
-	margin-left: 37%;
-	top: 15%;
-	border: 1px solid black;
-	padding: 10px;
-	background: white;
-}
+
 .holdbox {
 	position: absolute;
 	background: white;
@@ -51,11 +76,22 @@
 	flex-direction: column;
 	border: 1px solid black;
 	z-index: 1;
-}
-.holdbox.autosize {
+	text-align: center;
 	width: auto;
 	height: auto;
 	padding: 5px;
+}
+.round {
+	border-radius: 30px;
+}
+.circle {
+	border-radius: 50%;
+	aspect-ratio: 1 / 1;
+}
+.hold-canvas {
+	position: absolute;
+	background: transparent;
+	z-index: 1000;
 }
 .flex-line {
 	pointer-events: none;
@@ -65,27 +101,7 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-}
-.round {
-	border-radius: 50%;
-}
-.round.wide {
-	border-radius: 50%/100%;
-}
-.round.tall {
-	border-radius: 100%/50%;
-}
-.hold-canvas {
-	position: absolute;
-	background: transparent;
-	z-index: 1000;
-}
-.whinput {
-	width: 4em;
-}
-.label {
-	display: inline-block;
-	width: 6em;
+	position: relative;
 }
 .legend-line {
 	background-color: #000000;
@@ -108,71 +124,145 @@
 	display: inline-block;
 	border: 1px solid black;
 }
-#sketcher {
-	position: absolute;
-	top: 0;
-	left: 0;
-	background: transparent;
-	z-index: -1;
-}
-input[type="color"] {
-	border-radius: 50%;
-	height: 1.5em;
-	width: 1.5em;
-	border: 1px solid #666;
-}
 .linkline {
 	z-index: 0;
 	position: absolute;
 	pointer-events: none;
+}
+
+.whinput {
+	width: 4em;
+}
+.label {
+	display: inline-block;
+	width: 6em;
 }
 .selected {
 	box-shadow: 0px 0px 10px #0f0;
 }
 .inactive {
 	color: gray;
+	cursor: none;
 }
-#delete-cards {
-	color: white;
-	background-color: #e46;
+
+.css-btn {
+	background-color: #e9e9ed;
+	border: 1px solid #777;
+	padding: 3px;
+	font-size: 12;
+	font-family: Verdana;
+	border-radius: 5px;
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	top: -1px;
+}
+.css-btn:hover {
+	background-color: #d0d0d7;
+}
+.css-btn:active {
+	background-color: #b1b1b9;
+}
+.css-btn.left {
+	border-radius: 5px 0px 0px 5px;
+}
+.css-btn.right {
+	border-radius: 0px 5px 5px 0px;
+	position: relative;
+	left: -5px;
+}
+.css-btn.down {
+	content: "V";
+	color: transparent;
+	width: 8px;
+}
+.css-btn .down-tri {
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 6px solid black;
+	top: 1em;
+	position: relative;
+	pointer-events: none;
+}
+
+.dropper-options {
+	position: absolute;
+	display: block;
+	border-radius: 5px;
+	background-color: #e9e9ed;
+	border: 1px solid #777;
+}
+.dropper-option {
+	border-radius: 5px;
+	padding: 5px;
+	cursor: pointer;
+}
+.dropper-option:hover {
+	background-color: #d0d0d7;
+}
+.dropper-option:active {
+	background-color: #b1b1b9;
+}
+.hidden {
+	display: none;
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="drag-drop-touch.esm.min.js?autoload" type="module"></script>
 <script>
-	let counter = 0;
-	let linkcount = 0;
-	let sketching = [];
-	let eleSaveData = {};
-	let links = {};
-	let selection = [];
-	let autosave;
-	let selecting_box = [];
-	let undoHistory = [];
-	let redoHistory = [];
+	let counter = 0;			// unique id for draggables 
+	let linkcount = 0;			// unique id for auto links
+	let clusterKey = 1;			// unique id for cluster events
+
+	let eleSaveData = {};		// save data for draggables
+	let links = {};				// save data for links
 	
+	let selection = [];			// currently selected elements
+	let sketching = [];			// coordinates for drawing a draggable line
+	let selecting_box = [];		// coordinates for drawing a selection box
+
+	let undoHistory = [];		// array of Undo events
+	let redoHistory = [];		// array of Redo events
+
+	let autosave;				// autosave timer
+	let boardKeys = [];			// array of save file names
+
+	let modal;					// currently open modal
+
+	// does the user have a mouse?
+	let hasMouse = false;
+	// default hw
 	let default_height = "auto";
 	let default_width = "auto";
-	
-	let clusterKey = 1;
-	
-	let hasMouse = false;
+	// sh index values
+	const CARD_SHAPES = ["square", "round", "circle"];
+	// re-place elements after mobile scrolling
+	let mobileFixer = {
+		"ribbon": {
+			"position": ["top", "left", "scroll"],
+			"right": -16
+		},
+		"modal": {
+			"position": ["center"],
+			"top_min": {em:2}
+		}
+	}	
 
 	function newInit() {
 		hasMouse = matchMedia('(pointer:fine)').matches;
-		if(!hasMouse)
+		if(!hasMouse) {
 			document.getElementById("dbl").innerText = "Long press";
+			document.body.addEventListener("touchend", mobilePositioner);
+			document.body.addEventListener("touchmove", mobilePositioner);
+			document.body.addEventListener("resize", mobilePositioner);
+			document.body.addEventListener("scroll", mobilePositioner);
+		}
 		
 		let sk = document.getElementById("sketcher")
 		sk.width = 2*window.screen.width;
 		sk.height = 2*window.screen.height;
 		
 		loadData();
-	}
-
-	// select the radio button by clicking the label
-	function selectRadio(kind) {
-		document.getElementById(kind+"-radio").checked = true;
 	}
 
 	// drag event handlers
@@ -196,6 +286,8 @@ input[type="color"] {
 		ev.dataTransfer.setData("text", ev.target.id);
 		ev.dataTransfer.setData("X", parseInt(ev.clientX));
 		ev.dataTransfer.setData("Y", parseInt(ev.clientY));
+		ev.dataTransfer.setData("LX", parseInt(ev.layerX));
+		ev.dataTransfer.setData("LY", parseInt(ev.layerY));
 	}
 	// handle data after a drop
 	function dropHandler(ev) {
@@ -206,8 +298,31 @@ input[type="color"] {
 
 		let shiftLeft = ev.clientX - ev.dataTransfer.getData("X");
 		let shiftTop = ev.clientY - ev.dataTransfer.getData("Y");
-		if(!event.fwd)
-			shiftTop--; // idk why drag and touch-drag are desynced by 1 vertical pixel 
+		if(ev.fwd) {
+			let left_div = Math.round((startLeft + shiftLeft) / 25);
+			let top_div = Math.round((startTop + shiftTop) / 25);
+			
+			let left_c = 25*left_div;
+			let top_c = 25*top_div;
+			
+			shiftLeft = left_c - startLeft;
+			shiftTop = top_c - startTop;
+		}else{
+			shiftTop--; // idk why drag and touch-drag are desynced by 1 vertical pixel
+		}
+		if(dropping.id == "preview") {
+			// turn this into a real draggable now
+			// drop at ev.screen minus transfer.layer (layer minus layer?)
+			let grid = document.getElementById("grid");
+			let x = ev.layerX - ev.dataTransfer.getData("LX");
+			let y = ev.layerY - ev.dataTransfer.getData("LY");
+			if(ev.fwd) {
+				x = 25*Math.round(x/25);
+				y = 25*Math.round(y/25);
+			}
+			loadModal(x, y);
+			return;
+		}
 		//console.log(startLeft, startTop, shiftLeft, shiftTop);
 		clusterKey++;
 		updateCoordinates(dropping, startLeft + shiftLeft, startTop + shiftTop);
@@ -242,8 +357,10 @@ input[type="color"] {
 		toggleSelectionOf(ele);
 	}
 
-	// key press event handlers
+	// key down event handlers
 	function handleKeyDown(ev) {
+		if(modal)
+			return;
 		let action;
 		switch(ev.code) {
 			case "ArrowLeft":
@@ -265,6 +382,10 @@ input[type="color"] {
 			case "KeyY":
 				if(ev.ctrlKey)
 					action = "redo";
+				break;
+			case "Delete":
+			case "Backspace":
+				action = "delete";
 				break;
 		}
 		if(!action)
@@ -292,6 +413,10 @@ input[type="color"] {
 				break;
 			case "redo":
 				redoLast();
+				break;
+			case "delete":
+				confirmDelete();
+				ev.preventDefault();
 				break;
 		}
 		
@@ -494,30 +619,47 @@ input[type="color"] {
 		toggleSelectionText();
 	}
 	
-	
 	// edit handlers
 	// load New Card defaults and open modal
 	function openCreate() {
+		closeDropdown(modal);
+		modal = document.getElementById("modal");
 		document.getElementById("modal-header").innerHTML = "<b>Creating...</b>";
 		document.getElementById("modal-editor").innerHTML = "";
 		document.getElementById("new-text").value = "";
 		document.getElementById("new-width").value = default_width;
 		document.getElementById("new-height").value = default_height;
 		document.getElementById("new-z").value = 1;
-		document.getElementById("modal").style.display = "";
+		document.getElementById("new-alignment").value = "center";
+		document.getElementById("create-preview").classList.remove("hidden");
+		let pholder = document.getElementById("preview-holder")
+		pholder.innerHTML = "";
+		pholder.appendChild(addDraggable(" ", 1, 1, "fit-content", "fit-content", true, "preview"));
+		updatePreview(document.getElementById("new-shape"));
+		updatePreview(document.getElementById("new-color"));
+		updatePreview(document.getElementById("new-text-color"));
+		updatePreview(document.getElementById("new-font-scale"));
+		modal.classList.remove("hidden");
+		reFixMobileElement(modal);
 	}
 	// load Edit Card info and open modal
 	function openEdit(ele) {
+		closeDropdown(modal);
+		modal = document.getElementById("modal");
 		document.getElementById("modal-header").innerHTML = '<b>Editing <span id="modal-editor"></span>...</b>';
 		document.getElementById("modal-editor").innerHTML = ele.id;
 		document.getElementById("new-text").value = eleSaveData[ele.id].text;
 		document.getElementById("new-width").value = ele.style.width;
 		document.getElementById("new-height").value = ele.style.height;
 		document.getElementById("new-z").value = ele.style["z-index"];
+		document.getElementById("new-shape").value = (CARD_SHAPES[eleSaveData[ele.id].sh] || CARD_SHAPES[0]);
 		document.getElementById("new-color").value = (ele.style["background-color"] || "#ffffff");
 		document.getElementById("new-text-color").value = ele.style["color"];
 		document.getElementById("new-font-scale").value = (ele.style["font-size"] || "1em").replace("em", "");
-		document.getElementById("modal").style.display = "";
+		document.getElementById("new-alignment").value = (eleSaveData[ele.id].align || "center");
+		document.getElementById("create-preview").classList.add("hidden");
+		modal.classList.remove("hidden");
+		reFixMobileElement(modal);
 	}
 	// alias script of above for the edit button
 	function editLast() {
@@ -527,10 +669,14 @@ input[type="color"] {
 	}
 	// close the window
 	function closeModal() {
-		document.getElementById("modal").style.display = "none";
+		closeDropdown(modal);
+		let existing = document.getElementById("modal-editor").innerText;
+		console.log(existing);
+		if(existing != "")
+			updateDraggable(existing, true);
 	}
 	// write modal form to eleSaveData
-	function loadModal() {
+	function loadModal(x = 1, y = 1) {
 		let existing = document.getElementById("modal-editor").innerText;
 		let need_regen = false;
 
@@ -545,10 +691,8 @@ input[type="color"] {
 		let color = document.getElementById("new-color").value;
 		let font_color = document.getElementById("new-text-color").value;
 		let font_size = document.getElementById("new-font-scale").value;
-		
-		let shape = "square";
-		if(document.getElementById("circle-radio").checked)
-			shape = "circle";
+		let align = document.getElementById("new-alignment").value;
+		let shape = document.getElementById("new-shape").value;
 		
 		let event = {
 			action: "update-card"
@@ -568,11 +712,9 @@ input[type="color"] {
 		if(z !== "")
 			eleSaveData[id].z = z;
 		
-		if(shape == "square") {
-			delete eleSaveData[id].sq;
-		}else{
-			eleSaveData[id].sq = 1;
-		}
+		eleSaveData[id].sh = CARD_SHAPES.indexOf(shape);
+		if(eleSaveData[id].sh == 0)
+			delete eleSaveData[id].sh;
 		
 		if(color == "#ffffff") {
 			delete eleSaveData[id].back;
@@ -580,75 +722,133 @@ input[type="color"] {
 			eleSaveData[id].back = color;
 		}
 		
-		if(font_color != "#000000")
+		if(font_color != "#000000") {
 			eleSaveData[id].font_color = font_color;
+		}else{
+			delete eleSaveData[id].font_color;
+		}
 		
 		if(!font_size)
 			font_size = 1;
 		if(font_size != 1)
 			eleSaveData[id].font_scale = font_size;
+		
+		if(!align || align == "center") {
+			delete eleSaveData[id].align;
+		}else{
+			eleSaveData[id].align = align;
+		}
 
 		if(!existing) {
-			addDraggable(text, 1, 1, h, w);
+			addDraggable(text, x, y, h, w);
 		}else{
 			event.new = JSON.stringify(eleSaveData[id]);
 			addHistoryEvent(event);
 		}
 		updateDraggable(id, need_regen);
 		
-		closeModal();
+		closeDropdown(modal);
+	}
+	// update the preview image but don't save it
+	function updatePreview(input_ele) {
+		let preview_ele = document.getElementById("preview");
+		let existing = document.getElementById("modal-editor").innerText;
+		if(existing) {
+			// update the one on the board
+			console.log(existing);
+			preview_ele = document.getElementById(existing);
+		}
+		if(!preview_ele)
+			return;
+		let h, w;
+		switch(input_ele.id) {
+			case "new-text":
+				preview_ele.innerHTML = processText(input_ele.value);
+				break;
+			case "new-shape":
+				applyShapeClasses(preview_ele, CARD_SHAPES.indexOf(input_ele.value));
+				break;
+			case "new-height":
+				h = input_ele.value || "";
+				preview_ele.style.height = h;
+				break;
+			case "new-width":
+				w = input_ele.value || "";
+				preview_ele.style.width = w;
+				break;
+			case "new-color":
+				preview_ele.style.background = input_ele.value;
+				break;
+			case "new-text-color":
+				preview_ele.style.color = input_ele.value;
+				break;
+			case "new-font-scale":
+				preview_ele.style["font-size"] = input_ele.value + "em";
+				break;
+			case "new-alignment":
+				preview_ele.style["text-align"] = input_ele.value;
+				break;
+		}
 	}
 	// update an element to match eleSaveData
 	function updateDraggable(id, regen_links = true) {
 		let ele = document.getElementById(id);
 		let sd = eleSaveData[id];
+
+		if(sd.text)
+			ele.innerHTML = processText(sd.text);
 		
-		ele.innerHTML = processText(sd.text);
 		ele.style["width"] = eleSaveData[ele.id].w;
 		ele.style["height"] = eleSaveData[ele.id].h;
-		if(sd.w == "auto" || sd.h == "auto") {
-			ele.classList.add("autosize");
-		}
-		else{
-			ele.classList.remove("autosize");
-		}
 		
-		if(!sd.sq) {
-			ele.classList.remove("round");
-		}
-		else{
-			let w = eleSaveData[ele.id].w;
-			let h = eleSaveData[ele.id].h;
-			ele.classList.add("round");
-			if(w>=2*h) {
-				ele.classList.add("wide");
-			}else{
-				ele.classList.remove("wide");
-			}
-			if(h>=2*w) {
-				ele.classList.add("tall");
-			}else{
-				ele.classList.remove("tall");
-			}
-		}
-		
+		applyShapeClasses(ele, sd.sh);
+
 		if(sd.z !== undefined)
 			ele.style["z-index"] = sd.z;
 		
-		if(sd.back)
+		if(sd.back) {
 			ele.style.background = sd.back;
-		if(sd.font_color)
+		}else{
+			ele.style.background = "";
+		}
+		if(sd.font_color) {
 			ele.style.color = sd.font_color;
-		if(sd.font_scale)
-			ele.style["font-size"] = font_scale + "em";
+		}else{
+			ele.style.color = "";
+		}
+		if(sd.font_scale) {
+			ele.style["font-size"] = sd.font_scale + "em";
+		}else{
+			ele.style["font-size"] = "";
+		}
+		if(sd.align) {
+			ele.style["text-align"] = sd.align;
+		}else{
+			ele.style["text-align"] = "";
+		}
+		
 		
 		if(regen_links)
 			regenerateLinks(id);
 		
 		markUnsaved();
 	}
+	// apply one shape class and remove the others
+	function applyShapeClasses(ele, shindex) {
+		if(!shindex)
+			shindex = 0;
+		for(let s in CARD_SHAPES) {
+			if(s == shindex) {
+				ele.classList.add(CARD_SHAPES[s]);
+			}else{
+				ele.classList.remove(CARD_SHAPES[s]);
+			}
+		}
+	}
 	// format plaintext to HTML
 	function processText(str) {
+		if(!str)
+			return "";
 		let breaks = str.split("\n");
 		if(breaks) {
 			let s = '<div class="flex-line">';
@@ -694,7 +894,7 @@ input[type="color"] {
 
 	// create containers
 	// place draggable card
-	function addDraggable(text, r, c, h, w, load, id) {
+	function addDraggable(text, x, y, h, w, load, id) {
 		let ele = document.createElement("div");
 		if(id) {
 			ele.id = id;
@@ -707,11 +907,6 @@ input[type="color"] {
 		
 		ele.className = "holdbox";
 		ele.setAttribute("draggable", true);
-		if(h == "auto" || w == "auto") {
-			ele.classList.add("autosize");
-		}else{
-			ele.classList.remove("autosize");
-		}
 		if(h)
 			ele.setAttribute("height", h);
 		if(w)
@@ -722,7 +917,7 @@ input[type="color"] {
 		ele.addEventListener("touchstart", touchHandler);
 		ele.innerHTML = processText(text);
 		document.getElementById("grid").append(ele);
-		updateCoordinates(ele, r, c, h, w, load, false);
+		updateCoordinates(ele, x, y, h, w, load, false);
 		let event = {
 			action: "create-card",
 			id: ele.id,
@@ -733,10 +928,14 @@ input[type="color"] {
 		return ele;
 	}
 	// return (but not place) a draggable canvas
-	function draggableCanvas() {
-		counter++;
+	function draggableCanvas(id) {
 		let ele = document.createElement("canvas");
-		ele.id = "holder"+counter;
+		if(id) {
+			ele.id = id;
+		}else{
+			counter++;
+			ele.id = "holder"+counter;
+		}
 		ele.setAttribute("draggable", true);
 		ele.addEventListener("dragover", dragoverHandler);
 		ele.addEventListener("dragstart", dragstartHandler);
@@ -745,8 +944,8 @@ input[type="color"] {
 		return ele;
 	}
 	// place draggable canvas line
-	function addDraggableLine(start_x, start_y, end_x, end_y, color = "#000", load) {
-		let canvas = draggableCanvas();
+	function addDraggableLine(start_x, start_y, end_x, end_y, color = "#000", load, id) {
+		let canvas = draggableCanvas(id);
 		if(!load) {
 			eleSaveData[canvas.id] = {
 				x1: start_x,
@@ -834,8 +1033,8 @@ input[type="color"] {
 			ele.style.width = w;
 		}
 		if(!load && eleSaveData[ele.id]) {
-			eleSaveData[ele.id].r = x;
-			eleSaveData[ele.id].c = y;
+			eleSaveData[ele.id].x = x;
+			eleSaveData[ele.id].y = y;
 			if(h)
 				eleSaveData[ele.id].h = h;
 			if(w)
@@ -895,8 +1094,7 @@ input[type="color"] {
 	}
 
 	// link things
-	function applyLinks() {
-		let kind = document.getElementById("link-logic").value;
+	function applyLinks(kind) {
 		let color = document.getElementById("link-color").value;
 		clusterKey++;
 		if(kind == "all")
@@ -911,7 +1109,8 @@ input[type="color"] {
 			applyLinkPurge();
 		if(kind == "unlink")
 			applyUnlinkSelected();
-		document.getElementById("link-logic").value = "none";
+		
+		closeDropdown(modal);
 	}
 	// link all in selection to each other
 	function applyLinkAll(color) {
@@ -1057,16 +1256,53 @@ input[type="color"] {
 	}
 	
 	// save
-	function writeData() {
+	function writeData(key) {
+		if(key) {
+			if(!boardKeys.includes(key))
+				boardKeys.push(key);
+			key = "corkboard:"+key;
+		}else{
+			key = "corkboard";
+		}
 		let saveData = {
 			ele: eleSaveData,
 			links: links,
 			counter: counter,
 			linkcount: linkcount
 		}
-		localStorage.setItem("corkboard", JSON.stringify(saveData));
+		localStorage.setItem(key, JSON.stringify(saveData));
+		localStorage.setItem("keys", JSON.stringify(boardKeys));
 		// todo should make sure it doesn't overflow
 		markSaved();
+	}
+	function exportData(key) {
+		if(key) {
+			if(!boardKeys.includes(key))
+				boardKeys.push(key);
+			key = "corkboard:"+key;
+		}else{
+			key = "corkboard";
+		}
+		let saveData = {
+			ele: eleSaveData,
+			links: links,
+			counter: counter,
+			linkcount: linkcount
+		}
+		download(key+".txt", JSON.stringify(saveData));
+		closeDropdown(modal);
+	}
+	function download(filename, text) {
+		var element = document.createElement('a');
+		element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+		element.setAttribute('download', filename);
+
+		element.style.display = 'none';
+		document.body.appendChild(element);
+
+		element.click();
+
+		document.body.removeChild(element);
 	}
 	function markUnsaved() {
 		if(autosave)
@@ -1083,8 +1319,8 @@ input[type="color"] {
 		clearInterval(autosave);
 		autosave = null;
 	}
-	function loadData() {
-		let saveData = localStorage.getItem("corkboard");
+	function loadData(key = "corkboard") {
+		let saveData = localStorage.getItem(key);
 		if(!saveData)
 			return;
 		saveData = JSON.parse(saveData);
@@ -1096,29 +1332,24 @@ input[type="color"] {
 			linkcount = saveData.linkcount;
 		for(let e in eleSaveData) {
 			let data = eleSaveData[e];
+			if(data.r) {
+				data.x = data.r;
+				data.y = data.c;
+				delete data.r;
+				delete data.c;
+			}
+			if(data.sq) {
+				data.sh = data.sq;
+				delete data.sq;
+			}
+				
 			let ele;
 			if(data.l) {
-				ele = addDraggableLine(data.x1, data.y1, data.x2, data.y2, data.color, true);
+				ele = addDraggableLine(data.x1, data.y1, data.x2, data.y2, data.color, true, e);
 			}
 			else{
-				ele = addDraggable(data.text, data.r, data.c, data.h, data.w, true);
-			}
-			// update other stuff
-			ele.id = e;
-			if(data.z)
-				ele.style["z-index"] = data.z;
-			if(data.back)
-				ele.style["background"] = data.back;
-			if(data.font_color)
-				ele.style["color"] = data.font_color;
-			if(data.font_scale)
-				ele.style["font-size"] = data.font_scale + "em";
-			if(data.sq) {
-				ele.classList.add("round");
-				if(data.w>=2*data.h)
-					ele.classList.add("wide");
-				if(data.h>=2*data.w)
-					ele.classList.add("tall");
+				ele = addDraggable(data.text, data.x, data.y, data.h, data.w, true, e);
+				updateDraggable(ele.id, data.hasOwnProperty("font_scale"));
 			}
 
 			// anchors
@@ -1141,6 +1372,9 @@ input[type="color"] {
 		}
 		
 		markSaved();
+		let bk = localStorage.getItem("keys");
+		if(bk)
+			boardKeys = JSON.parse(bk);
 	}
 
 	// delete
@@ -1223,7 +1457,7 @@ input[type="color"] {
 				for(let a in applied) {
 					eleSaveData[applied[a].id] = applied[a].saveData;
 					let sd = eleSaveData[applied[a].id];
-					let ele = addDraggable(sd.text, sd.r, sd.c, sd.h, sd.w, true, applied[a].id);
+					let ele = addDraggable(sd.text, sd.x, sd.y, sd.h, sd.w, true, applied[a].id);
 					updateDraggable(applied[a].id);
 					for(let oid in applied[a].linkData) {
 						linkElements(applied[a].id, oid, applied[a].linkData[oid][1], false);
@@ -1264,7 +1498,7 @@ input[type="color"] {
 		switch(last.action) {
 			case "create-card":
 				sd = JSON.parse(last.saveData);
-				let ele = addDraggable(sd.text, sd.r, sd.c, sd.h, sd.w, true);
+				let ele = addDraggable(sd.text, sd.x, sd.y, sd.h, sd.w, true);
 				eleSaveData[ele.id] = sd;
 				break;
 			case "create-line":
@@ -1362,72 +1596,203 @@ input[type="color"] {
 		last.cluster.push(ev);
 	}
 	
+	// custom dropdown
+	function openDropdown(ele) {
+		let oid = ele.id + "-options"
+		let opts = document.getElementById(oid);
+		if(modal == opts) {
+			closeDropdown(modal);
+			return;
+		}
+		if(modal)
+			closeDropdown(modal);
+		if(!opts)
+			return;
+		modal = opts;
+		opts.classList.remove("hidden");
+		
+		let right = ele.offsetLeft + ele.offsetWidth;
+		opts.style.left = right - opts.offsetWidth;
+		
+		document.body.addEventListener("click", clickDropdown); 
+	}
+	function clickDropdown(event) {
+		if(!modal)
+			return;
+		if(event.target.classList.contains("dropper"))
+			return;
+		closeDropdown(modal);
+		document.body.removeEventListener("click", clickDropdown);
+	}
+	function closeDropdown(ele) {
+		if(!ele)
+			return;
+		ele.classList.add("hidden");
+		modal = null;
+	}
+	function chooseDropdown(ele) {
+		closeDropdown(modal);
+	}
+
+	// custom mobile position:fixed implementation
+	function mobilePositioner(ev) {
+		for(let id in mobileFixer) {
+			reFixMobileElement(document.getElementById(id));
+		}
+	}
+	function reFixMobileElement(ele) {
+		let info = mobileFixer[ele.id];
+		if(!info)
+			return;
+		let browser_width = window.visualViewport.width;
+		let browser_height = window.visualViewport.height;
+		let em_px = Math.ceil(document.getElementById("header").offsetHeight / 2);
+
+		let av_height = browser_height - ele.offsetHeight;
+		let av_width = browser_width - ele.offsetWidth;
+		let relative_left, relative_top;
+		if(info.position.includes("center")) {
+			// snap to dead center
+			relative_top = av_height / 2;
+			relative_left = av_width / 2;
+		}
+		if(info.position.includes("left")) {
+			// left snap
+			if(info.position.includes("scroll")) {
+				let max_right = window.visualViewport.offsetLeft + window.visualViewport.width;
+				if(max_right <= ele.offsetWidth || ele.offsetWidth <= window.visualViewport.width) {
+					// negative left
+					relative_left = -window.visualViewport.offsetLeft + (info.left || 0);
+				}else{
+					// snap right edge to edge
+					relative_left = window.visualViewport.width - ele.offsetWidth + (info.right || 0);
+				}
+			}
+			else{
+				relative_left = (info.left || 0);
+			}
+		}
+		if(info.position.includes("right")) {
+			// right snap
+			relative_left = window.visualViewport.width - ele.offsetWidth + (info.right || 0);
+		}
+		if(info.position.includes("top")) {
+			// top snap
+			relative_top = (info.top || 0);
+		}
+		if(info.position.includes("bottom")) {
+			// bottom snap
+			relative_top = window.visualViewport.height - ele.offsetHeight + (info.bottom || 0);
+		}
+		
+		if(info.top_min) {
+			if(info.top_min.em) {
+				let em = Math.ceil(document.getElementById("header").offsetHeight / 2);
+				info.top_min.px = em;
+				delete info.top_min.em;
+			}
+			if(info.top_min.px) {
+				if(relative_top < info.top_min.px)
+					relative_top = info.top_min.px;
+			}
+		}
+		
+		if(relative_left !== undefined) {
+			ele.style.left = relative_left + window.visualViewport.offsetLeft;
+		}
+		if(relative_top !== undefined) {
+			ele.style.top = relative_top + window.visualViewport.offsetTop;
+		}
+	}
+
 	// debug
 	function debugDraggable(text, size) {
 		addDraggable(text, 1, 1, size, size);
+	}
+	function evDebug(ev) {
+		console.log(ev.target.id);
+		console.log(`${ev.clientX},${ev.clientY}`);
+		console.log(`${ev.layerX},${ev.layerY}`);
+		console.log(`${ev.screenX},${ev.screenY}`);
+		console.log(ev);
 	}
 </script>
 </head>
 <body onload="newInit()" onkeydown="handleKeyDown(event)">
 	<div id="header">
 		<span id="ribbon">
-		<input type="button" value="Create a card" onclick="openCreate()" title="Create a new draggable card"> 
-		<span id="sketch-on"><input type="button" value="Draw lines" onclick="beginLineMode()" title="Click two points on the canvas to draw a draggable line"> </span>
-		<span id="sketch-off" style="display:none;">
-			<input type="button" value="Cancel lines" onclick="endLineMode()" title="Click the canvas to create endpoints, or this button to cancel drawing"> 
+		<div class="css-btn" value="Create a card" onclick="openCreate()" title="Create a new draggable card">Create a card</div> 
+		<span id="sketch-on">
+			<div class="css-btn" onclick="beginLineMode()" title="Click two points on the canvas to draw a draggable line">Draw lines</div> 
+		</span><span id="sketch-off" style="display:none;">
+			<div class="css-btn" onclick="endLineMode()" title="Click the canvas to create endpoints, or this button to cancel drawing">Cancel lines</div> 
 		</span>
 		<input id="line-color" type="color">  
 		<span id="no-selection"> <span id="dbl">Double click</span> one or more cards/lines to edit or multi-move.</span>
 		<span id="yes-selection" style="display:none;">
-			<input id="deselect-cards" type="button" value="Deselect all" title="Deselect all cards" onclick="deselectAll()"> 
-			<input id="edit-card" type="button" value="Edit last selected" onclick="editLast()" title="Double click cards to select them, then edit or link them."> 
-			<input id="delete-cards" type="button" value="Delete all selected" title="Deletes all selected cards." onclick="confirmDelete()">
-			<select id="link-logic" oninput="applyLinks()">
-				<option value="none">Link Cards</option>
-				<option value="all">Connect All</option>
-				<option value="one">Connect to First</option>
-				<option value="chain">Connect in Sequence</option>
-				<option value="loop">Connect in Loop</option>
-				<option value="purge">Break all Links</option>
-				<option value="unlink">Break Links In Selected</option>
-			</select> Link Color: 
+			<div class="css-btn" id="deselect-cards" title="Deselect all cards" onclick="deselectAll()">Deselect all</div> 
+			<div class="css-btn" id="edit-card" onclick="editLast()" title="Double click cards to select them, then edit or link them.">Edit last selected</div> 
+			<div class="css-btn" id="delete-cards" title="Deletes all selected cards." onclick="confirmDelete()">Delete all selected</div> 
+			<div class="css-btn left" onclick="applyLinks('all')">Link Cards</div>
+			<div id="link-dropper" class="css-btn right dropper" onclick="openDropdown(this)"><span class="down-tri"></span></div>
+			<div id="link-dropper-options" class="dropper-options hidden dropper">
+				<div class="dropper dropper-option" onclick="applyLinks('all')">Connect All</div>
+				<div class="dropper dropper-option" onclick="applyLinks('one')">Connect To First</div>
+				<div class="dropper dropper-option" onclick="applyLinks('chain')">Connect In Sequence</div>
+				<div class="dropper dropper-option" onclick="applyLinks('loop')">Connect In Loop</div>
+				<div class="dropper dropper-option" onclick="applyLinks('purge')">Break All Links</div>
+				<div class="dropper dropper-option" onclick="applyLinks('unlink')">Break All Links In Selected</div>
+			</div> 
+			Link Color: 
 			<input id="link-color" type="color">
 		</span> 
-		<input id="undo-btn" type="button" value="Undo" onclick="undoButton()" title="Undo your last action if possible." class="inactive"> 
-		<input id="redo-btn" type="button" value="Redo" onclick="redoButton()" title="Redo your last undo if possible." class="inactive">
+		<div class="css-btn inactive" id="undo-btn" onclick="undoButton()" title="Undo your last action if possible.">Undo</div> 
+		<div class="css-btn inactive" id="redo-btn" onclick="redoButton()" title="Redo your last undo if possible.">Redo</div>
 		<span id="saved-span">
-			<input type="button" id="saved-btn" value="Saved!" class="saved" title="Your corkboard has been saved.">
+			<div class="css-btn saved" id="saved-btn" title="Your corkboard has been saved.">Saved!</div>
 		</span><span id="save-span" style="display:none;">
-			<input type="button" id="save-btn" value="Save changes" onclick="writeData()" title="Manually save changes if the autosave isn't working.">
+			<div class="css-btn" id="save-btn" onclick="writeData()" title="Manually save changes if the autosave isn't working.">Save changes</div>
 		</span>
+		<div id="save-dropper" class="css-btn right dropper hidden" onclick="openDropdown(this)"><span class="down-tri"></span></div>
+		<div id="save-dropper-options" class="dropper-options hidden dropper">
+			<div class="dropper dropper-option" onclick="chooseDropdown(this)">New board</div>
+			<div class="dropper dropper-option" onclick="chooseDropdown(this)">Save to...</div>
+			<div class="dropper dropper-option" onclick="chooseDropdown(this)">Load board</div>
+			<div class="dropper dropper-option" onclick="chooseDropdown(this)">Import</div>
+			<div class="dropper dropper-option" onclick="exportData()">Export</div>
+		</div>
 		</span>
 	</div>
 	<div id="grid" onmousedown="drawingSelection(event)" onmouseup="drawnSelection(event)" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
 	<canvas id="sketcher"></canvas>
 	<div id="dummy"></div>
-	<div id="modal" style="display:none;">
+	<div id="modal" class="hidden" draggable="true" ondragstart="dragstartHandler(event)" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">
 		<span id="modal-header">Creating...</span><span id="modal-editor"></span> 
-		<input type="button" value="Cancel" onclick="closeModal()">
+		<input type="button" id="cancel-cards" value="Cancel" onclick="closeModal()">
 		<br>
 		Text:<br>
-		<textarea id="new-text" style="width:23em;height:5em;"></textarea><br>
-		<span class="label">Style:</span> 
+		<textarea id="new-text" style="width:23em;height:5em;" oninput="updatePreview(this)"></textarea><br>
+		<span class="hidden"><span class="label">Style:</span> 
 		<select id="styles">
 			<option value="">Select a saved style</option>
-		</select><br>
-		<span class="label">Height/Width:</span> <input id="new-height" class="whinput" type="number"> x <input id="new-width" class="whinput" type="number"><br>
+		</select><input type="button" value="Save as..."></span><br>
+		<span class="label">Height/Width:</span> <input id="new-height" class="whinput" type="number" oninput="updatePreview(this)"> x <input id="new-width" class="whinput" type="number" oninput="updatePreview(this)"><br>
 		<span class="label">Layer:</span> <input id="new-z" class="whinput" type="number"><br>
-		<span class="label">Shape:</span> 
-		<input type="radio" name="shape" id="square-radio" value="Square">
-		<label for="rectangle-radio" onclick="selectRadio('square')">Square</label> 
-		<input type="radio" name="shape" id="circle-radio" value="Round">
-		<label for="circle-radio" onclick="selectRadio('circle')">Round</label><br>
-		<span class="label">Card Color:</span> <input id="new-color" type="color" value="#ffffff"><br>
-		<span class="label">Text Color:</span> <input id="new-text-color" type="color"><br>
-		<span class="label">Font Scale:</span> <input id="new-font-scale" class="whimput" type="number"><br>
-		<input type="button" value="Save style as..."><br>
-		<br>
+		<span class="label">Shape:</span> <select id="new-shape" onchange="updatePreview(this)">
+			<option value="square">Rectangle</option>
+			<option value="round">Round</option>
+			<option value="circle">Circle</option>
+		</select><br>
+		<span class="label">Card Color:</span> <input id="new-color" type="color" value="#ffffff" oninput="updatePreview(this)"><br>
+		<span class="label">Text Color:</span> <input id="new-text-color" type="color" oninput="updatePreview(this)"><br>
+		<span class="label">Font Scale:</span> <input id="new-font-scale" class="whinput" type="number" oninput="updatePreview(this)"><br>
+		<span class="label">Alignment:</span> <select id="new-alignment" oninput="updatePreview(this)">
+			<option value="center">Center</option>
+			<option value="left">Left</option>
+			<option value="right">Right</option>
+		</select><br>
 		<input type="button" value="Save card" onclick="loadModal()">
+		<span id="create-preview"> or drag onto the board<br><div id="preview-holder"></div></span>
 	</div>
 </body>
 </html>
