@@ -573,7 +573,21 @@ var arrays = {
 		  "VIVILLON_16",
 		  "VIVILLON_17",
 		  "VIVILLON_18",
-		  "VIVILLON_19"
+		  "VIVILLON_19",
+		  "VIVILLON_20",
+		  "VIVILLON_21",
+		  "VIVILLON_22",
+		  "VIVILLON_23",
+		  "VIVILLON_24",
+		  "VIVILLON_25",
+		  "VIVILLON_26",
+		  "VIVILLON_27",
+		  "VIVILLON_28",
+		  "VIVILLON_29",
+		  "VIVILLON_30",
+		  "VIVILLON_31",
+		  "VIVILLON_32",
+		  "VIVILLON_33"
 		],
 		[
 		  "ROWLET",
@@ -1075,7 +1089,21 @@ var arrays = {
 		  "VIVILLON_16",
 		  "VIVILLON_17",
 		  "VIVILLON_18",
-		  "VIVILLON_19"
+		  "VIVILLON_19",
+		  "VIVILLON_20",
+		  "VIVILLON_21",
+		  "VIVILLON_22",
+		  "VIVILLON_23",
+		  "VIVILLON_24",
+		  "VIVILLON_25",
+		  "VIVILLON_26",
+		  "VIVILLON_27",
+		  "VIVILLON_28",
+		  "VIVILLON_29",
+		  "VIVILLON_30",
+		  "VIVILLON_31",
+		  "VIVILLON_32",
+		  "VIVILLON_33"
 		],
 		[
 		  "GRUBBIN",
@@ -3655,9 +3683,22 @@ var arrays = {
 		"VIVILLON_16",
 		"VIVILLON_17",
 		"VIVILLON_18",
-		"VIVILLON_19"
+		"VIVILLON_19",
+		  "VIVILLON_20",
+		  "VIVILLON_21",
+		  "VIVILLON_22",
+		  "VIVILLON_23",
+		  "VIVILLON_24",
+		  "VIVILLON_25",
+		  "VIVILLON_26",
+		  "VIVILLON_27",
+		  "VIVILLON_28",
+		  "VIVILLON_29",
+		  "VIVILLON_30",
+		  "VIVILLON_31",
+		  "VIVILLON_32",
+		  "VIVILLON_33"
 	  ],
-
 	  "Alcremie": [
 		"ALCREMIE",
 		"ALCREMIE_7",
@@ -3811,8 +3852,196 @@ var arrays = {
 		"LeadenBall",
 		"GigatonBall",
 		"OriginBall"
+	  ],
+	  "MysteryDungeon": [
+		"BULBASAUR", //red rescue
+		"CHARMANDER",
+		"SQUIRTLE",
+		"MEOWTH",
+		"PSYDUCK",
+		"MACHOP",
+		"CUBONE",
+		"EEVEE",
+		"CHIKORITA",
+		"CYNDAQUIL",
+		"TOTODILE",
+		"TREECKO",
+		"TORCHIC",
+		"MUDKIP",
+		"SKITTY",
+		"TURTWIG",	// time and darkness
+		"CHIMCHAR",
+		"PIPLUP",
+		"MUNCHLAX",
+		"PHANPY",	//explorers of sky
+		"VULPIX",
+		"RIOLU",
+		"SHINX",
+		"SNIVY", //Gates to infinity
+		"TEPIG",
+		"OSHAWOTT",
+		"AXEW",
+		"CHESPIN", // Super
+		"FENNEKIN",
+		"FROAKIE",
+		"GROWLITHE", // Blazing
+		"TEDDIURSA",
+		"BUNEARY",
+		"WOOPER", // Stormy
+		"AZURILL",
+		"WYNAUT",
+		"PICHU", // Light
+		"TOGEPI",
+		"MAREEP",
+		"ELEKID",
+		"PACHIRISU"
+	  ],
+	  "GrassGirl": [
+		"VILEPLUME",
+		"BELLOSSOM",
+		"ROSELIA",
+		"ROSERADE",
+		"CHERRIM_1",
+		"WHIMSICOTT",
+		"LILLIGANT",
+		"LILLIGANT_1",
+		"FLORGES",
+		"FLOETTE_6",
+		"TSAREENA",
+		"ELDEGOSS",
+		"ARBOLIVA"
+	  ],
+	  "Furfrou": [
+		"FURFROU",
+		"FURFROU_1",
+		"FURFROU_2",
+		"FURFROU_3",
+		"FURFROU_4",
+		"FURFROU_5",
+		"FURFROU_6",
+		"FURFROU_7",
+		"FURFROU_8",
+		"FURFROU_9"
+	  ],
+	  "Mega": [
+		  "VENUSAUR_1",
+		  "CHARIZARD_1",
+		  "CHARIZARD_2",
+		  "BLASTOISE_1",
+		  "BEEDRILL_1",
+		  "PIDGEOT_1",
+		  "RAICHU_2",
+		  "RAICHU_3",
+		  "CLEFABLE_1",
+		  "ALAKAZAM_1",
+		  "VICTREEBEL_1",
+		  "SLOWBRO_2",
+		  "GENGAR_1",
+		  "KANGASKHAN_1",
+		  "STARMIE_1",
+		  "PINSIR_1",
+		  "GYARADOS_1",
+		  "AERODACTYL_1",
+		  "DRAGONITE_1",
+		  "MEWTWO_1",
+		  "MEWTWO_2",
+		  "MEGANIUM_1",
+		  "FERALIGATR_1",
+		  "AMPHAROS_1",
+		  "STEELIX_1",
+		  "SCIZOR_1",
+		  "HERACROSS_1",
+		  "SKARMORY_1",
+		  "HOUNDOOM_1",
+		  "TYRANITAR_1",
+		  "SCEPTILE_1",
+		  "BLAZIKEN_1",
+		  "SWAMPERT_1",
+		  "GARDEVOIR_1",
+		  "SABLEYE_1",
+		  "MAWILE_1",
+		  "AGGRON_1",
+		  "MEDICHAM_1",
+		  "MANECTRIC_1",
+		  "SHARPEDO_1",
+		  "CAMERUPT_1",
+		  "ALTARIA_1",
+		  "BANETTE_1",
+		  "CHIMECHO_1",
+		  "ABSOL_1",
+		  "ABSOL_2",
+		  "GLALIE_1",
+		  "SALAMENCE_1",
+		  "METAGROSS_1",
+		  "LATIAS_1",
+		  "LATIOS_1",
+		  "KYOGRE_1",
+		  "GROUDON_1",
+		  "RAYQUAZA_1",
+		  "STARAPTOR_1",
+		  "LOPUNNY_1",
+		  "GARCHOMP_1",
+		  "GARCHOMP_2",
+		  "LUCARIO_1",
+		  "LUCARIO_2",
+		  "ABOMASNOW_1",
+		  "GALLADE_1",
+		  "FROSLASS_1",
+		  "HEATRAN_1",
+		  "DARKRAI_2",
+		  "EMBOAR_1",
+		  "EXCADRILL_1",
+		  "AUDINO_1",
+		  "SCOLIPEDE_1",
+		  "SCRAFTY_1",
+		  "EELEKTROSS_1",
+		  "CHANDELURE_1",
+		  "GOLURK_1",
+		  "CHESNAUGHT_1",
+		  "DELPHOX_1",
+		  "GRENINJA_1",
+		  "PYROAR_2",
+		  "FLOETTE_6",
+		  "MEOWSTIC_2",
+		  "MALAMAR_1",
+		  "BARBARACLE_1",
+		  "DRAGALGE_1",
+		  "HAWLUCHA_1",
+		  "ZYGARDE_5",
+		  "DIANCIE_1",
+		  "CRABOMINABLE_1",
+		  "GOLISOPOD_1",
+		  "DRAMPA_1",
+		  "MAGEARNA_2",
+		  "ZERAORA_1",
+		  "FALINKS_1",
+		  "SCOVILLAIN_1",
+		  "GLIMMORA_1",
+		  "TATSUGIRI_3",
+		  "BAXCALIBUR_1"
 	  ]
-	}
+	
+}
+let mdIndexes = [
+	0,
+	arrays.MysteryDungeon.indexOf("TURTWIG"),
+	arrays.MysteryDungeon.indexOf("PHANPY"),
+	arrays.MysteryDungeon.indexOf("SNIVY"),
+	arrays.MysteryDungeon.indexOf("CHESPIN"),
+	arrays.MysteryDungeon.indexOf("GROWLITHE"),
+	arrays.MysteryDungeon.indexOf("WOOPER"),
+	arrays.MysteryDungeon.indexOf("PICHU")
+];
+let mdGames = [
+	"Red/Blue Rescue Team",
+	"Explorers of Time and Darkness",
+	"Explorers of Sky",
+	"Gates to Infinity",
+	"Super Mystery Dungeon",
+	"Blazing Adventure Squad",
+	"Stormy Adventure Squad",
+	"Light Adventure Squad"
+]
 var array_of_forms = ["GENESECT","GENESECT_1","GENESECT_2","GENESECT_3","GENESECT_4","LUNALA","LUNALA_1","SOLGALEO","SOLGALEO_1","MARSHADOW","MARSHADOW_1","MIMIKYU","MIMIKYU_1","ZACIAN","ZACIAN_2","ZAMAZENTA","ZAMAZENTA_2","ZARUDE","ZARUDE_1","PIKACHU","PIKACHU_2","PIKACHU_3","PIKACHU_4","PIKACHU_5","PIKACHU_6","PIKACHU_7","PIKACHU_8","PIKACHU_9","PIKACHU_10","PIKACHU_11","PIKACHU_12","PIKACHU_13","PIKACHU_14","PIKACHU_15","ABOMASNOW","ABOMASNOW_female","ALAKAZAM","ALAKAZAM_female","AIPOM","AIPOM_female","AMBIPOM","AMBIPOM_female","BEAUTIFLY","BEAUTIFLY_female","BIBAREL","BIBAREL_female","BIDOOF","BIDOOF_female","BLAZIKEN","BLAZIKEN_female","BUTTERFREE","BUTTERFREE_female","CACTURNE","CACTURNE_female","CAMERUPT","CAMERUPT_female","COMBEE","COMBEE_female","COMBUSKEN","COMBUSKEN_female","CROAGUNK","CROAGUNK_female","DODRIO","DODRIO_female","DODUO","DODUO_female","DONPHAN","DONPHAN_female","DUSTOX","DUSTOX_female","FINNEON","FINNEON_female","GARCHOMP","GARCHOMP_female","GIBLE","GIBLE_female","GIRAFARIG","GIRAFARIG_female","GLIGAR","GLIGAR_female","GLOOM","GLOOM_female","GOLBAT","GOLBAT_female","GOLDEEN","GOLDEEN_female","GULPIN","GULPIN_female","GYARADOS","GYARADOS_female","HERACROSS","HERACROSS_female","HOUNDOOM","HOUNDOOM_female","HYPNO","HYPNO_female","KADABRA","KADABRA_female","KRICKETOT","KRICKETOT_female","KRICKETUNE","KRICKETUNE_female","LEDIAN","LEDIAN_female","LEDYBA","LEDYBA_female","LUDICOLO","LUDICOLO_female","LUMINEON","LUMINEON_female","LUXIO","LUXIO_female","LUXRAY","LUXRAY_female","MAGIKARP","MAGIKARP_female","MAMOSWINE","MAMOSWINE_female","MEDICHAM","MEDICHAM_female","MEDITITE","MEDITITE_female","MEGANIUM","MEGANIUM_female","MILOTIC","MILOTIC_female","NUMEL","NUMEL_female","NUZLEAF","NUZLEAF_female","OCTILLERY","OCTILLERY_female","PIKACHU","PIKACHU_female","PILOSWINE","PILOSWINE_female","POLITOED","POLITOED_female","QUAGSIRE","QUAGSIRE_female","RAICHU","RAICHU_female","RATICATE","RATICATE_female","RATTATA","RATTATA_female","RELICANTH","RELICANTH_female","RHYDON","RHYDON_female","RHYHORN","RHYHORN_female","RHYPERIOR","RHYPERIOR_female","ROSELIA","ROSELIA_female","ROSERADE","ROSERADE_female","SCIZOR","SCIZOR_female","SCYTHER","SCYTHER_female","SEAKING","SEAKING_female","SHIFTRY","SHIFTRY_female","SHINX","SHINX_female","SNEASEL","SNEASEL_female","SNEASEL_1","SNEASEL_1_female","SNOVER","SNOVER_female","STARAPTOR","STARAPTOR_female","STARAVIA","STARAVIA_female","STARLY","STARLY_female","STEELIX","STEELIX_female","SUDOWOODO","SUDOWOODO_female","SWALOT","SWALOT_female","TANGROWTH","TANGROWTH_female","TOXICROAK","TOXICROAK_female","URSARING","URSARING_female","VENUSAUR","VENUSAUR_female","VILEPLUME","VILEPLUME_female","WEAVILE","WEAVILE_female","WOBBUFFET","WOBBUFFET_female","WOOPER","WOOPER_female"];
 
 var rev_map = {}
@@ -4076,7 +4305,7 @@ function remodeArrays() {
 			if(mechanical.includes(kind) || (other_gimmick.includes(kind) && MODE.SITE != MODE.STANDARD)) {
 				addToArray(sprite, "Gimmick", debut, form_data.fs, spliceInfo);
 			}
-			// goes in Launch if Regional, Gimmick, Gen6Mega, or SURPLUS+ Mega, Gmax
+			// goes in Launch if Regional, Gimmick, Mega, or SURPLUS+ Mega, Gmax
 			if(other_gimmick.includes(kind) || (mechanical.includes(kind) && MODE.SITE != MODE.STANDARD) || kind == "mega") {
 				addToArray(sprite, "Gimmick", launch, form_data.fs, spliceInfo);
 			}
@@ -4093,7 +4322,7 @@ function remodeArrays() {
 		+ middle in Silly
 		Pikaclone cuts the minor forms in Serious
 	*/
-	let alterable_arrays = ["Bird", "Critter", "RegionalBug", "Pseudo", "Pikaclone"];
+	let alterable_arrays = ["Bird", "Critter", "RegionalBug", "Pseudo", "Pikaclone", "GrassGirl"];
 	let categoryMap = {
 		Bird: {
 			"PIDGEY": 1,
@@ -4280,6 +4509,47 @@ function remodeArrays() {
 			"PIKACHU_13": 2,
 			"PIKACHU_14": 2,
 			"PIKACHU_15": 2
+		},
+		GrassGirl: {
+			"ODDISH": 3,
+			"GLOOM": 3,
+			"VILEPLUME": 1,
+			"BELLOSSOM": 1,
+			"BUDEW": 3,
+			"ROSELIA": 1,
+			"ROSERADE": 1,
+			"CHERUBI": 4,
+			"CHERRIM": 3,
+			"CHERRIM_1": 1,
+			"COTTONEE": 4,
+			"WHIMSICOTT": 1,
+			"PETILIL": 4,
+			"LILLIGANT": 1,
+			"LILLIGANT_1": 1,
+			"FLABEBE": 3,
+			"FLABEBE_1": 4,
+			"FLABEBE_2": 4,
+			"FLABEBE_3": 4,
+			"FLABEBE_4": 4,
+			"FLOETTE": 3,
+			"FLOETTE_1": 4,
+			"FLOETTE_2": 4,
+			"FLOETTE_3": 4,
+			"FLOETTE_4": 4,
+			"FLORGES": 1,
+			"FLORGES_1": 3,
+			"FLORGES_2": 3,
+			"FLORGES_3": 3,
+			"FLORGES_4": 3,
+			"FLOETTE_6": 1,
+			"BOUNSWEET": 4,
+			"STEENEE": 3,
+			"TSAREENA": 1,
+			"GOSSIFLEUR": 4,
+			"ELDEGOSS": 1,
+			"SMOLIV": 4,
+			"DOLLIV": 3,
+			"ARBOLIVA": 1
 		}
 	}
 	for(let i in alterable_arrays) {
@@ -4707,6 +4977,17 @@ function starterGame(mon_key, gen) {
 	}
 	return slots[0].tag;
 }
+function mdGame(mon_key, gen) {
+	if(!arrays.MysteryDungeon.includes(mon_key))
+		return "";
+	let ind = arrays.MysteryDungeon.indexOf(mon_key);
+	for(let i=1; i<mdIndexes.length; i++) {
+		if(ind < mdIndexes[i]) {
+			return mdGames[i-1];
+		}
+	}
+	return mdGames[mdGames.length-1];
+}
 function updateMode() {
 	let msel = document.getElementById("mode-select");
 	let newmode = Number(msel.value);
@@ -4744,11 +5025,14 @@ function keyToMonData(k) {
 }
 function keyToNonMonData(k) {
 	let longName = k.replace(/(.)([A-Z])/g, "$1 $2");
+	let transl = getTranslString(longName);
 	let nom = {
-		name: longName,
+		name: transl || longName,
 		gen: 0,
 		num: 0
 	}
+	if(!arrays.Types.includes(longName) && !arrays.PokeBall.includes(longName))
+		nom.grid_img = true;
 	return {mon:nom, base_key:k, form_key:"", form_data:nom, is_fs:false}
 }
 function alcremieTooltip(k, has_toppings) {

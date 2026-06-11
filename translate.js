@@ -41,7 +41,8 @@ var fav_cats = 	[
 	"Eeveelution", "Fossil", "RegionalForm", "Gigantamax",
 	"BoxLegendary", "Mythical", "UltraBeast", "Paradox",
 	"Type", "Pokeball", "SpindaTitle", "Vivillon", "Alcremie",
-	"Baby", "NewEvolution"
+	"Baby", "NewEvolution", "Furfrou", "MegaEvo", "GrassGirl", "MysteryDungeon",
+	"Custom1", "Custom2", "Custom3"
 ]
 var femme = {
 	"Português": ["-a", "Forma Regional"],
@@ -153,6 +154,19 @@ function getTranslString (check) {
 	return translatable[check]["English"];
 }
 var translatable = {
+ "Custom": {
+  "English": "",
+  "Español": "",
+  "Português": "",
+  "Deutsch": "",
+  "日本": "",
+  "简中": "",
+  "繁中": "",
+  "Français": "",
+  "Italiano": "",
+  "한국어": "",
+  "Nederlands": ""
+ },
  "GimmickForm": {
   "English": "Gimmick<br/>Form",
   "Español": "Forma<br/>Especial",
@@ -703,6 +717,58 @@ var translatable = {
   "Italiano": "Alcremie",
   "한국어": "마휘핑",
   "Nederlands": "Alcremie"
+ },
+ "Furfrou": {
+  "English": "Furfrou",
+  "Español": "Furfrou",
+  "Português": "Furfrou",
+  "Deutsch": "Coiffwaff",
+  "日本": "トリミアン",
+  "简中": "多麗米亞",
+  "繁中": "多麗米亞",
+  "Français": "Couafarel",
+  "Italiano": "Furfrou",
+  "한국어": "트리미앙",
+  "Nederlands": "Furfrou"
+ },
+ "GrassGirl": {
+  "English": "Grass Girl",
+  "Español": "Chica Plata",
+  "Português": "Menina da Planta",
+  "Deutsch": "Pflanzemädchen",
+  "日本": "くさの少女",
+  "简中": "花仙子宝可梦",
+  "繁中": "花仙子寶可夢",
+  "Français": "Fille Plante",
+  "Italiano": "Ragazza dell'erba",
+  "한국어": "풀 소녀",
+  "Nederlands": "Grasmeisje"
+ },
+ "MegaEvo": {
+  "English": "Mega Evolution",
+  "Español": "Megaevolución ",
+  "Português": "Mega Evolução",
+  "Deutsch": "Mega-Entwicklung",
+  "日本": "メガシンカ",
+  "简中": "超级进化",
+  "繁中": "超級進化",
+  "Français": "Méga-Évolution",
+  "Italiano": "Megaevoluzione",
+  "한국어": "메가진화",
+  "Nederlands": "Mega-evolutie"
+ },
+ "MysteryDungeon": {
+  "English": "Mystery Dungeon Hero",
+  "Español": "Héroe de Mundo misterioso",
+  "Português": "Herói da Masmorra Misteriosa",
+  "Deutsch": "Mystery Dungeon Held",
+  "日本": "主人公のポケダン",
+  "简中": "不可思议迷宫主角",
+  "繁中": "不可思議迷宮主角",
+  "Français": "Héros de Donjon Mystère",
+  "Italiano": "Eroe di Mystery Dungeon",
+  "한국어": "미스터리 던전 주인공",
+  "Nederlands": "Mystery Dungeon Held"
  },
  "Normal": {
   "English": "Normal",
