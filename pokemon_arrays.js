@@ -3857,6 +3857,7 @@ var arrays = {
 		"BULBASAUR", //red rescue
 		"CHARMANDER",
 		"SQUIRTLE",
+		"PIKACHU",
 		"MEOWTH",
 		"PSYDUCK",
 		"MACHOP",
