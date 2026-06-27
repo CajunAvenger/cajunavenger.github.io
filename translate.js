@@ -46,8 +46,8 @@ var fav_cats = 	[
 ]
 var femme = {
 	"Português": ["-a", "Forma Regional"],
-	"Español": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional"],
-	"Español_Latino": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional"],
+	"Español": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional", "Megaevolución","Nueva<br/>Evolución","Alcremie"],
+	"Español_Latino": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional", "Megaevolución","Nueva<br/>Evolución","Alcremie"],
 	"Italiano": ["Eeveeluzione", "Forma Regionale", "Ultracreatura", "Poké Ball", "Nuova<br/>Evoluzione"],
 	"Français": ["Ultra-Chimère", "Poké Ball", "Forme Régionale", "Nouvelle<br/>évolution", "Évolition"]
 }
@@ -182,7 +182,7 @@ var translatable = {
  },
  "PseudoLegend": {
   "English": "Pseudo Legend",
-  "Español": "Pseudo-<br/>Legendario",
+  "Español": "Pesos<br/>Pesados",
   "Português": "Pseudo<br/>Lendário",
   "Deutsch": "Pseudo<br/>Legendäres",
   "日本": "600族",
@@ -589,15 +589,15 @@ var translatable = {
  },
  "Mythical": {
   "English": "Mythical",
-  "Español": "Pokémon Singular",
+  "Español": "Singular",
   "Español_Latino": "Mítico",
   "Português": "Mítico",
   "Deutsch": "Mysteriös",
   "日本": "幻のポケモン",
   "简中": "幻之宝可梦",
   "繁中": "幻之寶可夢",
-  "Français": "Pokémon Fabuleux",
-  "Italiano": "Pokémon Misterioso",
+  "Français": "Fabuleux",
+  "Italiano": "Misterioso",
   "한국어": "환상의 포켓몬",
   "Nederlands": "Mythische"
  },
@@ -616,13 +616,13 @@ var translatable = {
  },
  "Paradox": {
   "English": "Paradox",
-  "Español": "Pokémon Paradoja",
+  "Español": "Paradoja",
   "Português": "Paradoxo",
   "Deutsch": "Paradox",
   "日本": "パラドックス",
   "简中": "悖谬宝可梦",
   "繁中": "悖謬寶可夢",
-  "Français": "Pokémon Paradoxe",
+  "Français": "Paradoxe",
   "Italiano": "Paradosso",
   "한국어": "패러독스",
   "Nederlands": "Paradox"
@@ -733,7 +733,7 @@ var translatable = {
  },
  "GrassGirl": {
   "English": "Grass Girl",
-  "Español": "Chica Plata",
+  "Español": "Chica Planta",
   "Português": "Menina da Planta",
   "Deutsch": "Pflanzemädchen",
   "日本": "くさの少女",
@@ -1019,7 +1019,7 @@ var translatable = {
  },
  "Legend": {
   "English": "Legend",
-  "Español": "Legend",
+  "Español": "Legend.",
   "Português": "Lendário",
   "Deutsch": "Legänderes",
   "日本": "伝説",
