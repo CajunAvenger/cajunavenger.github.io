@@ -1497,9 +1497,13 @@ canvas {
 	function customize(ele) {
 		let str = prompt("Pick a title for this box:");
 		if(!str)
-			str = "Click to customize!";
+			str = customizeTransl();
 		ele.innerText = str;
-		setCookie(ele.id, str);
+		if(str == DEFAULT_CUSTOM) {
+			deleteCookie(ele.id);
+		}else{
+			setCookie(ele.id, str);
+		}
 	}
 	
 	function initialize() {
@@ -1531,11 +1535,11 @@ Language: <select id="language-select" onchange="updateLang()">
 	<option value="zhs">简中</option>
 	<option value="zht">繁中</option>
 </select>
-Mode: <select id="mode-select" onchange="updateMode()">
-	<option value="1">Strict</option>
-	<option value="2" selected>Standard</option>
-	<option value="3">Surplus</option>
-	<option value="4">Silly</option>
+<span id="modeLabel">Mode</span>: <select id="mode-select" onchange="updateMode()">
+	<option value="1" id="modeStrict">Strict</option>
+	<option value="2" id="modeStandard" selected>Standard</option>
+	<option value="3" id="modeSurplus">Surplus</option>
+	<option value="4" id="modeSilly">Silly</option>
 </select>
 <div id="grid-wrapper">
 <!--<img class="back" id="back" src="https://cajunavenger.github.io/background.png" alt="" height="1571" width="2276" onclick="closeBox();"/>-->

@@ -44,10 +44,11 @@ var fav_cats = 	[
 	"Baby", "NewEvolution", "Furfrou", "MegaEvo", "GrassGirl", "MysteryDungeon",
 	"Custom1", "Custom2", "Custom3"
 ]
+var custom_cats = ["Custom1", "Custom2", "Custom3"]
 var femme = {
 	"Português": ["-a", "Forma Regional"],
-	"Español": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional", "Megaevolución","Nueva<br/>Evolución","Alcremie"],
-	"Español_Latino": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional", "Megaevolución","Nueva<br/>Evolución","Alcremie"],
+	"Español": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional", "Megaevolución","Nueva<br/>Evolución","Alcremie", "Chica Planta"],
+	"Español_Latino": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional", "Megaevolución","Nueva<br/>Evolución","Alcremie", "Chica Planta"],
 	"Italiano": ["Eeveeluzione", "Forma Regionale", "Ultracreatura", "Poké Ball", "Nuova<br/>Evoluzione"],
 	"Français": ["Ultra-Chimère", "Poké Ball", "Forme Régionale", "Nouvelle<br/>évolution", "Évolition"]
 }
@@ -154,19 +155,6 @@ function getTranslString (check) {
 	return translatable[check]["English"];
 }
 var translatable = {
- "Custom": {
-  "English": "",
-  "Español": "",
-  "Português": "",
-  "Deutsch": "",
-  "日本": "",
-  "简中": "",
-  "繁中": "",
-  "Français": "",
-  "Italiano": "",
-  "한국어": "",
-  "Nederlands": ""
- },
  "GimmickForm": {
   "English": "Gimmick<br/>Form",
   "Español": "Forma<br/>Especial",
@@ -182,7 +170,7 @@ var translatable = {
  },
  "PseudoLegend": {
   "English": "Pseudo Legend",
-  "Español": "Pesos<br/>Pesados",
+  "Español": "Peso<br/>Pesado",
   "Português": "Pseudo<br/>Lendário",
   "Deutsch": "Pseudo<br/>Legendäres",
   "日本": "600族",
@@ -316,7 +304,7 @@ var translatable = {
   "Português": "Clique em um dos espaços em branco e depois em um Pokémon do quadro para colocá-lo no time",
   "Deutsch": "Klick auf eine der 6 Team-Felder, dann auf ein Pokemon aus deiner Auswahl, um es ins Team zu kopieren.",
   "日本": "パーティーの欄を選択してから、グリッド内のポケモンを選択してください。",
-  "简中": "点击同行宝可梦盒子，再点击表格中的宝可梦，来将其复制到盒子里。",
+  "简中": "点击同行宝可梦的方框，再点击表格中的宝可梦，将其复制到框里。",
   "繁中": "單擊同行寶可夢的方框，然後單擊表格中的寶可夢，將其複製到框中。",
   "Français": "Cliquez sur une place dans votre équipe, puis un Pokémon de la grille pour l'y copier",
   "Italiano": "Fai clic su una casella della squadra, quindi su un Pokémon dalla griglia per copiarlo nella casella.",
@@ -338,7 +326,7 @@ var translatable = {
  },
  "ShinyCharm1": {
   "English": "Click the Shiny Charm, then click Pokemon to make them shiny.",
-  "Español": "Haz click en el Amuleto Iris, después haz click en un Pokémon para hacerlo shiny.",
+  "Español": "Haz click en el Amuleto Iris, luego toca un Pokémon para alternar su variocolor.",
   "Português": "Clique no Shiny Charm e, em seguida, clique nos Pokémon para torná-los brilhantes.",
   "Deutsch": "Klick auf den Schillerpin, dann auf ein Pokemon um dieses zu seinem Shiny zu machen.",
   "日本": "ひかるおまもりを選択してからグリッド内のポケモンを選択すると、そのポケモンが色違いになります。",
@@ -724,7 +712,7 @@ var translatable = {
   "Português": "Furfrou",
   "Deutsch": "Coiffwaff",
   "日本": "トリミアン",
-  "简中": "多麗米亞",
+  "简中": "多丽米亚",
   "繁中": "多麗米亞",
   "Français": "Couafarel",
   "Italiano": "Furfrou",
@@ -1029,8 +1017,48 @@ var translatable = {
   "Italiano": "Leggendari",
   "한국어": " 전설의",
   "Nederlands": "Legend"
+ },
+ "Custom1": {
+	 "English": "Click to customize",
+	 "Español": "¡Haz clic para personalizar!",
+	 "Português": "Clique para personalizar!",
+	 "Deutsch": "Zum Anpassen hier klicken!",
+	 "日本": "クリックしてカスタマイズ！",
+	 "简中": "点击进行自定义分类！",
+	 "繁中": "單擊進行客製化分類！",
+	 "Français": "Cliquez pour personnaliser !",
+	 "Italiano": "Clicca per personalizzare!",
+	 "한국어": " 클릭하여 맞춤 설정하세요!",
+	 "Nederlands": "Klik om aan te passen!"
+ },
+ "modeLabel": {
+	 "English": "Mode",
+	 "简中": "模式",
+	 "繁中": "模式"
+ },
+ "modeStrict": {
+	 "English": "Strict",
+	 "简中": "精简",
+	 "繁中": "精簡"
+ },
+ "modeStandard": {
+	 "English": "Standard",
+	 "简中": "均衡",
+	 "繁中": "均衡"
+ },
+ "modeSurplus": {
+	 "English": "Surplus",
+	 "简中": "解禁",
+	 "繁中": "解禁"
+ },
+ "modeSilly": {
+	 "English": "Silly",
+	 "简中": "究极",
+	 "繁中": "究極"
  }
 }
+translatable.Custom2 = translatable.Custom1;
+translatable.Custom3 = translatable.Custom1;
 
 function writeEmpties() {
 	var fs = require('fs');
@@ -1082,12 +1110,16 @@ function resolveFem(string, lang, arr) {
 		return arr[1];
 	return arr[0];
 }
+function customizeTransl() {
+	return translatable.Custom1[currentLang] || translatable.Custom1.English;
+}
 function changeLang(lang) {
 	if(code_lang[lang])
 		lang = code_lang[lang];
 	if(!languages.includes(lang) || lang == currentLang)
 		return;
 	currentLang = lang;
+	DEFAULT_CUSTOM = customizeTransl();
 	var fallback = (fallbacks[lang] || "English");
 	var favs = translatable["Favorite"][lang];
 	if(!favs)
@@ -1098,10 +1130,15 @@ function changeLang(lang) {
 		var tr_ele = document.getElementById(tr_id);
 		if(!tr_ele)
 			continue;
+		let customized = getCookie(tr_id);
+		if(customized) {
+			tr_ele.innerHTML = customized;
+			continue;
+		}
 		var tr_st = tr_info[lang];
 		if(!tr_st)
 			tr_st = tr_info[fallback];
-		if(fav_cats.includes(tr_id)) {
+		if(fav_cats.includes(tr_id) && !custom_cats.includes(tr_id)) {
 			// Favorite Thing
 			var fn = favs[0];
 			if(use_femme)
