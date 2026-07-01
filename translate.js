@@ -44,6 +44,7 @@ var fav_cats = 	[
 	"Baby", "NewEvolution", "Furfrou", "MegaEvo", "GrassGirl", "MysteryDungeon",
 	"Custom1", "Custom2", "Custom3"
 ]
+var custom_cats = ["Custom1", "Custom2", "Custom3"]
 var femme = {
 	"Português": ["-a", "Forma Regional"],
 	"Español": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional", "Megaevolución","Nueva<br/>Evolución","Alcremie"],
@@ -154,19 +155,6 @@ function getTranslString (check) {
 	return translatable[check]["English"];
 }
 var translatable = {
- "Custom": {
-  "English": "",
-  "Español": "",
-  "Português": "",
-  "Deutsch": "",
-  "日本": "",
-  "简中": "",
-  "繁中": "",
-  "Français": "",
-  "Italiano": "",
-  "한국어": "",
-  "Nederlands": ""
- },
  "GimmickForm": {
   "English": "Gimmick<br/>Form",
   "Español": "Forma<br/>Especial",
@@ -1029,8 +1017,48 @@ var translatable = {
   "Italiano": "Leggendari",
   "한국어": " 전설의",
   "Nederlands": "Legend"
+ },
+ "Custom1": {
+	 "English": "Click to customize",
+	 "Español": "¡Haz clic para personalizar!",
+	 "Português": "Clique para personalizar!",
+	 "Deutsch": "Zum Anpassen hier klicken!",
+	 "日本": "クリックしてカスタマイズ！",
+	 "简中": "点击进行自定义分类！",
+	 "繁中": "單擊進行客製化分類！",,
+	 "Français": "Cliquez pour personnaliser !",
+	 "Italiano": "Clicca per personalizzare!",
+	 "한국어": " 클릭하여 맞춤 설정하세요!",
+	 "Nederlands": "Klik om aan te passen!"
+ },
+ "modeLabel": {
+	 "English": "Mode",
+	 "简中": "模式",
+	 "繁中": "模式"
+ },
+ "modeStrict": {
+	 "English": "Strict",
+	 "简中": "精简",
+	 "繁中": "精簡"
+ },
+ "modeStandard": {
+	 "English": "Standard",
+	 "简中": "均衡",
+	 "繁中": "均衡"
+ },
+ "modeSurplus": {
+	 "English": "Surplus",
+	 "简中": "解禁",
+	 "繁中": "解禁"
+ },
+ "modeSilly": {
+	 "English": "Silly",
+	 "简中": "究极",
+	 "繁中": "究極"
  }
 }
+translatable.Custom2 = translatable.Custom1;
+translatable.Custom3 = translatable.Custom1;
 
 function writeEmpties() {
 	var fs = require('fs');
@@ -1082,12 +1110,16 @@ function resolveFem(string, lang, arr) {
 		return arr[1];
 	return arr[0];
 }
+function customizeTransl() {
+	return translatable.Custom1[currentLang] || translatable.Custom1.English;
+}
 function changeLang(lang) {
 	if(code_lang[lang])
 		lang = code_lang[lang];
 	if(!languages.includes(lang) || lang == currentLang)
 		return;
 	currentLang = lang;
+	DEFAULT_CUSTOM = customizeTransl();
 	var fallback = (fallbacks[lang] || "English");
 	var favs = translatable["Favorite"][lang];
 	if(!favs)
@@ -1098,10 +1130,15 @@ function changeLang(lang) {
 		var tr_ele = document.getElementById(tr_id);
 		if(!tr_ele)
 			continue;
+		let customized = getCookie(tr_id);
+		if(customized) {
+			tr_ele.innerHTML = customized;
+			continue;
+		}
 		var tr_st = tr_info[lang];
 		if(!tr_st)
 			tr_st = tr_info[fallback];
-		if(fav_cats.includes(tr_id)) {
+		if(fav_cats.includes(tr_id) && !custom_cats.includes(tr_id)) {
 			// Favorite Thing
 			var fn = favs[0];
 			if(use_femme)
