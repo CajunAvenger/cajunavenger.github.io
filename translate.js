@@ -47,8 +47,8 @@ var fav_cats = 	[
 var custom_cats = ["Custom1", "Custom2", "Custom3"]
 var femme = {
 	"Português": ["-a", "Forma Regional"],
-	"Español": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional", "Megaevolución","Nueva<br/>Evolución","Alcremie"],
-	"Español_Latino": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional", "Megaevolución","Nueva<br/>Evolución","Alcremie"],
+	"Español": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional", "Megaevolución","Nueva<br/>Evolución","Alcremie", "Chica Planta"],
+	"Español_Latino": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional", "Megaevolución","Nueva<br/>Evolución","Alcremie", "Chica Planta"],
 	"Italiano": ["Eeveeluzione", "Forma Regionale", "Ultracreatura", "Poké Ball", "Nuova<br/>Evoluzione"],
 	"Français": ["Ultra-Chimère", "Poké Ball", "Forme Régionale", "Nouvelle<br/>évolution", "Évolition"]
 }
@@ -170,7 +170,7 @@ var translatable = {
  },
  "PseudoLegend": {
   "English": "Pseudo Legend",
-  "Español": "Pesos<br/>Pesados",
+  "Español": "Peso<br/>Pesado",
   "Português": "Pseudo<br/>Lendário",
   "Deutsch": "Pseudo<br/>Legendäres",
   "日本": "600族",
@@ -326,7 +326,7 @@ var translatable = {
  },
  "ShinyCharm1": {
   "English": "Click the Shiny Charm, then click Pokemon to make them shiny.",
-  "Español": "Haz click en el Amuleto Iris, después haz click en un Pokémon para hacerlo shiny.",
+  "Español": "Haz click en el Amuleto Iris, luego toca un Pokémon para alternar su variocolor.",
   "Português": "Clique no Shiny Charm e, em seguida, clique nos Pokémon para torná-los brilhantes.",
   "Deutsch": "Klick auf den Schillerpin, dann auf ein Pokemon um dieses zu seinem Shiny zu machen.",
   "日本": "ひかるおまもりを選択してからグリッド内のポケモンを選択すると、そのポケモンが色違いになります。",
@@ -1025,7 +1025,7 @@ var translatable = {
 	 "Deutsch": "Zum Anpassen hier klicken!",
 	 "日本": "クリックしてカスタマイズ！",
 	 "简中": "点击进行自定义分类！",
-	 "繁中": "單擊進行客製化分類！",,
+	 "繁中": "單擊進行客製化分類！",
 	 "Français": "Cliquez pour personnaliser !",
 	 "Italiano": "Clicca per personalizzare!",
 	 "한국어": " 클릭하여 맞춤 설정하세요!",
