@@ -339,7 +339,7 @@ var translatable = {
  },
  "ShinyCharm2": {
   "English": "Or click here to make everything shiny.",
-  "Español": "O haz click aquí para hacer a todos shiny.",
+  "Español": "O pulsa aquí y todos se harán variocolor.",
   "Português": "Ou clique aqui para fazer que todos sejam brilhantes.",
   "Deutsch": "Oder klicke hier, um alle Pokemon shiny zu machen.",
   "日本": "ここをクリックすると、全ポケモンが色違いになります。",
