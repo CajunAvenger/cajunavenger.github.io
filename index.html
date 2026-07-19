@@ -1498,7 +1498,7 @@ canvas {
 		let str = prompt("Pick a title for this box:");
 		if(!str)
 			str = customizeTransl();
-		ele.innerText = str;
+		ele.innerHTML = str;
 		if(str == DEFAULT_CUSTOM) {
 			deleteCookie(ele.id);
 		}else{
