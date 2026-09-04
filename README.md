@@ -40,10 +40,36 @@ At the very bottom of the page there are three buttons and a textbox.
 If you want to do something like put Jolteon as your favorite Gen 3 starter or Chinchou as your favorite regional bird, put a filler Pokemon in that position, then click Write Code, replace that Pokemon's name with the one you want, then click Import Code. Most Pokemon will just be their names capitalized (SWELLOW), but alternate forms will have a tag (MEOWTH_2). You can verify a name by putting it in the grid by itself and writing the code.
 
 ## Additional Sprites
-Walking Wake and Iron Leaves sprites from [JordanosArt](https://twitter.com/JordanosArt).
+From [JordanosArt](https://twitter.com/JordanosArt):
+* Walking Wake
+* Iron Leaves
 
-Archaludon, Dipplin, Raging Bolt, and Okidogi from [RetroNC](https://www.deviantart.com/retronc).
+From [RetroNC](https://www.deviantart.com/retronc)
+* Dipplin
+* Raging Bolt
+* Okidogi
+* Zygarde Cell, Core
+* Megas: Barbaracle, Baxcalibur, Chandelure, Chesnaught, Chimecho, Clefable, Crabominalbe, Darkrai, Delphox, Dragalge, Dragonite, Eelektross, Emboar, Falinks, Feraligatr, Floette, Froslass, Glimmora, Golurk, Greninja, Heatran, Lucario-Z, Malamar, Meganium, Megearna, Pyroar, Raichu-Y, Scolipede, Scovillian, Scrafty, Skarmory, Starmie, Tatsugiri, Zeraora, Zygarde
 
-Other Gen 9 sprites from [KingOfThe-X-Roads](https://www.deviantart.com/kingofthe-x-roads).
+From PokeAPI
+* [DoveKyle](https://x.com/DoveKyle) - Megas: Absol-Z, Drampa, Excadrill, Garchomp-Z, Golisopod, Hawlucha, Meowstic, Raichu-X, Skarmory, Staraptor, Victreebel
 
-Gen 6-8 and Substitute sprites from the [Smogon Community Sprite Project](https://docs.google.com/spreadsheets/d/1MCjDktTOOFjLKM5C-RW6SfBQGkjlxDSCZAZDma_ItuA/) and [PokeAPI](https://github.com/PokeAPI/sprites)
+From [Smogon Community Sprite Project](https://docs.google.com/spreadsheets/d/1MCjDktTOOFjLKM5C-RW6SfBQGkjlxDSCZAZDma_ItuA/) 
+* Katten - Clodsire
+* Sphex - Spidops, Annihilape
+* Blaquaza - Lokix, Mega Victreeel
+* Mintly - Surfing Gholdengo
+* Travis - Palafin Hero, Tinkatink, Tinkatuff, Tinkaton
+* [KingOfThe-X-Roads](https://www.deviantart.com/kingofthe-x-roads) - Most other Gen 9 sprites.
+
+From the [Smogon Sprite Projects](https://www.smogon.com/forums/threads/smogon-sprite-project.3647722/) and [PokeAPI](https://github.com/PokeAPI/sprites)
+* Substitute
+* Gen 6-8 Pokemon
+
+From Cajun (that's me)
+* Shadow Mewtwo
+* Shadow Lugia
+* Purple Kecleon
+* Primal Dialga
+* Pride Vivillons, absed on designs by [HexeChroma](https://modrinth.com/datapack/vivillon-pride-patterns)
+* Shiny recolors for RetroNC's Megas
