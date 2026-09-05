@@ -903,8 +903,8 @@ function remodeArrays() {
 			if(mechanical.includes(kind) || (other_gimmick.includes(kind) && MODE.SITE != MODE.STANDARD)) {
 				addToArray(sprite, "Gimmick", debut, form_data.fs, spliceInfo);
 			}
-			// goes in Launch if Regional, Gimmick, Mega, or SURPLUS+ Mega, Gmax
-			if(other_gimmick.includes(kind) || (mechanical.includes(kind) && MODE.SITE != MODE.STANDARD) || kind == "mega") {
+			// goes in Launch if Regional, other Gimmick, or SURPLUS+ Mega, Gmax
+			if(other_gimmick.includes(kind) || (mechanical.includes(kind) && MODE.SITE != MODE.STANDARD)) {
 				addToArray(sprite, "Gimmick", launch, form_data.fs, spliceInfo);
 			}
 		}
