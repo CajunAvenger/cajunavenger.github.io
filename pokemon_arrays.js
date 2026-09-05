@@ -3024,7 +3024,10 @@ var arrays = {
 		  "DELPHOX",
 		  "FROAKIE",
 		  "FROGADIER",
-		  "GRENINJA"
+		  "GRENINJA",
+		  "SCEPTILE_1",
+		  "BLAZIKEN_1",
+		  "SWAMPERT_1"
 		],
 		[
 		  "ROWLET",
@@ -4759,15 +4762,15 @@ let starterLayout = [
 		["TREECKO", 4],
 		["GROVYLE", 4],
 		["SCEPTILE", 4],
-		["SCEPTILE_1", 3],
+		["SCEPTILE_1", 2],
 		["TORCHIC", 4],
 		["COMBUSKEN", 4],
 		["BLAZIKEN", 4],
-		["BLAZIKEN_1", 3],
+		["BLAZIKEN_1", 2],
 		["MUDKIP", 4],
 		["MARSHTOMP", 4],
 		["SWAMPERT", 4],
-		["SWAMPERT_1", 3]
+		["SWAMPERT_1", 2]
 	],
 	[
 		"ROWLET",
