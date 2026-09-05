@@ -860,7 +860,7 @@ function remodeArrays() {
 				Mega, GMax
 					Types: Launch (+debut at Surplus)
 					Gimmick: Debut (+launch at Surplus)
-				Regional, Gimmick (ex shadow lugia)
+				Regional, Gimmick (ex ultra necrozma)
 					Types: Launch (+debut at Surplus)
 					Gimmick: Launch (+debut at Surplus)
 				other
