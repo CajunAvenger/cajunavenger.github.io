@@ -719,13 +719,14 @@ function remodeArrays() {
 		regional2: [],
 		mega: [],
 		gmax: [],
+		convergent: [],
 		paradox: [],
 		gimmick: [],
 		other: [],
 		spam: []
 	}
 	let mechanical = ["mega", "gmax"];
-	let other_gimmick = ["regional", "regional2", "paradox", "gimmick", "pokestar"];
+	let other_gimmick = ["regional", "regional2", "convergent", "paradox", "gimmick", "pokestar"];
 	let all_gimmicks = mechanical.concat(other_gimmick);
 	/*
 	Hierarchy
@@ -755,12 +756,10 @@ function remodeArrays() {
 			if(mon.kind == "convergent") {
 				// always debut Gimmick
 				addToArray(p, "Gimmick", debut, mon.fs, mon.splice);
-				// in silly mode, also inspiration Gimmick
-				if(MODE.SITE >= MODE.SILLY) {
-					addToArray(p, "Gimmick", mon.insp, mon.fs, mon.splice);
-				}
 			}
-			// dupe paradox to form order for gimmick column and type backadding
+			// dupe convergent and paradox to form order for gimmick column and type backadding
+			if(mon.kind == "convergent" && MODE.SITE >= MODE.SURPLUS)
+				form_order.convergent.push([p, ""]);
 			if(mon.kind == "paradox" && MODE.SITE >= MODE.SURPLUS)
 				form_order.paradox.push([p, ""]);
 			// legendary column
@@ -846,7 +845,7 @@ function remodeArrays() {
 			if(base_mon.forms && base_mon.forms[formKey])
 				form_data = base_mon.forms[formKey];
 			let debut = base_mon.gen;
-			if(form_data.kind == "paradox")
+			if(form_data.kind == "paradox" || form_data.kind == "convergent")
 				debut = base_mon.insp;
 			let launch = form_data.gen || debut;
 			let types = form_data.types || base_mon.types;
@@ -878,7 +877,7 @@ function remodeArrays() {
 				// add non-gimmick forms to launch types in strict mode
 				gens_to_add.push(launch);
 			}
-			if(form_data.kind == "paradox") {
+			if(form_data.kind == "paradox" || form_data.kind == "convergent") {
 				// add to inspiration generation in silly mode
 				if(MODE.SITE >= MODE.SILLY)
 					gens_to_add.push(base_mon.insp);
