@@ -1368,9 +1368,9 @@ let starterLayout = [
 		"BRIONNE",
 		"PRIMARINA",
 		// LGPE
-		["PIKACHU", 3],
+		["PIKACHU", 4],
 		["PIKACHU_70", 4],
-		["EEVEE", 3],
+		["EEVEE", 4],
 		["EEVEE_1", 4],
 		["GRENINJA_2", 3],
 	],
