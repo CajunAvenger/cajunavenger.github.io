@@ -52,7 +52,8 @@ From [RetroNC](https://www.deviantart.com/retronc)
 * Megas: Barbaracle, Baxcalibur, Chandelure, Chesnaught, Chimecho, Clefable, Crabominalbe, Darkrai, Delphox, Dragalge, Dragonite, Eelektross, Emboar, Falinks, Feraligatr, Floette, Froslass, Glimmora, Golurk, Greninja, Heatran, Lucario-Z, Malamar, Meganium, Megearna, Pyroar, Raichu-Y, Scolipede, Scovillian, Scrafty, Skarmory, Starmie, Tatsugiri, Zeraora, Zygarde
 
 From PokeAPI
-* [DoveKyle](https://x.com/DoveKyle) - Megas: Absol-Z, Drampa, Excadrill, Garchomp-Z, Golisopod, Hawlucha, Meowstic, Raichu-X, Skarmory, Staraptor, Victreebel
+* [DoveKyle](https://x.com/DoveKyle) - Megas: Absol-Z, Drampa, Excadrill, Garchomp-Z, Golisopod, Hawlucha, Meowstic, Raichu-X, Skarmory, Staraptor
+* MyMarshlands - Mega Victreebel
 
 From [Smogon Community Sprite Project](https://docs.google.com/spreadsheets/d/1MCjDktTOOFjLKM5C-RW6SfBQGkjlxDSCZAZDma_ItuA/) 
 * Katten - Clodsire
@@ -71,5 +72,5 @@ From Cajun (that's me)
 * Shadow Lugia
 * Purple Kecleon
 * Primal Dialga
-* Pride Vivillons, absed on designs by [HexeChroma](https://modrinth.com/datapack/vivillon-pride-patterns)
+* Pride Vivillons, based on designs by [HexeChroma](https://modrinth.com/datapack/vivillon-pride-patterns)
 * Shiny recolors for RetroNC's Megas

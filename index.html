@@ -489,8 +489,8 @@ canvas {
 	});
 </script>
 -->
-<script src="dex_mini.js"></script>
-<script src="pokemon_arrays.js?v=2"></script>
+<script src="dex_mini.js?v=2"></script>
+<script src="pokemon_arrays.js?v=3"></script>
 <script src="translate.js?v=2"></script>
 <script language="JavaScript">
 	var zerogen_vers = 2;
@@ -911,6 +911,8 @@ canvas {
 					if(game != "")
 						tooltip += " (" + game + ")";
 				}
+				if(mon_data.form_data.tag)
+					tooltip += " ("+ mon_data.form_data.tag + ")";
 				var mon_img = domlink + spriteFile + "/" + mon_key + ".png";
 				if(mon_data.mon.grid_img && type != other_order.indexOf("PokeBall"))
 					mon_img = domlink + "grid/" + mon_key + ".png";
