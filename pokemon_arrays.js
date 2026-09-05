@@ -1211,12 +1211,14 @@ let starterLayout = [
 		"BLASTOISE",
 		["BLASTOISE_1", 4],
 		["BLASTOISE_2", 4],
+		// Rumble
 		["RATTATA", 4],
+		// Yellow
 		"PIKACHU",
 		["PIKACHU_70", 4],
-		// XD
 		"EEVEE",
 		["EEVEE_1", 4],
+		// XD backadd
 		["VAPOREON", 4],
 		["JOLTEON", 4],
 		["FLAREON", 4]
@@ -1235,6 +1237,7 @@ let starterLayout = [
 		"TOTODILE",
 		"CROCONAW",
 		"FERALIGATR",
+		// ZA backadd
 		["FERALIGATR_1", 4],
 		// Ranger backadd
 		["PICHU_2", 4],

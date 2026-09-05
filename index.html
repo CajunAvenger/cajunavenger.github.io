@@ -911,6 +911,8 @@ canvas {
 					if(game != "")
 						tooltip += " (" + game + ")";
 				}
+				if(mon_data.form_data.tag)
+					tooltip += " ("+ mon_data.form_data.tag + ")";
 				var mon_img = domlink + spriteFile + "/" + mon_key + ".png";
 				if(mon_data.mon.grid_img && type != other_order.indexOf("PokeBall"))
 					mon_img = domlink + "grid/" + mon_key + ".png";
