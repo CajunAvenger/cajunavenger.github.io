@@ -48,7 +48,7 @@ var fav_cats = 	[
 ]
 var custom_cats = ["Custom1", "Custom2", "Custom3"]
 var femme = {
-	"Português_Brasil": ["-a", "Forma Regional"],
+	"Português_Brasil": ["-a", "Forma Regional", "Mega Evolução", "Nova<br/>Evolução", "Eevolução"],
 	"Español": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional", "Megaevolución","Nueva<br/>Evolución","Alcremie", "Chica Planta"],
 	"Español_Latino": ["Eeveelución", "Poké Ball", "Forma Regional", "Ave Regional", "Megaevolución","Nueva<br/>Evolución","Alcremie", "Chica Planta"],
 	"Italiano": ["Eeveeluzione", "Forma Regionale", "Ultracreatura", "Poké Ball", "Nuova<br/>Evoluzione"],
