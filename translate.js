@@ -143,6 +143,9 @@ var font_sizes = {
 		"Français": 23,
 		"Deutsch": 20,
 		"Italiano": 20
+	},
+	"MysteryDungeon": {
+		"Português_Brasil": 25
 	}
 }
 function getTranslString (check) {
@@ -750,7 +753,7 @@ var translatable = {
  "MysteryDungeon": {
   "English": "Mystery Dungeon Hero",
   "Español": "Héroe de Mundo misterioso",
-  "Português_Brasil": "Herói da Masmorra Misteriosa",
+  "Português_Brasil": "Herói da Misteriosa Masmorra",
   "Deutsch": "Mystery Dungeon Held",
   "日本": "主人公のポケダン",
   "简中": "不可思议迷宫主角",
