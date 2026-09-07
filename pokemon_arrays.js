@@ -665,6 +665,12 @@ var MODE = {
 	SILLY: 4
 }
 function addToArray(key, category, gen, fs, spliceInfo) {
+	var darks = ["DARKRAI", "DARKRAI_1", "DARKRAI_2", "DARKRAI_3"];
+	if(darks.includes(key)) {
+		console.log(category);
+		console.log(key);
+		console.log(spliceInfo);
+	}
 	let add_to = arrays[category];
 	if(typeof gen == "number" || typeof gen == "string") {
 		add_to = arrays[category][gen];
@@ -726,7 +732,7 @@ function remodeArrays() {
 		spam: []
 	}
 	let mechanical = ["mega", "gmax"];
-	let other_gimmick = ["regional", "regional2", "convergent", "paradox", "gimmick", "pokestar"];
+	let other_gimmick = ["regional", "regional2", "convergent", "paradox", "gimmick", "extra-gimmick", "pokestar"];
 	let all_gimmicks = mechanical.concat(other_gimmick);
 	/*
 	Hierarchy
@@ -818,6 +824,12 @@ function remodeArrays() {
 					// eg Arceus, Silvally; only used on Surplus and Silly
 					if(MODE.SITE < MODE.SURPLUS)
 						break;
+				case "extra-gimmick":
+					// Mega Feraligatr (Idle)
+					if(MODE.SITE < MODE.SURPLUS)
+						break;
+					form_order["gimmick"].push([p, f]);
+					break;
 				case "spam":
 					// eg Unown, Vivillon. Skipped on Strict
 					if(MODE.SITE < MODE.STANDARD)
