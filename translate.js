@@ -1143,6 +1143,8 @@ function changeLang(lang) {
 		var tr_st = tr_info[lang];
 		if(!tr_st)
 			tr_st = tr_info[fallback];
+		if(!tr_st)
+			tr_st = tr_info["English"];
 		if(fav_cats.includes(tr_id) && !custom_cats.includes(tr_id)) {
 			// Favorite Thing
 			var fn = favs[0];
