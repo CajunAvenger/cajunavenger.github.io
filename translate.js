@@ -2,7 +2,6 @@ var languages = [
 	"English",
 	"Español",
 	"Español_Latino",
-	"Português",
 	"Português_Brasil",
 	"Deutsch",
 	"日本",
@@ -725,7 +724,7 @@ var translatable = {
  "GrassGirl": {
   "English": "Grass Girl",
   "Español": "Chica Planta",
-  "Português_Brasil": "Menina da Planta",
+  "Português_Brasil": "Menina da Grama",
   "Deutsch": "Pflanzemädchen",
   "日本": "くさの少女",
   "简中": "花仙子宝可梦",
@@ -803,7 +802,7 @@ var translatable = {
  "Grass": {
   "English": "Grass",
   "Español": "Planta",
-  "Português_Brasil": "Planta",
+  "Português_Brasil": "Grama",
   "Deutsch": "Pflanze",
   "日本": "くさ",
   "简中": "草",
@@ -868,7 +867,7 @@ var translatable = {
  "Ground": {
   "English": "Ground",
   "Español": "Tierra",
-  "Português_Brasil": "Terrestre",
+  "Português_Brasil": "Terra",
   "Deutsch": "Boden",
   "日本": "じめん",
   "简中": "地面 ",
