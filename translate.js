@@ -145,9 +145,19 @@ var font_sizes = {
 		"Italiano": 20
 	},
 	"MysteryDungeon": {
+		"English": 27,
 		"Português_Brasil": 25
+	},
+	"RegionalForm": {
+		"English": 27,
+		"日本": 20,
+		"简中": 25,
+		"繁中": 25
 	}
 }
+font_sizes.Custom1 = font_sizes.Favorite;
+font_sizes.Custom2 = font_sizes.Favorite;
+font_sizes.Custom3 = font_sizes.Favorite;
 function getTranslString (check) {
 	if(!translatable[check])
 		return "";
@@ -1174,7 +1184,9 @@ function changeLang(lang) {
 			if(font_sizes[tr_id][lang]) {
 				tr_ele.style.fontSize = font_sizes[tr_id][lang];
 			}else{
-				tr_ele.style.fontSize = font_sizes[tr_id]["English"]
+				let backup_eng = font_sizes[tr_id]["English"];
+				let backup_sam = font_sizes["Favorite"][lang];
+				tr_ele.style.fontSize = Math.min(backup_eng, backup_sam);
 			}
 		}
 	}
