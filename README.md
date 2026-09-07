@@ -49,7 +49,11 @@ From [RetroNC](https://www.deviantart.com/retronc)
 * Raging Bolt
 * Okidogi
 * Zygarde Cell, Core
-* Megas: Barbaracle, Baxcalibur, Chandelure, Chesnaught, Chimecho, Clefable, Crabominalbe, Darkrai, Delphox, Dragalge, Dragonite, Eelektross, Emboar, Falinks, Feraligatr, Floette, Froslass, Glimmora, Golurk, Greninja, Heatran, Lucario-Z, Malamar, Meganium, Megearna, Pyroar, Raichu-Y, Scolipede, Scovillian, Scrafty, Skarmory, Starmie, Tatsugiri, Zeraora, Zygarde
+* Megas: Barbaracle, Baxcalibur, Chandelure, Chesnaught, Chimecho, Clefable, Crabominalbe, Darkrai, Delphox, Dragalge, Dragonite, Eelektross, Emboar, Falinks, Floette, Froslass, Glimmora, Golurk, Greninja, Heatran, Lucario-Z, Malamar, Meganium, Megearna, Pyroar, Raichu-Y, Scolipede, Scovillian, Scrafty, Skarmory, Starmie, Tatsugiri, Zeraora, Zygarde
+
+From [Aronousqui20](https://www.deviantart.com/aronousqui20)
+* Mega Feraligatr
+* Mega Darkai (Eye)
 
 From PokeAPI
 * [DoveKyle](https://x.com/DoveKyle) - Megas: Absol-Z, Drampa, Excadrill, Garchomp-Z, Golisopod, Hawlucha, Meowstic, Raichu-X, Skarmory, Staraptor
