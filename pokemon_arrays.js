@@ -1138,6 +1138,7 @@ function remodeArrays() {
 			"PETILIL": 4,
 			"LILLIGANT": 1,
 			"LILLIGANT_1": 1,
+			"MARACTUS": 3,
 			"FLABEBE": 3,
 			"FLABEBE_1": 4,
 			"FLABEBE_2": 4,
