@@ -120,7 +120,13 @@ canvas {
   position: absolute;
   cursor: pointer;
 }
-
+.type-icon {
+	position: relative;
+	z-index: 3;
+}
+.type-icon.placeholder {
+	opacity: 33%;
+}
 </style>
 <style id="selection-placement">
 .translate-wrapper {
@@ -491,7 +497,7 @@ canvas {
 -->
 <script src="dex_mini.js?v=3"></script>
 <script src="pokemon_arrays.js?v=3"></script>
-<script src="translate.js?v=2"></script>
+<script src="translate.js?v=3"></script>
 <script language="JavaScript">
 	var zerogen_vers = 2;
 	var domlink = window.location.protocol + "//" + window.location.host + "/";
@@ -518,6 +524,7 @@ canvas {
 	var STARTER_COLUMN = type_order.indexOf("Starter");
 	var MYSTERY_BOX = other_order.indexOf("MysteryDungeon");
 	var DEFAULT_CUSTOM = "Click to customize!";
+	var SYM_HEADERS = true;
 
 	var choices = [];
 	var currently_previewing = [];
@@ -782,15 +789,21 @@ canvas {
 			// show types
 			currently_previewing = type_order.filter(e => e);
 			let cur = choices[currently_selecting[0]][currently_selecting[1]];
-			if(cur)
+			if(cur) {
 				currently_previewing.push(cur);
+			}else{
+				currently_previewing.push("Cancel");
+			}
 		}
 		else if(currently_filtering?.length == 1) {
 			// show gen
 			currently_previewing = gen_order.filter(e => e);
 			let cur = choices[currently_selecting[0]][currently_selecting[1]];
-			if(cur)
+			if(cur) {
 				currently_previewing.push(cur);
+			}else{
+				currently_previewing.push("Cancel");
+			}
 		}
 		else if(currently_filtering?.length == 2) {
 			// show mons
@@ -809,6 +822,8 @@ canvas {
 			else{
 				currently_previewing = arrays[category][gendex];
 			}
+			if(currently_previewing[0] == "")
+				currently_previewing[0] = "Cancel"; // cover for trying to load an empty favorite category
 		}
 		else if(gen == BOTTOM_ROWS) {
 			// bottom stuff
@@ -982,7 +997,7 @@ canvas {
 		document.getElementById('aura1').style.zIndex = 0;
 		document.getElementById('aura2').style.zIndex = 0;
 		if(teamSelect) {
-			document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = "./blank.png";
+			document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]).src = placeholderFor(currently_selecting[0], currently_selecting[1]);
 			teamSelect = false;
 		}
 		currently_selecting = null;
@@ -1014,14 +1029,17 @@ canvas {
 			currently_selecting[1] = ALCREMIE_MIN;
 		}
 		var targetBox = document.getElementById('box'+currently_selecting[0]+"_"+currently_selecting[1]);
-		if(currently_filtering) {
+		if(currently_previewing[num] == "Cancel") {
+			closeBox();
+			return;
+		}else if(currently_filtering) {
 			currently_filtering.push(currently_previewing[num]);
 			clearPreviewing();
 			openBox(...currently_selecting);
 		}
 		else if(!toppings && choices[currently_selecting[0]][currently_selecting[1]] == currently_previewing[num]) {
 			choices[currently_selecting[0]][currently_selecting[1]] = "";
-			targetBox.src = "./blank.png";
+			targetBox.src = placeholderFor(currently_selecting[0], currently_selecting[1]);
 		}
 		else{
 			choices[currently_selecting[0]][currently_selecting[1]] = currently_previewing[num];
@@ -1106,7 +1124,7 @@ canvas {
 				if(!ele)
 					continue;
 				if(!choices[l] || name == "") {
-					ele.src = "./blank.png";
+					ele.src = placeholderFor(gen, e);
 					continue;
 				}
 				choices[l][e] = name
@@ -1136,7 +1154,7 @@ canvas {
 		for(var g=0; g<=TYPE_FAV; g++) {
 			for(var t=1; t<=MAX_BOX; t++) {
 				var ele = document.getElementById('box'+g+'_'+t);
-				if(!ele || ele.src == "./blank.png")
+				if(!ele || ele.src == "./blank.png" || ele.src.match("placeholder"))
 					continue;
 				ctx.drawImage(ele, ele.offsetLeft, ele.offsetTop, 96, 96);
 				if(g == BOTTOM_ROWS && t == SPINDA_BOX) {
@@ -1230,10 +1248,14 @@ canvas {
 		}
 		// draw the type names
 		for(var typ in type_eles) {
-			var ele = document.getElementById(type_eles[typ]);
+			var ele = document.getElementById(type_eles[typ]).children[0];
 			if(!ele)
 				continue;
 			var par = ele.offsetParent;
+			if(SYM_HEADERS) {
+				ctx.drawImage(ele, par.offsetLeft+98, par.offsetTop, 96, 96);
+				continue;
+			}
 			var full_text = ele.innerHTML;
 			var pieces = full_text.split(/<br\/?>/);
 			var font_px = (ele.style.fontSize || "25px")
@@ -1470,6 +1492,11 @@ canvas {
 			}
 		}
 		loadTextbox(cookie_vals.join("\n"));
+		if(getCookie("textHeaders")) {
+			document.getElementById("header-select").value = "text";
+			SYM_HEADERS = !SYM_HEADERS;
+			updateHeaders();
+		}
 	}
 	function getCookieName(g) {
 		if(parseInt(g) < TYPE_FAV)
@@ -1507,8 +1534,36 @@ canvas {
 			setCookie(ele.id, str);
 		}
 	}
-	
+	function toggleHeaders() {
+		let select = document.getElementById("header-select")
+		SYM_HEADERS = (select.value == "symbol");
+		if(!SYM_HEADERS) {
+			setCookie("textHeaders", true);
+		}else{
+			deleteCookie("textHeaders");
+		}
+		updateHeaders();
+	}
+	function updateHeaders() {
+		for(let e in type_eles) {
+			let type = type_eles[e];
+			let element = document.getElementById(type);
+			if(SYM_HEADERS) {
+				element.innerHTML = '<img class="type-icon" src="./type_icons/' + type + '.png">';
+			}else{
+				let str = getTranslString(type);
+				let size = getTranslSize(type);
+				let html = '<div class="type-text"';
+				if(size != "")
+					html += ' style="font-size:' + size + ';"';
+				html += '>' + str + '</div>';
+				element.innerHTML = html;
+			}
+		}
+	}
+
 	function initialize() {
+		buildSelectionBoxes();
 		let customs = ["Custom1", "Custom2", "Custom3"];
 		for(let c in customs) {
 			let alt = getCookie(customs[c]);
@@ -1519,6 +1574,46 @@ canvas {
 			}
 		}
 		loadCookies();
+	}
+	function buildSelectionBoxes() {
+		let span = document.getElementById("selectionBoxes");
+		let bottom_placers = ["", "team-top team-left", "team-top team-mid", "team-top team-right", "team-bottom team-left", "team-bottom team-mid", "team-bottom team-right"];
+		for(let r=0; r<=TYPE_FAV; r++) {
+			let cmax = (r == 0 ? MAX_BOX : GENERATION_FAV);
+			for(let c=1; c<=cmax; c++) {
+				let placer = "gen-" + r + "-box type-" + c + "-box";
+				if(r == TYPE_FAV)
+					placer = "fav-type" + "-box type-" + c + "-box";
+				if(r == 0 && c <= 6) {
+					placer = bottom_placers[c];
+				}else if(r == 0) {
+					let adj = c - 7;
+					let x = adj % 9;
+					let y = Math.floor(adj/9)+1;
+					placer = "bottom-row"+y+"-box bottom-box-"+x
+				}
+				
+				let box = document.createElement("img");
+				box.className = "selectionBox " + placer;
+				box.id = "box" + r + "_" + c;
+				box.height = "96"
+				box.width = "96"
+				if(r == 0 && c == SPINDA_BOX) {
+					box.src = "./Front/SPINDA.png";
+				}else{
+					box.src = placeholderFor(r, c);
+					box.onclick = function() {
+						openBox(r, c);
+					}
+				}
+				span.appendChild(box);
+			}
+		}
+	}
+	function placeholderFor(r, c) {
+		if(r == 0 || r == TYPE_FAV)
+			return "./blank.png";
+		return "./type_icons/placeholders/" + type_eles[c-1] + ".png";
 	}
 </script>
 </head>
@@ -1537,6 +1632,10 @@ Language: <select id="language-select" onchange="updateLang()">
 	<option value="zhs">简中</option>
 	<option value="zht">繁中</option>
 </select>
+<select id="header-select" onchange="toggleHeaders()">
+	<option value="symbol">Symbol Headers</option>
+	<option value="text">Text Headers</option>
+</select>
 <span id="modeLabel">Mode</span>: <select id="mode-select" onchange="updateMode()">
 	<option value="1" id="modeStrict">Strict</option>
 	<option value="2" id="modeStandard" selected>Standard</option>
@@ -1545,261 +1644,10 @@ Language: <select id="language-select" onchange="updateLang()">
 </select>
 <div id="grid-wrapper">
 <!--<img class="back" id="back" src="https://cajunavenger.github.io/background.png" alt="" height="1571" width="2276" onclick="closeBox();"/>-->
-<img class="back" id="back" src="./background4.png" alt="" height="1770" width="2276" onclick="closeBox();"/>
+<img class="back" id="back" src="./background5.png" alt="" height="1770" width="2276" onclick="closeBox();"/>
 <canvas id="final" height="1770" width="2276"></canvas>
-<img class="selectionBox team-top team-left" id="box0_1" onclick="openBox(0, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox team-top team-mid" id="box0_2" onclick="openBox(0, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox team-top team-right" id="box0_3" onclick="openBox(0, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox team-bottom team-left" id="box0_4" onclick="openBox(0, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox team-bottom team-mid" id="box0_5" onclick="openBox(0, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox team-bottom team-right" id="box0_6" onclick="openBox(0, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-0" id="box0_7" onclick="openBox(0, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-1" id="box0_8" onclick="openBox(0, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-2" id="box0_9" onclick="openBox(0, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-3" id="box0_10" onclick="openBox(0, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-4" id="box0_11" onclick="openBox(0, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-5" id="box0_12" onclick="openBox(0, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-6" id="box0_13" onclick="openBox(0, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-7" id="box0_14" onclick="openBox(0, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row1-box bottom-box-8" id="box0_15" onclick="openBox(0, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-0" id="box0_16" onclick="openBox(0, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-1" id="box0_17" onclick="openBox(0, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-2" id="box0_18" onclick="openBox(0, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-3" id="box0_19" onclick="openBox(0, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-4" id="box0_20" onclick="openBox(0, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-5" id="box0_21" onclick="openBox(0, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-6" id="box0_22" onclick="openBox(0, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-7" id="box0_23" onclick="openBox(0, 23);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row2-box bottom-box-8" id="box0_24" onclick="openBox(0, 24);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row3-box bottom-box-0" id="box0_25" onclick="openBox(0, 25);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row3-box bottom-box-1" id="box0_26" onclick="openBox(0, 26);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row3-box bottom-box-2" id="box0_27" onclick="openBox(0, 27);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row3-box bottom-box-3" id="box0_28" onclick="openBox(0, 28);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row3-box bottom-box-4" id="box0_29" onclick="openBox(0, 29);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row3-box bottom-box-5" id="box0_30" onclick="" src="./Front/SPINDA.png" height="96" width="96">
-<img class="selectionBox bottom-row3-box bottom-box-6" id="box0_31" onclick="openBox(0, 31);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row3-box bottom-box-7" id="box0_32" onclick="openBox(0, 32);" src="./blank.png" height="96" width="96">
-<img class="selectionBox bottom-row3-box bottom-box-8" id="box0_33" onclick="openBox(0, 33);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-1-box" id="box1_1" onclick="openBox(1, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-2-box" id="box1_2" onclick="openBox(1, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-3-box" id="box1_3" onclick="openBox(1, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-4-box" id="box1_4" onclick="openBox(1, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-5-box" id="box1_5" onclick="openBox(1, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-6-box" id="box1_6" onclick="openBox(1, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-7-box" id="box1_7" onclick="openBox(1, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-8-box" id="box1_8" onclick="openBox(1, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-9-box" id="box1_9" onclick="openBox(1, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-10-box" id="box1_10" onclick="openBox(1, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-11-box" id="box1_11" onclick="openBox(1, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-12-box" id="box1_12" onclick="openBox(1, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-13-box" id="box1_13" onclick="openBox(1, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-14-box" id="box1_14" onclick="openBox(1, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-15-box" id="box1_15" onclick="openBox(1, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-16-box" id="box1_16" onclick="openBox(1, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-17-box" id="box1_17" onclick="openBox(1, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-18-box" id="box1_18" onclick="openBox(1, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-19-box" id="box1_19" onclick="openBox(1, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-20-box" id="box1_20" onclick="openBox(1, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-21-box" id="box1_21" onclick="openBox(1, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-1-box type-22-box" id="box1_22" onclick="openBox(1, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-1-box" id="box2_1" onclick="openBox(2, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-2-box" id="box2_2" onclick="openBox(2, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-3-box" id="box2_3" onclick="openBox(2, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-4-box" id="box2_4" onclick="openBox(2, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-5-box" id="box2_5" onclick="openBox(2, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-6-box" id="box2_6" onclick="openBox(2, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-7-box" id="box2_7" onclick="openBox(2, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-8-box" id="box2_8" onclick="openBox(2, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-9-box" id="box2_9" onclick="openBox(2, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-10-box" id="box2_10" onclick="openBox(2, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-11-box" id="box2_11" onclick="openBox(2, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-12-box" id="box2_12" onclick="openBox(2, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-13-box" id="box2_13" onclick="openBox(2, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-14-box" id="box2_14" onclick="openBox(2, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-15-box" id="box2_15" onclick="openBox(2, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-16-box" id="box2_16" onclick="openBox(2, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-17-box" id="box2_17" onclick="openBox(2, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-18-box" id="box2_18" onclick="openBox(2, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-19-box" id="box2_19" onclick="openBox(2, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-20-box" id="box2_20" onclick="openBox(2, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-21-box" id="box2_21" onclick="openBox(2, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-2-box type-22-box" id="box2_22" onclick="openBox(2, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-1-box" id="box3_1" onclick="openBox(3, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-2-box" id="box3_2" onclick="openBox(3, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-3-box" id="box3_3" onclick="openBox(3, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-4-box" id="box3_4" onclick="openBox(3, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-5-box" id="box3_5" onclick="openBox(3, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-6-box" id="box3_6" onclick="openBox(3, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-7-box" id="box3_7" onclick="openBox(3, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-8-box" id="box3_8" onclick="openBox(3, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-9-box" id="box3_9" onclick="openBox(3, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-10-box" id="box3_10" onclick="openBox(3, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-11-box" id="box3_11" onclick="openBox(3, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-12-box" id="box3_12" onclick="openBox(3, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-13-box" id="box3_13" onclick="openBox(3, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-14-box" id="box3_14" onclick="openBox(3, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-15-box" id="box3_15" onclick="openBox(3, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-16-box" id="box3_16" onclick="openBox(3, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-17-box" id="box3_17" onclick="openBox(3, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-18-box" id="box3_18" onclick="openBox(3, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-19-box" id="box3_19" onclick="openBox(3, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-20-box" id="box3_20" onclick="openBox(3, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-21-box" id="box3_21" onclick="openBox(3, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-3-box type-22-box" id="box3_22" onclick="openBox(3, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-1-box" id="box4_1" onclick="openBox(4, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-2-box" id="box4_2" onclick="openBox(4, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-3-box" id="box4_3" onclick="openBox(4, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-4-box" id="box4_4" onclick="openBox(4, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-5-box" id="box4_5" onclick="openBox(4, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-6-box" id="box4_6" onclick="openBox(4, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-7-box" id="box4_7" onclick="openBox(4, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-8-box" id="box4_8" onclick="openBox(4, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-9-box" id="box4_9" onclick="openBox(4, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-10-box" id="box4_10" onclick="openBox(4, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-11-box" id="box4_11" onclick="openBox(4, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-12-box" id="box4_12" onclick="openBox(4, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-13-box" id="box4_13" onclick="openBox(4, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-14-box" id="box4_14" onclick="openBox(4, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-15-box" id="box4_15" onclick="openBox(4, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-16-box" id="box4_16" onclick="openBox(4, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-17-box" id="box4_17" onclick="openBox(4, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-18-box" id="box4_18" onclick="openBox(4, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-19-box" id="box4_19" onclick="openBox(4, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-20-box" id="box4_20" onclick="openBox(4, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-21-box" id="box4_21" onclick="openBox(4, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-4-box type-22-box" id="box4_22" onclick="openBox(4, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-1-box" id="box5_1" onclick="openBox(5, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-2-box" id="box5_2" onclick="openBox(5, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-3-box" id="box5_3" onclick="openBox(5, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-4-box" id="box5_4" onclick="openBox(5, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-5-box" id="box5_5" onclick="openBox(5, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-6-box" id="box5_6" onclick="openBox(5, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-7-box" id="box5_7" onclick="openBox(5, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-8-box" id="box5_8" onclick="openBox(5, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-9-box" id="box5_9" onclick="openBox(5, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-10-box" id="box5_10" onclick="openBox(5, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-11-box" id="box5_11" onclick="openBox(5, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-12-box" id="box5_12" onclick="openBox(5, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-13-box" id="box5_13" onclick="openBox(5, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-14-box" id="box5_14" onclick="openBox(5, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-15-box" id="box5_15" onclick="openBox(5, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-16-box" id="box5_16" onclick="openBox(5, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-17-box" id="box5_17" onclick="openBox(5, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-18-box" id="box5_18" onclick="openBox(5, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-19-box" id="box5_19" onclick="openBox(5, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-20-box" id="box5_20" onclick="openBox(5, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-21-box" id="box5_21" onclick="openBox(5, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-5-box type-22-box" id="box5_22" onclick="openBox(5, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-1-box" id="box6_1" onclick="openBox(6, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-2-box" id="box6_2" onclick="openBox(6, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-3-box" id="box6_3" onclick="openBox(6, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-4-box" id="box6_4" onclick="openBox(6, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-5-box" id="box6_5" onclick="openBox(6, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-6-box" id="box6_6" onclick="openBox(6, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-7-box" id="box6_7" onclick="openBox(6, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-8-box" id="box6_8" onclick="openBox(6, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-9-box" id="box6_9" onclick="openBox(6, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-10-box" id="box6_10" onclick="openBox(6, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-11-box" id="box6_11" onclick="openBox(6, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-12-box" id="box6_12" onclick="openBox(6, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-13-box" id="box6_13" onclick="openBox(6, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-14-box" id="box6_14" onclick="openBox(6, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-15-box" id="box6_15" onclick="openBox(6, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-16-box" id="box6_16" onclick="openBox(6, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-17-box" id="box6_17" onclick="openBox(6, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-18-box" id="box6_18" onclick="openBox(6, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-19-box" id="box6_19" onclick="openBox(6, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-20-box" id="box6_20" onclick="openBox(6, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-21-box" id="box6_21" onclick="openBox(6, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-6-box type-22-box" id="box6_22" onclick="openBox(6, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-1-box" id="box7_1" onclick="openBox(7, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-2-box" id="box7_2" onclick="openBox(7, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-3-box" id="box7_3" onclick="openBox(7, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-4-box" id="box7_4" onclick="openBox(7, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-5-box" id="box7_5" onclick="openBox(7, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-6-box" id="box7_6" onclick="openBox(7, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-7-box" id="box7_7" onclick="openBox(7, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-8-box" id="box7_8" onclick="openBox(7, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-9-box" id="box7_9" onclick="openBox(7, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-10-box" id="box7_10" onclick="openBox(7, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-11-box" id="box7_11" onclick="openBox(7, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-12-box" id="box7_12" onclick="openBox(7, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-13-box" id="box7_13" onclick="openBox(7, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-14-box" id="box7_14" onclick="openBox(7, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-15-box" id="box7_15" onclick="openBox(7, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-16-box" id="box7_16" onclick="openBox(7, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-17-box" id="box7_17" onclick="openBox(7, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-18-box" id="box7_18" onclick="openBox(7, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-19-box" id="box7_19" onclick="openBox(7, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-20-box" id="box7_20" onclick="openBox(7, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-21-box" id="box7_21" onclick="openBox(7, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-7-box type-22-box" id="box7_22" onclick="openBox(7, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-1-box" id="box8_1" onclick="openBox(8, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-2-box" id="box8_2" onclick="openBox(8, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-3-box" id="box8_3" onclick="openBox(8, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-4-box" id="box8_4" onclick="openBox(8, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-5-box" id="box8_5" onclick="openBox(8, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-6-box" id="box8_6" onclick="openBox(8, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-7-box" id="box8_7" onclick="openBox(8, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-8-box" id="box8_8" onclick="openBox(8, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-9-box" id="box8_9" onclick="openBox(8, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-10-box" id="box8_10" onclick="openBox(8, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-11-box" id="box8_11" onclick="openBox(8, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-12-box" id="box8_12" onclick="openBox(8, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-13-box" id="box8_13" onclick="openBox(8, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-14-box" id="box8_14" onclick="openBox(8, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-15-box" id="box8_15" onclick="openBox(8, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-16-box" id="box8_16" onclick="openBox(8, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-17-box" id="box8_17" onclick="openBox(8, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-18-box" id="box8_18" onclick="openBox(8, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-19-box" id="box8_19" onclick="openBox(8, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-20-box" id="box8_20" onclick="openBox(8, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-21-box" id="box8_21" onclick="openBox(8, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-8-box type-22-box" id="box8_22" onclick="openBox(8, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-1-box" id="box9_1" onclick="openBox(9, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-2-box" id="box9_2" onclick="openBox(9, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-3-box" id="box9_3" onclick="openBox(9, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-4-box" id="box9_4" onclick="openBox(9, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-5-box" id="box9_5" onclick="openBox(9, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-6-box" id="box9_6" onclick="openBox(9, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-7-box" id="box9_7" onclick="openBox(9, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-8-box" id="box9_8" onclick="openBox(9, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-9-box" id="box9_9" onclick="openBox(9, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-10-box" id="box9_10" onclick="openBox(9, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-11-box" id="box9_11" onclick="openBox(9, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-12-box" id="box9_12" onclick="openBox(9, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-13-box" id="box9_13" onclick="openBox(9, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-14-box" id="box9_14" onclick="openBox(9, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-15-box" id="box9_15" onclick="openBox(9, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-16-box" id="box9_16" onclick="openBox(9, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-17-box" id="box9_17" onclick="openBox(9, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-18-box" id="box9_18" onclick="openBox(9, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-19-box" id="box9_19" onclick="openBox(9, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-20-box" id="box9_20" onclick="openBox(9, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-21-box" id="box9_21" onclick="openBox(9, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox gen-9-box type-22-box" id="box9_22" onclick="openBox(9, 22);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-1-box" id="box10_1" onclick="openBox(10, 1);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-2-box" id="box10_2" onclick="openBox(10, 2);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-3-box" id="box10_3" onclick="openBox(10, 3);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-4-box" id="box10_4" onclick="openBox(10, 4);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-5-box" id="box10_5" onclick="openBox(10, 5);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-6-box" id="box10_6" onclick="openBox(10, 6);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-7-box" id="box10_7" onclick="openBox(10, 7);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-8-box" id="box10_8" onclick="openBox(10, 8);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-9-box" id="box10_9" onclick="openBox(10, 9);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-10-box" id="box10_10" onclick="openBox(10, 10);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-11-box" id="box10_11" onclick="openBox(10, 11);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-12-box" id="box10_12" onclick="openBox(10, 12);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-13-box" id="box10_13" onclick="openBox(10, 13);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-14-box" id="box10_14" onclick="openBox(10, 14);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-15-box" id="box10_15" onclick="openBox(10, 15);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-16-box" id="box10_16" onclick="openBox(10, 16);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-17-box" id="box10_17" onclick="openBox(10, 17);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-18-box" id="box10_18" onclick="openBox(10, 18);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-19-box" id="box10_19" onclick="openBox(10, 19);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-20-box" id="box10_20" onclick="openBox(10, 20);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-21-box" id="box10_21" onclick="openBox(10, 21);" src="./blank.png" height="96" width="96">
-<img class="selectionBox fav-type-box type-22-box" id="box10_22" onclick="openBox(10, 22);" src="./blank.png" height="96" width="96"><img class="charm" id="charm" src="./charm.png" alt="" height="64" width="64" onclick="activateShiny();" />
+<span id="selectionBoxes"></span>
+<img class="charm" id="charm" src="./charm.png" alt="" height="64" width="64" onclick="activateShiny();" />
 <span id="preview-boxes">
 <img class="preview" id="preview0" src="./blank.png" height="96" width="96" onclick="pickMon(0);">
 <img class="preview" id="preview1" src="./blank.png" height="96" width="96" onclick="pickMon(1);">
@@ -1935,28 +1783,28 @@ Language: <select id="language-select" onchange="updateLang()">
 <div id="ShinyCharm1" class="translate-wrapper msg-text" style="top:1100px;left:95px;width:400px;">Click the Shiny Charm, then click Pokemon to make them shiny.</div>
 <div id="ShinyCharm2" class="translate-wrapper msg-text" style="height:fit-content;cursor:pointer;z-index:0;top:1163px;left:95px;width:400px;"  onclick="fullShiny();" >Or click here to make everything shiny.</div>
 <div id="type-wrapper">
-	<div class="translate-wrapper type-box"><div class="type-text" id="Normal">Normal</div></div>
-	<div class="translate-wrapper type-box" style="left:100px;"><div class="type-text" id="Fire">Fire</div></div>
-	<div class="translate-wrapper type-box" style="left:199px;"><div class="type-text" id="Water">Water</div></div>
-	<div class="translate-wrapper type-box" style="left:298px;"><div class="type-text" id="Grass">Grass</div></div>
-	<div class="translate-wrapper type-box" style="left:397px;"><div class="type-text" id="Electric">Electric</div></div>
-	<div class="translate-wrapper type-box" style="left:496px;"><div class="type-text" id="Ice">Ice</div></div>
-	<div class="translate-wrapper type-box" style="left:595px;"><div class="type-text" id="Fighting">Fighting</div></div>
-	<div class="translate-wrapper type-box" style="left:694px;"><div class="type-text" id="Poison">Poison</div></div>
-	<div class="translate-wrapper type-box" style="left:793px;"><div class="type-text" id="Ground">Ground</div></div>
-	<div class="translate-wrapper type-box" style="left:892px;"><div class="type-text" id="Flying">Flying</div></div>
-	<div class="translate-wrapper type-box" style="left:991px;"><div class="type-text" id="Psychic">Psychic</div></div>
-	<div class="translate-wrapper type-box" style="left:1090px;"><div class="type-text" id="Bug">Bug</div></div>
-	<div class="translate-wrapper type-box" style="left:1189px;"><div class="type-text" id="Rock">Rock</div></div>
-	<div class="translate-wrapper type-box" style="left:1288px;"><div class="type-text" id="Ghost">Ghost</div></div>
-	<div class="translate-wrapper type-box" style="left:1387px;"><div class="type-text" id="Dragon">Dragon</div></div>
-	<div class="translate-wrapper type-box" style="left:1486px;"><div class="type-text" id="Dark">Dark</div></div>
-	<div class="translate-wrapper type-box" style="left:1585px;"><div class="type-text" id="Steel">Steel</div></div>
-	<div class="translate-wrapper type-box" style="left:1684px;"><div class="type-text" id="Fairy">Fairy</div></div>
-	<div class="translate-wrapper type-box" style="left:1783px;"><div class="type-text" id="Starter">Starter</div></div>
-	<div class="translate-wrapper type-box" style="left:1882px;"><div class="type-text" style="font-size:22;" id="GimmickForm">Gimmick<br>Form</div></div>
-	<div class="translate-wrapper type-box" style="left:1981px;"><div class="type-text" id="Legend">Legend</div></div>
-	<div class="translate-wrapper type-box" style="left:2080px;"><div class="type-text" id="FavAlone">Favorite</div></div>
+	<div id="Normal" class="translate-wrapper type-box"><img class="type-icon" src="./type_icons/Normal.png"></div>
+	<div id="Fire" class="translate-wrapper type-box" style="left:100px;"><img class="type-icon" src="./type_icons/Fire.png"></div>
+	<div id="Water" class="translate-wrapper type-box" style="left:199px;"><img class="type-icon" src="./type_icons/Water.png"></div>
+	<div id="Grass" class="translate-wrapper type-box" style="left:298px;"><img class="type-icon" src="./type_icons/Grass.png"></div>
+	<div id="Electric" class="translate-wrapper type-box" style="left:397px;"><img class="type-icon" src="./type_icons/Electric.png"></div>
+	<div id="Ice" class="translate-wrapper type-box" style="left:496px;"><img class="type-icon" src="./type_icons/Ice.png"></div>
+	<div id="Fighting" class="translate-wrapper type-box" style="left:595px;"><img class="type-icon" src="./type_icons/Fighting.png"></div>
+	<div id="Poison" class="translate-wrapper type-box" style="left:694px;"><img class="type-icon" src="./type_icons/Poison.png"></div>
+	<div id="Ground" class="translate-wrapper type-box" style="left:793px;"><img class="type-icon" src="./type_icons/Ground.png"></div>
+	<div id="Flying" class="translate-wrapper type-box" style="left:892px;"><img class="type-icon" src="./type_icons/Flying.png"></div>
+	<div id="Psychic" class="translate-wrapper type-box" style="left:991px;"><img class="type-icon" src="./type_icons/Psychic.png"></div>
+	<div id="Bug" class="translate-wrapper type-box" style="left:1090px;"><img class="type-icon" src="./type_icons/Bug.png"></div>
+	<div id="Rock" class="translate-wrapper type-box" style="left:1189px;"><img class="type-icon" src="./type_icons/Rock.png"></div>
+	<div id="Ghost" class="translate-wrapper type-box" style="left:1288px;"><img class="type-icon" src="./type_icons/Ghost.png"></div>
+	<div id="Dragon" class="translate-wrapper type-box" style="left:1387px;"><img class="type-icon" src="./type_icons/Dragon.png"></div>
+	<div id="Dark" class="translate-wrapper type-box" style="left:1486px;"><img class="type-icon" src="./type_icons/Dark.png"></div>
+	<div id="Steel" class="translate-wrapper type-box" style="left:1585px;"><img class="type-icon" src="./type_icons/Steel.png"></div>
+	<div id="Fairy" class="translate-wrapper type-box" style="left:1684px;"><img class="type-icon" src="./type_icons/Fairy.png"></div>
+	<div id="Starter" class="translate-wrapper type-box" style="left:1783px;"><img class="type-icon" src="./type_icons/Starter.png"></div>
+	<div id="GimmickForm" class="translate-wrapper type-box" style="left:1882px;"><img class="type-icon" src="./type_icons/GimmickForm.png"></div>
+	<div id="Legend" class="translate-wrapper type-box" style="left:1981px;"><img class="type-icon" src="./type_icons/Legend.png"></div>
+	<div id="FavAlone" class="translate-wrapper type-box" style="left:2080px;"><img class="type-icon" src="./type_icons/FavAlone.png"></div>
 </div>
 </div>
 <div id="credits">

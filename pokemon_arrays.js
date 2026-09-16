@@ -665,12 +665,6 @@ var MODE = {
 	SILLY: 4
 }
 function addToArray(key, category, gen, fs, spliceInfo) {
-	var darks = ["DARKRAI", "DARKRAI_1", "DARKRAI_2", "DARKRAI_3"];
-	if(darks.includes(key)) {
-		console.log(category);
-		console.log(key);
-		console.log(spliceInfo);
-	}
 	let add_to = arrays[category];
 	if(typeof gen == "number" || typeof gen == "string") {
 		add_to = arrays[category][gen];

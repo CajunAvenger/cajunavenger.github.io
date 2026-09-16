@@ -169,6 +169,20 @@ function getTranslString (check) {
 		return tr;
 	return translatable[check]["English"];
 }
+function getTranslSize(check) {
+	if(!font_sizes[check])
+		return "";
+	var fs = font_sizes[check][currentLang];
+	if(fs)
+		return fs;
+	fs = font_sizes[check][fallbacks[currentLang]];
+	if(fs)
+		return fs;
+	fs = font_sizes[check]["English"]
+	if(fs)
+		return fs;
+	return "";
+}
 var translatable = {
  "GimmickForm": {
   "English": "Gimmick<br/>Form",
@@ -1141,6 +1155,8 @@ function changeLang(lang) {
 		favs = translatable["Favorite"][fallback];
 	var use_femme = femme.hasOwnProperty(lang);
 	for(let tr_id in translatable) {
+		if(type_eles.includes(tr_id))
+			continue;
 		var tr_info = translatable[tr_id];
 		var tr_ele = document.getElementById(tr_id);
 		if(!tr_ele)
@@ -1190,6 +1206,8 @@ function changeLang(lang) {
 			}
 		}
 	}
+	if(!SYM_HEADERS)
+		updateHeaders();
 
 	let nextURL = new URL(location);
 	nextURL.searchParams.delete("lang");
